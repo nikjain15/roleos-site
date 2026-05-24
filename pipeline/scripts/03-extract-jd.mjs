@@ -33,7 +33,7 @@ const REFERENCE_PATH = '../samples/anthropic-product-manager-claude-code.json';
 const MODEL = 'claude-sonnet-4-6';
 const MAX_TOKENS = 8192;
 const CONCURRENCY = 2;
-const MAX_RETRIES = 4;
+const MAX_RETRIES = 6;
 const COST_PER_JD_USD = 0.005;
 
 // Sonnet 4.6 pricing (USD per million tokens)

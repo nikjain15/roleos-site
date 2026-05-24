@@ -1,0 +1,188 @@
+{
+  "generatedAt": "2026-05-24T23:42:57.580Z",
+  "funnel": [
+    {
+      "stage": "Companies scoped",
+      "count": 117
+    },
+    {
+      "stage": "JDs fetched (raw)",
+      "count": 459
+    },
+    {
+      "stage": "JDs structured (LLM-extracted)",
+      "count": 170
+    },
+    {
+      "stage": "Candidate-facing views rendered",
+      "count": 160
+    },
+    {
+      "stage": "Company enrichment (next)",
+      "count": 0
+    },
+    {
+      "stage": "Fit-scored & shortlisted (next)",
+      "count": 0
+    },
+    {
+      "stage": "Applications submitted (next)",
+      "count": 0
+    }
+  ],
+  "headline": {
+    "rawJDs": 459,
+    "structured": 170,
+    "views": 160,
+    "companies": 117,
+    "companiesComplete": 60,
+    "mustHavesExtracted": 1298,
+    "avgMustHavesPerJD": "7.6",
+    "withSalary": 0,
+    "salaryDisclosureRate": "0%"
+  },
+  "cost": {
+    "total": 1.68,
+    "runs": 6
+  },
+  "distributions": {
+    "archetype": {
+      "AI Product Manager": 19,
+      "Generalist PM": 17,
+      "Technical Program Manager": 38,
+      "Chief of Staff": 3,
+      "Technical PM": 17,
+      "BizOps / Strategy & Ops": 50,
+      "Growth (non-PM)": 4,
+      "Growth PM": 14,
+      "Program Manager": 8
+    },
+    "seniority": {
+      "Senior IC / Lead PM": 2,
+      "Senior IC / Staff PM": 4,
+      "Senior IC": 39,
+      "Mid-Senior IC": 16,
+      "Director / VP (senior IC or player-coach, not large org owner)": 1,
+      "Mid to Senior IC": 3,
+      "Staff IC (Senior+ / Staff PM)": 1,
+      "Staff IC (Senior/Staff PM)": 1,
+      "Staff IC": 4,
+      "Senior IC / Lead": 2,
+      "Senior IC / Principal PM": 2,
+      "Staff / Principal IC (likely PM6 or equivalent)": 1,
+      "Senior IC / Principal PM (likely Staff/Principal level)": 1,
+      "Senior IC / Staff": 1,
+      "Senior IC / Lead (likely Staff or Principal-equivalent)": 1,
+      "Senior IC / Lead (likely Staff or Principal equivalent)": 1,
+      "Senior IC / Staff-level TPM": 1,
+      "Senior IC / Staff (likely equivalent to Staff or Principal)": 1,
+      "Staff PM (IC6 equivalent)": 3,
+      "Mid-Senior IC (PM III / Senior PM)": 1,
+      "Senior / Staff (experienced CoS or strategy/ops leader)": 1,
+      "Senior PM": 1,
+      "Senior IC / Staff TPM": 1,
+      "Senior IC (likely Senior Manager / Principal level)": 1,
+      "Senior IC (likely Senior PM / Staff PM)": 1,
+      "Senior IC (likely IC5 / Senior PM)": 1,
+      "Senior IC (likely Staff/Principal PM equivalent)": 1,
+      "Senior IC (likely Senior PM / Program Manager)": 1,
+      "Senior IC (Mid-Senior, likely Senior Manager or IC5 equivalent)": 1,
+      "Senior IC (likely Senior TPM / Staff TPM)": 1,
+      "Senior IC (likely Staff / Senior TPM)": 2,
+      "Senior IC (likely Staff/Senior TPM)": 1,
+      "Senior IC (likely Staff TPM or equivalent)": 1,
+      "Senior IC (likely Senior TPM)": 1,
+      "Senior / Staff TPM (IC6+)": 1,
+      "Mid-level to Senior IC": 1,
+      "VP / Executive": 1,
+      "Director / Group PM (IC6+ or M4+)": 1,
+      "Principal / Staff IC": 3,
+      "Principal IC / Staff-equivalent": 1,
+      "Mid-level / Senior IC": 1,
+      "Senior IC (implied by scope and technical depth required)": 1,
+      "Mid-level / Associate": 1,
+      "Associate / Junior IC": 1,
+      "Associate Manager / Mid-level IC": 1,
+      "Mid-Senior IC (Associate Manager)": 9,
+      "Mid-level / Associate Manager (IC3-IC4 equivalent)": 1,
+      "Mid-level / Associate Manager": 1,
+      "Senior IC / Early People Manager": 1,
+      "Mid-level / Associate Manager (IC or people manager unclear)": 1,
+      "Manager / Senior IC (people manager with 6+ years experience)": 1,
+      "Mid-level IC": 6,
+      "Mid to Senior IC (I4–I6)": 1,
+      "Associate / Mid-level IC": 2,
+      "Mid-Senior IC (Senior Associate)": 1,
+      "Senior Associate (mid-level IC)": 1,
+      "Mid-level / Senior Associate IC": 1,
+      "Mid-level / Senior Associate (IC2-IC3)": 1,
+      "Mid-level / Senior Associate (IC2-IC3 equivalent)": 2,
+      "Senior Manager / Director (people manager, leading a team)": 1,
+      "Senior IC (I4–I6 band, likely I5/Senior TPM)": 1,
+      "Senior IC (I4–I6, likely I5)": 1,
+      "Senior Manager (IC or people manager)": 1,
+      "Sr. Staff IC (very senior individual contributor)": 1,
+      "Associate Manager / Mid-Senior IC": 1,
+      "Senior IC (Senior PM)": 2,
+      "Senior IC to Principal / Director-level (founder-mode, high autonomy)": 1,
+      "Mid-Senior IC (Manager level)": 1,
+      "Senior Leader / Head-of (likely Director or VP-level)": 1,
+      "Staff / Principal IC (Lead PM)": 1,
+      "Mid to Senior IC (wide band, explicitly open to early-career to experienced)": 1,
+      "AVP (mid-level IC, likely equivalent to Senior Associate or Junior VP in financial services)": 1,
+      "VP (Executive)": 1,
+      "Senior IC / Lead (Staff or Principal equivalent)": 1,
+      "Senior IC (likely Senior PM)": 1,
+      "Mid-level": 1,
+      "Mid-level PM (likely PM II / PM3)": 1,
+      "Mid-Senior IC (PM with 3+ years)": 1,
+      "Mid-level (2+ years)": 1,
+      "Group PM / Director-level IC or people manager": 1,
+      "Principal / Staff IC (Senior Individual Contributor)": 1,
+      "Principal / Staff IC (equivalent to Senior Staff PM)": 1,
+      "Principal / Staff IC (Senior-to-Principal PM)": 1,
+      "Principal / Staff IC (P6+)": 1,
+      "Principal / Staff IC (P6-equivalent)": 1
+    },
+    "locationType": {
+      "hybrid": 69,
+      "unclear": 47,
+      "remote-us": 25,
+      "onsite": 29
+    },
+    "visaSponsorship": {
+      "unclear": 138,
+      "no": 12,
+      "yes-conditional": 20
+    },
+    "yearsRequired": {
+      "0-2": 13,
+      "3-5": 73,
+      "6-9": 39,
+      "10+": 20,
+      "unspecified": 25
+    }
+  },
+  "gaps": [
+    {
+      "name": "Company metadata (funding, headcount, news)",
+      "status": "not-started",
+      "why": "Need context to rank fit beyond JD text"
+    },
+    {
+      "name": "Personal fit scoring",
+      "status": "not-started",
+      "why": "Map must_haves against my CV"
+    },
+    {
+      "name": "Application tracking",
+      "status": "not-started",
+      "why": "No system yet for sent/responded/interview state"
+    },
+    {
+      "name": "Outreach drafting",
+      "status": "not-started",
+      "why": "Per-role cover-letter and hiring-manager outreach"
+    }
+  ]
+}
