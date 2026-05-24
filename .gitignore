@@ -1,0 +1,6 @@
+pipeline/.env
+.env
+node_modules/
+pipeline/node_modules/
+pipeline/data/*.log
+.DS_Store
