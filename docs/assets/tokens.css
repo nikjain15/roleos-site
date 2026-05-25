@@ -1,4 +1,4 @@
-/* DesignSystem_General — single source of truth.
+/* DesignSystem_General — single source of truth (spec §14, verbatim + legacy aliases).
    Do not redeclare these values elsewhere. Extend this file instead. */
 
 :root {
@@ -27,13 +27,15 @@
   --cat-tech:        #4A6FA5;  --cat-tech-bg:     #eef2fa;
   --cat-food:        #C4702A;  --cat-food-bg:     #fdf3ea;
   --cat-travel:      #C4702A;  --cat-travel-bg:   #fdf3ea;
-  --cat-personal:    #5a5a5a;  --cat-personal-bg: #f6f6f4;
-  --cat-health:      #5a5a5a;  --cat-health-bg:   #f6f6f4;
-  --cat-office:      #5a5a5a;  --cat-office-bg:   #f6f6f4;
+  --cat-personal:    #9C4A6B;  --cat-personal-bg: #f6f6f4;
+  --cat-health:      #4A8C5C;  --cat-health-bg:   #f6f6f4;
+  --cat-office:      #2B7A78;  --cat-office-bg:   #f6f6f4;
+  --cat-income:      #1A9E6A;  --cat-income-bg:   #f0faf5;
 
   /* -- Typography ------------------------------------------------------ */
-  --font-sans: 'Inter', -apple-system, 'SF Pro Text', 'Segoe UI', Helvetica, Arial, sans-serif;
-  --sans: var(--font-sans);   /* alias for legacy refs in existing CSS */
+  --font-sans:   'Inter', -apple-system, 'SF Pro Text', 'Segoe UI', Helvetica, Arial, sans-serif;
+  --font-serif:  Georgia, 'Times New Roman', serif;  /* avatar mark only */
+  --sans:        var(--font-sans);   /* legacy alias */
 
   --fs-h1:           clamp(36px, 5.5vw, 64px);
   --fs-h2:           clamp(26px, 3.8vw, 44px);
@@ -91,3 +93,112 @@
   --dur-base:  200ms;
   --dur-slow:  320ms;
 }
+
+/* -- Base (spec §14) --------------------------------------------------- */
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  color: var(--ink-2);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--ink);
+  letter-spacing: var(--ls-tighter);
+  font-weight: var(--fw-bold);
+  margin: 0;
+}
+h1 { font-size: var(--fs-h1); letter-spacing: var(--ls-tight); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); }
+
+p { margin: 0; color: var(--ink-2); }
+
+.eyebrow {
+  font-size: var(--fs-eyebrow);
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  font-weight: var(--fw-semibold);
+  color: var(--ink-3);
+}
+
+.num { font-variant-numeric: tabular-nums; }
+
+button, input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+button { cursor: pointer; }
+input, textarea, select { font-size: 16px; } /* prevent iOS zoom */
+
+a { color: var(--ink); text-decoration: underline; text-underline-offset: 2px; }
+a:hover { color: var(--ink-2); }
+
+:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+  border-radius: var(--r-pill);
+}
+
+/* -- Utility component classes (BEM, spec §14) ------------------------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: 6px;
+  padding: 12px 22px; border-radius: var(--r-pill);
+  font-weight: var(--fw-semibold); font-size: var(--fs-body);
+  border: 1px solid transparent;
+  text-decoration: none;
+  transition: background var(--dur-fast) var(--ease-out),
+              color var(--dur-fast) var(--ease-out),
+              border-color var(--dur-fast) var(--ease-out);
+}
+.btn--primary   { background: var(--ink);   color: var(--white); }
+.btn--primary:hover   { background: var(--ink-2); }
+.btn--secondary { background: var(--white); color: var(--ink); border-color: var(--line); }
+.btn--secondary:hover { background: var(--paper); }
+.btn--ghost     { background: transparent;  color: var(--ink-2); }
+.btn--ghost:hover     { background: var(--line-2); color: var(--ink); }
+.btn--white     { background: var(--white); color: var(--ink); border-color: var(--line); }
+.btn--white:hover     { background: var(--paper); }
+.btn--ghost-white { background: transparent; color: var(--white); border-color: rgba(255,255,255,0.55); }
+.btn--ghost-white:hover { background: rgba(255,255,255,0.08); }
+.btn--sm { padding: 8px 14px; font-size: 13px; }
+.btn[disabled]  { opacity: .4; cursor: not-allowed; }
+
+.card {
+  background: var(--white); border: 1px solid var(--line);
+  border-radius: var(--r-card); padding: var(--pad-card);
+}
+.card--hero {
+  border-radius: var(--r-card-emph);
+  box-shadow: var(--shadow-card-hero);
+}
+
+.pill {
+  display: inline-flex; align-items: center;
+  padding: 4px 10px; border-radius: var(--r-pill);
+  font-size: 12px; font-weight: var(--fw-medium);
+  background: var(--line-2); color: var(--ink-2);
+}
+.pill--income { background: var(--income-bg); color: var(--income); }
+.pill--amber  { background: var(--amber-bg);  color: var(--amber); }
+.pill--error  { background: var(--error-bg);  color: var(--error); }
+
+.input {
+  width: 100%; min-height: var(--tap-min);
+  padding: 12px 16px; border-radius: var(--r-card);
+  border: 1px solid var(--line); background: var(--white);
+  color: var(--ink); transition: border-color var(--dur-fast) var(--ease-out);
+}
+.input:focus { outline: none; border-color: var(--ink); }
+.input[aria-invalid="true"] { border-color: var(--error); }
+
+.divider   { height: 1px; background: var(--line);   border: 0; }
+.divider-2 { height: 1px; background: var(--line-2); border: 0; }

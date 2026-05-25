@@ -29,7 +29,7 @@ How to edit:
 **Tagline (under H1):** Hiring intelligence for the AI economy.
 
 **Lede:**
-An end-to-end agent for your senior job search. RO finds the right roles, scores your fit, drafts what each one asks for, and tracks every conversation. Live across Anthropic, DoorDash, Stripe, Scale, and 75 other AI-native companies.
+Your AI agent for the senior job search. RO finds roles, scores fit, drafts tailored applications, and tracks every conversation — across 86 AI-native companies.
 
 **CTA primary:** Ask RO ↓
 **CTA secondary:** Join the waitlist
@@ -110,21 +110,21 @@ Hi — I'm RO. Ask me anything about the 458 senior roles in the Index — who's
 
 **Eyebrow:** How RO works
 
-**H2:** Three things. End to end.
+**H2:** Three steps. End to end.
 
-### Card 1 — Surface *(name TBD — alternatives: Find, Match, Discover)*
-**Title:** Finds the right fit for your role
-**Body:** Pulls fresh roles from Greenhouse, Lever, and Ashby across your target list. Reads each JD, scores it against your fit, and surfaces the matches — skips the rest.
+### Card 1 — Find
+**Title:** Finds the right roles
+**Body:** Pulls fresh JDs from Greenhouse, Lever, and Ashby. Scores each against your fit. Surfaces the matches.
 *Mockup: top company list + JSON snippet*
 
 ### Card 2 — Apply
-**Title:** Builds what each role asks for
-**Body:** Cover letter, product spec, take-home, portfolio piece — whatever the application needs, RO drafts it. You review and send. You set the bar for auto-apply vs require-approval.
+**Title:** Drafts what each asks for
+**Body:** Cover letter, spec, take-home, portfolio piece. RO drafts it, you review and send.
 *Mockup: draft cover letter snippet*
 
 ### Card 3 — Track
-**Title:** Tracks, closes, and helps you negotiate
-**Body:** From first application to signed offer. RO tracks every conversation, surfaces comp benchmarks for the role, and drafts negotiation talking points when an offer lands.
+**Title:** Tracks every conversation
+**Body:** From first application to signed offer. RO tracks status, surfaces comp benchmarks, drafts negotiation points.
 *Mockup: funnel + comp benchmark snippet*
 
 ---
