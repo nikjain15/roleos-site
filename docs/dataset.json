@@ -1,0 +1,138 @@
+{
+  "topCompanies": [
+    {
+      "name": "DoorDash",
+      "count": 60
+    },
+    {
+      "name": "Stripe",
+      "count": 36
+    },
+    {
+      "name": "SoFi",
+      "count": 25
+    },
+    {
+      "name": "Anthropic",
+      "count": 19
+    },
+    {
+      "name": "Lyft",
+      "count": 18
+    },
+    {
+      "name": "Scale AI",
+      "count": 17
+    },
+    {
+      "name": "Airbnb",
+      "count": 14
+    },
+    {
+      "name": "Harvey",
+      "count": 12
+    },
+    {
+      "name": "Instacart",
+      "count": 12
+    },
+    {
+      "name": "Whatnot",
+      "count": 12
+    },
+    {
+      "name": "Klaviyo",
+      "count": 11
+    },
+    {
+      "name": "Sierra",
+      "count": 11
+    },
+    {
+      "name": "Faire",
+      "count": 10
+    },
+    {
+      "name": "Decagon",
+      "count": 9
+    },
+    {
+      "name": "Lemonade",
+      "count": 9
+    },
+    {
+      "name": "Plaid",
+      "count": 9
+    },
+    {
+      "name": "Cohere",
+      "count": 8
+    },
+    {
+      "name": "Glean",
+      "count": 8
+    },
+    {
+      "name": "Ramp",
+      "count": 8
+    },
+    {
+      "name": "Chime",
+      "count": 7
+    }
+  ],
+  "archetypes": [
+    {
+      "name": "BizOps / Strategy & Ops",
+      "count": 108,
+      "pct": 23.6
+    },
+    {
+      "name": "Technical Program Manager",
+      "count": 93,
+      "pct": 20.3
+    },
+    {
+      "name": "Technical PM",
+      "count": 74,
+      "pct": 16.2
+    },
+    {
+      "name": "Generalist PM",
+      "count": 59,
+      "pct": 12.9
+    },
+    {
+      "name": "AI Product Manager",
+      "count": 43,
+      "pct": 9.4
+    },
+    {
+      "name": "Growth PM",
+      "count": 27,
+      "pct": 5.9
+    },
+    {
+      "name": "Program Manager",
+      "count": 22,
+      "pct": 4.8
+    },
+    {
+      "name": "Growth (non-PM)",
+      "count": 16,
+      "pct": 3.5
+    },
+    {
+      "name": "Other",
+      "count": 9,
+      "pct": 2.0
+    },
+    {
+      "name": "Chief of Staff",
+      "count": 7,
+      "pct": 1.5
+    }
+  ],
+  "totalCompanies": 79,
+  "totalRoles": 458
+}

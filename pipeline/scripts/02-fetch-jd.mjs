@@ -17,7 +17,7 @@
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
 import { join } from 'path';
 import yaml from 'js-yaml';
-import { fetchJson, parallelMap, detectAtsType } from './lib/ats.mjs';
+import { fetchJson, parallelMap, detectAtsType, fetchWorkdayList, fetchWorkdayDetail, workdayPublicUrl } from './lib/ats.mjs';
 import { htmlToText, slugify } from './lib/html.mjs';
 
 const COMPANIES_PATH = 'config/companies.yml';
@@ -84,6 +84,10 @@ function greenhouseBoardWithContent(api) {
 async function fetchCompanyJobs(company) {
   const ats = detectAtsType(company.api);
   if (!ats) return null;
+  if (ats === 'workday') {
+    const json = await fetchWorkdayList(company.api);
+    return { ats, jobs: json.jobPostings || [], api: company.api };
+  }
   let url = company.api;
   if (ats === 'greenhouse') url = greenhouseBoardWithContent(url);
   const json = await fetchJson(url);
@@ -104,13 +108,16 @@ function jobContentFor(ats, job) {
     if (job.additional) html += `<h3>Additional</h3>${job.additional}`;
     return html;
   }
+  // Workday list calls don't include description; detail-fetched in worker below.
+  if (ats === 'workday') return job.__jobDescriptionHtml || '';
   return '';
 }
 
-function jobUrlFor(ats, job) {
+function jobUrlFor(ats, job, api) {
   if (ats === 'greenhouse') return job.absolute_url || '';
   if (ats === 'ashby') return job.jobUrl || '';
   if (ats === 'lever') return job.hostedUrl || '';
+  if (ats === 'workday') return workdayPublicUrl(api, job.externalPath || '');
   return '';
 }
 
@@ -118,11 +125,13 @@ function jobLocationFor(ats, job) {
   if (ats === 'greenhouse') return job.location?.name || '';
   if (ats === 'ashby') return job.location || '';
   if (ats === 'lever') return job.categories?.location || '';
+  if (ats === 'workday') return job.locationsText || '';
   return '';
 }
 
 function jobTitleFor(ats, job) {
-  return ats === 'lever' ? (job.text || '') : (job.title || '');
+  if (ats === 'lever') return job.text || '';
+  return job.title || '';
 }
 
 function frontmatter(entry, content) {
@@ -221,7 +230,7 @@ async function main() {
     const byUrl = new Map();
     const byTitle = new Map();
     for (const j of board.jobs) {
-      const url = jobUrlFor(board.ats, j);
+      const url = jobUrlFor(board.ats, j, board.api);
       const title = jobTitleFor(board.ats, j).toLowerCase();
       if (url) byUrl.set(url, j);
       if (title) byTitle.set(title, j);
@@ -230,6 +239,16 @@ async function main() {
     for (const entry of byCompany.get(companyName)) {
       const job = byUrl.get(entry.url) || byTitle.get(entry.title.toLowerCase());
       if (!job) { notFound++; continue; }
+      // For Workday, the list call doesn't include descriptions — fetch detail per job.
+      if (board.ats === 'workday' && !job.__jobDescriptionHtml) {
+        try {
+          const detail = await fetchWorkdayDetail(board.api, job.externalPath);
+          job.__jobDescriptionHtml = detail?.jobPostingInfo?.jobDescription || '';
+        } catch (err) {
+          errors.push({ company: companyName, error: `workday detail fetch ${entry.title}: ${err.message}` });
+          continue;
+        }
+      }
       const content = htmlToText(jobContentFor(board.ats, job));
       // Patch up entry.location with the live value if available (cleaner)
       const liveLoc = jobLocationFor(board.ats, job);

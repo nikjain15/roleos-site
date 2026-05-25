@@ -1,504 +1,164 @@
 # Job pipeline
 
-Last scan: 2026-05-10 — 462 open roles across 13 sectors.
+Last scan: 2026-05-25 — 128 open roles across 11 sectors.
 
-## agent-ai (29)
+## agent-ai (7)
 
-- [ ] **Decagon** — BizOps & Strategy, Pricing (San Francisco) — https://jobs.ashbyhq.com/decagon/80e62efe-c1e1-4f00-a9cb-2a75d8cbb577
-- [ ] **Decagon** — Product Manager (San Francisco) — https://jobs.ashbyhq.com/decagon/d790a2a2-958d-4f49-96ed-adbd68d2e6ce
-- [ ] **Decagon** — Product Manager, Research (San Francisco) — https://jobs.ashbyhq.com/decagon/6321ea2f-4e21-4c18-8859-b4ef5489b6fe
-- [ ] **Decagon** — Product Manager, Voice Agent (San Francisco) — https://jobs.ashbyhq.com/decagon/0563a376-0881-48c6-92ae-d1ac4ee58765
-- [ ] **Decagon** — Revenue Operations and Systems Associate (San Francisco) — https://jobs.ashbyhq.com/decagon/846db0ad-5a77-4993-b409-763aef27b68d
-- [ ] **Decagon** — Revenue Strategy & Operations Manager (New York City) — https://jobs.ashbyhq.com/decagon/4ac15d8e-8c15-4411-89d4-f5215a6720b1
-- [ ] **Decagon** — Senior Agent Product Manager (San Francisco) — https://jobs.ashbyhq.com/decagon/dcf9b561-f2fb-422b-88a9-33ce76e96608
-- [ ] **Decagon** — Senior Director, Strategy and Operations (San Francisco) — https://jobs.ashbyhq.com/decagon/49742dbb-55ae-4552-b19c-9fa97f2c1533
-- [ ] **Decagon** — Technical Program Manager (San Francisco) — https://jobs.ashbyhq.com/decagon/d32da775-c5ea-420d-a07e-13412044c27b
-- [ ] **Glean** — Forward Deployed Product Manager (San Francisco Bay Area) — https://job-boards.greenhouse.io/gleanwork/jobs/4659407005
-- [ ] **Glean** — Product Manager (San Francisco Bay Area) — https://job-boards.greenhouse.io/gleanwork/jobs/4007711005
-- [ ] **Glean** — Product Manager, Agent Security & Governance (San Francisco Bay Area) — https://job-boards.greenhouse.io/gleanwork/jobs/4525297005
-- [ ] **Glean** — Product Manager, AI Quality (San Francisco Bay Area) — https://job-boards.greenhouse.io/gleanwork/jobs/4525518005
-- [ ] **Glean** — Senior Technical Program Manager, Connectors (Palo Alto, CA) ⚠️ — https://job-boards.greenhouse.io/gleanwork/jobs/4657199005
-- [ ] **Glean** — Senior Technical Program Manager, Infrastructure (San Francisco Bay Area) — https://job-boards.greenhouse.io/gleanwork/jobs/4628714005
-- [ ] **Glean** — Senior Technical Program Manager, Product (San Francisco Bay Area) — https://job-boards.greenhouse.io/gleanwork/jobs/4628879005
-- [ ] **Glean** — Senior Technical Program Manager, Strategic Escalations (Mountain View, CA) ⚠️ — https://job-boards.greenhouse.io/gleanwork/jobs/4688023005
-- [ ] **Lindy** — Growth Product Manager (San Francisco) — https://jobs.ashbyhq.com/lindy/ff98a7a7-26e8-48dc-8ecd-c9a69c1f390a
-- [ ] **Sierra** — GTM Strategy & Operations (San Francisco, CA) — https://jobs.ashbyhq.com/sierra/8023c5e9-5622-4f50-b3ba-0690a60e4cb2
-- [ ] **Sierra** — Pricing Strategy and Operations (San Francisco, CA) — https://jobs.ashbyhq.com/sierra/39e15cc4-a16e-4ddb-b609-a345e2dd67c8
-- [ ] **Sierra** — Product Manager, Agent Data Platform (San Francisco, CA) — https://jobs.ashbyhq.com/sierra/422cb7bb-ab03-447b-808c-6d72f59bbd2f
-- [ ] **Sierra** — Product Manager, Agent Development (San Francisco, CA) — https://jobs.ashbyhq.com/sierra/effd7cd2-8a28-4bae-a3b8-40720ba09717
-- [ ] **Sierra** — Product Manager, Agent Development - Healthcare (San Francisco, CA) — https://jobs.ashbyhq.com/sierra/65eb2c63-c936-4e8e-87e7-ea080dcdca73
-- [ ] **Sierra** — Product Manager, Agent SDK (San Francisco, CA) — https://jobs.ashbyhq.com/sierra/10d2e2f1-6657-40c9-b6fb-6999c76df6cf
-- [ ] **Sierra** — Product Manager, Agent Studio (San Francisco, CA) — https://jobs.ashbyhq.com/sierra/5aaa2eeb-92bc-4b0a-901e-8e091eff819e
-- [ ] **Sierra** — Product Manager, Ghostwriter (San Francisco, CA) — https://jobs.ashbyhq.com/sierra/22ba107d-de01-4aa3-98fc-838cccad760c
-- [ ] **Sierra** — Product Manager, Infrastructure (San Francisco, CA) — https://jobs.ashbyhq.com/sierra/1e052261-0c89-4ccb-abfa-3820a1596a6e
-- [ ] **Sierra** — Product Manager, Voice (San Francisco, CA) — https://jobs.ashbyhq.com/sierra/0c66e8ed-1c18-4b64-ad27-a522a866b6e1
-- [ ] **Sierra** — Security Technical Program Manager (San Francisco, CA) — https://jobs.ashbyhq.com/sierra/53a8fd83-3e58-41a4-b014-2da447db820b
+- [ ] **Decagon** — Founder's Office, Applied AI (San Francisco) — https://jobs.ashbyhq.com/decagon/c2ea9bd2-7a20-4fbb-b301-5e587415baeb
+- [ ] **Decagon** — Senior Agent Product Manager (New York City) — https://jobs.ashbyhq.com/decagon/e31c0645-7325-43b9-9d58-0acc40904240
+- [ ] **Glean** — Product Manager, Agent Security & Governance (San Francisco, CA) — https://job-boards.greenhouse.io/gleanwork/jobs/4694761005
+- [ ] **Glean** — Product Manager, AI Quality (Mountain View, CA) ⚠️ — https://job-boards.greenhouse.io/gleanwork/jobs/4694764005
+- [ ] **Glean** — Senior Manager, Revenue Operations (Nashville, TN) ⚠️ — https://job-boards.greenhouse.io/gleanwork/jobs/4683069005
+- [ ] **Glean** — Senior Technical Program Manager, Connectors (San Francisco, CA) — https://job-boards.greenhouse.io/gleanwork/jobs/4694768005
+- [ ] **Glean** — Senior Technical Program Manager, Product (Mountain View, CA) ⚠️ — https://job-boards.greenhouse.io/gleanwork/jobs/4695590005
 
-## ai-infra (9)
+## ai-infra (4)
 
-- [ ] **Arize AI** — AI Product Manager (United States (Remote)) — https://job-boards.greenhouse.io/arizeai/jobs/5818115004
-- [ ] **Arize AI** — Vice President of Revenue Operations (San Francisco) — https://job-boards.greenhouse.io/arizeai/jobs/5970007004
-- [ ] **Hightouch** — Enterprise Growth Marketer (Remote (North America)) ⚠️ — https://job-boards.greenhouse.io/hightouch/jobs/5969003004
-- [ ] **Hightouch** — Head of Revenue Operations (New York, New York) — https://job-boards.greenhouse.io/hightouch/jobs/5829884004
-- [ ] **Hightouch** — Lead Product Manager, Agentic Ads Platform (SF, NY, Remote) ⚠️ — https://job-boards.greenhouse.io/hightouch/jobs/5970143004
-- [ ] **Hightouch** — Lead Product Manager, Agentic Personalization (SF, NY, Remote) ⚠️ — https://job-boards.greenhouse.io/hightouch/jobs/5834919004
-- [ ] **LangChain** — Product Manager, LangSmith (New York, NY) — https://jobs.ashbyhq.com/langchain/27af5f96-b287-4bcc-8679-f96686dc7c8d
-- [ ] **Pinecone** — Staff/Principal Product Manager, Database (US Remote) ⚠️ — https://jobs.ashbyhq.com/pinecone/7261adcb-026d-4552-8f89-7a46156c40c5
-- [ ] **RunPod** — Senior Product Manager  (Remote, USA) — https://job-boards.greenhouse.io/runpod/jobs/5112001008
+- [ ] **LangChain** — Customer Growth Manager (New York, NY) — https://jobs.ashbyhq.com/langchain/22bd243f-4088-49e0-bf02-fbad4442b0cb
+- [ ] **RunPod** — Deal Desk Manager, Revenue Operations  (Remote, USA) — https://job-boards.greenhouse.io/runpod/jobs/5221413008
+- [ ] **RunPod** — Director, Revenue Operations  (Remote, USA) — https://job-boards.greenhouse.io/runpod/jobs/5221401008
+- [ ] **RunPod** — Enablement Manager, Revenue Operations (Remote, USA) — https://job-boards.greenhouse.io/runpod/jobs/5221375008
 
-## ai-lab (34)
+## ai-lab (6)
 
-- [ ] **Aleph Alpha** — Chief of Staff to the CRO (f/m/d) (Heidelberg) ⚠️ — https://jobs.ashbyhq.com/AlephAlpha/585a5b85-615d-455e-abc7-6f012fa8f4e5
-- [ ] **Anthropic** — Community & Executive Escalations Program Manager (San Francisco, CA | New York City, NY) — https://job-boards.greenhouse.io/anthropic/jobs/5207565008
-- [ ] **Anthropic** — Finance Systems, Program Manager - Quote-to-cash (San Francisco, CA | Seattle, WA) — https://job-boards.greenhouse.io/anthropic/jobs/5133449008
-- [ ] **Anthropic** — Global Senior Equity Program Manager (San Francisco, CA | Seattle, WA) — https://job-boards.greenhouse.io/anthropic/jobs/5162711008
-- [ ] **Anthropic** — GTM Strategy & Operations, Enterprise Business Partner (San Francisco, CA | New York City, NY) — https://job-boards.greenhouse.io/anthropic/jobs/5139423008
-- [ ] **Anthropic** — Product Manager, API Growth (San Francisco, CA | New York City, NY | Seattle, WA) — https://job-boards.greenhouse.io/anthropic/jobs/5181852008
-- [ ] **Anthropic** — Product Manager, Claude Code (San Francisco, CA | Seattle, WA) — https://job-boards.greenhouse.io/anthropic/jobs/4985920008
-- [ ] **Anthropic** — Product Manager, Monetization (San Francisco, CA | New York City, NY | Seattle, WA) — https://job-boards.greenhouse.io/anthropic/jobs/5153773008
-- [ ] **Anthropic** — Program Manager, Student Outreach (San Francisco, CA | New York City, NY) — https://job-boards.greenhouse.io/anthropic/jobs/5102171008
-- [ ] **Anthropic** — Strategic Operations Manager, Claude Marketplace (San Francisco, CA) — https://job-boards.greenhouse.io/anthropic/jobs/5175013008
-- [ ] **Anthropic** — Technical Program Manager, Cloud Inference (San Francisco, CA | New York City, NY) — https://job-boards.greenhouse.io/anthropic/jobs/5201264008
-- [ ] **Anthropic** — Technical Program Manager, Compute  (San Francisco, CA | New York City, NY | Seattle, WA) — https://job-boards.greenhouse.io/anthropic/jobs/5138044008
-- [ ] **Anthropic** — Technical Program Manager, Discovery (San Francisco, CA | New York City, NY) — https://job-boards.greenhouse.io/anthropic/jobs/5215124008
-- [ ] **Anthropic** — Technical Program Manager, Inference Performance (San Francisco, CA | Seattle, WA) — https://job-boards.greenhouse.io/anthropic/jobs/5107763008
-- [ ] **Anthropic** — Technical Program Manager, Infrastructure (San Francisco, CA | New York City, NY | Seattle, WA) — https://job-boards.greenhouse.io/anthropic/jobs/5111783008
-- [ ] **Anthropic** — Technical Program Manager, Launches   (San Francisco, CA | New York City, NY) — https://job-boards.greenhouse.io/anthropic/jobs/5208193008
-- [ ] **Anthropic** — Technical Program Manager, Research (San Francisco, CA | New York City, NY) — https://job-boards.greenhouse.io/anthropic/jobs/5203545008
-- [ ] **Anthropic** — Technical Program Manager, Safeguards (Infrastructure & Evals) (San Francisco, CA | New York City, NY | Seattle, WA) — https://job-boards.greenhouse.io/anthropic/jobs/5108695008
-- [ ] **Anthropic** — Technical Program Manager, Security (San Francisco, CA | New York City, NY | Seattle, WA) — https://job-boards.greenhouse.io/anthropic/jobs/4989788008
-- [ ] **Anthropic** — Technical Program Manager, Security (Coordinated Vulnerability Disclosure) (San Francisco, CA | New York City, NY | Seattle, WA) — https://job-boards.greenhouse.io/anthropic/jobs/5123769008
-- [ ] **Cohere** — Business Operations Lead (New York) — https://jobs.ashbyhq.com/cohere/a3a69960-3c85-4b11-b9b7-d4056d406c2e
-- [ ] **Cohere** — Chief of Staff (Toronto) ⚠️ — https://jobs.ashbyhq.com/cohere/5139acd7-3429-483e-9984-040bd799e8a0
-- [ ] **Cohere** — Product Manager,  Native Experience & Growth (United States) — https://jobs.ashbyhq.com/cohere/d9d2740b-8869-462d-85df-21c1941bc13d
-- [ ] **Cohere** — Product Manager, Agent Harness & Modelling (Toronto) ⚠️ — https://jobs.ashbyhq.com/cohere/1d1b300d-254b-48c4-958f-99c6b907f295
-- [ ] **Cohere** — Product Manager, Public Sector & Defence (Canada) ⚠️ — https://jobs.ashbyhq.com/cohere/2a7f1fad-05ff-4260-af36-556d1d694775
-- [ ] **Cohere** — Product Manager, Safety Research (United States) — https://jobs.ashbyhq.com/cohere/a8122632-cc3b-4a1a-bd78-4b4b9466cb38
-- [ ] **Cohere** — Technical Program Manager, AI Delivery for Public Sector & Defence (Germany) ⚠️ — https://jobs.ashbyhq.com/cohere/f8e85a7c-1eb0-47f8-8140-1c4e7892f17d
-- [ ] **Cohere** — Technical Program Manager, North Delivery & Release Operations (United States) — https://jobs.ashbyhq.com/cohere/929b6c8e-a47c-4512-bb17-99fa9581f23e
-- [ ] **Mistral AI** — Product Manager, Cloud Partnerships (New York, NY) — https://jobs.lever.co/mistral/ca22a1ac-c87e-4463-914a-6753ca79318c
-- [ ] **Perplexity** — Enterprise Growth Lead (San Francisco) — https://jobs.ashbyhq.com/perplexity/b6ae7fbd-70e1-4d1f-9333-cc7ec3f73846
-- [ ] **Perplexity** — Member of Technical Staff (AI Policy and Strategic Initiatives) (San Francisco) — https://jobs.ashbyhq.com/perplexity/0359ebb4-7cbd-4641-a6d1-1127823e2fd5
-- [ ] **Perplexity** — Product Manager (Builder) (San Francisco) — https://jobs.ashbyhq.com/perplexity/f25e190e-0508-4707-b575-fcaed358dc13
-- [ ] **Stability AI** — Director of Data Strategy & Operations (United States) — http://stability.ai/careers?gh_jid=4788645101
-- [ ] **Synthesia** — Delivery Program Manager (UK Remote) ⚠️ — https://jobs.ashbyhq.com/synthesia/4358c197-7d4a-45eb-8dd6-4a5c96999534
+- [ ] **Anthropic** — GTM Strategy & Operations, Special Projects (San Francisco, CA) — https://job-boards.greenhouse.io/anthropic/jobs/5227856008
+- [ ] **Anthropic** — Manager– Growth Sales (AI-Native) (New York City, NY) — https://job-boards.greenhouse.io/anthropic/jobs/4976328008
+- [ ] **Anthropic** — Product Manager, Multi-Cloud Growth - Google (San Francisco, CA) — https://job-boards.greenhouse.io/anthropic/jobs/5153924008
+- [ ] **Anthropic** — Protective Services Strategy & Operations Lead (Boston, MA; Remote-Friendly (Travel-Required) | San Francisco, CA | Seattle, WA | New York City, NY; Washington, DC) — https://job-boards.greenhouse.io/anthropic/jobs/5226694008
+- [ ] **Anthropic** — Technical Program Manager, Data Center Infrastructure (San Francisco, CA | New York City, NY | Seattle, WA) — https://job-boards.greenhouse.io/anthropic/jobs/5013743008
+- [ ] **Cohere** — Senior Manager, Revenue Operations (Toronto) ⚠️ — https://jobs.ashbyhq.com/cohere/64c12340-0f1d-4320-9b5a-9bcb44150a1d
 
-## ai-startup (59)
+## ai-startup (8)
 
-- [ ] **Abridge** — Product Lead, Life Sciences (New Products) (SF Office) ⚠️ — https://jobs.ashbyhq.com/abridge/f0f97277-44ba-401b-9839-69762b8c8249
-- [ ] **Abridge** — Product Lead, Payer Products (New Bets) (SF Office) ⚠️ — https://jobs.ashbyhq.com/abridge/991c2527-c2f9-41bb-a68f-282581b78794
-- [ ] **Abridge** — Product Manager - Core Product Experiences (SF Office) ⚠️ — https://jobs.ashbyhq.com/abridge/c45524b6-96b2-49f0-9cd5-176b998d6ba7
-- [ ] **Asana** — Group Product Manager, Mobile  (Warsaw) ⚠️ — https://www.asana.com/jobs/apply/6806561?gh_jid=6806561
-- [ ] **Asana** — Principal Product Manager, AI Growth (Vancouver, BC) ⚠️ — https://www.asana.com/jobs/apply/7494051?gh_jid=7494051
-- [ ] **Asana** — Senior Product Manager, AI Ecosystem Integrations (Vancouver, BC) ⚠️ — https://www.asana.com/jobs/apply/7494023?gh_jid=7494023
-- [ ] **Asana** — Senior Product Manager, Project & Task Experience (New York City) — https://www.asana.com/jobs/apply/7392230?gh_jid=7392230
-- [ ] **Character AI** — Product Manager, Activation & Growth (Redwood City, CA) ⚠️ — https://jobs.ashbyhq.com/character/0d291945-66fc-464c-9397-99130369a383
-- [ ] **Character AI** — Product Manager, Core Product (Redwood City, CA) ⚠️ — https://jobs.ashbyhq.com/character/5aa34edd-33b0-4e46-b8ff-439b42704ccf
-- [ ] **Character AI** — Technical Program Manager, AI Infrastructure (Redwood City, CA) ⚠️ — https://jobs.ashbyhq.com/character/fd023b84-a746-4fe9-8a9d-277899e67a78
-- [ ] **Cursor** — Product Manager (San Francisco) — https://jobs.ashbyhq.com/cursor/66e67c2e-c828-4ddb-a2c0-7d3cb672f19d
-- [ ] **Cursor** — Product Manager, Agent Harness (San Francisco) — https://jobs.ashbyhq.com/cursor/69abc2ba-2823-40c3-9b86-94ab63859649
-- [ ] **Cursor** — Product Manager, Cloud Agents (San Francisco) — https://jobs.ashbyhq.com/cursor/21110d73-77cb-465b-9977-65afb3e82cec
-- [ ] **Figma** — Product Manager, AI Growth (San Francisco, CA • New York, NY • United States) — https://boards.greenhouse.io/figma/jobs/5989185004?gh_jid=5989185004
-- [ ] **Figma** — Product Manager, AI Platform (San Francisco, CA • New York, NY • United States) — https://boards.greenhouse.io/figma/jobs/5830640004?gh_jid=5830640004
-- [ ] **Figma** — Product Manager, Design Tools (San Francisco, CA • New York, NY • United States) — https://boards.greenhouse.io/figma/jobs/5505263004?gh_jid=5505263004
-- [ ] **Figma** — Product Manager, Figma Weave (New York, United States) (New York, NY) — https://boards.greenhouse.io/figma/jobs/5819866004?gh_jid=5819866004
-- [ ] **Figma** — Technical Program Manager, AI Performance (San Francisco, CA • New York, NY • United States) — https://boards.greenhouse.io/figma/jobs/5837760004?gh_jid=5837760004
-- [ ] **Figma** — Technical Program Manager, Security (San Francisco, CA • New York, NY • United States) — https://boards.greenhouse.io/figma/jobs/5982942004?gh_jid=5982942004
-- [ ] **Harvey** — Employee Experience Program Manager (San Francisco) — https://jobs.ashbyhq.com/harvey/da9f2961-fcfd-401f-a86a-9e548290b4a4
-- [ ] **Harvey** — Founding Product Growth Lead (San Francisco) — https://jobs.ashbyhq.com/harvey/9ce0c68b-80f2-4467-88d0-02473f98e2d4
-- [ ] **Harvey** — Group Product Manager, Knowledge Platform (Bengaluru) ⚠️ — https://jobs.ashbyhq.com/harvey/d022efd3-c3cc-459c-9925-ba5dbc8558b9
-- [ ] **Harvey** — GTM Systems Admin, Growth (Remote) ⚠️ — https://jobs.ashbyhq.com/harvey/beaeadde-22b3-4917-ba7c-d9c1a62f2d38
-- [ ] **Harvey** — Innovation Product Manager (New York) — https://jobs.ashbyhq.com/harvey/e5272fbe-4431-4841-bf00-b9f59812b82a
-- [ ] **Harvey** — Program Manager, Customer Stories & Advocacy, NYC (New York) — https://jobs.ashbyhq.com/harvey/5b0d3e76-bdda-421f-83f3-8abd83fec62b
-- [ ] **Harvey** — Staff Product Manager (San Francisco) — https://jobs.ashbyhq.com/harvey/8d092528-2554-42e4-a68b-67307b48e6aa
-- [ ] **Harvey** — Staff Product Manager, Agent Platform  (San Francisco) — https://jobs.ashbyhq.com/harvey/39c40209-798d-47e9-a600-742c876c536b
-- [ ] **Harvey** — Staff Product Manager, Embedded Experience (San Francisco) — https://jobs.ashbyhq.com/harvey/288a7a0d-ed93-4574-a5c0-c6a37d692324
-- [ ] **Harvey** — Staff Product Manager, Knowledge Platform (Bengaluru) ⚠️ — https://jobs.ashbyhq.com/harvey/7b468987-7236-4239-9e56-6eb7f92b4531
-- [ ] **Harvey** — Staff Product Manager, New Verticals (New York) — https://jobs.ashbyhq.com/harvey/2cbe13b9-a44b-47d3-abb8-45d9a98b05f6
-- [ ] **Harvey** — Technical Program Manager, Quality and Reliability (San Francisco) — https://jobs.ashbyhq.com/harvey/9ea6dcda-7869-4181-b493-2822bbc14097
-- [ ] **Linear** — Manager, Growth Sales (North America) ⚠️ — https://jobs.ashbyhq.com/linear/5e5f6557-7ac6-4b9f-bdb0-89354e77c644
-- [ ] **Linear** — Product Manager (North America) ⚠️ — https://jobs.ashbyhq.com/linear/b7669c4b-eeca-421d-ba9a-d90203f6fcb2
-- [ ] **Notion** — Business Operations & Strategy Lead (San Francisco, California) — https://jobs.ashbyhq.com/Notion/ef4d9a34-153f-47a7-ba9f-f9a9de821066
-- [ ] **Notion** — Corporate Finance, Special Projects (San Francisco, California) — https://jobs.ashbyhq.com/Notion/c8c98065-c5af-4d37-9e8e-a8c23957e7f0
-- [ ] **Notion** — Customer Success Enablement Program Manager (San Francisco, California) — https://jobs.ashbyhq.com/Notion/a69a78e9-89d2-4a41-8938-6c07ca8a06da
-- [ ] **Notion** — Digital Customer Success Program Manager (San Francisco, California) — https://jobs.ashbyhq.com/Notion/1c58623e-73f8-43c7-a342-1475c2eab7af
-- [ ] **Notion** — Partner Strategy & Operations Manager (San Francisco, California) — https://jobs.ashbyhq.com/Notion/5dc7695e-139e-4679-a213-a733ee1d62d5
-- [ ] **Notion** — Product Manager, Enterprise (New York, New York) — https://jobs.ashbyhq.com/Notion/35785e61-c4c3-44ec-a401-6741d89dd16a
-- [ ] **Replit** — Chief of Staff to CEO (Foster City, CA (Hybrid) In office M,W,F) ⚠️ — https://jobs.ashbyhq.com/replit/95332816-5890-4fac-b5fc-4b0cea0d77db
-- [ ] **Replit** — Senior Product Manager (Foster City, CA (Hybrid) In office M,W,F) ⚠️ — https://jobs.ashbyhq.com/replit/cf236c47-218b-4a31-b0b6-d6ed12a8e077
-- [ ] **Replit** — Staff Technical Program Manager, AI / Agent Systems (Foster City, CA (Hybrid) In office M,W,F) ⚠️ — https://jobs.ashbyhq.com/replit/1e1a651f-693d-4f9d-bfd9-280a50d28d13
-- [ ] **Scale AI** — AI Product Manager (San Francisco, CA) — https://job-boards.greenhouse.io/scaleai/jobs/4609736005
-- [ ] **Scale AI** — Business Operations & Strategy Manager  (San Francisco, CA) — https://job-boards.greenhouse.io/scaleai/jobs/4650516005
-- [ ] **Scale AI** — Chief of Staff, VP of Product (New York, NY) — https://job-boards.greenhouse.io/scaleai/jobs/4693004005
-- [ ] **Scale AI** — Forward Deployed Product Manager, Enterprise (New York, NY) — https://job-boards.greenhouse.io/scaleai/jobs/4673051005
-- [ ] **Scale AI** — Lead Technical Program Manager, Trust & Safety (San Francisco, CA) — https://job-boards.greenhouse.io/scaleai/jobs/4674924005
-- [ ] **Scale AI** — Product Manager of AI Applications, Global Public Sector (Riyadh, Saudi Arabia) ⚠️ — https://job-boards.greenhouse.io/scaleai/jobs/4650514005
-- [ ] **Scale AI** — Product Manager, Data Engine (San Francisco, CA; St. Louis, MO; New York, NY; Washington, DC) — https://job-boards.greenhouse.io/scaleai/jobs/4670064005
-- [ ] **Scale AI** — Product Manager, Gen AI (New York, NY; San Francisco, CA) — https://job-boards.greenhouse.io/scaleai/jobs/4675842005
-- [ ] **Scale AI** — Product Manager, Public Sector GenAI Test & Evaluation (T&E) (San Francisco, CA; St. Louis, MO; New York, NY; Washington, DC) — https://job-boards.greenhouse.io/scaleai/jobs/4687591005
-- [ ] **Scale AI** — Product Manager, Trust & Safety (New York, NY; San Francisco, CA) — https://job-boards.greenhouse.io/scaleai/jobs/4692308005
-- [ ] **Scale AI** — Program Manager (Homeland Layered Defense), Public Sector (Washington, DC) — https://job-boards.greenhouse.io/scaleai/jobs/4667857005
-- [ ] **Scale AI** — Staff Product Manager, Agentic Platform (New York, NY; San Francisco, CA; Washington, DC) — https://job-boards.greenhouse.io/scaleai/jobs/4612403005
-- [ ] **Scale AI** — Staff Technical Product Manager (London, UK; New York, NY; San Francisco, CA) — https://job-boards.greenhouse.io/scaleai/jobs/4683446005
-- [ ] **Scale AI** — Technical Program Manager (New York, NY) — https://job-boards.greenhouse.io/scaleai/jobs/4693449005
-- [ ] **Scale AI** — Technical Program Manager (Computer Vision), Public Sector (Washington, DC) — https://job-boards.greenhouse.io/scaleai/jobs/4692201005
-- [ ] **Scale AI** — Technical Program Manager, Public Sector (Washington, DC) — https://job-boards.greenhouse.io/scaleai/jobs/4633072005
-- [ ] **Scale AI** — Technical Program Manager, Robotics Data (San Francisco, CA) — https://job-boards.greenhouse.io/scaleai/jobs/4663997005
+- [ ] **Asana** — Program Manager, Enterprise Technology (Vancouver, BC) ⚠️ — https://www.asana.com/jobs/apply/7834350?gh_jid=7834350
+- [ ] **Asana** — Senior Product Manager, Agent Context (New York City) — https://www.asana.com/jobs/apply/7663184?gh_jid=7663184
+- [ ] **Harvey** — Group Product Manager, Knowledge Platform (Bengaluru) ⚠️ — https://jobs.ashbyhq.com/harvey/ae305f26-bbe0-4db1-a816-b912503ad6b4
+- [ ] **Harvey** — GTM Technology Product Owner — Growth (San Francisco) — https://jobs.ashbyhq.com/harvey/26954747-1019-405f-a6b7-ff454517924f
+- [ ] **Harvey** — Senior Product Manager, Billing (San Francisco) — https://jobs.ashbyhq.com/harvey/64cbd898-ae41-4690-b581-270fe6ce1713
+- [ ] **Linear** — Product Manager (Europe) ⚠️ — https://jobs.ashbyhq.com/linear/86abcce0-04b2-405c-9a8e-e0ca84813914
+- [ ] **Notion** — Product Manager, AI Governance and Admin Experience (New York, New York) — https://jobs.ashbyhq.com/Notion/2dd301f6-42da-40a2-a064-0f6fcfbdca77
+- [ ] **Scale AI** — Product Manager of AI Applications, Global Public Sector (Doha, Qatar ; Dubai, UAE) ⚠️ — https://job-boards.greenhouse.io/scaleai/jobs/4589749005
 
-## asset-mgmt (50)
+## asset-mgmt (18)
 
-- [ ] **Acorns** — Technical Program Manager (Remote) ⚠️ — https://jobs.ashbyhq.com/acorns/8cc539a8-8b2e-41f2-9ca5-599aedbae14c
-- [ ] **Addepar** — Head of Client Strategy and Operations (New York, NY) — https://job-boards.greenhouse.io/addepar1/jobs/8541655002
-- [ ] **Addepar** — Product Manager - Data Intelligence (Edinburgh, UK) ⚠️ — https://job-boards.greenhouse.io/addepar1/jobs/8535082002
-- [ ] **Addepar** — Staff Product Manager (Edinburgh, UK) ⚠️ — https://job-boards.greenhouse.io/addepar1/jobs/8532390002
-- [ ] **Addepar** — Staff Product Manager - AI Platform (New York, NY) — https://job-boards.greenhouse.io/addepar1/jobs/8332168002
-- [ ] **Addepar** — Staff Technical Program Manager  (Edinburgh, UK) ⚠️ — https://job-boards.greenhouse.io/addepar1/jobs/8516196002
-- [ ] **Betterment** — Group Product Manager, Broker Dealer (Betterment HQ - New York City) — https://www.betterment.com/careers/current-openings/job?gh_jid=7746133&gh_jid=7746133
-- [ ] **Carta** — Growth Account Manager, Venture Capital (San Francisco, CA; New York, NY) — https://job-boards.greenhouse.io/carta/jobs/7561505003
-- [ ] **Carta** — Lead Product Manager (San Francisco, CA; Seattle, WA, New York, NY) — https://job-boards.greenhouse.io/carta/jobs/7548543003
-- [ ] **Carta** — Senior Program Manager, Account Management Strategy & Operations (New York, NY) — https://job-boards.greenhouse.io/carta/jobs/7614162003
-- [ ] **iCapital** — Direct Funds Product Manager - Assistant Vice President  (Lisbon, Portugal) ⚠️ — https://job-boards.greenhouse.io/icapitalnetwork/jobs/8323146002
-- [ ] **iCapital** — Product Manager, Identity Solutions - Vice President (New York, New York, United States) — https://job-boards.greenhouse.io/icapitalnetwork/jobs/8409013002
-- [ ] **iCapital** — Product Manager, Post-Investments - Vice President / Senior Vice President (Greenwich,  Connecticut, United States; New York, New York, United States) — https://job-boards.greenhouse.io/icapitalnetwork/jobs/8401878002
-- [ ] **iCapital** — Program Manager - Assistant Vice President / Vice President  (Salt Lake City, Utah, United States) — https://job-boards.greenhouse.io/icapitalnetwork/jobs/8534660002
-- [ ] **iCapital** — Structured Investments Product Manager - Associate (Greenwich,  Connecticut, United States; New York, New York, United States) — https://job-boards.greenhouse.io/icapitalnetwork/jobs/8448860002
-- [ ] **iCapital** — Technology Program Manager - Assistant Vice President (Lisbon, Portugal) ⚠️ — https://job-boards.greenhouse.io/icapitalnetwork/jobs/8458289002
-- [ ] **iCapital** — Technology Program Manager - Associate / Assistant Vice President (New York, New York, United States) — https://job-boards.greenhouse.io/icapitalnetwork/jobs/8457294002
-- [ ] **Robinhood** — Product Manager, Money Movement (Menlo Park, CA; New York, NY) — https://boards.greenhouse.io/robinhood/jobs/7747728?t=gh_src=&gh_jid=7747728
-- [ ] **Robinhood** — Senior Product Manager, Security AI (Bellevue, WA) ⚠️ — https://boards.greenhouse.io/robinhood/jobs/7707158?t=gh_src=&gh_jid=7707158
-- [ ] **Robinhood** — Senior Product Manager, Trading Platform (Chicago, IL; Menlo Park, CA; New York, NY) — https://boards.greenhouse.io/robinhood/jobs/7125765?t=gh_src=&gh_jid=7125765
-- [ ] **Robinhood** — Senior Technical Program Manager, Privacy (New York, NY) — https://boards.greenhouse.io/robinhood/jobs/7773503?t=gh_src=&gh_jid=7773503
-- [ ] **Robinhood** — Staff Product Manager, Banking (Menlo Park, CA; New York, NY; Washington, DC) — https://boards.greenhouse.io/robinhood/jobs/7587151?t=gh_src=&gh_jid=7587151
-- [ ] **Robinhood** — Staff Product Manager, Cortex (Menlo Park, CA; New York, NY) — https://boards.greenhouse.io/robinhood/jobs/7821803?t=gh_src=&gh_jid=7821803
-- [ ] **Robinhood** — Staff Product Manager, International (Menlo Park, CA; New York, NY) — https://boards.greenhouse.io/robinhood/jobs/7812801?t=gh_src=&gh_jid=7812801
-- [ ] **SoFi** — Consumer Direct Growth and Sales Enablement (United States) — https://sofi.com/careers/job/7647935003?gh_jid=7647935003
-- [ ] **SoFi** — Fraud and Disputes Member Experience Program Manager (UT- Cottonwood Heights; FL- Jacksonville) ⚠️ — https://sofi.com/careers/job/7724675003?gh_jid=7724675003
-- [ ] **SoFi** — Group Product Manager, Invest (CA - San Francisco; NY - New York City) — https://sofi.com/careers/job/7570377003?gh_jid=7570377003
-- [ ] **SoFi** — Principal Product Manager - Fraud, Risk & ML Platform (WA - Seattle; CA - San Francisco) — https://sofi.com/careers/job/7638977003?gh_jid=7638977003
-- [ ] **SoFi** — Principal Product Manager, Ads & Measurement (CA - San Francisco, WA - Seattle) — https://sofi.com/careers/job/7580153003?gh_jid=7580153003
-- [ ] **SoFi** — Principal Product Manager, AI Features (CA - San Francisco, WA - Seattle) — https://sofi.com/careers/job/7670800003?gh_jid=7670800003
-- [ ] **SoFi** — Principal Product Manager, AI SDLC (CA - San Francisco) — https://sofi.com/careers/job/7659259003?gh_jid=7659259003
-- [ ] **SoFi** — Principal Product Manager, Invest (CA - San Francisco, WA - Seattle) — https://sofi.com/careers/job/7671174003?gh_jid=7671174003
-- [ ] **SoFi** — Principal Product Manager, Membership (CA - San Francisco; WA - Seattle) — https://sofi.com/careers/job/7670786003?gh_jid=7670786003
-- [ ] **SoFi** — Principal Product Manager, Originations Core (WA - Seattle; CA - San Francisco   ) — https://sofi.com/careers/job/7644779003?gh_jid=7644779003
-- [ ] **SoFi** — Principal Product Manager, Real-Time Payments Platform (WA - Seattle; CA - San Francisco   ) — https://sofi.com/careers/job/7697158003?gh_jid=7697158003
-- [ ] **SoFi** — Security Product Lead –  Enterprise & Identity Security (WA - Seattle; UT - Cottonwood Heights; CA - San Francisco; TX - Frisco) — https://sofi.com/careers/job/7655880003?gh_jid=7655880003
-- [ ] **SoFi** — Security Product Lead – Product & AI Security (WA - Seattle; UT - Cottonwood Heights; CA - San Francisco; NY - New York City; TX - Frisco) — https://sofi.com/careers/job/7700757003?gh_jid=7700757003
-- [ ] **SoFi** — Security Product Lead – Threat Intelligence & Insider Risk (WA - Seattle; UT - Cottonwood Heights; CA - San Francisco; TX - Frisco) — https://sofi.com/careers/job/7647550003?gh_jid=7647550003
-- [ ] **SoFi** — Senior Business Operations Analyst (UT - Cottonwood Heights; FL - Jacksonville ) ⚠️ — https://sofi.com/careers/job/7704498003?gh_jid=7704498003
-- [ ] **SoFi** — Senior Product Manager, Commercial Banking (WA - Seattle; CA - San Francisco   ) — https://sofi.com/careers/job/7697154003?gh_jid=7697154003
-- [ ] **SoFi** — Senior Product Manager, Home Loans Consumer Experience (WA - Seattle; CA - San Francisco   ) — https://sofi.com/careers/job/7720241003?gh_jid=7720241003
-- [ ] **SoFi** — Senior Product Manager, Life Insurance & Financial Protection (CA - San Francisco; WA - Seattle; NY - New York City) — https://sofi.com/careers/job/7651923003?gh_jid=7651923003
-- [ ] **SoFi** — Senior Product Manager, Member Account Safety (CA - San Francisco; WA - Seattle) — https://sofi.com/careers/job/7616217003?gh_jid=7616217003
-- [ ] **SoFi** — Senior Product Manager, Originations Core (CA - San Francisco, WA - Seattle) — https://sofi.com/careers/job/7717851003?gh_jid=7717851003
-- [ ] **SoFi** — Senior Product Manager, Personal Loans New Initiatives (WA - Seattle; CA - San Francisco   ) — https://sofi.com/careers/job/7644783003?gh_jid=7644783003
-- [ ] **SoFi** — Senior Product Manager, Servicing (CA - San Francisco, WA - Seattle) — https://sofi.com/careers/job/7720245003?gh_jid=7720245003
-- [ ] **SoFi** — Senior Product Manager, Transactional Risk (WA - Seattle, CA - San Francisco) — https://sofi.com/careers/job/7676573003?gh_jid=7676573003
-- [ ] **SoFi** — Senior Product Manager, Underwriting (CA - San Francisco; WA - Seattle; MT - Helena) — https://sofi.com/careers/job/7616225003?gh_jid=7616225003
-- [ ] **SoFi** — Senior Program Manager, Operational Excellence (UT-Cottonwood Heights; FL- Jacksonville) ⚠️ — https://sofi.com/careers/job/7705625003?gh_jid=7705625003
-- [ ] **Stash** — Lead Product Manager (New York) — https://ats.comparably.com/api/v2/stash/post/7859204:?gh_jid=7859204
+- [ ] **Acorns** — Staff Product Manager, Conversational AI (Remote) ⚠️ — https://jobs.ashbyhq.com/acorns/2263abeb-73d2-448b-8228-4bc1e500c812
+- [ ] **Betterment** — Product Manager, User Trust (Betterment HQ - New York City) — https://www.betterment.com/careers/current-openings/job?gh_jid=7922405&gh_jid=7922405
+- [ ] **Carta** — Chief of Staff to the Chief Product Officer (San Francisco, California) — https://job-boards.greenhouse.io/carta/jobs/7743056003
+- [ ] **iCapital** — Corporate Finance, Revenue Operations - Associate / Assistant Vice President (Greenwich,  Connecticut, United States) — https://job-boards.greenhouse.io/icapitalnetwork/jobs/8488442002
+- [ ] **iCapital** — Product Manager, Investment Reporting - Vice President (New York, New York, United States) — https://job-boards.greenhouse.io/icapitalnetwork/jobs/8554896002
+- [ ] **SoFi** — Senior Product Manager, Money (Add ALL locations here) ⚠️ — https://sofi.com/careers/job/7741776003?gh_jid=7741776003
+- [ ] **State Street** — AI Technical Product Manager, AVP (Burlington Massachusetts) ⚠️ — https://statestreet.wd1.myworkdayjobs.com/en-US/Global/job/Burlington-Massachusetts/Product-Management--AVP_R-780070
+- [ ] **State Street** — Alpha Complex Instruments Product Lead, Vice President (2 Locations) ⚠️ — https://statestreet.wd1.myworkdayjobs.com/en-US/Global/job/London-England/Alpha-Complex-Instruments-Product-Lead--Vice-President_R-784872
+- [ ] **State Street** — Alpha TIER Integration Services, Product Lead, Officer (Quincy, Massachusetts) ⚠️ — https://statestreet.wd1.myworkdayjobs.com/en-US/Global/job/Quincy-Massachusetts/Alpha-TIER-Integration-Services--Product-Lead--Officer_R-781056-1
+- [ ] **State Street** — Client Data/Client 360 Product Manager, VP (Boston, Massachusetts) — https://statestreet.wd1.myworkdayjobs.com/en-US/Global/job/Boston-Massachusetts/Client-Data-Client-360-Product-Manager--VP_R-788466
+- [ ] **State Street** — COO - Program Manager, Vice President / SSIM (Boston, Massachusetts) — https://statestreet.wd1.myworkdayjobs.com/en-US/Global/job/Boston-Massachusetts/COO---Program-Manager--Vice-President---SSIM_R-786707
+- [ ] **State Street** — Distribution Strategy and Planning - CCG Strategy & Operations, VP - State Street Investment Management (2 Locations) ⚠️ — https://statestreet.wd1.myworkdayjobs.com/en-US/Global/job/Boston-Massachusetts/Distribution-Strategy-and-Planning---CCG-Strategy---Operations--VP---State-Street-Investment-Management_R-790970
+- [ ] **State Street** — IAM Strategy and Operations Business Analyst , Assistant Vice President (Quincy, Massachusetts) ⚠️ — https://statestreet.wd1.myworkdayjobs.com/en-US/Global/job/Quincy-Massachusetts/IAM-Strategy-and-Operations-Business-Analyst---Assistant-Vice-President_R-786530
+- [ ] **State Street** — Lead Product Manager - Private Credit (2 Locations) ⚠️ — https://statestreet.wd1.myworkdayjobs.com/en-US/Global/job/Burlington-Massachusetts/Lead-Product-Manager---Private-Credit_R-783633
+- [ ] **State Street** — Product Manager - Analytics, AI Private Markets (Burlington Massachusetts) ⚠️ — https://statestreet.wd1.myworkdayjobs.com/en-US/Global/job/Burlington-Massachusetts/Product-Manager---Analytics--AI-Private-Markets_R-786885
+- [ ] **State Street** — Product Manager - Client Experience Pathways, VP II - State Street Investment Management (3 Locations) ⚠️ — https://statestreet.wd1.myworkdayjobs.com/en-US/Global/job/Boston-Massachusetts/Product-Manager---Client-Experience-Pathways--VP-II---State-Street-Investment-Management_R-788258-4
+- [ ] **State Street** — Product Manager, Vice President (Krakow, Poland) ⚠️ — https://statestreet.wd1.myworkdayjobs.com/en-US/Global/job/Krakow-Poland/Product-Manager_R-779743-1
+- [ ] **State Street** — Technical Product Manager, AVP (Burlington Massachusetts) ⚠️ — https://statestreet.wd1.myworkdayjobs.com/en-US/Global/job/Burlington-Massachusetts/Product-Management--AVP_R-780069-1
 
-## automation (3)
+## e-commerce (40)
 
-- [ ] **Boomi** — GTM Strategy & Operations Lead (Hybrid) (Canada) ⚠️ — https://boomi.com/boomi-jobs/?gh_jid=5843560004
-- [ ] **Boomi** — Strategic Initiatives & Corporate Affairs Lead, Office of the CEO (United States of America) — https://boomi.com/boomi-jobs/?gh_jid=5990025004
-- [ ] **n8n** — Sales Strategy & Operations Manager – US (East Coast-based) (New York) — https://jobs.ashbyhq.com/n8n/e77c1fa5-1232-49a3-9db3-b291cd79006b
+- [ ] **Airbnb** — Program Manager, Community Support (Canada) ⚠️ — https://careers.airbnb.com/positions/7927170?gh_jid=7927170
+- [ ] **Airbnb** — Programs and Business Operations Lead, Cities (United States ) — https://careers.airbnb.com/positions/7944603?gh_jid=7944603
+- [ ] **Airbnb** — Staff Program Manager  (United States) — https://careers.airbnb.com/positions/7762368?gh_jid=7762368
+- [ ] **DoorDash** — Associate Manager, Ads New Ventures - Strategy & Operations (New York, NY; Atlanta, GA; Chicago, IL; San Francisco, CA; Los Angeles, CA; Seattle, WA) — https://job-boards.greenhouse.io/doordashusa/jobs/7917387
+- [ ] **DoorDash** — Associate Manager, New Verticals - Strategy & Operations (New York, NY; San Francisco, CA; Los Angeles, CA; Chicago, IL; Seattle, WA; Washington D.C.) — https://job-boards.greenhouse.io/doordashusa/jobs/7940194
+- [ ] **DoorDash** — Associate, Merchant Strategy & Operations (San Francisco, CA; Los Angeles, CA; New York, NY; Chicago, IL; Washington D.C.; United States - Remote) — https://job-boards.greenhouse.io/doordashusa/jobs/7918865
+- [ ] **DoorDash** — Associate, Sales Strategy & Operations (San Francisco, CA; New York, NY; Atlanta, GA; Chicago, IL; Denver, CO; Washington D.C.; Austin, TX; Phoenix, AZ; Los Angeles, CA; Seattle, WA; Boston, MA) — https://job-boards.greenhouse.io/doordashusa/jobs/7943638
+- [ ] **DoorDash** — Director / GM, DashPass Strategy & Operations (San Francisco, CA; Seattle, WA; New York, NY; Austin, TX; Chicago, IL; Miami, FL; Los Angeles, CA; Denver, CO) — https://job-boards.greenhouse.io/doordashusa/jobs/7899188
+- [ ] **DoorDash** — Director, Strategy & Operations, Sales Lab (San Francisco, CA; Seattle, WA; New York, NY; Miami, FL; Los Angeles, CA; Denver, CO) — https://job-boards.greenhouse.io/doordashusa/jobs/7891808
+- [ ] **DoorDash** — Growth Merchant Lead - Emerging Markets (Wilmington, NC; Charleston, SC) ⚠️ — https://job-boards.greenhouse.io/doordashusa/jobs/7874390
+- [ ] **DoorDash** — Manager, DashMart - Efficiency Strategy & Operations (New York, NY; San Francisco, CA; Seattle, WA; Chicago, IL;  Los Angeles, CA; Tempe, AZ; Washington D.C.) — https://job-boards.greenhouse.io/doordashusa/jobs/7612469
+- [ ] **DoorDash** — Manager, Local Markets Growth  (Dallas, TX; Austin, TX; Houston, TX; Atlanta, GA; Charlotte, NC; Nashville, TN; Los Angeles, CA; San Francisco, CA) — https://job-boards.greenhouse.io/doordashusa/jobs/7943528
+- [ ] **DoorDash** — Senior Associate, Dasher & Logistics Strategy & Operations (New York, NY; San Francisco, CA; Los Angeles, CA; Chicago, IL; Seattle, WA; Austin, TX; Washington D.C.; Remote - United States) — https://job-boards.greenhouse.io/doordashusa/jobs/7913604
+- [ ] **DoorDash** — Senior Associate, Marketplace - Restaurant Growth Strategy & Operations (New York, NY; San Francisco, CA) — https://job-boards.greenhouse.io/doordashusa/jobs/7579976
+- [ ] **DoorDash** — Senior Associate, Product Growth - Strategy and Operations (New York, NY) — https://job-boards.greenhouse.io/doordashusa/jobs/7939750
+- [ ] **DoorDash** — Senior Manager, Consumer Discovery - Strategy & Operations (San Francisco, CA; New York, NY; Seattle, WA) — https://job-boards.greenhouse.io/doordashusa/jobs/7604521
+- [ ] **DoorDash** — Senior Specialist S&O, Integrations Strategy & Operations (New York, NY; Atlanta, GA; San Francisco, CA; Phoenix, AZ; Seattle, WA) — https://job-boards.greenhouse.io/doordashusa/jobs/7913630
+- [ ] **Instacart** — Principal Product Manager, Agentic Commerce (Canada - Remote (ON, AB, BC, or NS Only)) ⚠️ — https://instacart.careers/job/?gh_jid=7597066
+- [ ] **Instacart** — Senior Director, Enterprise Delivery and Growth (United States - Remote) — https://instacart.careers/job/?gh_jid=7813000
+- [ ] **Instacart** — Senior Product Manager, Fraud & Trust (United States - Remote) — https://instacart.careers/job/?gh_jid=7769924
+- [ ] **Instacart** — Senior Strategic Financial Analyst – Growth (United States - Remote) — https://instacart.careers/job/?gh_jid=7896276
+- [ ] **Klaviyo** — Senior Lead Product Manager, Enterprise (Boston, MA) — https://www.klaviyo.com/careers/jobs?gh_jid=7517734003
+- [ ] **Klaviyo** — Senior Product Manager, Platform Integrity (Boston, MA) — https://www.klaviyo.com/careers/jobs?gh_jid=7708059003
+- [ ] **Klaviyo** — Senior Product Manager, Product Experience (Boston, MA) — https://www.klaviyo.com/careers/jobs?gh_jid=7725304003
+- [ ] **Klaviyo** — Senior Product Manager, Profiles Platform (Boston, MA) — https://www.klaviyo.com/careers/jobs?gh_jid=7709682003
+- [ ] **Klaviyo** — Senior Technical Program Manager (Boston, MA) — https://www.klaviyo.com/careers/jobs?gh_jid=7727704003
+- [ ] **Lyft** — Global Equity Program Manager (Seattle, WA) — https://app.careerpuck.com/job-board/lyft/job/8534529002?gh_jid=8534529002
+- [ ] **Lyft** — Group Product Manager II, Pricing (New York, NY) — https://app.careerpuck.com/job-board/lyft/job/8492202002?gh_jid=8492202002
+- [ ] **Lyft** — Manager, AV Strategy & Business Operations (San Francisco, CA) — https://app.careerpuck.com/job-board/lyft/job/8538777002?gh_jid=8538777002
+- [ ] **Lyft** — Product Manager, Driver Earnings (San Francisco, CA) — https://app.careerpuck.com/job-board/lyft/job/8550252002?gh_jid=8550252002
+- [ ] **Lyft** — Product Manager, Driver Experience (Toronto, Canada) ⚠️ — https://app.careerpuck.com/job-board/lyft/job/8514395002?gh_jid=8514395002
+- [ ] **Lyft** — Product Manager, Risk Tech - Claims (Toronto, Canada) ⚠️ — https://app.careerpuck.com/job-board/lyft/job/8550340002?gh_jid=8550340002
+- [ ] **Lyft** — Senior Design Program Manager, Design Foundations & AI Transformation (San Francisco, CA) — https://app.careerpuck.com/job-board/lyft/job/8503978002?gh_jid=8503978002
+- [ ] **Lyft** — Staff Product Manager, Lyft Business Growth (San Francisco, CA) — https://app.careerpuck.com/job-board/lyft/job/8547660002?gh_jid=8547660002
+- [ ] **Whatnot** — Business Operations Manager/Sr Manager - German or French Speaking (New York, NY) — https://jobs.ashbyhq.com/whatnot/70265f28-2b77-4fbc-ba27-fa1590a8013b
+- [ ] **Whatnot** — Product Manager, International Growth (New York, NY) — https://jobs.ashbyhq.com/whatnot/6c1b99c7-06d9-497e-9861-91a72bcd5f25
+- [ ] **Whatnot** — Product Manager, Payments (San Francisco, CA) — https://jobs.ashbyhq.com/whatnot/34379814-57e6-4e3c-8cb9-08b2c47a0630
+- [ ] **Whatnot** — Revenue Operations Manager, Compensation  (New York, NY) — https://jobs.ashbyhq.com/whatnot/523e7d60-f429-4299-b716-3e1d9847a675
+- [ ] **Whatnot** — Strategy & Operations Senior Manager, Logistics (Los Angeles, CA) — https://jobs.ashbyhq.com/whatnot/05a54d4a-2cea-4820-a885-57a1623f4a26
+- [ ] **Whatnot** — Strategy and Operations Manager, Revenue Operations (New York, NY) — https://jobs.ashbyhq.com/whatnot/300adeb9-5c0f-4c49-bcdb-60f1c9867a73
 
-## e-commerce (140)
+## enterprise (7)
 
-- [ ] **Airbnb** —  Staff Product Manager, AI Personalization (United States) — https://careers.airbnb.com/positions/7834495?gh_jid=7834495
-- [ ] **Airbnb** — Product Manager (San Francisco, CA) — https://careers.airbnb.com/positions/7724793?gh_jid=7724793
-- [ ] **Airbnb** — Product Manager, Guest Discovery and Homepage (San Francisco CA, Los Angeles CA, New York NY) — https://careers.airbnb.com/positions/7827238?gh_jid=7827238
-- [ ] **Airbnb** — Product Manager, LATAM (Miami or San Francisco) (Miami, United States, San Francisco, United States) — https://careers.airbnb.com/positions/7144534?gh_jid=7144534
-- [ ] **Airbnb** — Product Manager, Relevance and Personalization (San Francisco, United States) — https://careers.airbnb.com/positions/7905365?gh_jid=7905365
-- [ ] **Airbnb** — Product Manager, Trip Quality Merchandising and AI (San Francisco, CA) — https://careers.airbnb.com/positions/7651661?gh_jid=7651661
-- [ ] **Airbnb** — Product Program Manager, Roadmap Planning & Program Management (San Francisco, United States ) — https://careers.airbnb.com/positions/6557174?gh_jid=6557174
-- [ ] **Airbnb** — Programs & Business Operations Lead, Airbnb Services (United States) — https://careers.airbnb.com/positions/7812160?gh_jid=7812160
-- [ ] **Airbnb** — Programs and Business Operations Lead (United States ) — https://careers.airbnb.com/positions/7834481?gh_jid=7834481
-- [ ] **Airbnb** — Senior Product Program Manager, Roadmap Planning & Program Management  (San Francisco, United States ) — https://careers.airbnb.com/positions/6153760?gh_jid=6153760
-- [ ] **Airbnb** — Senior Program Manager, Information Security (United States) — https://careers.airbnb.com/positions/7744089?gh_jid=7744089
-- [ ] **Airbnb** — Senior Programs & Business Operations Lead, Airbnb Services  (United States ) — https://careers.airbnb.com/positions/7822781?gh_jid=7822781
-- [ ] **Airbnb** — Senior Technical Program Manager, Hosting Services (United States) — https://careers.airbnb.com/positions/7773376?gh_jid=7773376
-- [ ] **Airbnb** — Staff Technical Program Manager, Reliability & Observability (United States) — https://careers.airbnb.com/positions/7558202?gh_jid=7558202
-- [ ] **DoorDash** — Associate Manager, Commerce Platform Logistics - Strategy and Operations (San Francisco, CA; New York, NY; Seattle, WA; Chicago, IL;  Los Angeles, CA; Tempe, AZ; Denver, CO; Boston, MA; Austin, TX; Atlanta, GA; Phoenix, AZ; Washington D.C.) — https://job-boards.greenhouse.io/doordashusa/jobs/7887113
-- [ ] **DoorDash** — Associate Manager, Dasher & Logistics Strategy & Operations, Logistics Operations (New York, NY; San Francisco, CA; Chicago, IL; Seattle, WA; Los Angeles, CA; Austin, TX; Washington D.C.; United States - Remote) — https://job-boards.greenhouse.io/doordashusa/jobs/7813015
-- [ ] **DoorDash** — Associate Manager, Demand Forecasting and Tracking - Strategy & Operations (San Francisco, CA; New York, NY; Chicago, IL; Seattle, WA; Los Angeles, CA; Washington D.C.) — https://job-boards.greenhouse.io/doordashusa/jobs/7822088
-- [ ] **DoorDash** — Associate Manager, Enterprise Restaurant Strategy & Operations (San Francisco, CA; Los Angeles, CA; Seattle, WA; Chicago, IL; New York, NY; Washington, DC; Tempe, AZ) — https://job-boards.greenhouse.io/doordashusa/jobs/7811785
-- [ ] **DoorDash** — Associate Manager, Financial Products - Strategy & Operations (San Francisco, CA; Los Angeles, CA; Seattle, WA; Chicago, IL; Washington DC; New York, NY; Tempe, AZ ) — https://job-boards.greenhouse.io/doordashusa/jobs/7644867
-- [ ] **DoorDash** — Associate Manager, Marketplace - Restaurant Growth Strategy & Operations (New York, NY) — https://job-boards.greenhouse.io/doordashusa/jobs/7661657
-- [ ] **DoorDash** — Associate Manager, Merchant Strategy & Operations (United States - Remote) — https://job-boards.greenhouse.io/doordashusa/jobs/7700953
-- [ ] **DoorDash** — Associate Manager, New Verticals - Logistics Strategy & Operations (San Francisco, CA; Los Angeles, CA; Seattle, WA; Denver, CO; Chicago, IL; Phoenix, AZ; Washington, DC; New York, NY) — https://job-boards.greenhouse.io/doordashusa/jobs/7793527
-- [ ] **DoorDash** — Associate Manager, New Verticals - Selection Strategy & Operations  (New York, NY; San Francisco, CA; Los Angeles, CA; Chicago, IL; Seattle, WA) — https://job-boards.greenhouse.io/doordashusa/jobs/7259723
-- [ ] **DoorDash** — Associate Manager, Product Operations GTM - Strategy & Operations (San Francisco, CA; New York, NY; Seattle, WA; Chicago, IL;  Los Angeles, CA; Tempe, AZ; Denver, CO; Boston, MA, Austin, TX, Portland,OR; Washington D.C.) — https://job-boards.greenhouse.io/doordashusa/jobs/7809178
-- [ ] **DoorDash** — Associate Manager, QA Strategy & Operations (United States - Remote) — https://job-boards.greenhouse.io/doordashusa/jobs/7752932
-- [ ] **DoorDash** — Associate Manager, Sales Strategy & Operations, Commerce Platform (San Francisco, CA; New York, NY; Atlanta, GA; Chicago, IL; Denver, CO; Washington, DC; Austin, TX; Phoenix, AZ; Los Angeles, CA; Seattle, WA; Boston, MA; United States - Remote) — https://job-boards.greenhouse.io/doordashusa/jobs/7791663
-- [ ] **DoorDash** — Associate Manager, Strategy & Operations - CPG (Seattle, WA; New York, NY; San Francisco, CA; Austin, TX; Los Angeles, CA; Chicago, IL; Miami, FL) — https://job-boards.greenhouse.io/doordashusa/jobs/7819504
-- [ ] **DoorDash** — Associate Manager, Strategy & Operations (In-Store) (New York, NY) — https://job-boards.greenhouse.io/doordashusa/jobs/7819552
-- [ ] **DoorDash** — Associate, Dasher & Logistics - Product Operations Strategy & Operations (New York, NY; Chicago, IL; Atlanta, GA; Los Angeles, CA; Dallas, TX) — https://job-boards.greenhouse.io/doordashusa/jobs/7776087
-- [ ] **DoorDash** — Associate, DashMart - Regulatory Strategy & Operations (San Francisco, CA; Los Angeles, CA; Seattle, WA; Denver, CO; Chicago, IL; Phoenix, AZ; Washington D.C.; New York, NY) — https://job-boards.greenhouse.io/doordashusa/jobs/7793938
-- [ ] **DoorDash** — Associate, Go-To-Market Implementation - Strategy & Operations (Phoenix, AZ; Chicago, IL) — https://job-boards.greenhouse.io/doordashusa/jobs/7794002
-- [ ] **DoorDash** — Associate, In-Store Strategy & Operations (New York, NY) — https://job-boards.greenhouse.io/doordashusa/jobs/7727684
-- [ ] **DoorDash** — Associate, New Verticals - Alcohol Strategy & Operations  (San Francisco, CA; Los Angeles, CA; New York, NY; Chicago, IL; Seattle, WA; Washington D.C.) — https://job-boards.greenhouse.io/doordashusa/jobs/7525219
-- [ ] **DoorDash** — Director Strategy & Operations, Local Markets  (San Francisco, CA; New York, NY; Seattle, WA; Chicago, IL; Atlanta, GA; Denver, CO; Boston, MA; Austin, TX; Dallas, TX; Houston, TX; Miami, FL) — https://job-boards.greenhouse.io/doordashusa/jobs/7818935
-- [ ] **DoorDash** — Director, Ads Platform Strategy & Operations, Ads & Promotions (New York, NY; Atlanta, GA; Chicago, IL; San Francisco, CA; Los Angeles, CA; Seattle, WA) — https://job-boards.greenhouse.io/doordashusa/jobs/7844173
-- [ ] **DoorDash** — Director, New Verticals Strategy & Operations (New York, NY; San Francisco, CA; Seattle, WA) — https://job-boards.greenhouse.io/doordashusa/jobs/7868866
-- [ ] **DoorDash** — Director, Restaurant Ads & Promotions - Strategy & Operations - SMB Growth (New York, NY; San Francisco, CA; Los Angeles, CA) — https://job-boards.greenhouse.io/doordashusa/jobs/7844261
-- [ ] **DoorDash** — Director, Strategy & Operations - Dasher and Logistics (New York, NY; San Francisco, CA; Chicago, IL; Los Angeles, CA) — https://job-boards.greenhouse.io/doordashusa/jobs/7816268
-- [ ] **DoorDash** — Enterprise Business Operations Lead (New York, NY) — https://job-boards.greenhouse.io/doordashusa/jobs/7888877
-- [ ] **DoorDash** — Growth Executive (Bilingual Spanish Required) (Tempe, AZ) ⚠️ — https://job-boards.greenhouse.io/doordashusa/jobs/7851702
-- [ ] **DoorDash** — Growth Merchant Lead - Emerging Markets (Amarillo, TX; Oklahoma City, OK) ⚠️ — https://job-boards.greenhouse.io/doordashusa/jobs/7874416
-- [ ] **DoorDash** — Growth Merchant Lead - Emerging Markets (Wisconsin) (Madison, WI; Milwaukee, WI; Green Bay, WI) ⚠️ — https://job-boards.greenhouse.io/doordashusa/jobs/7875352
-- [ ] **DoorDash** — Head of Global Revenue Operations, In-Store (New York, NY; Chicago, IL; San Francisco, CA; Washington D.C.; Tempe, AZ; Los Angeles, CA; Seattle, WA; Sunnyvale, CA) — https://job-boards.greenhouse.io/doordashusa/jobs/7449543
-- [ ] **DoorDash** — Manager, DashMart - Growth Strategy& Operations (New York, NY; San Francisco, CA; Seattle, WA; Los Angeles, CA; Chicago, IL) — https://job-boards.greenhouse.io/doordashusa/jobs/7624611
-- [ ] **DoorDash** — Manager, DashMart - Regulatory Strategy & Operations (San Francisco, CA; Los Angeles, CA; Seattle, WA; Denver, CO; Chicago, IL; Phoenix, AZ; Washington, DC; New York, NY) — https://job-boards.greenhouse.io/doordashusa/jobs/7798110
-- [ ] **DoorDash** — Manager, Executive Social Strategy & Operations Lead (San Francisco, CA; New York, NY; Los Angeles, CA) — https://job-boards.greenhouse.io/doordashusa/jobs/7719567
-- [ ] **DoorDash** — Manager, Local Markets Growth  (Austin, TX; Houston, TX; Atlanta, GA; Charlotte, NC; Nashville, TN) — https://job-boards.greenhouse.io/doordashusa/jobs/7762905
-- [ ] **DoorDash** — Manager, Merchant Strategy & Operations (New York, NY; San Francisco, CA; Chicago, IL; Austin, TX; Denver, CO; Los Angeles, CA; Miami, FL; Seattle, WA) — https://job-boards.greenhouse.io/doordashusa/jobs/7374400
-- [ ] **DoorDash** — Manager, New Verticals - Gift Card Strategy & Operations (New York, NY; San Francisco, CA; Los Angeles, CA; Seattle, WA; Washington, DC) — https://job-boards.greenhouse.io/doordashusa/jobs/7661816
-- [ ] **DoorDash** — Manager, Parcel - Strategy & Operations (Seattle, WA; Chicago, IL; Los Angeles, CA; United States - Remote) — https://job-boards.greenhouse.io/doordashusa/jobs/7767432
-- [ ] **DoorDash** — Manager, Sales Strategy & Operations (San Francisco, CA; New York, NY; Atlanta, GA; Chicago, IL; Denver, CO; Washington, DC; Austin, TX; Phoenix, AZ; Los Angeles, CA; Seattle, WA; Boston, MA) — https://job-boards.greenhouse.io/doordashusa/jobs/7875471
-- [ ] **DoorDash** — Merchant Growth Executive (Tempe, AZ) ⚠️ — https://job-boards.greenhouse.io/doordashusa/jobs/7518024
-- [ ] **DoorDash** — Product Manager (Multiple Levels) (San Francisco, CA; Seattle, WA; New York, NY) — https://job-boards.greenhouse.io/doordashusa/jobs/5523275
-- [ ] **DoorDash** — Senior Associate, Dasher Fleet Growth Strategy (New York, NY) — https://job-boards.greenhouse.io/doordashusa/jobs/7747379
-- [ ] **DoorDash** — Senior Associate, DoubleDash Strategy & Operations (New York, NY) — https://job-boards.greenhouse.io/doordashusa/jobs/7789460
-- [ ] **DoorDash** — Senior Associate, In-Store - Strategy & Operations (New York, NY) — https://job-boards.greenhouse.io/doordashusa/jobs/7819679
-- [ ] **DoorDash** — Senior Associate, Innovation & New Bets - Strategy & Operations (New York, NY; Denver, CO; Los Angeles, CA; Chicago, IL; United States - Remote) — https://job-boards.greenhouse.io/doordashusa/jobs/7654723
-- [ ] **DoorDash** — Senior Associate, Insights - Strategy & Operations (San Francisco, CA; New York, NY; Seattle, WA; Chicago, IL; Los Angeles, CA; Tempe, AZ; Washington D.C.) — https://job-boards.greenhouse.io/doordashusa/jobs/7804393
-- [ ] **DoorDash** — Senior Associate, Insurance Strategy & Operations (San Francisco, CA; United States - Remote) — https://job-boards.greenhouse.io/doordashusa/jobs/7868902
-- [ ] **DoorDash** — Senior Associate, Marketplace Audience Strategy & Operations (San Francisco, CA; New York, NY; Seattle, WA; Miami, FL; Los Angeles, CA; Denver, CO; Washington D.C.; Tempe, AZ; Chicago, IL; Austin, TX) — https://job-boards.greenhouse.io/doordashusa/jobs/7863172
-- [ ] **DoorDash** — Senior Associate, New Verticals - Grocery Strategy & Operations (New York, NY; San Francisco, CA; Washington D.C.) — https://job-boards.greenhouse.io/doordashusa/jobs/7859504
-- [ ] **DoorDash** — Senior Associate, Strategy & Operations - Commerce Platform (Seattle, WA; New York, NY; San Francisco, CA; Los Angeles, CA; Chicago, IL; Denver, CO) — https://job-boards.greenhouse.io/doordashusa/jobs/7612061
-- [ ] **DoorDash** — Senior Associate, Strategy & Operations, DoorDash for Business (San Francisco, CA; New York, NY; Seattle, WA) — https://job-boards.greenhouse.io/doordashusa/jobs/7762917
-- [ ] **DoorDash** — Senior Immigration Program Manager (United States - Remote) — https://job-boards.greenhouse.io/doordashusa/jobs/7819639
-- [ ] **DoorDash** — Senior Manager, DashPass Strategy & Operations (Los Angeles, CA; San Francisco, CA; Seattle, WA; New York, NY) — https://job-boards.greenhouse.io/doordashusa/jobs/7590188
-- [ ] **DoorDash** — Senior Product Manager, Trust & Safety, Integrity and Fraud (San Francisco, CA; Seattle, WA; New York, NY; Chicago, IL) — https://job-boards.greenhouse.io/doordashusa/jobs/7071290
-- [ ] **DoorDash** — Senior Technical Program Manager - Tech & Insights (Minneapolis, MN; Washington D.C.; Atlanta, GA; Nashville, TN; United States - Remote) — https://job-boards.greenhouse.io/doordashusa/jobs/7783183
-- [ ] **DoorDash** — Senior Technical Program Manager, Launchpad (San Francisco, CA; Seattle, WA; New York, NY; Sunnyvale, CA) — https://job-boards.greenhouse.io/doordashusa/jobs/7550352
-- [ ] **DoorDash** — Senior Technical Program Manager, Product (San Francisco, CA; Sunnyvale, CA; Seattle, WA; New York, NY) — https://job-boards.greenhouse.io/doordashusa/jobs/5694116
-- [ ] **DoorDash** — Sr. Manager, Digital Ordering - Strategy & Operations (San Francisco, CA; New York, NY; Seattle, WA; Chicago, IL; Los Angeles, CA; Tempe, AZ; Denver, CO; Boston, MA; Austin, TX; Portland, OR; Washington D.C.) — https://job-boards.greenhouse.io/doordashusa/jobs/7670884
-- [ ] **DoorDash** — Sr. Staff Technical Program Manager (Hardware) - Dot (San Francisco, CA; Oakland, CA) — https://job-boards.greenhouse.io/doordashusa/jobs/7611520
-- [ ] **DoorDash** — Strategy & Operations Associate Manager - Ads & Promotions Supply (San Francisco, CA; New York, NY; Los Angeles, CA; Chicago, IL) — https://job-boards.greenhouse.io/doordashusa/jobs/7713512
-- [ ] **DoorDash** — Strategy & Operations Manager-Ads & Promotions Monetization (San Francisco, CA; New York, NY; Seattle, WA; Chicago, IL; Los Angeles, CA) — https://job-boards.greenhouse.io/doordashusa/jobs/7819302
-- [ ] **DoorDash** — Technical Program Manager - Labs (San Francisco, CA) — https://job-boards.greenhouse.io/doordashusa/jobs/6972095
-- [ ] **Faire** — GTM Strategy & Operations Lead (San Francisco, CA) — https://boards.greenhouse.io/faire/jobs/8502816002?gh_jid=8502816002
-- [ ] **Faire** — GTM Strategy & Operations Senior Lead (San Francisco, CA) — https://boards.greenhouse.io/faire/jobs/8530585002?gh_jid=8530585002
-- [ ] **Faire** — Product Leadership, Value Pillar (San Francisco, CA) — https://boards.greenhouse.io/faire/jobs/8443090002?gh_jid=8443090002
-- [ ] **Faire** — Program Manager, Marketplace Operations (San Francisco, CA) — https://boards.greenhouse.io/faire/jobs/8520814002?gh_jid=8520814002
-- [ ] **Faire** — Program Manager, Revenue Strategy and Operations (San Francisco, CA) — https://boards.greenhouse.io/faire/jobs/8437997002?gh_jid=8437997002
-- [ ] **Faire** — Senior Growth Partnerships Manager (New York City, NY) — https://boards.greenhouse.io/faire/jobs/8541582002?gh_jid=8541582002
-- [ ] **Faire** — Staff Product Manager, Brand (New York City, NY; San Francisco, CA) — https://boards.greenhouse.io/faire/jobs/8425967002?gh_jid=8425967002
-- [ ] **Faire** — Staff Product Manager, FinTech & Ops (New York City, NY; San Francisco, CA) — https://boards.greenhouse.io/faire/jobs/8284690002?gh_jid=8284690002
-- [ ] **Faire** — Staff Product Manager, Pricing (New York City, NY; San Francisco, CA) — https://boards.greenhouse.io/faire/jobs/8462945002?gh_jid=8462945002
-- [ ] **Faire** — Staff Product Manager, Search Algorithms (New York City, NY; San Francisco, CA) — https://boards.greenhouse.io/faire/jobs/8431976002?gh_jid=8431976002
-- [ ] **Instacart** — Bilingual Staff Technical Program Manager, Global Enterprise Fulfillment Platform (United States - Remote) — https://instacart.careers/job/?gh_jid=7826880
-- [ ] **Instacart** — Director, Growth Creative (United States - Remote) — https://instacart.careers/job/?gh_jid=7707793
-- [ ] **Instacart** — Principal Product Manager, Agentic Commerce (United States - Remote) — https://instacart.careers/job/?gh_jid=7597064
-- [ ] **Instacart** — Senior Director, Enterprise Delivery and Growth (Canada - Remote (ON, AB, BC, or NS Only)) ⚠️ — https://instacart.careers/job/?gh_jid=7813002
-- [ ] **Instacart** — Senior Product Manager, Enterprise Picking & Tools (Canada - Remote (ON, AB, BC, or NS Only)) ⚠️ — https://instacart.careers/job/?gh_jid=7744298
-- [ ] **Instacart** — Senior Product Manager, Fraud & Trust (Canada - Remote (ON, AB, BC, or NS Only)) ⚠️ — https://instacart.careers/job/?gh_jid=7769926
-- [ ] **Instacart** — Senior Product Manager, In-Store Integrations (Canada - Remote (ON, AB, BC, or NS Only)) ⚠️ — https://instacart.careers/job/?gh_jid=7838738
-- [ ] **Instacart** — Senior Product Manager, Shopping Experience (United States - Remote) — https://instacart.careers/job/?gh_jid=7904851
-- [ ] **Instacart** — Senior Strategic Financial Analyst – Growth (Canada - Remote (ON, AB, BC, or NS Only)) ⚠️ — https://instacart.careers/job/?gh_jid=7896278
-- [ ] **Instacart** — Senior Technical Program Manager, Ads (United States - Remote) — https://instacart.careers/job/?gh_jid=7899355
-- [ ] **Instacart** — Senior Technical Program Manager, Enterprise (United States - Remote) — https://instacart.careers/job/?gh_jid=6932499
-- [ ] **Instacart** — Sr. Associate, Retail Go-To-Market Operations - Growth & Innovation (United States - Remote) — https://instacart.careers/job/?gh_jid=7909652
-- [ ] **Klaviyo** — Head of Business Operations (Boston, MA) — https://www.klaviyo.com/careers/jobs?gh_jid=7697003003
-- [ ] **Klaviyo** — Inbound Growth Specialist (Boston, MA) — https://www.klaviyo.com/careers/jobs?gh_jid=7685123003
-- [ ] **Klaviyo** — Lead Product Manager (Boston, MA) — https://www.klaviyo.com/careers/jobs?gh_jid=7532498003
-- [ ] **Klaviyo** — Lead Product Manager, Data Management (Boston, MA) — https://www.klaviyo.com/careers/jobs?gh_jid=7680736003
-- [ ] **Klaviyo** — Lead Product Manager, Groups Platform  (Boston, MA) — https://www.klaviyo.com/careers/jobs?gh_jid=7682351003
-- [ ] **Klaviyo** — Product Manager, Customer Hub (Boston, MA) — https://www.klaviyo.com/careers/jobs?gh_jid=7689425003
-- [ ] **Klaviyo** — Senior Lead Product Manager, Enterprise (San Francisco, CA) — https://www.klaviyo.com/careers/jobs?gh_jid=7702118003
-- [ ] **Klaviyo** — Senior Lead Program Manager, Technical Programs (Boston, MA) — https://www.klaviyo.com/careers/jobs?gh_jid=7453469003
-- [ ] **Klaviyo** — Senior Product Manager, Core Data (Boston, MA) — https://www.klaviyo.com/careers/jobs?gh_jid=7709683003
-- [ ] **Klaviyo** — Senior Product Manager, Platform Integrity (San Francisco, CA) — https://www.klaviyo.com/careers/jobs?gh_jid=7709709003
-- [ ] **Klaviyo** — Senior Product Manager, Profiles Platform (San Francisco, CA) — https://www.klaviyo.com/careers/jobs?gh_jid=7709909003
-- [ ] **Lyft** — Business Operations Manager (Nashville, TN) ⚠️ — https://app.careerpuck.com/job-board/lyft/job/8535144002?gh_jid=8535144002
-- [ ] **Lyft** — Global Equity Program Manager (San Francisco, CA) — https://app.careerpuck.com/job-board/lyft/job/8534527002?gh_jid=8534527002
-- [ ] **Lyft** — Group Product Manager II, Pricing (San Francisco, CA) — https://app.careerpuck.com/job-board/lyft/job/8490440002?gh_jid=8490440002
-- [ ] **Lyft** — Group Product Manager, Core Rider (San Francisco, CA) — https://app.careerpuck.com/job-board/lyft/job/8318645002?gh_jid=8318645002
-- [ ] **Lyft** — Group Product Manager, Verticals (San Francisco, CA) — https://app.careerpuck.com/job-board/lyft/job/8513755002?gh_jid=8513755002
-- [ ] **Lyft** — Manager, AV Strategy & Business Operations (New York, NY) — https://app.careerpuck.com/job-board/lyft/job/8538810002?gh_jid=8538810002
-- [ ] **Lyft** — Product Manager, Driver Experience (New York, NY) — https://app.careerpuck.com/job-board/lyft/job/8525086002?gh_jid=8525086002
-- [ ] **Lyft** — Product Manager, Matching & Fulfillment (Seattle, WA) — https://app.careerpuck.com/job-board/lyft/job/8430532002?gh_jid=8430532002
-- [ ] **Lyft** — Product Manager, Premium Modes (San Francisco, CA) — https://app.careerpuck.com/job-board/lyft/job/8514382002?gh_jid=8514382002
-- [ ] **Lyft** — Program Manager, Process Excellence & Standards (Nashville, TN) ⚠️ — https://app.careerpuck.com/job-board/lyft/job/8509124002?gh_jid=8509124002
-- [ ] **Lyft** — Program Manager, Technology Ops (Toronto, Canada) ⚠️ — https://app.careerpuck.com/job-board/lyft/job/8505117002?gh_jid=8505117002
-- [ ] **Lyft** — Senior Design Program Manager, Design Foundations & AI Transformation (New York, NY) — https://app.careerpuck.com/job-board/lyft/job/8504066002?gh_jid=8504066002
-- [ ] **Lyft** — Senior Product Manager - Autonomous Vehicles (AV)  (San Francisco, CA) — https://app.careerpuck.com/job-board/lyft/job/8514397002?gh_jid=8514397002
-- [ ] **Lyft** — Senior Program Manager, Autonomous Vehicles (San Francisco, CA) — https://app.careerpuck.com/job-board/lyft/job/8515875002?gh_jid=8515875002
-- [ ] **Lyft** — Senior Tech Ops Program Manager (Toronto, Canada) ⚠️ — https://app.careerpuck.com/job-board/lyft/job/8508202002?gh_jid=8508202002
-- [ ] **Lyft** — Senior Technical Program Manager, Product & Rider Loyalty (San Francisco, CA) — https://app.careerpuck.com/job-board/lyft/job/8433701002?gh_jid=8433701002
-- [ ] **Lyft** — Staff Product Manager, Lyft AI Platform & Marketplace Applications (San Francisco, CA) — https://app.careerpuck.com/job-board/lyft/job/8461144002?gh_jid=8461144002
-- [ ] **Lyft** — Staff Technical Program Manager, Mergers & Acquisition (San Francisco, CA) — https://app.careerpuck.com/job-board/lyft/job/8508873002?gh_jid=8508873002
-- [ ] **Rothy's** — Product Manager Lead, Front End (San Francisco) — https://jobs.ashbyhq.com/rothys/8777cfad-c763-4fbb-bfbe-ce0f1a0666d8
-- [ ] **StockX** — Director, Category Growth (General Manager) (Remote, USA) — https://job-boards.greenhouse.io/stockx/jobs/8420553002
-- [ ] **Whatnot** —  Product Manager, Logistics (San Francisco, CA) — https://jobs.ashbyhq.com/whatnot/a7b700fd-219e-47d7-b7fe-31cf9bc04f08
-- [ ] **Whatnot** — Business Operations Manager/Sr Manager (Los Angeles, CA) — https://jobs.ashbyhq.com/whatnot/3c505635-0d3c-4ab5-a2c7-3728f50d96c9
-- [ ] **Whatnot** — Business Operations Manager/Sr Manager - German or French Speaking (New York, NY) — https://jobs.ashbyhq.com/whatnot/2e1f9b0b-0ae0-4281-9a83-3a5703e2163a
-- [ ] **Whatnot** — Director, Strategy & Operations - Service Delivery (Los Angeles, CA) — https://jobs.ashbyhq.com/whatnot/bef7a5f0-7f7c-4b91-8133-5190b21def01
-- [ ] **Whatnot** — Product Manager, International Growth (New York, NY) — https://jobs.ashbyhq.com/whatnot/785be295-393c-4157-b8d2-cc45100ae566
-- [ ] **Whatnot** — Product Manager, Logistics (San Francisco, CA) — https://jobs.ashbyhq.com/whatnot/c8736c5e-a60e-43d5-b2c0-face8aa35458
-- [ ] **Whatnot** — Product Manager, Payments (San Francisco, CA) — https://jobs.ashbyhq.com/whatnot/56db3469-e6ec-495c-a2bf-e14eedd366af
-- [ ] **Whatnot** — Program Manager, Revenue Enablement (New York, NY) — https://jobs.ashbyhq.com/whatnot/1020c8a1-c35e-43b7-965d-70af55ff2657
-- [ ] **Whatnot** — Revenue Operations Manager, Compensation  (New York, NY) — https://jobs.ashbyhq.com/whatnot/cf5ce9e0-d595-46f8-981e-c7f95778e6fa
-- [ ] **Whatnot** — Strategy & Operations Associate, Commerce (San Francisco, CA) — https://jobs.ashbyhq.com/whatnot/d2967788-d773-467f-b442-9a4a957dd5a4
-- [ ] **Whatnot** — Strategy & Operations Manager/Senior Manager, Commerce (Los Angeles, CA) — https://jobs.ashbyhq.com/whatnot/ba354a49-a93b-4688-a106-4140b966421c
-- [ ] **Whatnot** — Strategy & Operations Senior Manager, Commerce (Los Angeles, CA) — https://jobs.ashbyhq.com/whatnot/f4f8f0a7-0a0e-45a4-93aa-33e957c97be9
-- [ ] **Whatnot** — Strategy & Operations Senior Manager, Logistics (Los Angeles, CA) — https://jobs.ashbyhq.com/whatnot/1aca28c6-c235-4e0f-ab22-935fbeaa7d30
+- [ ] **Celonis** — Strategy & Operations Manager (New York, US, New York) — https://job-boards.greenhouse.io/celonis/jobs/7741514003?gh_jid=7741514003
+- [ ] **Contentful** — Field Enablement Program Manager (San Francisco, California, United States) — https://job-boards.greenhouse.io/contentful/jobs/7493807
+- [ ] **Intercom** — Senior Sales Strategy & Operations Manager (San Francisco, California) — https://job-boards.greenhouse.io/intercom/jobs/7593439
+- [ ] **Later** — Director, Creator Growth (PLG) (Remote) ⚠️ — https://job-boards.greenhouse.io/later/jobs/8552402002
+- [ ] **Later** — Revenue Operations Manager - Customer Operations  (New York, New York, United States) — https://job-boards.greenhouse.io/later/jobs/8531614002
+- [ ] **Later** — VP, Creator Growth (SLG) (Remote) ⚠️ — https://job-boards.greenhouse.io/later/jobs/8552394002
+- [ ] **Scandit** — Program Manager, ML Data Operations (Poland) ⚠️ — https://www.scandit.com/careers/job-description/?gh_jid=7938301
 
-## enterprise (11)
+## eu-consumer (5)
 
-- [ ] **Amplemarket** — Senior Revenue Operations Manager (Remote, EMEA/US) ⚠️ — https://job-boards.eu.greenhouse.io/amplemarket/jobs/4650038101
-- [ ] **Clay Labs** — ClayDR Enablement Program Manager (New York) — https://jobs.ashbyhq.com/claylabs/13af486b-f105-443f-94f2-29206afb9a77
-- [ ] **Clay Labs** — Growth Strategist, Enterprise (Customer Success) (New York) — https://jobs.ashbyhq.com/claylabs/c605042d-1bd4-4e0d-aa82-d92a2abecb59
-- [ ] **Clay Labs** — Growth Strategist, Scale (Customer Success) (New York) — https://jobs.ashbyhq.com/claylabs/55694518-a6ac-4f46-8ec8-ffbf8ab39917
-- [ ] **Clay Labs** — Product Manager, Enrichment & AI (New York) — https://jobs.ashbyhq.com/claylabs/749a6373-0979-424a-abc9-9cfc511a5e44
-- [ ] **Clay Labs** — Technical Enablement Program Manager (New York) — https://jobs.ashbyhq.com/claylabs/494dd605-64a7-4647-bf86-cb1034f2327c
-- [ ] **Contentful** — Field Enablement Program Manager (Denver, Colorado, United States) — https://job-boards.greenhouse.io/contentful/jobs/7789210
-- [ ] **Contentful** — Senior RFP Program Manager (Denver, Colorado, United States) — https://job-boards.greenhouse.io/contentful/jobs/7759724
-- [ ] **Later** —  Revenue Operations Manager - Customer Operations  (Chicago, Illinois, United States) — https://job-boards.greenhouse.io/later/jobs/8531626002
-- [ ] **Later** — Revenue Operations Manager - Customer Operations  (Los Angeles, California, United States) — https://job-boards.greenhouse.io/later/jobs/8531619002
-- [ ] **Later** — VP, Revenue Operations (Remote) ⚠️ — https://job-boards.greenhouse.io/later/jobs/8534752002
+- [ ] **HelloFresh** — Staff Tech Business Operations Manager (Warszawa, Masovian Voivodeship, Poland) ⚠️ — https://careers.hellofresh.com/global/en/job/7920651?gh_jid=7920651
+- [ ] **Spotify** — Manager, Growth Creative Strategy & Optimization - Markets & Subscribers (New York, NY) — https://jobs.lever.co/spotify/7d4e94b7-ca5f-41a0-9222-5d6bb24e4950
+- [ ] **Spotify** — Senior Product Manager - Advertising (New York, NY) — https://jobs.lever.co/spotify/008e0a44-088b-48f2-b100-cce07e40a45b
+- [ ] **SumUp** — Senior Technical Product Manager (Sofia, Bulgaria) ⚠️ — https://sumup.com/careers/positions/8558272002?gh_jid=8558272002
+- [ ] **SumUp** — Technical Product Manager - Platform (Boulder, Colorado, United States) — https://sumup.com/careers/positions/8555715002?gh_jid=8555715002
 
-## eu-consumer (17)
+## fintech (27)
 
-- [ ] **HelloFresh** — [US-HQ] Growth Manager (New York, NY, United States) — https://careers.hellofresh.com/global/en/job/7843220?gh_jid=7843220
-- [ ] **HelloFresh** — Growth Analytics Manager, Factor US (New York, NY, United States) — https://careers.hellofresh.com/global/en/job/7614088?gh_jid=7614088
-- [ ] **HelloFresh** — Senior Localization Program Manager  (Warszawa, Masovian Voivodeship, Poland) ⚠️ — https://careers.hellofresh.com/global/en/job/7857572?gh_jid=7857572
-- [ ] **HelloFresh** — Senior Product Manager II, Personalisation & Data (Warszawa, Masovian Voivodeship, Poland) ⚠️ — https://careers.hellofresh.com/global/en/job/7824418?gh_jid=7824418
-- [ ] **HelloFresh** — Staff Product Analyst, Growth  (Toronto, Ontario, Canada) ⚠️ — https://careers.hellofresh.com/global/en/job/7539972?gh_jid=7539972
-- [ ] **HelloFresh** — Staff Product Manager, Growth  (New York, NY, United States) — https://careers.hellofresh.com/global/en/job/7594595?gh_jid=7594595
-- [ ] **Palantir** — Technical Program Manager (TPM) (New York, NY) — https://jobs.lever.co/palantir/7eb0dedb-37ee-4175-b29f-10a9e4340076
-- [ ] **Palantir** — Technical Program Manager (TPM) - Defense (Washington, D.C.) — https://jobs.lever.co/palantir/bd16f7ad-3bee-48fd-9902-b3ee9698b608
-- [ ] **Spotify** — Principal Product Manager, Experience (New York, NY) — https://jobs.lever.co/spotify/f38133ce-c2d7-4473-ab69-6bdcb1703297
-- [ ] **Spotify** — Product Manager - Artist Promotion (New York, NY) — https://jobs.lever.co/spotify/a4a933ce-ab44-4a13-b8ca-8575c97ea40a
-- [ ] **Spotify** — Revenue Operations Analyst (New York, NY) — https://jobs.lever.co/spotify/6a026d34-6314-4090-b7b7-b528049d9088
-- [ ] **Spotify** — Senior Program Analyst, Revenue Growth (New York, NY) — https://jobs.lever.co/spotify/ca78242e-f174-4c52-a630-960ca4bf24c3
-- [ ] **SumUp** — Growth Account Manager (Denver, Colorado, United States) — https://sumup.com/careers/positions/8496755002?gh_jid=8496755002
-- [ ] **SumUp** — Product Manager - Acquiring (Sofia, Bulgaria) ⚠️ — https://sumup.com/careers/positions/8343371002?gh_jid=8343371002
-- [ ] **SumUp** — Senior Product Manager - Acquiring (Sofia, Bulgaria) ⚠️ — https://sumup.com/careers/positions/8313095002?gh_jid=8313095002
-- [ ] **SumUp** — Senior Product Manager - Bookings (Warsaw, Poland) ⚠️ — https://sumup.com/careers/positions/8458928002?gh_jid=8458928002
-- [ ] **Trade Republic** — Product Growth Manager (Headquarter) ⚠️ — https://traderepublic.com/en-de/about?jobId=7323003003&gh_jid=7323003003
+- [ ] **Affirm** — Revenue Operations Lead (Remote Canada) ⚠️ — https://job-boards.greenhouse.io/affirm/jobs/7686483003
+- [ ] **Affirm** — Senior Partner Growth Manager (Remote Canada) ⚠️ — https://job-boards.greenhouse.io/affirm/jobs/7721485003
+- [ ] **Affirm** — Senior Product Manager, Card Experience (Remote Canada) ⚠️ — https://job-boards.greenhouse.io/affirm/jobs/7620529003
+- [ ] **Affirm** — Senior Product Manager, Financial Reporting (Remote Canada) ⚠️ — https://job-boards.greenhouse.io/affirm/jobs/7605852003
+- [ ] **Affirm** — Staff Product Manager, Affirm Bank (Remote US) ⚠️ — https://job-boards.greenhouse.io/affirm/jobs/7694938003
+- [ ] **Affirm** — Staff Technical Program Manager (Remote Canada) ⚠️ — https://job-boards.greenhouse.io/affirm/jobs/7728591003
+- [ ] **Alloy** — Strategic Operations Manager, Technical Solutions (New York City) — https://www.alloy.com/about/jobs/detail?gh_jid=8545516002&gh_jid=8545516002
+- [ ] **Brex** — Director of Product, Growth/AI (Seattle, Washington, United States) — https://www.brex.com/careers/8433470002?gh_jid=8433470002
+- [ ] **Brex** — Director, Organic Growth & Discoverability (New York, New York, United States) — https://www.brex.com/careers/8522919002?gh_jid=8522919002
+- [ ] **Brex** — Group Product Manager (Vancouver, British Columbia, Canada) ⚠️ — https://www.brex.com/careers/8438584002?gh_jid=8438584002
+- [ ] **Brex** — Staff Product Manager (New York, New York, United States) — https://www.brex.com/careers/8432702002?gh_jid=8432702002
+- [ ] **Brex** — Staff Product Manager, Growth (New York, New York, United States) — https://www.brex.com/careers/8436528002?gh_jid=8436528002
+- [ ] **Chime** — Program Manager, Performance Effectiveness (Remote, USA) — https://boards.greenhouse.io/chime/jobs/8535236002?gh_jid=8535236002
+- [ ] **Chime** — Senior Director, Strategy and Growth Initiatives (San Francisco, CA, USA) — https://boards.greenhouse.io/chime/jobs/8529549002?gh_jid=8529549002
+- [ ] **Lemonade** — Senior Payments Product Manager (EU) ⚠️ — https://jobs.ashbyhq.com/lemonade/74713283-1d7b-4701-8785-3130ad3ae695
+- [ ] **Ramp** — Technical Program Manager (New York, NY (HQ)) — https://jobs.ashbyhq.com/ramp/1db75064-e38c-4b21-8310-21471943d0be
+- [ ] **Stripe** — Commercial Solutions Program Manager (Chicago, IL , Remote) — https://stripe.com/jobs/search?gh_jid=7206336
+- [ ] **Stripe** — Product Lead, Support Experience (Seattle, Washington, United States) — https://stripe.com/jobs/search?gh_jid=7869917
+- [ ] **Stripe** — Product Manager, Growth AI Outreach Motion  (Toronto, Remote- Canada) ⚠️ — https://stripe.com/jobs/search?gh_jid=7809139
+- [ ] **Stripe** — Product Manager, Sail Core (Toronto) ⚠️ — https://stripe.com/jobs/search?gh_jid=7913698
+- [ ] **Stripe** — Product Manager, Support Experience (Seattle, Washington, United States) — https://stripe.com/jobs/search?gh_jid=7920028
+- [ ] **Stripe** — Program Manager, Go To Market (SF) ⚠️ — https://stripe.com/jobs/search?gh_jid=7922532
+- [ ] **Stripe** — Program Manager, GTM Strategic Programs (San Francisco, Seattle, NYC) — https://stripe.com/jobs/search?gh_jid=7915142
+- [ ] **Stripe** — Program Manager, Security Business Enablement (US - Remote) ⚠️ — https://stripe.com/jobs/search?gh_jid=7917252
+- [ ] **Stripe** — Program Manager, Third Party Risk (SF, SEA, CHI, NYC, ATL) ⚠️ — https://stripe.com/jobs/search?gh_jid=7559403
+- [ ] **Stripe** — Staff Product Manager, Dashboard (San Francisco, Seattle, NYC, Chicago, Atlanta, US Remote) — https://stripe.com/jobs/search?gh_jid=7913702
+- [ ] **Stripe** — Staff Product Manager, Support Experience (San Francisco, California, United States) — https://stripe.com/jobs/search?gh_jid=7920219
 
-## fintech (88)
+## robotics (1)
 
-- [ ] **Affirm** — Partner Growth Manager (Remote US) ⚠️ — https://job-boards.greenhouse.io/affirm/jobs/7589306003
-- [ ] **Affirm** — Revenue Operations Lead (Remote US) ⚠️ — https://job-boards.greenhouse.io/affirm/jobs/7686481003
-- [ ] **Affirm** — Senior Partner Growth Manager (Remote US) ⚠️ — https://job-boards.greenhouse.io/affirm/jobs/7721483003
-- [ ] **Affirm** — Senior Product Manager, Card Experience (Remote US) ⚠️ — https://job-boards.greenhouse.io/affirm/jobs/7620527003
-- [ ] **Affirm** — Senior Product Manager, Financial Reporting (Remote US) ⚠️ — https://job-boards.greenhouse.io/affirm/jobs/7605850003
-- [ ] **Anrok** — Product Manager, Activation (San Francisco) — https://jobs.ashbyhq.com/anrok/0fa3583c-7b21-48f4-b162-6c9a30761f30
-- [ ] **Anrok** — Product Manager, Connectivity (San Francisco) — https://jobs.ashbyhq.com/anrok/0f1415f0-eeb6-4232-a731-ad0b84c0d197
-- [ ] **Brex** — Director of Product, Growth/AI (New York, New York, United States) — https://www.brex.com/careers/8433461002?gh_jid=8433461002
-- [ ] **Brex** — Director, Organic Growth & Discoverability (San Francisco, California, United States) — https://www.brex.com/careers/8522876002?gh_jid=8522876002
-- [ ] **Brex** — Group Product Manager (New York, New York, United States) — https://www.brex.com/careers/8438581002?gh_jid=8438581002
-- [ ] **Brex** — Revenue Operations Analyst (New York, New York, United States) — https://www.brex.com/careers/8530763002?gh_jid=8530763002
-- [ ] **Brex** — Staff Product Manager (Seattle, Washington, United States) — https://www.brex.com/careers/8432703002?gh_jid=8432703002
-- [ ] **Brex** — Staff Product Manager, Growth (Seattle, Washington, United States) — https://www.brex.com/careers/8436530002?gh_jid=8436530002
-- [ ] **Chime** — Lead, Strategic Operations (San Francisco, CA, USA) — https://boards.greenhouse.io/chime/jobs/8508509002?gh_jid=8508509002
-- [ ] **Chime** — Principal People Strategy & Program Manager (San Francisco, CA, USA) — https://boards.greenhouse.io/chime/jobs/8510354002?gh_jid=8510354002
-- [ ] **Chime** — Product Manager, AI & App Experience (San Francisco, CA, USA) — https://boards.greenhouse.io/chime/jobs/8530421002?gh_jid=8530421002
-- [ ] **Chime** — Product Manager, Data Platform (San Francisco, CA, USA) — https://boards.greenhouse.io/chime/jobs/8382253002?gh_jid=8382253002
-- [ ] **Chime** — Product Manager, MyPay (San Francisco, CA, USA) — https://boards.greenhouse.io/chime/jobs/8530438002?gh_jid=8530438002
-- [ ] **Chime** — Product Manager, Trust & Safety (San Francisco, CA, USA) — https://boards.greenhouse.io/chime/jobs/8530184002?gh_jid=8530184002
-- [ ] **Chime** — Senior Program Manager (Remote, USA) — https://boards.greenhouse.io/chime/jobs/8476380002?gh_jid=8476380002
-- [ ] **Lemonade** — Associate Insurance Product Manager, Pet (Remote) ⚠️ — https://jobs.ashbyhq.com/lemonade/99dc3319-679a-4be5-9282-6b9aa41c8a2d
-- [ ] **Lemonade** — Insurance Product Manager, Car (Remote) ⚠️ — https://jobs.ashbyhq.com/lemonade/8e911c39-caae-43d2-8908-d579a2739a0e
-- [ ] **Lemonade** — Senior Growth Product Manager (TLV) ⚠️ — https://jobs.ashbyhq.com/lemonade/281cd6fa-b2c5-4579-946d-6ef20755d438
-- [ ] **Lemonade** — Senior Manager, Claims Vendor Strategy & Operations (Remote) ⚠️ — https://jobs.ashbyhq.com/lemonade/277fbb97-5755-4baa-9dd7-55877fcf94f3
-- [ ] **Lemonade** — Senior Product Manager - Claims Experience (TLV) ⚠️ — https://jobs.ashbyhq.com/lemonade/fa5d18a4-f425-4e88-8d9c-340f3bb32a8f
-- [ ] **Lemonade** — Senior Product Manager, Partners Experience (TLV) ⚠️ — https://jobs.ashbyhq.com/lemonade/b6ec5919-0ccf-488f-8b07-acc5ed98c79f
-- [ ] **Lemonade** — Senior Product Manager, Pet Claims Experience (TLV) ⚠️ — https://jobs.ashbyhq.com/lemonade/48624439-f146-49dc-bb57-05b7d7731c03
-- [ ] **Lemonade** — Staff Platform Product Manager (TLV) ⚠️ — https://jobs.ashbyhq.com/lemonade/fcd117f2-55d7-459a-a441-0cc6e8ec114e
-- [ ] **Lemonade** — Staff Product Manager, Europe Market Expansion (EU) ⚠️ — https://jobs.ashbyhq.com/lemonade/e2a63789-0120-4986-ba56-82b7dd9b66b7
-- [ ] **Plaid** — Business Operations (New York City Office) — https://jobs.ashbyhq.com/plaid/f58ef4f3-12d0-4cbf-8914-08439e6d36c0
-- [ ] **Plaid** — FinOps Program Manager (San Francisco HQ) — https://jobs.ashbyhq.com/plaid/5159cfbb-a402-4ad3-8762-07cd81a5c3c2
-- [ ] **Plaid** — Integration Operations Program Manager (San Francisco HQ) — https://jobs.ashbyhq.com/plaid/15f90e4b-7653-46d5-9479-d23ac4047e71
-- [ ] **Plaid** — Product Lead - Account Verification (San Francisco HQ) — https://jobs.ashbyhq.com/plaid/0fa4649a-dae2-4c13-ae70-8e93ce221152
-- [ ] **Plaid** — Product Lead - Growth (San Francisco HQ) — https://jobs.ashbyhq.com/plaid/0661cdab-9bc9-4614-8d2f-8f38ba4f0ec3
-- [ ] **Plaid** — Product Manager (San Francisco) — https://jobs.ashbyhq.com/plaid/64642463-8ee8-4453-b166-449711f61cd0
-- [ ] **Plaid** — Senior Product Manager (San Francisco) — https://jobs.ashbyhq.com/plaid/94ecbba3-660c-4604-a4f5-071f5c2c74d8
-- [ ] **Plaid** — Staff Product Manager - AI Foundations (San Francisco HQ) — https://jobs.ashbyhq.com/plaid/8b81429d-f0e8-4b84-9f71-d25405e63d71
-- [ ] **Plaid** — Staff Product Manager - Fraud (San Francisco) — https://jobs.ashbyhq.com/plaid/779a5b90-8630-472a-b819-3710486ef7e9
-- [ ] **Pylon** — Senior Product Manager (New York, NY) — https://jobs.ashbyhq.com/pylon/03572ab3-63c0-4979-b099-044e01ff292a
-- [ ] **Ramp** — Channel Partner Manager | Venture Capital & Growth Equity (New York, NY (HQ)) — https://jobs.ashbyhq.com/ramp/3ce8d76b-0cfb-4dd5-b36b-de22c4bd85e9
-- [ ] **Ramp** — Growth Manager, Website CRO (New York, NY (HQ)) — https://jobs.ashbyhq.com/ramp/8e91631a-7e69-4d76-a73b-de2f09d7de9f
-- [ ] **Ramp** — Manager, Partner Success Strategy & Operations (San Francisco, CA) — https://jobs.ashbyhq.com/ramp/28babcd7-1da5-434d-8e87-deb7b5809a43
-- [ ] **Ramp** — Product Manager | Generalist (All Levels) (New York, NY (HQ)) — https://jobs.ashbyhq.com/ramp/9972df9e-4133-4e2c-9305-49c285b76506
-- [ ] **Ramp** — Product Manager | International (New York, NY (HQ)) — https://jobs.ashbyhq.com/ramp/8baec095-2235-41ab-ab64-9abc57823b4b
-- [ ] **Ramp** — Senior Channel Partner Manager | Venture Capital & Growth Equity (New York, NY (HQ)) — https://jobs.ashbyhq.com/ramp/8db155ca-7e13-4eed-9813-1b6b65d66158
-- [ ] **Ramp** — Senior Manager, Business Operations - Talent (New York, NY (HQ)) — https://jobs.ashbyhq.com/ramp/bdd28c40-f95b-43df-bebe-3b8a25c8f602
-- [ ] **Ramp** — Senior Security Program Manager | Public Sector (New York, NY (HQ)) — https://jobs.ashbyhq.com/ramp/8beb1735-ded2-4067-b982-fb0faed9038e
-- [ ] **Stripe** — Collections Program Manager (US-NYC) ⚠️ — https://stripe.com/jobs/search?gh_jid=7815794
-- [ ] **Stripe** — Competitive Program Manager (United States) — https://stripe.com/jobs/search?gh_jid=7644883
-- [ ] **Stripe** — Data Science Manager, Growth (Seattle, WA OR New York, NY OR Remote North America) — https://stripe.com/jobs/search?gh_jid=7440963
-- [ ] **Stripe** — Design Program Manager, AI (US) ⚠️ — https://stripe.com/jobs/search?gh_jid=7868564
-- [ ] **Stripe** — Finance & Strategy Lead, Growth (Seattle, San Francisco, New York ) — https://stripe.com/jobs/search?gh_jid=7896349
-- [ ] **Stripe** — Head of Revenue and Growth, Canada (Toronto, Canada) ⚠️ — https://stripe.com/jobs/search?gh_jid=7826843
-- [ ] **Stripe** — Head of Sales - Large Enterprise, Growth (New York City, NY) — https://stripe.com/jobs/search?gh_jid=7813129
-- [ ] **Stripe** — Operations Program Manager, Managed Operations (New York, NY) — https://stripe.com/jobs/search?gh_jid=7812209
-- [ ] **Stripe** — Product Lead, AI (San Francisco, Seattle, New York, Chicago) — https://stripe.com/jobs/search?gh_jid=7655023
-- [ ] **Stripe** — Product Manager IC-02 (San Francisco, CA) — https://stripe.com/jobs/search?gh_jid=7812346
-- [ ] **Stripe** — Product Manager, Banking as a Service (Chicago / Remote) — https://stripe.com/jobs/search?gh_jid=7561053
-- [ ] **Stripe** — Product Manager, Commerce Systems (SF, SEA, NYC, US - Remote) ⚠️ — https://stripe.com/jobs/search?gh_jid=7561551
-- [ ] **Stripe** — Product Manager, Link Consumer Product (SF, SEA, NY, Remote-US) ⚠️ — https://stripe.com/jobs/search?gh_jid=7392697
-- [ ] **Stripe** — Product Manager, Payments (SF, NY, SEA, Remote-US) ⚠️ — https://stripe.com/jobs/search?gh_jid=7176530
-- [ ] **Stripe** — Product Manager, Payments Intelligence (US) ⚠️ — https://stripe.com/jobs/search?gh_jid=7580706
-- [ ] **Stripe** — Product Manager, Startup Products (NYC) ⚠️ — https://stripe.com/jobs/search?gh_jid=7901987
-- [ ] **Stripe** — Product Manager, Stripe Infrastructure (Remote in the US) ⚠️ — https://stripe.com/jobs/search?gh_jid=6651889
-- [ ] **Stripe** — Product Manager, Terminal - Unified Commerce (Toronto) ⚠️ — https://stripe.com/jobs/search?gh_jid=6683456
-- [ ] **Stripe** — Product Manager, Terminal Device Expansion (Seattle, San Francisco, New York) — https://stripe.com/jobs/search?gh_jid=7397265
-- [ ] **Stripe** — Program Manager, Card Network Office (CNO)  (USA - San Francisco, Seattle, New York (office) or remote) — https://stripe.com/jobs/search?gh_jid=7061338
-- [ ] **Stripe** — Program Manager, Enterprise Servicing  (U.S. ) ⚠️ — https://stripe.com/jobs/search?gh_jid=7467934
-- [ ] **Stripe** — Program Manager, GTM Planning (US-Chicago, US-Remote) — https://stripe.com/jobs/search?gh_jid=7656504
-- [ ] **Stripe** — Program Manager, Intake & Portfolio Management (Remote) ⚠️ — https://stripe.com/jobs/search?gh_jid=7569678
-- [ ] **Stripe** — Program Manager, People Operations Strategy (US-Remote, US-National, Toronto) — https://stripe.com/jobs/search?gh_jid=7089901
-- [ ] **Stripe** — Program Manager, Risk Ops Enablement (US-Remote) — https://stripe.com/jobs/search?gh_jid=7214197
-- [ ] **Stripe** — Regulatory Reporting Program Manager, Stablecoin (SEA, SF) ⚠️ — https://stripe.com/jobs/search?gh_jid=7650177
-- [ ] **Stripe** — Staff Product Manager, Enterprise (Industries)  (San Francisco, Seattle, New York, Chicago, Atlanta, Remote) — https://stripe.com/jobs/search?gh_jid=7812856
-- [ ] **Stripe** — Staff Product Manager, Payments (SF, SEA, NYC, Remote) ⚠️ — https://stripe.com/jobs/search?gh_jid=7819059
-- [ ] **Stripe** — Strategic Business Performance, Central Strategy & Operations (San Francisco, Seattle, Chicago, US-remote, New York) — https://stripe.com/jobs/search?gh_jid=5956528
-- [ ] **Stripe** — Strategic Program Manager, Support (Remote, US) — https://stripe.com/jobs/search?gh_jid=7822560
-- [ ] **Stripe** — Strategy & Operations Analyst, Customer Success (Chicago ) — https://stripe.com/jobs/search?gh_jid=7397878
-- [ ] **Stripe** — Technical Program Manager,  Extensibility Programs (Remote in the US, Chicago, Atlanta) — https://stripe.com/jobs/search?gh_jid=7778643
-- [ ] **Stripe** — Technical Program Manager,  Identity and Access Management Programs (Remote in the US, Chicago, Atlanta) — https://stripe.com/jobs/search?gh_jid=7417090
-- [ ] **Stripe** — Technical Program Manager, Extensibility Programs (Toronto) ⚠️ — https://stripe.com/jobs/search?gh_jid=7749540
-- [ ] **Stripe** — Technical Program Manager, Internal Systems (US Remote) ⚠️ — https://stripe.com/jobs/search?gh_jid=7680365
-- [ ] **Stripe** — Technical Program Manager, Payments Experiences (Chicago, Remote in the US) — https://stripe.com/jobs/search?gh_jid=6932491
-- [ ] **Stripe** — Technical Program Manager, Risk (US Remote) ⚠️ — https://stripe.com/jobs/search?gh_jid=7685855
-- [ ] **Upstart** — Principal Product Manager, Agentic Platform (United States | Remote) — https://careers.upstart.com/jobs?gh_jid=7729689
-- [ ] **Upstart** — Principal Product Manager, Engagement  (United States | Remote) — https://careers.upstart.com/jobs?gh_jid=7453263
-- [ ] **Upstart** — Principal Product Manager, Pricing Platform (United States | Remote) — https://careers.upstart.com/jobs?gh_jid=7843720
-- [ ] **Upstart** — Principal Technical Program Manager (United States | Remote) — https://careers.upstart.com/jobs?gh_jid=7843512
+- [ ] **Wayve** — Supply Chain Program Manager (Sunnyvale) ⚠️ — https://wayve.firststage.co/jobs?gh_jid=8545642002
 
-## robotics (4)
+## voice-ai (5)
 
-- [ ] **Causaly** — RevOps Manager (New York) — https://jobs.ashbyhq.com/causaly/3937cb5a-b757-468e-8d5e-d6344c21b626
-- [ ] **Safari AI** — GTM and Business Operations Lead (Miami) — https://job-boards.greenhouse.io/safariai/jobs/5019966007
-- [ ] **Wayve** — Customer Program Manager (Japan) ⚠️ — https://wayve.firststage.co/jobs?gh_jid=8515998002
-- [ ] **Wayve** — Material Program Manager (Japan) ⚠️ — https://wayve.firststage.co/jobs?gh_jid=8480867002
-
-## saas (9)
-
-- [ ] **Airtable** — Product Manager, Funnel & Activation (San Francisco, CA) — https://job-boards.greenhouse.io/airtable/jobs/8475571002
-- [ ] **Klue** — Revenue Operations Manager (Vancouver, British Columbia) ⚠️ — https://jobs.ashbyhq.com/klue/b0f9b2d6-9e3e-4f07-8f1d-2720a8ce2811
-- [ ] **Lovable** — Finance & BizOps, Strategic Partnerships (San Francisco ) — https://jobs.ashbyhq.com/lovable/30887380-e180-4e2d-a239-00995ca84fcf
-- [ ] **Pigment** — Program Manager, GTM Enablement (Toronto) ⚠️ — https://jobs.lever.co/pigment/5a1b4da5-a1c9-45ea-af96-f4ab188d8762
-- [ ] **Supabase** — Product Manager - Pricing & Billing (Remote) ⚠️ — https://jobs.ashbyhq.com/supabase/47282e37-34dc-401d-a1cd-dbe85fdd1c22
-- [ ] **Supabase** — Product Manager - Security & Trust (EMEA/AMER) (AMER) ⚠️ — https://jobs.ashbyhq.com/supabase/b8010a28-109c-46a9-b8b7-c7f9b24077fa
-- [ ] **Vercel** — Partner Manager, Growth (Hybrid - San Francisco, New York City, Austin) — https://job-boards.greenhouse.io/vercel/jobs/5832337004
-- [ ] **Vercel** — Pricing Product Manager (Hybrid - San Francisco) — https://job-boards.greenhouse.io/vercel/jobs/5979660004
-- [ ] **WorkOS** — Product Manager (United States) — https://jobs.ashbyhq.com/workos/5550ddd5-c3eb-459a-aa4d-8b1216346d88
-
-## voice-ai (9)
-
-- [ ] **Bland AI** — Growth Coordinator (San Francisco) — https://jobs.ashbyhq.com/bland/cf147bb8-4bb1-4bd7-92e0-4f183ee2daa1
-- [ ] **Deepgram** — Revenue Operations Analyst (USA | Remote) — https://jobs.ashbyhq.com/deepgram/0cad835e-c581-4735-8e8f-b9f1f7107b10
-- [ ] **Deepgram** — Technical Program Manager, Research (USA | Remote) — https://jobs.ashbyhq.com/deepgram/69d7f329-968a-4c9d-a0b4-972f83f1206c
-- [ ] **ElevenLabs** — Growth Content Writer (United States) — https://jobs.ashbyhq.com/elevenlabs/6991ab1a-76e9-4f2a-90a8-085452d049f7
-- [ ] **ElevenLabs** — Growth Generalist (United Kingdom) ⚠️ — https://jobs.ashbyhq.com/elevenlabs/19d9a7a0-10d9-41d8-b515-a61f1d85f186
-- [ ] **Hume AI** — Product Manager, Growth (NYC, San Jose, or Remote) ⚠️ — https://job-boards.greenhouse.io/humeai/jobs/4856037008
-- [ ] **Speechmatics** — Senior Product Manager (Cambridge, England, United Kingdom) ⚠️ — https://job-boards.eu.greenhouse.io/speechmatics/jobs/4675075101
-- [ ] **Vapi** — Head of Revenue Operations (San Francisco) — https://jobs.ashbyhq.com/vapi/7163c962-7710-4437-b7b5-2ea949f01754
-- [ ] **Vapi** — Product Manager - Enterprise & Governance Agents (San Francisco) — https://jobs.ashbyhq.com/vapi/6d2c731b-64be-45cc-87c8-f6330d29b7f4
+- [ ] **ElevenLabs** — Creator Community Growth (United States) — https://jobs.ashbyhq.com/elevenlabs/02c054a0-ef9d-4f38-b44b-ad943955aab6
+- [ ] **ElevenLabs** — Executive Assistant to Growth Lead (United States) — https://jobs.ashbyhq.com/elevenlabs/55715739-fd15-47e3-a2be-2a6acb6d837a
+- [ ] **ElevenLabs** — Impact Strategy & Operations (United States) — https://jobs.ashbyhq.com/elevenlabs/3b517d94-7ecc-41ba-b49f-71c0671b27f7
+- [ ] **ElevenLabs** — Mobile Growth Manager (United States) — https://jobs.ashbyhq.com/elevenlabs/09d54604-b5eb-498e-9868-e52b25967a66
+- [ ] **PolyAI** — Partner & GTM Enablement Program Manager (United States) — https://job-boards.eu.greenhouse.io/polyai/jobs/4874048101

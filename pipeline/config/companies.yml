@@ -204,15 +204,15 @@ companies:
     sector: asset-mgmt
     ats: workday
     careers_url: https://careers.statestreet.com
-    api: unknown
-    enabled: false
+    api: https://statestreet.wd1.myworkdayjobs.com/wday/cxs/statestreet/Global/jobs
+    enabled: true
 
   - name: T. Rowe Price
     sector: asset-mgmt
     ats: workday
     careers_url: https://www.troweprice.com/careers
-    api: unknown
-    enabled: false
+    api: https://troweprice.wd5.myworkdayjobs.com/wday/cxs/troweprice/TROWEPRICE/jobs
+    enabled: true
 
   - name: Charles Schwab
     sector: asset-mgmt
@@ -230,10 +230,10 @@ companies:
 
   - name: AQR
     sector: asset-mgmt
-    ats: workday
+    ats: greenhouse
     careers_url: https://www.aqr.com/Careers
-    api: unknown
-    enabled: false
+    api: https://boards-api.greenhouse.io/v1/boards/aqr/jobs
+    enabled: true
 
   - name: Two Sigma
     sector: asset-mgmt
