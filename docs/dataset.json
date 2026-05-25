@@ -1,84 +1,539 @@
 {
+  "generatedAt": "2026-05-25T04:43:31.185Z",
+  "totalCompanies": 86,
+  "totalRoles": 557,
   "topCompanies": [
     {
+      "slug": "doordash",
       "name": "DoorDash",
       "count": 72
     },
     {
+      "slug": "stripe",
       "name": "Stripe",
       "count": 47
     },
     {
+      "slug": "sofi",
       "name": "SoFi",
       "count": 26
     },
     {
+      "slug": "anthropic",
       "name": "Anthropic",
       "count": 24
     },
     {
+      "slug": "lyft",
       "name": "Lyft",
       "count": 21
     },
     {
-      "name": "Scale AI",
-      "count": 17
-    },
-    {
+      "slug": "airbnb",
       "name": "Airbnb",
       "count": 17
     },
     {
+      "slug": "scale-ai",
+      "name": "Scale AI",
+      "count": 17
+    },
+    {
+      "slug": "instacart",
       "name": "Instacart",
       "count": 16
     },
     {
+      "slug": "harvey",
       "name": "Harvey",
       "count": 14
     },
     {
+      "slug": "klaviyo",
       "name": "Klaviyo",
       "count": 13
     },
     {
+      "slug": "whatnot",
       "name": "Whatnot",
       "count": 13
     },
     {
+      "slug": "state-street",
       "name": "State Street",
       "count": 12
     },
     {
+      "slug": "sierra",
       "name": "Sierra",
       "count": 11
     },
     {
+      "slug": "decagon",
       "name": "Decagon",
       "count": 10
     },
     {
-      "name": "Lemonade",
-      "count": 10
-    },
-    {
+      "slug": "faire",
       "name": "Faire",
       "count": 10
     },
     {
+      "slug": "lemonade",
+      "name": "Lemonade",
+      "count": 10
+    },
+    {
+      "slug": "chime",
       "name": "Chime",
       "count": 9
     },
     {
+      "slug": "cohere",
       "name": "Cohere",
       "count": 9
     },
     {
+      "slug": "glean",
+      "name": "Glean",
+      "count": 9
+    },
+    {
+      "slug": "icapital",
+      "name": "iCapital",
+      "count": 9
+    }
+  ],
+  "allCompanies": [
+    {
+      "slug": "doordash",
+      "name": "DoorDash",
+      "count": 72
+    },
+    {
+      "slug": "stripe",
+      "name": "Stripe",
+      "count": 47
+    },
+    {
+      "slug": "sofi",
+      "name": "SoFi",
+      "count": 26
+    },
+    {
+      "slug": "anthropic",
+      "name": "Anthropic",
+      "count": 24
+    },
+    {
+      "slug": "lyft",
+      "name": "Lyft",
+      "count": 21
+    },
+    {
+      "slug": "airbnb",
+      "name": "Airbnb",
+      "count": 17
+    },
+    {
+      "slug": "scale-ai",
+      "name": "Scale AI",
+      "count": 17
+    },
+    {
+      "slug": "instacart",
+      "name": "Instacart",
+      "count": 16
+    },
+    {
+      "slug": "harvey",
+      "name": "Harvey",
+      "count": 14
+    },
+    {
+      "slug": "klaviyo",
+      "name": "Klaviyo",
+      "count": 13
+    },
+    {
+      "slug": "whatnot",
+      "name": "Whatnot",
+      "count": 13
+    },
+    {
+      "slug": "state-street",
+      "name": "State Street",
+      "count": 12
+    },
+    {
+      "slug": "sierra",
+      "name": "Sierra",
+      "count": 11
+    },
+    {
+      "slug": "decagon",
+      "name": "Decagon",
+      "count": 10
+    },
+    {
+      "slug": "faire",
+      "name": "Faire",
+      "count": 10
+    },
+    {
+      "slug": "lemonade",
+      "name": "Lemonade",
+      "count": 10
+    },
+    {
+      "slug": "chime",
+      "name": "Chime",
+      "count": 9
+    },
+    {
+      "slug": "cohere",
+      "name": "Cohere",
+      "count": 9
+    },
+    {
+      "slug": "glean",
+      "name": "Glean",
+      "count": 9
+    },
+    {
+      "slug": "icapital",
       "name": "iCapital",
       "count": 9
     },
     {
-      "name": "Glean",
+      "slug": "plaid",
+      "name": "Plaid",
       "count": 9
+    },
+    {
+      "slug": "ramp",
+      "name": "Ramp",
+      "count": 9
+    },
+    {
+      "slug": "affirm",
+      "name": "Affirm",
+      "count": 7
+    },
+    {
+      "slug": "hellofresh",
+      "name": "HelloFresh",
+      "count": 7
+    },
+    {
+      "slug": "notion",
+      "name": "Notion",
+      "count": 7
+    },
+    {
+      "slug": "robinhood",
+      "name": "Robinhood",
+      "count": 7
+    },
+    {
+      "slug": "asana",
+      "name": "Asana",
+      "count": 6
+    },
+    {
+      "slug": "brex",
+      "name": "Brex",
+      "count": 6
+    },
+    {
+      "slug": "elevenlabs",
+      "name": "ElevenLabs",
+      "count": 6
+    },
+    {
+      "slug": "figma",
+      "name": "Figma",
+      "count": 6
+    },
+    {
+      "slug": "spotify",
+      "name": "Spotify",
+      "count": 6
+    },
+    {
+      "slug": "sumup",
+      "name": "SumUp",
+      "count": 6
+    },
+    {
+      "slug": "addepar",
+      "name": "Addepar",
+      "count": 5
+    },
+    {
+      "slug": "clay-labs",
+      "name": "Clay",
+      "count": 5
+    },
+    {
+      "slug": "t-rowe-price",
+      "name": "T. Rowe Price",
+      "count": 5
+    },
+    {
+      "slug": "carta",
+      "name": "Carta",
+      "count": 4
+    },
+    {
+      "slug": "hightouch",
+      "name": "Hightouch",
+      "count": 4
+    },
+    {
+      "slug": "later",
+      "name": "Later",
+      "count": 4
+    },
+    {
+      "slug": "runpod",
+      "name": "RunPod",
+      "count": 4
+    },
+    {
+      "slug": "upstart",
+      "name": "Upstart",
+      "count": 4
+    },
+    {
+      "slug": "abridge",
+      "name": "Abridge",
+      "count": 3
+    },
+    {
+      "slug": "character-ai",
+      "name": "Character.AI",
+      "count": 3
+    },
+    {
+      "slug": "cursor",
+      "name": "Cursor",
+      "count": 3
+    },
+    {
+      "slug": "perplexity",
+      "name": "Perplexity",
+      "count": 3
+    },
+    {
+      "slug": "replit",
+      "name": "Replit",
+      "count": 3
+    },
+    {
+      "slug": "wayve",
+      "name": "Wayve",
+      "count": 3
+    },
+    {
+      "slug": "acorns",
+      "name": "Acorns",
+      "count": 2
+    },
+    {
+      "slug": "anrok",
+      "name": "Anrok",
+      "count": 2
+    },
+    {
+      "slug": "arize-ai",
+      "name": "Arize AI",
+      "count": 2
+    },
+    {
+      "slug": "betterment",
+      "name": "Betterment",
+      "count": 2
+    },
+    {
+      "slug": "boomi",
+      "name": "Boomi",
+      "count": 2
+    },
+    {
+      "slug": "contentful",
+      "name": "Contentful",
+      "count": 2
+    },
+    {
+      "slug": "deepgram",
+      "name": "Deepgram",
+      "count": 2
+    },
+    {
+      "slug": "langchain",
+      "name": "LangChain",
+      "count": 2
+    },
+    {
+      "slug": "linear",
+      "name": "Linear",
+      "count": 2
+    },
+    {
+      "slug": "palantir",
+      "name": "Palantir",
+      "count": 2
+    },
+    {
+      "slug": "supabase",
+      "name": "Supabase",
+      "count": 2
+    },
+    {
+      "slug": "vapi",
+      "name": "Vapi",
+      "count": 2
+    },
+    {
+      "slug": "vercel",
+      "name": "Vercel",
+      "count": 2
+    },
+    {
+      "slug": "airtable",
+      "name": "Airtable",
+      "count": 1
+    },
+    {
+      "slug": "aleph-alpha",
+      "name": "Aleph Alpha",
+      "count": 1
+    },
+    {
+      "slug": "alloy",
+      "name": "Alloy",
+      "count": 1
+    },
+    {
+      "slug": "amplemarket",
+      "name": "Amplemarket",
+      "count": 1
+    },
+    {
+      "slug": "bland-ai",
+      "name": "Bland AI",
+      "count": 1
+    },
+    {
+      "slug": "causaly",
+      "name": "Causaly",
+      "count": 1
+    },
+    {
+      "slug": "celonis",
+      "name": "Celonis",
+      "count": 1
+    },
+    {
+      "slug": "hume-ai",
+      "name": "Hume AI",
+      "count": 1
+    },
+    {
+      "slug": "intercom",
+      "name": "Intercom",
+      "count": 1
+    },
+    {
+      "slug": "klue",
+      "name": "Klue",
+      "count": 1
+    },
+    {
+      "slug": "lindy",
+      "name": "Lindy",
+      "count": 1
+    },
+    {
+      "slug": "lovable",
+      "name": "Lovable",
+      "count": 1
+    },
+    {
+      "slug": "mistral-ai",
+      "name": "Mistral AI",
+      "count": 1
+    },
+    {
+      "slug": "n8n",
+      "name": "n8n",
+      "count": 1
+    },
+    {
+      "slug": "pigment",
+      "name": "Pigment",
+      "count": 1
+    },
+    {
+      "slug": "pinecone",
+      "name": "Pinecone",
+      "count": 1
+    },
+    {
+      "slug": "polyai",
+      "name": "PolyAI",
+      "count": 1
+    },
+    {
+      "slug": "pylon",
+      "name": "Pylon",
+      "count": 1
+    },
+    {
+      "slug": "rothy-s",
+      "name": "Rothy's",
+      "count": 1
+    },
+    {
+      "slug": "safari-ai",
+      "name": "Safari AI",
+      "count": 1
+    },
+    {
+      "slug": "scandit",
+      "name": "Scandit",
+      "count": 1
+    },
+    {
+      "slug": "speechmatics",
+      "name": "Speechmatics",
+      "count": 1
+    },
+    {
+      "slug": "stash",
+      "name": "Stash",
+      "count": 1
+    },
+    {
+      "slug": "stockx",
+      "name": "StockX",
+      "count": 1
+    },
+    {
+      "slug": "synthesia",
+      "name": "Synthesia",
+      "count": 1
+    },
+    {
+      "slug": "trade-republic",
+      "name": "Trade Republic",
+      "count": 1
+    },
+    {
+      "slug": "workos",
+      "name": "WorkOS",
+      "count": 1
     }
   ],
   "archetypes": [
@@ -100,7 +555,7 @@
     {
       "name": "Generalist PM",
       "count": 67,
-      "pct": 12.0
+      "pct": 12
     },
     {
       "name": "AI Product Manager",
@@ -132,7 +587,5 @@
       "count": 8,
       "pct": 1.4
     }
-  ],
-  "totalCompanies": 86,
-  "totalRoles": 557
+  ]
 }

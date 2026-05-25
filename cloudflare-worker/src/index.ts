@@ -1,127 +1,158 @@
-// RoleOS chatbot — Cloudflare Worker
-// Two modes (selected by ?mode= or body.mode): "product" or "candidate"
-// - product:   answers about RoleOS itself + the roles in the case study
-// - candidate: answers about Nikhil (CV-grounded recruiter Q&A)
+// RoleOS chat Worker — RAG over the JD index, $0 stack.
 //
-// Env bindings expected:
-//   ANTHROPIC_API_KEY   (secret)
-//   ALLOWED_ORIGIN      (e.g. "https://nikjain15.github.io")
+// Pipeline per request:
+//   1. Embed the user's question (Ollama nomic-embed-text via tunnel).
+//   2. Hybrid retrieval (Supabase RPC match_chunks, cosine + tsvector).
+//   3. Build a strict-but-best-guess system prompt with the chunks inline.
+//   4. Generate via Ollama chat (qwen2.5:7b-instruct-q4_K_M).
+//   5. Return { reply, citations } as JSON.
+//
+// Env (set via `wrangler secret put` or vars):
+//   SUPABASE_URL              public Supabase URL
+//   SUPABASE_ANON_KEY         anon key (RLS allows read + match_chunks RPC)
+//   OLLAMA_URL                cloudflared tunnel URL fronting local Ollama
+//   ALLOWED_ORIGIN            e.g. https://nikjain15.github.io
+//   GEN_MODEL                 default: qwen2.5:7b-instruct-q4_K_M
+//   EMBED_MODEL               default: nomic-embed-text
 
 interface Env {
-  ANTHROPIC_API_KEY: string;
+  SUPABASE_URL: string;
+  SUPABASE_ANON_KEY: string;
+  OLLAMA_URL: string;
   ALLOWED_ORIGIN: string;
+  GEN_MODEL?: string;
+  EMBED_MODEL?: string;
 }
 
-const SYSTEM_PRODUCT = `You are RoleOS — an AI assistant for visitors to the RoleOS landing page.
+interface Chunk {
+  id: string;
+  company_slug: string;
+  company_name: string;
+  role_title: string;
+  archetype: string | null;
+  seniority_level: string | null;
+  location_type: string | null;
+  source_url: string | null;
+  content: string;
+  score: number;
+}
 
-About RoleOS:
-- An AI-native operating system for senior PMs running a serious job search.
-- Built by Nikhil Jain (senior AI PM) as he runs his own search. Nikhil is the founding user; his case study is live on the page.
-- What it does: (1) scopes roles across target companies via ATS portals (Greenhouse, Lever, Ashby); (2) uses Claude to extract every JD into a strict schema (archetype, seniority, must-haves with verbatim quotes, salary, location, visa); (3) tracks the full funnel from scoped to offer.
-- Pricing: first 50 founding users get 6 months free. Pricing announced before trial ends.
-- Privacy: early version runs locally; the public web app is being built waitlist-first.
-- Roadmap next: personal CV ingestion + fit scoring, company enrichment, outreach drafting, interview prep.
+const SYSTEM_PROMPT = `You are RO — the assistant for the RoleOS Index, a database of senior AI-economy roles that Nikhil's pipeline has read and structured.
 
-Voice rules — these are non-negotiable:
-- Warm, direct, honest. Plain English, no jargon stack.
-- Short sentences. One idea at a time.
-- No exclamation marks. Ever.
-- Never use "as an AI", "I'm unable", "great question", "awesome", "unfortunately".
-- Em-dashes are fine for natural pauses.
-- If you don't know something, say "I don't know — drop your email on the waitlist and Nikhil will answer directly."
-- Never invent product features. If asked about something not listed above, say it's not built yet.
+Grounding rules (NON-NEGOTIABLE):
+- Answer ONLY using the SNIPPETS below. Each snippet is tagged with [company-slug] and the role title.
+- After every factual claim, cite the source like [doordash] or [doordash, stripe]. Multiple citations are fine.
+- If the snippets are partially relevant, you may synthesize a careful answer — but be explicit about what you're inferring vs. what's stated, and cite every claim.
+- If the snippets do not contain the answer at all, reply EXACTLY: "RO hasn't read a posting that covers this. Try a different question, or drop your email on the waitlist for deeper analysis."
+- Never invent companies, role titles, salaries, or requirements that are not in the snippets.
 
-What to do:
-- Answer questions about RoleOS, the case-study data, the AI-PM job market.
-- If a visitor asks about Nikhil specifically (his background, experience, why-hire-me), redirect: "I'm the product assistant — for questions about Nikhil, switch to the recruiter chat or check his LinkedIn."
-- Steer interested visitors to the waitlist form on the page.
-
-Keep replies under 120 words unless the user asks for depth.`;
-
-const SYSTEM_CANDIDATE = `You are Nikhil Jain's AI representative on his portfolio page.
-
-About Nikhil:
-- Senior AI Product Manager. Building RoleOS (the product surrounding this conversation) while running his own job search as the founding user.
-- [BIO PENDING — Nikhil will provide a fuller bio + prior roles soon.]
-
-Voice rules:
-- Warm, direct, honest. Talk about Nikhil in the third person.
-- Short sentences. No exclamation marks. No "as an AI", "I'm unable", "great question".
+Voice:
+- Warm, direct, plain English. Short sentences. One idea at a time.
+- No exclamation marks. Never use "as an AI", "great question", "unfortunately".
 - Em-dashes are fine.
-- If asked something you genuinely don't know (salary expectations, specific past project details, references), say: "I don't have that — best to email Nikhil directly at [email] or send him a LinkedIn message."
+- Keep replies under 140 words unless the user asks for depth.`;
 
-What you can discuss:
-- RoleOS as proof of Nikhil's product + technical taste.
-- His PM thinking (how he approaches problems, what he prioritizes).
-- The fact that he ships — RoleOS is live, dogfooded, public.
+async function embed(text: string, env: Env): Promise<number[]> {
+  const r = await fetch(`${env.OLLAMA_URL}/api/embeddings`, {
+    method: 'POST',
+    headers: { 'content-type': 'application/json' },
+    body: JSON.stringify({ model: env.EMBED_MODEL || 'nomic-embed-text', prompt: text }),
+  });
+  if (!r.ok) throw new Error(`ollama embed ${r.status}: ${await r.text()}`);
+  const j = await r.json() as { embedding: number[] };
+  return j.embedding;
+}
 
-What you must NOT do:
-- Don't invent prior employers, titles, or shipped products.
-- Don't quote specific compensation expectations.
-- Don't speak for Nikhil on contentious topics.
-- Don't promise anything (interviews, responses, meetings).
-
-Keep replies under 120 words.`;
-
-async function callClaude(systemPrompt: string, messages: any[], apiKey: string): Promise<string> {
-  const r = await fetch("https://api.anthropic.com/v1/messages", {
-    method: "POST",
+async function retrieve(question: string, qEmbed: number[], env: Env): Promise<Chunk[]> {
+  const r = await fetch(`${env.SUPABASE_URL}/rest/v1/rpc/match_chunks`, {
+    method: 'POST',
     headers: {
-      "x-api-key": apiKey,
-      "anthropic-version": "2023-06-01",
-      "content-type": "application/json",
+      apikey: env.SUPABASE_ANON_KEY,
+      Authorization: `Bearer ${env.SUPABASE_ANON_KEY}`,
+      'content-type': 'application/json',
     },
+    body: JSON.stringify({ query_embedding: qEmbed, query_text: question, match_count: 8 }),
+  });
+  if (!r.ok) throw new Error(`supabase rpc ${r.status}: ${await r.text()}`);
+  return r.json() as Promise<Chunk[]>;
+}
+
+function buildContext(chunks: Chunk[]): string {
+  if (!chunks.length) return '(no snippets matched)';
+  return chunks.map((c, i) =>
+    `--- SNIPPET ${i + 1}  [${c.company_slug}]  ${c.role_title} ---\n${c.content}`
+  ).join('\n\n');
+}
+
+async function generate(question: string, history: any[], chunks: Chunk[], env: Env): Promise<string> {
+  const ctx = buildContext(chunks);
+  const augmented = [
+    ...history.slice(0, -1),
+    {
+      role: 'user',
+      content: `SNIPPETS RO HAS READ (the only ground truth — cite by [slug]):\n\n${ctx}\n\n---\n\nUser question: ${question}`,
+    },
+  ];
+  const r = await fetch(`${env.OLLAMA_URL}/api/chat`, {
+    method: 'POST',
+    headers: { 'content-type': 'application/json' },
     body: JSON.stringify({
-      model: "claude-haiku-4-5-20251001",
-      max_tokens: 400,
-      system: systemPrompt,
-      messages,
+      model: env.GEN_MODEL || 'qwen2.5:7b-instruct-q4_K_M',
+      stream: false,
+      messages: [{ role: 'system', content: SYSTEM_PROMPT }, ...augmented],
+      options: { temperature: 0.2, num_predict: 350 },
     }),
   });
-  if (!r.ok) {
-    const t = await r.text();
-    throw new Error(`Claude API ${r.status}: ${t}`);
-  }
-  const data = await r.json() as any;
-  return data?.content?.[0]?.text ?? "I'm not sure — try asking again?";
+  if (!r.ok) throw new Error(`ollama chat ${r.status}: ${await r.text()}`);
+  const j = await r.json() as { message?: { content: string } };
+  return j.message?.content?.trim() || "RO hasn't read a posting that covers this.";
 }
 
 function corsHeaders(origin: string) {
   return {
-    "Access-Control-Allow-Origin": origin,
-    "Access-Control-Allow-Methods": "POST, OPTIONS",
-    "Access-Control-Allow-Headers": "Content-Type",
+    'Access-Control-Allow-Origin': origin,
+    'Access-Control-Allow-Methods': 'POST, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type',
   };
 }
 
 export default {
   async fetch(req: Request, env: Env): Promise<Response> {
-    const cors = corsHeaders(env.ALLOWED_ORIGIN || "*");
-
-    if (req.method === "OPTIONS") return new Response(null, { headers: cors });
-    if (req.method !== "POST") return new Response("method not allowed", { status: 405, headers: cors });
+    const cors = corsHeaders(env.ALLOWED_ORIGIN || '*');
+    if (req.method === 'OPTIONS') return new Response(null, { headers: cors });
+    if (req.method !== 'POST')    return new Response('method not allowed', { status: 405, headers: cors });
 
     try {
       const body = await req.json() as any;
-      const mode = (body?.mode === "candidate" ? "candidate" : "product");
       const history = Array.isArray(body?.messages) ? body.messages : [];
-
-      if (history.length === 0 || history.length > 20) {
-        return new Response(JSON.stringify({ error: "invalid messages length" }), {
-          status: 400, headers: { ...cors, "content-type": "application/json" },
+      const last = history[history.length - 1];
+      if (!last || last.role !== 'user' || typeof last.content !== 'string' || !last.content.trim()) {
+        return new Response(JSON.stringify({ error: 'last message must be a non-empty user turn' }), {
+          status: 400, headers: { ...cors, 'content-type': 'application/json' },
         });
       }
+      if (history.length > 20) {
+        return new Response(JSON.stringify({ error: 'too many messages' }), {
+          status: 400, headers: { ...cors, 'content-type': 'application/json' },
+        });
+      }
+      const question = last.content.trim().slice(0, 500);
 
-      const systemPrompt = mode === "candidate" ? SYSTEM_CANDIDATE : SYSTEM_PRODUCT;
-      const reply = await callClaude(systemPrompt, history, env.ANTHROPIC_API_KEY);
+      const qEmbed = await embed(question, env);
+      const chunks = await retrieve(question, qEmbed, env);
+      const reply  = await generate(question, history, chunks, env);
 
-      return new Response(JSON.stringify({ reply, mode }), {
-        headers: { ...cors, "content-type": "application/json" },
+      const citations = Array.from(new Map(chunks.map(c => [c.company_slug, {
+        slug: c.company_slug, name: c.company_name, role: c.role_title, url: c.source_url,
+      }])).values());
+
+      return new Response(JSON.stringify({ reply, citations }), {
+        headers: { ...cors, 'content-type': 'application/json' },
       });
     } catch (err: any) {
       console.error(err);
-      return new Response(JSON.stringify({ error: err.message }), {
-        status: 500, headers: { ...cors, "content-type": "application/json" },
+      return new Response(JSON.stringify({ error: err.message || 'error' }), {
+        status: 500, headers: { ...cors, 'content-type': 'application/json' },
       });
     }
   },

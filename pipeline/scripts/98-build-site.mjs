@@ -121,4 +121,64 @@ const data = {
 
 writeFileSync(join(OUT, 'data.json'), JSON.stringify(data, null, 2));
 console.log(`Wrote ${join(OUT, 'data.json')}`);
+
+// ── dataset.json: full company list + archetype breakdown for the Index UI ──
+// Single source of truth for display names. Slugs without an entry fall back to
+// title-case and get logged below so we know to review them.
+const PRETTY_OVERRIDES = {
+  'sofi': 'SoFi', 'doordash': 'DoorDash', 'stockx': 'StockX',
+  'whatnot': 'Whatnot', 'klaviyo': 'Klaviyo', 'scale-ai': 'Scale AI', 'state-street': 'State Street',
+  'icapital': 'iCapital', 'sumup': 'SumUp', 'workos': 'WorkOS',
+  'hellofresh': 'HelloFresh', 'rothy-s': "Rothy's", 'safari-ai': 'Safari AI',
+  'arize-ai': 'Arize AI', 'aleph-alpha': 'Aleph Alpha', 'bland-ai': 'Bland AI',
+  'character-ai': 'Character.AI', 'clay-labs': 'Clay', 'deepgram': 'Deepgram',
+  'elevenlabs': 'ElevenLabs', 'hume-ai': 'Hume AI', 'langchain': 'LangChain',
+  'mistral-ai': 'Mistral AI', 'polyai': 'PolyAI', 'runpod': 'RunPod',
+  't-rowe-price': 'T. Rowe Price', 'trade-republic': 'Trade Republic',
+  'n8n': 'n8n',
+};
+function prettyCompanyName(slug) {
+  if (PRETTY_OVERRIDES[slug]) return PRETTY_OVERRIDES[slug];
+  return slug.split('-').map(p => p.charAt(0).toUpperCase() + p.slice(1)).join(' ');
+}
+
+const totalRoles = structuredFiles.length;
+const allCompanies = Object.entries(structByCo)
+  .map(([slug, count]) => ({ slug, name: prettyCompanyName(slug), count }))
+  .filter(c => c.count > 0)
+  .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name));
+
+// Warn only on slugs the title-case fallback is likely to get wrong:
+// hyphenated slugs (e.g. "scale-ai" → "Scale Ai"), slugs with digits, or
+// slugs ending in known acronyms. Single-word slugs like "stripe" are fine.
+const looksRisky = (slug) =>
+  slug.includes('-') || /\d/.test(slug) || /(ai|os|hq|io|db|ml)$/i.test(slug);
+const unmapped = allCompanies
+  .filter(c => !(c.slug in PRETTY_OVERRIDES) && looksRisky(c.slug))
+  .map(c => `${c.slug} → ${c.name}`);
+if (unmapped.length) {
+  console.warn(`\n⚠ ${unmapped.length} company slug(s) may need a manual display-name override.`);
+  console.warn(`  Add to PRETTY_OVERRIDES in 98-build-site.mjs if the casing below is wrong:`);
+  for (const u of unmapped) console.warn(`    ${u}`);
+  console.warn('');
+}
+
+const archetypeList = Object.entries(archetypes)
+  .sort((a, b) => b[1] - a[1])
+  .map(([name, count]) => ({
+    name,
+    count,
+    pct: totalRoles ? +((count / totalRoles) * 100).toFixed(1) : 0,
+  }));
+
+const dataset = {
+  generatedAt: data.generatedAt,
+  totalCompanies: allCompanies.length,
+  totalRoles,
+  topCompanies: allCompanies.slice(0, 20),
+  allCompanies,
+  archetypes: archetypeList,
+};
+writeFileSync(join(OUT, 'dataset.json'), JSON.stringify(dataset, null, 2));
+console.log(`Wrote ${join(OUT, 'dataset.json')} (${allCompanies.length} companies)`);
 console.log(`Headline: ${data.headline.structured}/${data.headline.rawJDs} structured across ${totalCompanies} companies`);

@@ -52,35 +52,53 @@ async function initHome() {
     const large = top.slice(0, 2);
     const med = top.slice(2, 6);
     const small = top.slice(6, 12);
+    const esc = s => String(s).replace(/"/g, '&quot;');
     const cell = (cls, c, sizeMod = '') =>
-      `<div class="treemap-cell ${sizeMod} ${cls}"><span class="tm-name">${c.name}</span><span class="tm-count">${c.count}${sizeMod === 'large' ? ' roles' : ''}</span></div>`;
+      `<button type="button" class="treemap-cell ${sizeMod} ${cls}" data-company="${esc(c.name)}" data-count="${c.count}"><span class="tm-name">${c.name}</span><span class="tm-count">${c.count}${sizeMod === 'large' ? ' roles' : ''}</span></button>`;
     colEl.innerHTML = `
       <div class="treemap">
         <div class="treemap-left" style="grid-template-rows: ${large.map(c => c.count + 'fr').join(' ')}">
           ${large.map(c => cell('tm-filled', c, 'large')).join('')}
         </div>
-        <div style="display: grid; gap: 6px; grid-template-rows: 1fr 1fr;">
-          <div class="treemap-mid" style="grid-template-columns: ${med.slice(0,2).map(c => c.count + 'fr').join(' ')}; gap: 6px;">
+        <div class="treemap-right-col">
+          <div class="treemap-mid" style="grid-template-columns: ${med.slice(0,2).map(c => c.count + 'fr').join(' ')};">
             ${med.slice(0,2).map(c => cell('tm-outlined', c)).join('')}
           </div>
-          <div class="treemap-mid" style="grid-template-columns: ${med.slice(2,4).map(c => c.count + 'fr').join(' ')}; gap: 6px;">
+          <div class="treemap-mid" style="grid-template-columns: ${med.slice(2,4).map(c => c.count + 'fr').join(' ')};">
             ${med.slice(2,4).map(c => cell('tm-outlined', c)).join('')}
           </div>
-          <div class="treemap-right" style="grid-template-columns: repeat(3, 1fr); grid-template-rows: 1fr 1fr; grid-row: span 2; margin-top: 6px; gap: 6px;">
+          <div class="treemap-small-grid">
             ${small.map(c => cell('tm-subtle', c, 'small')).join('')}
           </div>
         </div>
       </div>
-      <div class="treemap-more">See all ${ds.totalCompanies} →</div>
+      <a class="treemap-more" id="see-all-companies" href="#" aria-disabled="true">See all ${ds.totalCompanies} →</a>
     `;
+
+    // 'See all' is a placeholder — the dedicated page is being built separately.
+    // Block clicks so it doesn't navigate or render anything inline.
+    document.getElementById('see-all-companies')?.addEventListener('click', (e) => e.preventDefault());
+
+    // Click any company cell → prefill chat
+    colEl.addEventListener('click', (e) => {
+      const t = e.target.closest('[data-company]');
+      if (!t) return;
+      askRoAbout(`Tell me about ${t.dataset.company} — what roles are in the Index and what do they look like?`);
+    });
   }
 
-  // Archetype list
+  // Archetype list — simple rows with tier-colored percentage (matches prod layout)
   const aEl = document.getElementById('archetype-list');
   if (aEl && ds) {
+    const tierClass = (pct) => pct >= 15 ? 'tier-1' : pct >= 5 ? 'tier-2' : 'tier-3';
     aEl.innerHTML = ds.archetypes.map(a =>
-      `<div class="list-row"><span class="name">${a.name}</span><span class="val">${a.count} · ${a.pct}%</span></div>`
+      `<button type="button" class="list-row ${tierClass(a.pct)}" data-archetype="${a.name.replace(/"/g, '&quot;')}"><span class="name">${a.name}</span><span class="val">${a.count} · ${a.pct}%</span></button>`
     ).join('');
+    aEl.addEventListener('click', (e) => {
+      const t = e.target.closest('[data-archetype]');
+      if (!t) return;
+      askRoAbout(`Show me ${t.dataset.archetype} roles in the Index`);
+    });
   }
 
   // Distributions
@@ -159,17 +177,42 @@ document.querySelectorAll('form.waitlist-form').forEach(form => {
   });
 });
 
+// ===== Helper: jump to RO chat with a pre-filled question =====
+function askRoAbout(question) {
+  const input = document.getElementById('chat-input');
+  const form = document.getElementById('chat-form');
+  const section = document.getElementById('meet-ro');
+  if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  if (input && form) {
+    input.value = question;
+    // Submit shortly after scroll begins so the answer appears in view
+    setTimeout(() => form.requestSubmit(), 350);
+  }
+}
+
 // ===== Chat (embedded panel — single mode, just about the Index) =====
 const chatLog = document.getElementById('chat-log');
 const chatForm = document.getElementById('chat-form');
 let chatHistory = [];
 
 if (chatLog) {
-  function addMsg(text, who) {
+  function addMsg(text, who, citations) {
     const el = document.createElement('div');
     el.className = `chat-msg ${who}`;
     el.textContent = text;
     chatLog.appendChild(el);
+    if (Array.isArray(citations) && citations.length) {
+      const cite = document.createElement('div');
+      cite.className = 'chat-citations';
+      cite.innerHTML = '<span class="cite-label">Sources RO read:</span> ' +
+        citations.slice(0, 6).map(c => {
+          const label = c.name || c.slug;
+          return c.url
+            ? `<a class="cite-chip" href="${c.url}" target="_blank" rel="noopener">${label}</a>`
+            : `<span class="cite-chip">${label}</span>`;
+        }).join(' ');
+      chatLog.appendChild(cite);
+    }
     chatLog.scrollTop = chatLog.scrollHeight;
   }
   addMsg("Hi — I'm RO. Ask me anything about the senior roles in the Index — who's hiring, what they pay (when they say), who sponsors visas, which archetypes are common. I'll answer from what I've actually read.", 'bot');
@@ -203,7 +246,7 @@ if (chatLog) {
       const data = await r.json();
       if (data.reply) {
         chatHistory.push({ role: 'assistant', content: data.reply });
-        addMsg(data.reply, 'bot');
+        addMsg(data.reply, 'bot', data.citations);
       } else {
         addMsg('Something went wrong. Try again?', 'bot');
       }
