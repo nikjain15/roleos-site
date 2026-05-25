@@ -35,13 +35,34 @@ async function initHome() {
     ).join('');
   }
 
-  // Company list
+  // Company treemap — top 12 by role count, tiered visually (filled / outlined / subtle)
   const colEl = document.getElementById('company-list');
   if (colEl && ds) {
     const top = ds.topCompanies.slice(0, 12);
-    colEl.innerHTML = top.map(c =>
-      `<div class="list-row"><span class="name">${c.name}</span><span class="val">${c.count}</span></div>`
-    ).join('') + `<div class="list-more">+ ${ds.totalCompanies - top.length} more — ask the chat</div>`;
+    const large = top.slice(0, 2);
+    const med = top.slice(2, 6);
+    const small = top.slice(6, 12);
+    const cell = (cls, c, sizeMod = '') =>
+      `<div class="treemap-cell ${sizeMod} ${cls}"><span class="tm-name">${c.name}</span><span class="tm-count">${c.count}${sizeMod === 'large' ? ' roles' : ''}</span></div>`;
+    colEl.innerHTML = `
+      <div class="treemap">
+        <div class="treemap-left" style="grid-template-rows: ${large.map(c => c.count + 'fr').join(' ')}">
+          ${large.map(c => cell('tm-filled', c, 'large')).join('')}
+        </div>
+        <div style="display: grid; gap: 6px; grid-template-rows: 1fr 1fr;">
+          <div class="treemap-mid" style="grid-template-columns: ${med.slice(0,2).map(c => c.count + 'fr').join(' ')}; gap: 6px;">
+            ${med.slice(0,2).map(c => cell('tm-outlined', c)).join('')}
+          </div>
+          <div class="treemap-mid" style="grid-template-columns: ${med.slice(2,4).map(c => c.count + 'fr').join(' ')}; gap: 6px;">
+            ${med.slice(2,4).map(c => cell('tm-outlined', c)).join('')}
+          </div>
+          <div class="treemap-right" style="grid-template-columns: repeat(3, 1fr); grid-template-rows: 1fr 1fr; grid-row: span 2; margin-top: 6px; gap: 6px;">
+            ${small.map(c => cell('tm-subtle', c, 'small')).join('')}
+          </div>
+        </div>
+      </div>
+      <div class="treemap-more">+ ${ds.totalCompanies - top.length} more — ask RO</div>
+    `;
   }
 
   // Archetype list

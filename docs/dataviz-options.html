@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dataviz options — pick one</title>
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/components/typography.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: var(--sans); background: var(--paper); color: var(--ink); padding: 40px 24px 80px; }
+  .wrap { max-width: 1100px; margin: 0 auto; }
+  h1 { font-size: 32px; letter-spacing: -0.02em; margin: 0 0 8px; }
+  .lede { color: var(--ink-3); margin: 0 0 40px; font-size: 15px; }
+  .option { background: var(--white); border: 1px solid var(--line); border-radius: 16px; padding: 32px; margin-bottom: 24px; }
+  .option-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 24px; flex-wrap: wrap; gap: 8px; }
+  .option-head h2 { font-size: 20px; letter-spacing: -0.012em; margin: 0; }
+  .option-head .tag { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-4); font-weight: 600; }
+  .option-note { font-size: 13px; color: var(--ink-3); margin-top: 20px; line-height: 1.55; }
+
+  /* ===== Option 1 — Logo wall ===== */
+  .logo-wall { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  .logo-tile { background: var(--paper); border: 1px solid var(--line); border-radius: 10px; padding: 10px 14px; display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--ink); }
+  .logo-tile .count { font-size: 11px; color: var(--ink-3); font-weight: 500; padding: 2px 8px; background: var(--white); border-radius: 999px; border: 1px solid var(--line); }
+  .logo-tile.size-xl { font-size: 18px; padding: 14px 20px; }
+  .logo-tile.size-l { font-size: 16px; padding: 12px 18px; }
+  .logo-tile.size-m { font-size: 14px; padding: 11px 16px; }
+  .logo-tile.size-s { font-size: 12px; padding: 9px 13px; }
+
+  /* ===== Option 2 — Treemap (true FF monochrome) ===== */
+  /* Visual logic: big cells = filled ink, white text. Medium = paper bg + ink border.
+     Small = white bg + thin line border + ink-3 text. Mirrors FF's own outlined/filled
+     pattern. No decorative color. */
+  .treemap { display: grid; gap: 6px; height: 360px; grid-template-columns: 4fr 3fr; }
+  .treemap-left, .treemap-mid, .treemap-right { display: grid; gap: 6px; }
+  .treemap-cell {
+    border-radius: 10px; padding: 14px;
+    display: flex; flex-direction: column; justify-content: space-between; overflow: hidden;
+    transition: transform 0.18s var(--ease-out, ease);
+  }
+  .treemap-cell:hover { transform: translateY(-1px); }
+  /* Filled — top tier */
+  .tm-filled { background: var(--ink); color: var(--white); }
+  .tm-filled .count { opacity: 0.7; }
+  /* Outlined — middle tier */
+  .tm-outlined { background: var(--paper); color: var(--ink); border: 1.5px solid var(--ink); }
+  .tm-outlined .count { color: var(--ink-3); }
+  /* Subtle — small tier */
+  .tm-subtle { background: var(--white); color: var(--ink); border: 1px solid var(--line); }
+  .tm-subtle .count { color: var(--ink-4); }
+
+  .treemap-cell .name { font-size: 13px; font-weight: var(--fw-semibold, 600); line-height: 1.2; letter-spacing: -0.005em; }
+  .treemap-cell .count { font-size: 11px; font-weight: var(--fw-medium, 500); }
+  .treemap-cell.small .name { font-size: 11px; }
+  .treemap-cell.small .count { font-size: 10px; }
+  .treemap-cell.large .name { font-size: 19px; letter-spacing: -0.014em; }
+  .treemap-cell.large .count { font-size: 13px; }
+
+  /* ===== Option 3 — Bar chart ===== */
+  .bars { display: flex; flex-direction: column; gap: 8px; }
+  .bar-row { display: grid; grid-template-columns: 120px 1fr 40px; align-items: center; gap: 12px; font-size: 13px; }
+  .bar-row .label { font-weight: 500; color: var(--ink); }
+  .bar-row .bar { height: 18px; background: var(--paper); border-radius: 4px; overflow: hidden; }
+  .bar-row .bar > div { height: 100%; background: var(--ink); border-radius: 4px; transition: width 0.4s; }
+  .bar-row .v { text-align: right; color: var(--ink-3); font-variant-numeric: tabular-nums; font-weight: 600; }
+
+  /* ===== Option 4 — Combined (logo wall + pie) ===== */
+  .combo { display: grid; grid-template-columns: 1.6fr 1fr; gap: 32px; align-items: start; }
+  .combo .pie-wrap { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+  .combo .pie-wrap h3 { font-size: 12px; color: var(--ink-3); letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; margin: 0; }
+  .combo .legend { display: flex; flex-direction: column; gap: 6px; font-size: 12px; margin-top: 8px; }
+  .combo .legend-row { display: flex; align-items: center; gap: 8px; }
+  .combo .legend-dot { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
+  .combo .legend-name { color: var(--ink); flex: 1; }
+  .combo .legend-pct { color: var(--ink-3); font-variant-numeric: tabular-nums; }
+  @media (max-width: 720px) { .combo { grid-template-columns: 1fr; } }
+
+  .picker { background: var(--white); border: 2px solid var(--ink); border-radius: 16px; padding: 24px 32px; margin-top: 32px; text-align: center; }
+  .picker h2 { margin: 0 0 8px; font-size: 18px; }
+  .picker p { margin: 0; color: var(--ink-3); font-size: 14px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>Pick a visualization for The Index</h1>
+<p class="lede">Real data from the live pipeline — 79 companies, 458 roles. Each option uses the actual numbers so you can judge how it scales.</p>
+
+<!-- ===== OPTION 1: LOGO WALL ===== -->
+<div class="option">
+  <div class="option-head">
+    <h2>Option 1 — Logo wall (varying sizes)</h2>
+    <span class="tag">Most scannable</span>
+  </div>
+  <div class="logo-wall" id="logo-wall"></div>
+  <p class="option-note">Tile size grows with role count. Big names jump out (DoorDash, Stripe). Long-tail companies still visible. Reads like "who we cover." Easiest to extend if we add more companies — it just grows.</p>
+</div>
+
+<!-- ===== OPTION 2: TREEMAP ===== -->
+<div class="option">
+  <div class="option-head">
+    <h2>Option 2 — Treemap (area = role count)</h2>
+    <span class="tag">Most "data product"</span>
+  </div>
+  <div class="treemap" id="treemap"></div>
+  <p class="option-note">Each rectangle's area = number of roles. Dense, technical, Stripe-data-dashboard vibe. Best when you want the page to feel like real infrastructure. Harder to scan tiny squares.</p>
+</div>
+
+<!-- ===== OPTION 3: BAR CHART ===== -->
+<div class="option">
+  <div class="option-head">
+    <h2>Option 3 — Bar chart (top 20)</h2>
+    <span class="tag">Cleanest</span>
+  </div>
+  <div class="bars" id="bars"></div>
+  <p class="option-note">Boring on purpose. Maximum legibility. Each bar's length = role count. No mystery, no flourish. Best if you want the page to feel calm and factual rather than impressive.</p>
+</div>
+
+<!-- ===== OPTION 4: COMBINED ===== -->
+<div class="option">
+  <div class="option-head">
+    <h2>Option 4 — Logo wall + archetype pie</h2>
+    <span class="tag">Two visualizations</span>
+  </div>
+  <div class="combo">
+    <div>
+      <h3 style="font-size: 12px; color: var(--ink-3); letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; margin: 0 0 14px;">By company</h3>
+      <div class="logo-wall" id="logo-wall-2"></div>
+    </div>
+    <div class="pie-wrap">
+      <h3>By role type</h3>
+      <svg viewBox="0 0 200 200" width="200" height="200" id="pie"></svg>
+      <div class="legend" id="pie-legend"></div>
+    </div>
+  </div>
+  <p class="option-note">Companies as the wall, archetypes as a pie. Two visualizations balance each other — visitor sees both dimensions of the dataset (who and what). Slightly more on the page.</p>
+</div>
+
+<div class="picker">
+  <h2>Which one?</h2>
+  <p>Tell me "Option 1" / "Option 2" / "Option 3" / "Option 4" and I'll wire it into the homepage.</p>
+</div>
+
+</div>
+
+<script>
+async function load() {
+  const ds = await (await fetch('dataset.json?t=' + Date.now())).json();
+  const top = ds.topCompanies.slice(0, 20);
+
+  // ---- Option 1: logo wall (top 20) ----
+  const wall = document.getElementById('logo-wall');
+  const wall2 = document.getElementById('logo-wall-2');
+  const max = Math.max(...top.map(c => c.count));
+  const html1 = top.map(c => {
+    const ratio = c.count / max;
+    const size = ratio > 0.7 ? 'size-xl' : ratio > 0.4 ? 'size-l' : ratio > 0.2 ? 'size-m' : 'size-s';
+    return `<div class="logo-tile ${size}"><span>${c.name}</span><span class="count">${c.count}</span></div>`;
+  }).join('');
+  wall.innerHTML = html1;
+  if (wall2) wall2.innerHTML = html1;
+
+  // ---- Option 2: treemap (simplified — 3 columns by size buckets) ----
+  // Top 4 large, next 6 medium, rest small
+  const tm = document.getElementById('treemap');
+  const cells = top.slice(0, 12);
+  const large = cells.slice(0, 2);   // 2 largest
+  const med = cells.slice(2, 6);     // next 4
+  const small = cells.slice(6, 12);  // next 6
+  tm.innerHTML = `
+    <div class="treemap-left" style="grid-template-rows: ${large.map(c => c.count + 'fr').join(' ')}">
+      ${large.map(c => `<div class="treemap-cell large tm-filled"><span class="name">${c.name}</span><span class="count">${c.count} roles</span></div>`).join('')}
+    </div>
+    <div style="display: grid; gap: 6px; grid-template-rows: 1fr 1fr;">
+      <div class="treemap-mid" style="grid-template-columns: ${med.slice(0,2).map(c => c.count + 'fr').join(' ')}; gap: 6px;">
+        ${med.slice(0,2).map(c => `<div class="treemap-cell tm-outlined"><span class="name">${c.name}</span><span class="count">${c.count}</span></div>`).join('')}
+      </div>
+      <div class="treemap-mid" style="grid-template-columns: ${med.slice(2,4).map(c => c.count + 'fr').join(' ')}; gap: 6px;">
+        ${med.slice(2,4).map(c => `<div class="treemap-cell tm-outlined"><span class="name">${c.name}</span><span class="count">${c.count}</span></div>`).join('')}
+      </div>
+      <div class="treemap-right" style="grid-template-columns: repeat(3, 1fr); grid-template-rows: 1fr 1fr; grid-row: span 2; margin-top: 6px; gap: 6px;">
+        ${small.map(c => `<div class="treemap-cell small tm-subtle"><span class="name">${c.name}</span><span class="count">${c.count}</span></div>`).join('')}
+      </div>
+    </div>`;
+
+  // ---- Option 3: bar chart ----
+  const bars = document.getElementById('bars');
+  bars.innerHTML = top.map(c => {
+    const pct = (c.count / max) * 100;
+    return `<div class="bar-row"><span class="label">${c.name}</span><div class="bar"><div style="width:${pct}%"></div></div><span class="v">${c.count}</span></div>`;
+  }).join('');
+
+  // ---- Option 4 pie: archetypes ----
+  const pie = document.getElementById('pie');
+  const legend = document.getElementById('pie-legend');
+  const arche = ds.archetypes;
+  const totalRoles = arche.reduce((s, a) => s + a.count, 0);
+  const palette = ['#0a0a0a', '#2a2a2a', '#4a4a4a', '#6a6a6a', '#8a8a8a', '#a8a8a8', '#c0c0c0', '#d4d4d4', '#e0e0e0', '#ebebeb'];
+  let cumulative = 0;
+  const r = 80, cx = 100, cy = 100;
+  const slices = arche.map((a, i) => {
+    const startAngle = (cumulative / totalRoles) * 2 * Math.PI - Math.PI / 2;
+    cumulative += a.count;
+    const endAngle = (cumulative / totalRoles) * 2 * Math.PI - Math.PI / 2;
+    const x1 = cx + r * Math.cos(startAngle), y1 = cy + r * Math.sin(startAngle);
+    const x2 = cx + r * Math.cos(endAngle),   y2 = cy + r * Math.sin(endAngle);
+    const largeArc = (endAngle - startAngle) > Math.PI ? 1 : 0;
+    return `<path d="M ${cx} ${cy} L ${x1} ${y1} A ${r} ${r} 0 ${largeArc} 1 ${x2} ${y2} Z" fill="${palette[i]}" stroke="white" stroke-width="1.5"/>`;
+  }).join('');
+  pie.innerHTML = slices;
+  legend.innerHTML = arche.map((a, i) =>
+    `<div class="legend-row"><span class="legend-dot" style="background:${palette[i]}"></span><span class="legend-name">${a.name}</span><span class="legend-pct">${a.pct}%</span></div>`
+  ).join('');
+}
+load();
+</script>
+</body>
+</html>
