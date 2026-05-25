@@ -91,10 +91,11 @@ section.bg-dark .eyebrow { color: rgba(255,255,255,0.55); }
 
 /* ══════════════════════════════════════════
    SECTION HEADER (FF pattern — eyebrow + margin-top spacing)
+   Body width fills the wrap so right edge aligns with cards/stats below.
 ══════════════════════════════════════════ */
-.section-head { max-width: 640px; margin-bottom: 48px; }
+.section-head { margin-bottom: 48px; }
 .section-head h2 { margin-top: 10px; font-size: clamp(26px, 3.8vw, 44px); letter-spacing: var(--ls-tighter); }
-.section-head .section-sub { margin-top: 16px; font-size: clamp(15px, 1.6vw, 17px); color: var(--ink-2); line-height: 1.6; max-width: 680px; }
+.section-head .section-sub { margin-top: 16px; font-size: clamp(15px, 1.6vw, 17px); color: var(--ink-2); line-height: 1.6; }
 .eyebrow { font-size: var(--fs-eyebrow); font-weight: var(--fw-semibold); letter-spacing: var(--ls-eyebrow); text-transform: uppercase; color: var(--ink-3); }
 
 /* ══════════════════════════════════════════
@@ -131,12 +132,10 @@ section.bg-dark .eyebrow { color: rgba(255,255,255,0.55); }
   color: var(--ink-2);
   font-weight: var(--fw-medium);
   letter-spacing: -0.012em;
-  max-width: 720px;
   line-height: 1.2;
 }
 .hero .lede {
   margin-top: 20px;
-  max-width: 620px;
   font-size: clamp(15px, 1.6vw, 17px);
   color: var(--ink-2);
   line-height: 1.55;
@@ -381,7 +380,6 @@ details.more[open] > summary::after { content: " ↑"; }
   grid-template-columns: auto 1fr;
   gap: 20px;
   align-items: flex-start;
-  max-width: 760px;
 }
 .waitlist-top h2 { color: var(--white); margin-top: 8px; font-size: clamp(26px, 3.8vw, 44px); letter-spacing: var(--ls-tighter); }
 .waitlist-top p { color: rgba(255,255,255,0.8); margin-top: 12px; font-size: clamp(15px, 1.6vw, 17px); line-height: 1.55; }
@@ -429,7 +427,7 @@ details.more[open] > summary::after { content: " ↑"; }
 }
 .faq summary::after { content: "+"; font-size: 22px; color: var(--ink-3); transition: transform var(--dur-base) var(--ease-out); line-height: 1; }
 .faq details[open] summary::after { transform: rotate(45deg); }
-.faq details > p { margin-top: 12px; color: var(--ink-2); font-size: 15px; line-height: 1.6; max-width: 720px; }
+.faq details > p { margin-top: 12px; color: var(--ink-2); font-size: 15px; line-height: 1.6; }
 
 /* ══════════════════════════════════════════
    PROMISE CARDS (legacy — kept for sub-pages)
