@@ -22,6 +22,16 @@ async function initHome() {
   const ds = await loadDataset();
   if (!d) return;
 
+  // Fill any <span data-fill="..."> placeholders with live numbers
+  const companies = ds ? ds.totalCompanies : d.headline.companies;
+  const roles = d.headline.structured;
+  document.querySelectorAll('[data-fill]').forEach(el => {
+    const key = el.dataset.fill;
+    if (key === 'companies') el.textContent = companies;
+    else if (key === 'roles') el.textContent = roles;
+    else if (key === 'companies-minus-4') el.textContent = Math.max(companies - 4, 0);
+  });
+
   // Stats row — three numbers (dropped salary + cost per tone direction)
   const statsEl = document.getElementById('stats');
   if (statsEl) {
@@ -162,7 +172,7 @@ if (chatLog) {
     chatLog.appendChild(el);
     chatLog.scrollTop = chatLog.scrollHeight;
   }
-  addMsg("Hi — I'm RO. Ask me anything about the 458 senior roles in the Index — who's hiring, what they pay (when they say), who sponsors visas, which archetypes are common. I'll answer from what I've actually read.", 'bot');
+  addMsg("Hi — I'm RO. Ask me anything about the senior roles in the Index — who's hiring, what they pay (when they say), who sponsors visas, which archetypes are common. I'll answer from what I've actually read.", 'bot');
 
   document.querySelectorAll('.chat-chip').forEach(chip => {
     chip.addEventListener('click', () => {
