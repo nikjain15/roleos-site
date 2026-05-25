@@ -5,116 +5,129 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
 <title>RoleOS — The operating system for your AI PM job search</title>
-<meta name="description" content="RoleOS is an AI-native operating system for senior PMs targeting AI-first companies. Built by an AI PM running his own search — live case study inside.">
+<meta name="description" content="RoleOS reads every job description, tracks your funnel, and shows you where you stand. Built by a senior AI PM running his own search.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/tokens.css">
 <link rel="stylesheet" href="assets/components/typography.css">
 <link rel="stylesheet" href="assets/components/button.css">
+<link rel="stylesheet" href="assets/components/waitlist-form.css">
 <style>
   * { box-sizing: border-box; }
   body {
     margin: 0;
     font-family: var(--sans);
-    background: var(--paper);
+    background: var(--white);
     color: var(--ink);
     -webkit-font-smoothing: antialiased;
   }
-  a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
-  a:hover { text-decoration-thickness: 2px; }
-  .wrap {
-    max-width: var(--page-max);
-    margin: 0 auto;
-    padding: 0 var(--page-pad-x);
-  }
-  section { padding: var(--section-y) 0; border-bottom: 1px solid var(--line); }
-  section:last-of-type { border-bottom: 0; }
-  h1 { margin: 14px 0 20px; }
-  h2.section-title { font-size: 13px; text-transform: uppercase; letter-spacing: .14em; color: var(--ink-3); margin: 0 0 24px; font-weight: var(--fw-semibold); }
-  h3 { margin: 0 0 10px; }
+  a { color: var(--ink); text-underline-offset: 3px; }
 
-  /* ===== HERO ===== */
-  .hero { padding-top: calc(var(--section-y) + 16px); }
+  /* ===== Layout primitives ===== */
+  .wrap { width: 100%; max-width: var(--page-max); margin-inline: auto; padding-inline: var(--page-pad-x); }
+  section { padding-block: var(--section-y); }
+  .bg-white { background: var(--white); }
+  .bg-paper { background: var(--paper); }
+  .bg-dark { background: var(--dark); color: var(--white); }
+  .bg-dark h1, .bg-dark h2, .bg-dark h3 { color: var(--white); }
+  .bg-dark p { color: rgba(255,255,255,0.78); }
+  .bg-dark .eyebrow { color: rgba(255,255,255,0.55); }
+  .bg-dark a { color: var(--white); }
+  .divider-line { border-top: 1px solid var(--line); }
+
+  /* ===== Nav ===== */
+  .site-nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; padding-block: 14px; gap: 32px; }
+  .nav-logo { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-weight: var(--fw-semibold); color: var(--ink); }
+  .ro-mark {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 28px; height: 28px; border-radius: 6px;
+    background: var(--ink); color: var(--white);
+    font-weight: var(--fw-extra); font-size: 12px; letter-spacing: -0.04em;
+    flex-shrink: 0;
+  }
+  .nav-links { display: flex; align-items: center; gap: 24px; }
+  .nav-links a { text-decoration: none; font-size: 14px; color: var(--ink-2); }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-links .btn-sm { font-size: 12px; }
+  @media (max-width: 600px) {
+    .nav-links a:not(.btn) { display: none; }
+  }
+
+  /* ===== Hero ===== */
+  .hero h1 {
+    font-size: clamp(34px, 5vw, 56px);
+    line-height: 1.04;
+    letter-spacing: -0.028em;
+    margin: 18px 0 18px;
+  }
+  .hero .lede { max-width: 620px; font-size: clamp(16px, 1.7vw, 18px); color: var(--ink-2); margin: 0 0 28px; }
+  .hero .lede strong { color: var(--ink); font-weight: var(--fw-semibold); }
   .hero .badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
+    display: inline-flex; align-items: center; gap: 8px;
     padding: 5px 12px;
-    background: var(--ink);
-    color: var(--white);
+    background: var(--ink); color: var(--white);
     border-radius: var(--r-pill);
-    font-size: 11px;
-    font-weight: var(--fw-semibold);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    font-size: 11px; font-weight: var(--fw-semibold);
+    letter-spacing: 0.08em; text-transform: uppercase;
   }
   .hero .badge .dot { width: 6px; height: 6px; border-radius: 50%; background: #10b981; animation: pulse 1.6s infinite; }
   @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
-  .hero p.lede { max-width: 640px; font-size: clamp(17px, 1.8vw, 19px); color: var(--ink-2); }
-  .hero .ctas { display: flex; gap: 12px; margin-top: 28px; flex-wrap: wrap; }
+  .form-msg { margin-top: 10px; font-size: 12px; color: var(--ink-4); min-height: 18px; }
+  .form-msg.success { color: #0e7a52; font-weight: var(--fw-medium); }
+  .form-msg.error   { color: #b42318; }
 
-  /* ===== WAITLIST FORM ===== */
-  .waitlist {
-    display: flex;
-    gap: 8px;
-    max-width: 460px;
-    margin-top: 28px;
-  }
-  .waitlist input {
-    flex: 1;
-    padding: 12px 16px;
+  /* ===== Eyebrow + section heads ===== */
+  .section-head { margin-bottom: 28px; max-width: 720px; }
+  .section-head .eyebrow { margin-bottom: 10px; }
+  .section-head h2 { margin: 0; font-size: clamp(24px, 3vw, 36px); letter-spacing: -0.022em; }
+
+  /* ===== Promise grid (feature cards) ===== */
+  .promise-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .promise-card {
     border: 1.5px solid var(--ink);
-    border-radius: var(--r-pill);
-    font-family: var(--sans);
-    font-size: 14px;
-    background: var(--white);
-    color: var(--ink);
+    border-radius: var(--r-card-emph);
+    padding: clamp(20px, 2.4vw, 28px);
+    background: var(--paper);
+    display: flex; flex-direction: column; gap: 14px;
   }
-  .waitlist input:focus { outline: 2px solid var(--ink); outline-offset: 2px; }
-  .waitlist button { cursor: pointer; border: 1.5px solid var(--ink); }
-  .waitlist-msg { font-size: 13px; color: var(--ink-3); margin-top: 10px; min-height: 18px; }
-  .waitlist-msg.success { color: #10b981; font-weight: var(--fw-medium); }
-  .waitlist-msg.error { color: #d62828; }
-
-  /* ===== WHY (problem) ===== */
-  .why p { max-width: 720px; font-size: clamp(16px, 1.8vw, 18px); color: var(--ink-2); }
-
-  /* ===== WHAT IT DOES (feature trio) ===== */
-  .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-  .feature {
+  .promise-card .icon-bg {
+    width: 40px; height: 40px;
+    border-radius: 10px;
     background: var(--white);
     border: 1px solid var(--line);
-    border-radius: var(--r-card-emph);
-    padding: 24px;
+    display: inline-flex; align-items: center; justify-content: center;
   }
-  .feature .num { font-size: 11px; color: var(--ink-3); font-weight: var(--fw-semibold); letter-spacing: 0.14em; }
-  .feature h3 { margin: 8px 0 8px; font-size: 17px; }
-  .feature p { font-size: 14px; color: var(--ink-3); line-height: 1.55; margin: 0; }
+  .promise-card .icon-bg svg { width: 20px; height: 20px; stroke: var(--ink); }
+  .promise-card h3 { margin: 0; font-size: 18px; letter-spacing: -0.012em; }
+  .promise-card p { margin: 0; font-size: 14px; color: var(--ink-3); line-height: 1.55; }
+  @media (max-width: 860px) { .promise-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px) { .promise-grid { grid-template-columns: 1fr; } }
 
-  /* ===== CASE STUDY ===== */
-  .case-header { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 20px; flex-wrap: wrap; gap: 8px; }
-  .case-header h2 { font-size: clamp(22px, 2.6vw, 28px); margin: 0; font-weight: var(--fw-bold); letter-spacing: -0.015em; }
-  .case-header .by { font-size: 13px; color: var(--ink-3); }
-  .case-header .by a { color: var(--ink); }
-
-  .case-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 28px; }
+  /* ===== Case study ===== */
+  .case-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 28px; }
   .stat {
     background: var(--white);
     border: 1px solid var(--line);
     border-radius: var(--r-card);
     padding: 20px;
   }
-  .stat .num { font-size: clamp(26px, 3.2vw, 34px); font-weight: var(--fw-bold); letter-spacing: -0.02em; line-height: 1.05; }
+  .stat .num { font-size: clamp(24px, 3vw, 32px); font-weight: var(--fw-bold); letter-spacing: -0.02em; line-height: 1.05; }
   .stat .lbl { color: var(--ink-3); font-size: 11px; margin-top: 8px; text-transform: uppercase; letter-spacing: 0.1em; font-weight: var(--fw-semibold); }
+  @media (max-width: 720px) { .case-stats { grid-template-columns: 1fr 1fr; } }
 
   .panel { background: var(--white); border: 1px solid var(--line); border-radius: var(--r-card-emph); padding: 24px; }
 
   .funnel .row {
-    display: grid;
-    grid-template-columns: 260px 1fr 70px;
-    align-items: center;
-    gap: 16px;
+    display: grid; grid-template-columns: 240px 1fr 60px;
+    align-items: center; gap: 16px;
     padding: 12px 0;
     border-bottom: 1px solid var(--line-2);
     font-size: 14px;
@@ -130,165 +143,289 @@
   .funnel .bar > div { height: 100%; background: var(--ink); border-radius: var(--r-pill); transition: width 0.6s ease; }
   .funnel .row[data-status="next"] .bar > div { background: var(--line); }
   .funnel .count { text-align: right; font-variant-numeric: tabular-nums; font-weight: var(--fw-semibold); }
+  @media (max-width: 720px) {
+    .funnel .row { grid-template-columns: 1fr 50px; }
+    .funnel .row .bar { grid-column: 1 / -1; }
+  }
 
   details.more { margin-top: 24px; }
   details.more > summary {
-    cursor: pointer;
-    font-size: 13px;
-    color: var(--ink-3);
-    font-weight: var(--fw-semibold);
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    padding: 8px 0;
-    list-style: none;
+    cursor: pointer; list-style: none;
+    font-size: 11px; color: var(--ink-3);
+    font-weight: var(--fw-semibold); letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 10px 0;
   }
   details.more > summary::after { content: " ↓"; }
   details.more[open] > summary::after { content: " ↑"; }
-  details.more > div { margin-top: 18px; }
 
-  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-  .dist { display: flex; flex-direction: column; gap: 10px; margin-top: 14px; }
-  .dist .item { display: grid; grid-template-columns: 1fr 80px 40px; align-items: center; gap: 12px; font-size: 13px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 16px; }
+  .grid2 .panel h3 { font-size: 14px; margin: 0 0 12px; }
+  .dist { display: flex; flex-direction: column; gap: 10px; }
+  .dist .item { display: grid; grid-template-columns: 1fr 80px 36px; align-items: center; gap: 12px; font-size: 13px; }
   .dist .item .bar { height: 6px; background: var(--line-2); border-radius: var(--r-pill); overflow: hidden; }
   .dist .item .bar > div { height: 100%; background: var(--ink-2); border-radius: var(--r-pill); }
-  .dist .item .v { text-align: right; color: var(--ink-3); font-variant-numeric: tabular-nums; font-weight: var(--fw-medium); }
+  .dist .item .v { text-align: right; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+  @media (max-width: 560px) { .grid2 { grid-template-columns: 1fr; } }
 
-  /* ===== ROADMAP ===== */
+  /* ===== Roadmap ===== */
   .roadmap { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
   .roadmap .col { background: var(--white); border: 1px solid var(--line); border-radius: var(--r-card); padding: 22px; }
-  .roadmap .col h3 { font-size: 12px; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.12em; margin: 0 0 14px; font-weight: var(--fw-semibold); }
+  .roadmap .col .eyebrow { margin-bottom: 14px; display: block; }
   .roadmap ul { list-style: none; padding: 0; margin: 0; }
-  .roadmap li { padding: 8px 0; font-size: 14px; color: var(--ink-2); border-bottom: 1px solid var(--line-2); }
+  .roadmap li { padding: 9px 0; font-size: 14px; color: var(--ink-2); border-bottom: 1px solid var(--line-2); display: flex; align-items: center; gap: 10px; }
   .roadmap li:last-child { border-bottom: 0; }
-  .roadmap li::before { content: "→ "; color: var(--ink-3); }
+  .roadmap li svg { flex-shrink: 0; }
+  @media (max-width: 560px) { .roadmap { grid-template-columns: 1fr; } }
 
-  /* ===== ABOUT ===== */
-  .about { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; }
-  .about p { color: var(--ink-2); }
-  .about .links { display: flex; flex-direction: column; gap: 10px; margin-top: 18px; }
-  .about .links a { font-size: 14px; }
+  /* ===== About ===== */
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; }
+  .about-grid h3 { font-size: 22px; margin: 0 0 10px; }
+  .about-grid p { color: var(--ink-2); }
+  .about-grid .links { display: flex; flex-direction: column; gap: 8px; margin-top: 18px; }
+  .about-grid .links a { font-size: 14px; display: inline-flex; align-items: center; gap: 8px; }
+  @media (max-width: 700px) { .about-grid { grid-template-columns: 1fr; } }
 
-  footer { text-align: center; padding: 32px 0 48px; color: var(--ink-4); font-size: 12px; }
-
-  @media (max-width: 720px) {
-    .features, .case-stats, .roadmap, .about, .grid2 { grid-template-columns: 1fr; }
-    .funnel .row { grid-template-columns: 1fr 60px; }
-    .funnel .row .bar { grid-column: 1 / -1; }
+  /* ===== Waitlist (dark section) ===== */
+  .waitlist-top { display: grid; grid-template-columns: auto 1fr; gap: 18px; align-items: flex-start; max-width: 760px; margin-bottom: 32px; }
+  .waitlist-top h2 { margin: 6px 0 8px; font-size: clamp(24px, 3vw, 36px); letter-spacing: -0.022em; }
+  .waitlist-top .ro-mark { width: 40px; height: 40px; border-radius: 8px; background: var(--white); color: var(--ink); font-size: 15px; }
+  .steps-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
+    background: rgba(255,255,255,0.12);
+    border-radius: var(--r-card-emph); overflow: hidden;
+    margin-bottom: 32px;
   }
+  .step-tile { background: var(--dark); padding: clamp(20px, 2.5vw, 28px) clamp(18px, 2.2vw, 24px); }
+  .step-tile .eyebrow { color: rgba(255,255,255,0.5); }
+  .step-tile .tile-h { color: var(--white); font-weight: var(--fw-semibold); font-size: 16px; margin: 8px 0 6px; }
+  .step-tile p { color: rgba(255,255,255,0.7); font-size: 13px; margin: 0; line-height: 1.5; }
+  .wl-form-wrap { max-width: 480px; }
+  @media (max-width: 700px) { .steps-grid { grid-template-columns: 1fr; } }
+
+  /* ===== Footer ===== */
+  footer { text-align: center; padding: 32px 0 48px; color: var(--ink-4); font-size: 12px; }
+  footer a { color: var(--ink-4); }
 </style>
 </head>
 <body>
-<div class="wrap">
 
-<!-- 1. HERO -->
-<section class="hero">
-  <span class="badge"><span class="dot"></span>Live · Founding-user dogfood</span>
-  <h1>The operating system for your <br>AI PM job search.</h1>
-  <p class="lede">For senior PMs targeting AI-native companies. Stop juggling tabs, spreadsheets, and ChatGPT screenshots. RoleOS scopes the right roles, extracts every requirement into a strict schema, and tracks your funnel end-to-end.</p>
+<!-- ===== NAV ===== -->
+<nav class="site-nav">
+  <div class="wrap nav-inner">
+    <a href="#top" class="nav-logo">
+      <span class="ro-mark">RO</span>
+      RoleOS
+    </a>
+    <div class="nav-links">
+      <a href="#what">Product</a>
+      <a href="#case">Case study</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="#waitlist" class="btn btn-sm">Join waitlist</a>
+    </div>
+  </div>
+</nav>
 
-  <form class="waitlist" id="waitlist" novalidate>
-    <input type="email" name="email" placeholder="your@email.com" required autocomplete="email">
-    <button type="submit" class="btn">Join the waitlist</button>
-  </form>
-  <div class="waitlist-msg" id="waitlist-msg">Early access · we'll email when v1 opens</div>
+<!-- ===== HERO ===== -->
+<section id="top" class="hero bg-white">
+  <div class="wrap">
+    <span class="badge"><span class="dot"></span>Live · founding-user dogfood</span>
+    <h1>Run your job search<br>like a real product.</h1>
+    <p class="lede">For senior PMs targeting AI-native companies. RoleOS reads every job description, scores your fit, and tracks your funnel from "interesting" to "offer." <strong>No more spreadsheets. No more ChatGPT screenshots.</strong></p>
+
+    <form class="waitlist-form" id="waitlist-hero" novalidate>
+      <input type="email" name="email" placeholder="your@email.com" required autocomplete="email">
+      <button type="submit">Join the waitlist →</button>
+    </form>
+    <p class="form-msg" id="msg-hero">Early access. We'll email when v1 opens.</p>
+  </div>
 </section>
 
-<!-- 2. WHY -->
-<section class="why">
-  <h2 class="section-title">Why this exists</h2>
-  <p>Finding the right role is a <strong>research problem disguised as a sales problem.</strong> Every JD is a 1,200-word requirements doc. Every company is a strategy puzzle. AI PMs deserve tooling that matches the rigor of the work itself — not another spreadsheet.</p>
+<!-- ===== WHY ===== -->
+<section class="bg-paper">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Why this exists</span>
+      <h2>Finding the right role is a research problem.<br>You've been treating it like a sales one.</h2>
+    </div>
+    <p style="max-width: 720px; font-size: clamp(16px, 1.7vw, 18px); color: var(--ink-2); margin: 0;">
+      Every JD is a 1,200-word requirements doc. Every company is a strategy puzzle. AI PMs deserve tooling that matches the rigor of the work itself — not another tracker.
+    </p>
+  </div>
 </section>
 
-<!-- 3. WHAT ROLEOS DOES -->
-<section>
-  <h2 class="section-title">What RoleOS does</h2>
-  <div class="features">
-    <div class="feature">
-      <div class="num">01 · Scope</div>
-      <h3>Find every role that matters</h3>
-      <p>Crawls ATS portals (Greenhouse, Lever, Ashby) for your target companies. Filters to the roles you'd actually take.</p>
+<!-- ===== WHAT IT DOES ===== -->
+<section id="what" class="bg-white">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">What RoleOS does</span>
+      <h2>Three things. End to end.</h2>
     </div>
-    <div class="feature">
-      <div class="num">02 · Extract</div>
-      <h3>Read every JD like a PM</h3>
-      <p>Claude reads each posting and extracts archetype, seniority, must-haves with verbatim quotes, salary, location, visa — into a strict schema. Zero hallucination by contract.</p>
-    </div>
-    <div class="feature">
-      <div class="num">03 · Track</div>
-      <h3>Run the funnel, end-to-end</h3>
-      <p>From "scoped" to "offer." See where you stand, what's stalled, and where your time goes. The CRM your job search deserved.</p>
+    <div class="promise-grid">
+
+      <div class="promise-card">
+        <div class="icon-bg" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="7"/>
+            <path d="M20 20l-3.5-3.5"/>
+          </svg>
+        </div>
+        <h3>Scope every role that matters</h3>
+        <p>Crawls ATS portals (Greenhouse, Lever, Ashby) across your target companies. Filters to the roles you'd actually take.</p>
+      </div>
+
+      <div class="promise-card">
+        <div class="icon-bg" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="4" y="3" width="14" height="18" rx="2"/>
+            <path d="M8 8h6M8 12h6M8 16h4"/>
+          </svg>
+        </div>
+        <h3>Read every JD like a PM</h3>
+        <p>Claude extracts archetype, seniority, must-haves with verbatim quotes, salary, location, visa — into a strict schema. No skimming. No hallucination.</p>
+      </div>
+
+      <div class="promise-card">
+        <div class="icon-bg" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 20V10M10 20V4M17 20v-7"/>
+            <path d="M3 20h18"/>
+          </svg>
+        </div>
+        <h3>Track the funnel, end to end</h3>
+        <p>From scoped to offer. See where you stand, what's stalled, where your time goes. The CRM your job search deserved.</p>
+      </div>
+
     </div>
   </div>
 </section>
 
-<!-- 4. LIVE CASE STUDY -->
-<section>
-  <div class="case-header">
-    <h2>Live case study — Nikhil's search</h2>
-    <span class="by">running on RoleOS · updated nightly</span>
-  </div>
+<!-- ===== CASE STUDY ===== -->
+<section id="case" class="bg-paper">
+  <div class="wrap">
+    <div class="section-head" style="display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 8px; max-width: none;">
+      <div>
+        <span class="eyebrow">Live case study</span>
+        <h2 style="margin: 10px 0 0;">Nikhil's search.</h2>
+      </div>
+      <span style="font-size: 13px; color: var(--ink-3);">running on RoleOS · updated nightly</span>
+    </div>
 
-  <div class="case-stats" id="stats">loading…</div>
+    <div class="case-stats" id="stats">loading…</div>
 
-  <div class="panel funnel" id="funnel"></div>
+    <div class="panel funnel" id="funnel"></div>
 
-  <details class="more">
-    <summary>What the extraction sees (aggregate distributions)</summary>
-    <div>
+    <details class="more">
+      <summary>What the extraction sees (aggregate distributions)</summary>
       <div class="grid2">
         <div class="panel"><h3>Role archetypes</h3><div class="dist" id="dist-archetype"></div></div>
-        <div class="panel"><h3>Seniority distribution</h3><div class="dist" id="dist-seniority"></div></div>
+        <div class="panel"><h3>Seniority</h3><div class="dist" id="dist-seniority"></div></div>
         <div class="panel"><h3>Years required</h3><div class="dist" id="dist-years"></div></div>
         <div class="panel"><h3>Location & work model</h3><div class="dist" id="dist-location"></div></div>
       </div>
-      <div style="margin-top: 20px; font-size: 13px; color: var(--ink-3);">
-        Cost so far: <span id="cost-line">—</span>
-      </div>
-    </div>
-  </details>
+      <p style="margin-top: 18px; font-size: 13px; color: var(--ink-3);">Cost so far: <span id="cost-line">—</span></p>
+    </details>
+  </div>
 </section>
 
-<!-- 5. ROADMAP -->
-<section>
-  <h2 class="section-title">Roadmap</h2>
-  <div class="roadmap">
-    <div class="col">
-      <h3>Shipping now</h3>
-      <ul>
-        <li>Role discovery across 100+ companies</li>
-        <li>LLM-powered JD extraction</li>
-        <li>Per-role candidate-facing digests</li>
-        <li>Live funnel tracking</li>
-      </ul>
+<!-- ===== ROADMAP ===== -->
+<section id="roadmap" class="bg-white">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Roadmap</span>
+      <h2>Shipping now. Coming soon.</h2>
     </div>
-    <div class="col">
-      <h3>Coming next</h3>
-      <ul>
-        <li>Personal CV ingestion & fit scoring</li>
-        <li>Company enrichment (funding, headcount, news)</li>
-        <li>Outreach drafting (cover letters, hiring-manager notes)</li>
-        <li>Interview prep & offer comparator</li>
-      </ul>
+    <div class="roadmap">
+      <div class="col">
+        <span class="eyebrow">Shipping now</span>
+        <ul>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>Role discovery across 100+ companies</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>LLM-powered JD extraction</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>Per-role candidate digests</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>Live funnel tracking</li>
+        </ul>
+      </div>
+      <div class="col">
+        <span class="eyebrow">Coming next</span>
+        <ul>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/></svg>Personal CV ingestion & fit scoring</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/></svg>Company enrichment (funding, headcount, news)</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/></svg>Outreach drafting (cover letters, hiring-manager notes)</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/></svg>Interview prep & offer comparator</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- 6. ABOUT -->
-<section>
-  <h2 class="section-title">About the builder</h2>
-  <div class="about">
-    <div>
-      <h3 style="font-size: 22px; margin-bottom: 12px;">Nikhil Jain</h3>
-      <p>Senior AI PM building RoleOS while running his own job search as the founding user. The case study above is real — every number updates from the live pipeline running on his machine.</p>
-      <div class="links">
-        <a href="https://github.com/nikjain15/role-os">→ Source code</a>
-        <a href="#" id="resume-link">→ Resume</a>
-        <a href="#" id="linkedin-link">→ LinkedIn</a>
+<!-- ===== ABOUT ===== -->
+<section id="about" class="bg-paper">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">About the builder</span>
+    </div>
+    <div class="about-grid">
+      <div>
+        <h3>Nikhil Jain</h3>
+        <p>Senior AI PM building RoleOS while running his own job search as the founding user. Every number in the case study is real and updates from the live pipeline.</p>
+        <div class="links">
+          <a href="https://github.com/nikjain15/role-os">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
+            Source code
+          </a>
+          <a href="#" id="resume-link">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
+            Resume
+          </a>
+          <a href="#" id="linkedin-link">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
+            LinkedIn
+          </a>
+        </div>
+      </div>
+      <div>
+        <span class="eyebrow" style="display: block; margin-bottom: 10px;">Coming soon</span>
+        <p style="font-size: 14px;">Two AI assistants. One that answers questions about the roles RoleOS has researched. One that answers anything a recruiter wants to know about Nikhil. Both grounded in real data.</p>
       </div>
     </div>
-    <div>
-      <h3 style="font-size: 14px; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px;">Coming soon</h3>
-      <p style="font-size: 14px;">Two AI assistants: one that answers questions about the roles RoleOS has researched, and one that answers anything a recruiter wants to know about Nikhil. Both grounded in real data — no hallucination.</p>
+  </div>
+</section>
+
+<!-- ===== WAITLIST (dark) ===== -->
+<section id="waitlist" class="bg-dark">
+  <div class="wrap">
+    <div class="waitlist-top">
+      <span class="ro-mark">RO</span>
+      <div>
+        <span class="eyebrow">RoleOS</span>
+        <h2>Want early access?</h2>
+        <p>Drop your email. We'll let you in when v1 opens.</p>
+      </div>
+    </div>
+
+    <div class="steps-grid">
+      <div class="step-tile">
+        <span class="eyebrow">01</span>
+        <div class="tile-h">Drop your email</div>
+        <p>Takes 10 seconds. No spam, ever.</p>
+      </div>
+      <div class="step-tile">
+        <span class="eyebrow">02</span>
+        <div class="tile-h">We open v1 in waves</div>
+        <p>Founding users get free access and shape the roadmap.</p>
+      </div>
+      <div class="step-tile">
+        <span class="eyebrow">03</span>
+        <div class="tile-h">Run your search like a real product</div>
+        <p>From scoping to offer — one system, end to end.</p>
+      </div>
+    </div>
+
+    <div class="wl-form-wrap">
+      <form class="waitlist-form on-dark" id="waitlist-bottom" novalidate>
+        <input type="email" name="email" placeholder="your@email.com" required autocomplete="email">
+        <button type="submit">Join the waitlist →</button>
+      </form>
+      <p class="form-msg on-dark" id="msg-bottom" style="color: rgba(255,255,255,0.55);">No spam. No pressure. Unsubscribe anytime.</p>
     </div>
   </div>
 </section>
@@ -297,10 +434,13 @@
   RoleOS · Built with Node + Claude · Updated <span id="ts"></span>
 </footer>
 
-</div>
-
 <script>
-async function load() {
+// ===== Supabase config (anon key safe to expose; RLS allows insert-only) =====
+window.SUPABASE_URL = 'https://REDACTED.supabase.co';
+window.SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJxbW9mZ2tsb3dtZGxqZ3h6ZG1kIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk2Njg1NDIsImV4cCI6MjA5NTI0NDU0Mn0.3ZmjH1S5oEe9acipRdGmEyt0n4DB-76IyHYq6CiJrPw';
+
+// ===== Live data =====
+async function loadCaseStudy() {
   const d = await (await fetch('data.json?t=' + Date.now())).json();
   const h = d.headline;
 
@@ -326,7 +466,7 @@ async function load() {
     const entries = Object.entries(obj).sort((a, b) => b[1] - a[1]).slice(0, 8);
     const max = Math.max(...entries.map(([, v]) => v), 1);
     document.getElementById(id).innerHTML = entries.map(([k, v]) =>
-      `<div class="item"><span class="k">${k}</span><div class="bar"><div style="width:${(v/max)*100}%"></div></div><span class="v">${v}</span></div>`
+      `<div class="item"><span>${k}</span><div class="bar"><div style="width:${(v/max)*100}%"></div></div><span class="v">${v}</span></div>`
     ).join('') || '<div style="color:var(--ink-3);font-size:13px">(no data yet)</div>';
   }
   renderDist('dist-archetype', d.distributions.archetype);
@@ -339,58 +479,53 @@ async function load() {
   document.getElementById('ts').textContent = new Date(d.generatedAt).toLocaleString();
 }
 
-// Supabase config (anon key is safe to expose — RLS allows insert-only, no reads)
-window.SUPABASE_URL = 'https://REDACTED.supabase.co';
-window.SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJxbW9mZ2tsb3dtZGxqZ3h6ZG1kIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk2Njg1NDIsImV4cCI6MjA5NTI0NDU0Mn0.3ZmjH1S5oEe9acipRdGmEyt0n4DB-76IyHYq6CiJrPw';
-
-// Waitlist form — POSTs to Supabase REST endpoint
-const form = document.getElementById('waitlist');
-const msg = document.getElementById('waitlist-msg');
-form.addEventListener('submit', async (e) => {
-  e.preventDefault();
+// ===== Waitlist signup (both forms share handler) =====
+async function submitWaitlist(form, msgEl, source) {
   const email = form.email.value.trim();
   if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
-    msg.textContent = 'Please enter a valid email.';
-    msg.className = 'waitlist-msg error';
+    msgEl.textContent = 'Please enter a valid email.';
+    msgEl.className = 'form-msg error';
     return;
   }
-  msg.textContent = 'Joining…';
-  msg.className = 'waitlist-msg';
+  msgEl.textContent = 'Joining…';
+  msgEl.className = 'form-msg';
 
-  // TODO: wire Supabase — when keys are provided, replace this stub with a real INSERT
-  if (window.SUPABASE_URL && window.SUPABASE_ANON_KEY) {
-    try {
-      const r = await fetch(`${window.SUPABASE_URL}/rest/v1/waitlist`, {
-        method: 'POST',
-        headers: {
-          'apikey': window.SUPABASE_ANON_KEY,
-          'Authorization': `Bearer ${window.SUPABASE_ANON_KEY}`,
-          'Content-Type': 'application/json',
-          'Prefer': 'return=minimal'
-        },
-        body: JSON.stringify({ email, source: 'roleos-landing' })
-      });
-      if (r.ok) {
-        msg.textContent = "You're on the list. We'll be in touch.";
-        msg.className = 'waitlist-msg success';
-        form.reset();
-      } else {
-        const err = await r.text();
-        msg.textContent = err.includes('duplicate') ? "You're already on the list." : 'Something went wrong — try again?';
-        msg.className = 'waitlist-msg error';
-      }
-    } catch (err) {
-      msg.textContent = 'Network error — try again?';
-      msg.className = 'waitlist-msg error';
+  try {
+    const r = await fetch(`${window.SUPABASE_URL}/rest/v1/waitlist`, {
+      method: 'POST',
+      headers: {
+        'apikey': window.SUPABASE_ANON_KEY,
+        'Authorization': `Bearer ${window.SUPABASE_ANON_KEY}`,
+        'Content-Type': 'application/json',
+        'Prefer': 'return=minimal'
+      },
+      body: JSON.stringify({ email, source })
+    });
+    if (r.ok) {
+      msgEl.textContent = "You're on the list. We'll be in touch.";
+      msgEl.className = 'form-msg success';
+      form.reset();
+    } else {
+      const err = await r.text();
+      msgEl.textContent = err.includes('duplicate') ? "You're already on the list." : 'Something went wrong. Try again?';
+      msgEl.className = 'form-msg error';
     }
-  } else {
-    msg.textContent = "Thanks! Waitlist backend wiring up — we'll save your spot when it's live.";
-    msg.className = 'waitlist-msg success';
-    form.reset();
+  } catch (err) {
+    msgEl.textContent = 'Network error. Try again?';
+    msgEl.className = 'form-msg error';
   }
+}
+
+document.getElementById('waitlist-hero').addEventListener('submit', (e) => {
+  e.preventDefault();
+  submitWaitlist(e.target, document.getElementById('msg-hero'), 'hero');
+});
+document.getElementById('waitlist-bottom').addEventListener('submit', (e) => {
+  e.preventDefault();
+  submitWaitlist(e.target, document.getElementById('msg-bottom'), 'bottom');
 });
 
-load();
+loadCaseStudy();
 </script>
 </body>
 </html>
