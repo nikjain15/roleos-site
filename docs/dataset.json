@@ -1,17 +1,27 @@
 {
-  "generatedAt": "2026-05-25T04:43:31.185Z",
-  "totalCompanies": 86,
-  "totalRoles": 557,
+  "generatedAt": "2026-06-28T21:23:47.394Z",
+  "totalCompanies": 89,
+  "totalRoles": 691,
   "topCompanies": [
     {
-      "slug": "doordash",
-      "name": "DoorDash",
-      "count": 72
-    },
-    {
       "slug": "stripe",
       "name": "Stripe",
-      "count": 47
+      "count": 65
+    },
+    {
+      "slug": "doordash",
+      "name": "DoorDash",
+      "count": 62
+    },
+    {
+      "slug": "openai",
+      "name": "OpenAI",
+      "count": 45
+    },
+    {
+      "slug": "lyft",
+      "name": "Lyft",
+      "count": 31
     },
     {
       "slug": "sofi",
@@ -21,37 +31,32 @@
     {
       "slug": "anthropic",
       "name": "Anthropic",
-      "count": 24
-    },
-    {
-      "slug": "lyft",
-      "name": "Lyft",
-      "count": 21
+      "count": 25
     },
     {
       "slug": "airbnb",
       "name": "Airbnb",
-      "count": 17
-    },
-    {
-      "slug": "scale-ai",
-      "name": "Scale AI",
-      "count": 17
+      "count": 24
     },
     {
       "slug": "instacart",
       "name": "Instacart",
-      "count": 16
+      "count": 24
     },
     {
-      "slug": "harvey",
-      "name": "Harvey",
-      "count": 14
+      "slug": "scale-ai",
+      "name": "Scale AI",
+      "count": 18
     },
     {
       "slug": "klaviyo",
       "name": "Klaviyo",
-      "count": 13
+      "count": 16
+    },
+    {
+      "slug": "sierra",
+      "name": "Sierra",
+      "count": 15
     },
     {
       "slug": "whatnot",
@@ -59,155 +64,160 @@
       "count": 13
     },
     {
-      "slug": "state-street",
-      "name": "State Street",
+      "slug": "asana",
+      "name": "Asana",
       "count": 12
-    },
-    {
-      "slug": "sierra",
-      "name": "Sierra",
-      "count": 11
-    },
-    {
-      "slug": "decagon",
-      "name": "Decagon",
-      "count": 10
-    },
-    {
-      "slug": "faire",
-      "name": "Faire",
-      "count": 10
-    },
-    {
-      "slug": "lemonade",
-      "name": "Lemonade",
-      "count": 10
-    },
-    {
-      "slug": "chime",
-      "name": "Chime",
-      "count": 9
-    },
-    {
-      "slug": "cohere",
-      "name": "Cohere",
-      "count": 9
-    },
-    {
-      "slug": "glean",
-      "name": "Glean",
-      "count": 9
-    },
-    {
-      "slug": "icapital",
-      "name": "iCapital",
-      "count": 9
-    }
-  ],
-  "allCompanies": [
-    {
-      "slug": "doordash",
-      "name": "DoorDash",
-      "count": 72
-    },
-    {
-      "slug": "stripe",
-      "name": "Stripe",
-      "count": 47
-    },
-    {
-      "slug": "sofi",
-      "name": "SoFi",
-      "count": 26
-    },
-    {
-      "slug": "anthropic",
-      "name": "Anthropic",
-      "count": 24
-    },
-    {
-      "slug": "lyft",
-      "name": "Lyft",
-      "count": 21
-    },
-    {
-      "slug": "airbnb",
-      "name": "Airbnb",
-      "count": 17
-    },
-    {
-      "slug": "scale-ai",
-      "name": "Scale AI",
-      "count": 17
-    },
-    {
-      "slug": "instacart",
-      "name": "Instacart",
-      "count": 16
-    },
-    {
-      "slug": "harvey",
-      "name": "Harvey",
-      "count": 14
-    },
-    {
-      "slug": "klaviyo",
-      "name": "Klaviyo",
-      "count": 13
-    },
-    {
-      "slug": "whatnot",
-      "name": "Whatnot",
-      "count": 13
-    },
-    {
-      "slug": "state-street",
-      "name": "State Street",
-      "count": 12
-    },
-    {
-      "slug": "sierra",
-      "name": "Sierra",
-      "count": 11
-    },
-    {
-      "slug": "decagon",
-      "name": "Decagon",
-      "count": 10
-    },
-    {
-      "slug": "faire",
-      "name": "Faire",
-      "count": 10
-    },
-    {
-      "slug": "lemonade",
-      "name": "Lemonade",
-      "count": 10
-    },
-    {
-      "slug": "chime",
-      "name": "Chime",
-      "count": 9
-    },
-    {
-      "slug": "cohere",
-      "name": "Cohere",
-      "count": 9
-    },
-    {
-      "slug": "glean",
-      "name": "Glean",
-      "count": 9
-    },
-    {
-      "slug": "icapital",
-      "name": "iCapital",
-      "count": 9
     },
     {
       "slug": "plaid",
       "name": "Plaid",
+      "count": 12
+    },
+    {
+      "slug": "state-street",
+      "name": "State Street",
+      "count": 12
+    },
+    {
+      "slug": "decagon",
+      "name": "Decagon",
+      "count": 11
+    },
+    {
+      "slug": "harvey",
+      "name": "Harvey",
+      "count": 11
+    },
+    {
+      "slug": "hellofresh",
+      "name": "HelloFresh",
+      "count": 10
+    },
+    {
+      "slug": "icapital",
+      "name": "iCapital",
+      "count": 10
+    },
+    {
+      "slug": "notion",
+      "name": "Notion",
+      "count": 10
+    }
+  ],
+  "allCompanies": [
+    {
+      "slug": "stripe",
+      "name": "Stripe",
+      "count": 65
+    },
+    {
+      "slug": "doordash",
+      "name": "DoorDash",
+      "count": 62
+    },
+    {
+      "slug": "openai",
+      "name": "OpenAI",
+      "count": 45
+    },
+    {
+      "slug": "lyft",
+      "name": "Lyft",
+      "count": 31
+    },
+    {
+      "slug": "sofi",
+      "name": "SoFi",
+      "count": 26
+    },
+    {
+      "slug": "anthropic",
+      "name": "Anthropic",
+      "count": 25
+    },
+    {
+      "slug": "airbnb",
+      "name": "Airbnb",
+      "count": 24
+    },
+    {
+      "slug": "instacart",
+      "name": "Instacart",
+      "count": 24
+    },
+    {
+      "slug": "scale-ai",
+      "name": "Scale AI",
+      "count": 18
+    },
+    {
+      "slug": "klaviyo",
+      "name": "Klaviyo",
+      "count": 16
+    },
+    {
+      "slug": "sierra",
+      "name": "Sierra",
+      "count": 15
+    },
+    {
+      "slug": "whatnot",
+      "name": "Whatnot",
+      "count": 13
+    },
+    {
+      "slug": "asana",
+      "name": "Asana",
+      "count": 12
+    },
+    {
+      "slug": "plaid",
+      "name": "Plaid",
+      "count": 12
+    },
+    {
+      "slug": "state-street",
+      "name": "State Street",
+      "count": 12
+    },
+    {
+      "slug": "decagon",
+      "name": "Decagon",
+      "count": 11
+    },
+    {
+      "slug": "harvey",
+      "name": "Harvey",
+      "count": 11
+    },
+    {
+      "slug": "hellofresh",
+      "name": "HelloFresh",
+      "count": 10
+    },
+    {
+      "slug": "icapital",
+      "name": "iCapital",
+      "count": 10
+    },
+    {
+      "slug": "notion",
+      "name": "Notion",
+      "count": 10
+    },
+    {
+      "slug": "affirm",
+      "name": "Affirm",
+      "count": 9
+    },
+    {
+      "slug": "faire",
+      "name": "Faire",
+      "count": 9
+    },
+    {
+      "slug": "figma",
+      "name": "Figma",
       "count": 9
     },
     {
@@ -216,49 +226,54 @@
       "count": 9
     },
     {
-      "slug": "affirm",
-      "name": "Affirm",
-      "count": 7
+      "slug": "cohere",
+      "name": "Cohere",
+      "count": 8
     },
     {
-      "slug": "hellofresh",
-      "name": "HelloFresh",
-      "count": 7
-    },
-    {
-      "slug": "notion",
-      "name": "Notion",
-      "count": 7
+      "slug": "glean",
+      "name": "Glean",
+      "count": 8
     },
     {
       "slug": "robinhood",
       "name": "Robinhood",
-      "count": 7
+      "count": 8
     },
     {
-      "slug": "asana",
-      "name": "Asana",
-      "count": 6
+      "slug": "wayve",
+      "name": "Wayve",
+      "count": 8
+    },
+    {
+      "slug": "addepar",
+      "name": "Addepar",
+      "count": 7
     },
     {
       "slug": "brex",
       "name": "Brex",
-      "count": 6
+      "count": 7
     },
     {
-      "slug": "elevenlabs",
-      "name": "ElevenLabs",
-      "count": 6
+      "slug": "chime",
+      "name": "Chime",
+      "count": 7
     },
     {
-      "slug": "figma",
-      "name": "Figma",
-      "count": 6
+      "slug": "coinbase",
+      "name": "Coinbase",
+      "count": 7
     },
     {
-      "slug": "spotify",
-      "name": "Spotify",
-      "count": 6
+      "slug": "cursor",
+      "name": "Cursor",
+      "count": 7
+    },
+    {
+      "slug": "lemonade",
+      "name": "Lemonade",
+      "count": 7
     },
     {
       "slug": "sumup",
@@ -266,13 +281,23 @@
       "count": 6
     },
     {
-      "slug": "addepar",
-      "name": "Addepar",
-      "count": 5
+      "slug": "supabase",
+      "name": "Supabase",
+      "count": 6
+    },
+    {
+      "slug": "upstart",
+      "name": "Upstart",
+      "count": 6
     },
     {
       "slug": "clay-labs",
-      "name": "Clay",
+      "name": "Clay Labs",
+      "count": 5
+    },
+    {
+      "slug": "replit",
+      "name": "Replit",
       "count": 5
     },
     {
@@ -281,13 +306,28 @@
       "count": 5
     },
     {
-      "slug": "carta",
-      "name": "Carta",
+      "slug": "twilio",
+      "name": "Twilio",
+      "count": 5
+    },
+    {
+      "slug": "abridge",
+      "name": "Abridge",
       "count": 4
     },
     {
-      "slug": "hightouch",
-      "name": "Hightouch",
+      "slug": "airtable",
+      "name": "Airtable",
+      "count": 4
+    },
+    {
+      "slug": "character-ai",
+      "name": "Character AI",
+      "count": 4
+    },
+    {
+      "slug": "elevenlabs",
+      "name": "ElevenLabs",
       "count": 4
     },
     {
@@ -296,43 +336,38 @@
       "count": 4
     },
     {
+      "slug": "spotify",
+      "name": "Spotify",
+      "count": 4
+    },
+    {
+      "slug": "boomi",
+      "name": "Boomi",
+      "count": 3
+    },
+    {
+      "slug": "legora",
+      "name": "Legora",
+      "count": 3
+    },
+    {
+      "slug": "lovable",
+      "name": "Lovable",
+      "count": 3
+    },
+    {
+      "slug": "palantir",
+      "name": "Palantir",
+      "count": 3
+    },
+    {
+      "slug": "parloa",
+      "name": "Parloa",
+      "count": 3
+    },
+    {
       "slug": "runpod",
       "name": "RunPod",
-      "count": 4
-    },
-    {
-      "slug": "upstart",
-      "name": "Upstart",
-      "count": 4
-    },
-    {
-      "slug": "abridge",
-      "name": "Abridge",
-      "count": 3
-    },
-    {
-      "slug": "character-ai",
-      "name": "Character.AI",
-      "count": 3
-    },
-    {
-      "slug": "cursor",
-      "name": "Cursor",
-      "count": 3
-    },
-    {
-      "slug": "perplexity",
-      "name": "Perplexity",
-      "count": 3
-    },
-    {
-      "slug": "replit",
-      "name": "Replit",
-      "count": 3
-    },
-    {
-      "slug": "wayve",
-      "name": "Wayve",
       "count": 3
     },
     {
@@ -341,13 +376,13 @@
       "count": 2
     },
     {
-      "slug": "anrok",
-      "name": "Anrok",
+      "slug": "amplemarket",
+      "name": "Amplemarket",
       "count": 2
     },
     {
-      "slug": "arize-ai",
-      "name": "Arize AI",
+      "slug": "anrok",
+      "name": "Anrok",
       "count": 2
     },
     {
@@ -356,8 +391,8 @@
       "count": 2
     },
     {
-      "slug": "boomi",
-      "name": "Boomi",
+      "slug": "carta",
+      "name": "Carta",
       "count": 2
     },
     {
@@ -366,8 +401,8 @@
       "count": 2
     },
     {
-      "slug": "deepgram",
-      "name": "Deepgram",
+      "slug": "dialpad",
+      "name": "Dialpad",
       "count": 2
     },
     {
@@ -381,18 +416,18 @@
       "count": 2
     },
     {
-      "slug": "palantir",
-      "name": "Palantir",
+      "slug": "perplexity",
+      "name": "Perplexity",
       "count": 2
     },
     {
-      "slug": "supabase",
-      "name": "Supabase",
+      "slug": "polyai",
+      "name": "PolyAI",
       "count": 2
     },
     {
-      "slug": "vapi",
-      "name": "Vapi",
+      "slug": "stash",
+      "name": "Stash",
       "count": 2
     },
     {
@@ -401,23 +436,18 @@
       "count": 2
     },
     {
-      "slug": "airtable",
-      "name": "Airtable",
-      "count": 1
-    },
-    {
-      "slug": "aleph-alpha",
-      "name": "Aleph Alpha",
-      "count": 1
-    },
-    {
       "slug": "alloy",
       "name": "Alloy",
       "count": 1
     },
     {
-      "slug": "amplemarket",
-      "name": "Amplemarket",
+      "slug": "arize-ai",
+      "name": "Arize AI",
+      "count": 1
+    },
+    {
+      "slug": "attio",
+      "name": "Attio",
       "count": 1
     },
     {
@@ -426,18 +456,28 @@
       "count": 1
     },
     {
-      "slug": "causaly",
-      "name": "Causaly",
+      "slug": "coalition",
+      "name": "Coalition",
       "count": 1
     },
     {
-      "slug": "celonis",
-      "name": "Celonis",
+      "slug": "crosby",
+      "name": "Crosby",
       "count": 1
     },
     {
-      "slug": "hume-ai",
-      "name": "Hume AI",
+      "slug": "deepgram",
+      "name": "Deepgram",
+      "count": 1
+    },
+    {
+      "slug": "glossier",
+      "name": "Glossier",
+      "count": 1
+    },
+    {
+      "slug": "hightouch",
+      "name": "Hightouch",
       "count": 1
     },
     {
@@ -446,18 +486,13 @@
       "count": 1
     },
     {
-      "slug": "klue",
-      "name": "Klue",
-      "count": 1
-    },
-    {
       "slug": "lindy",
       "name": "Lindy",
       "count": 1
     },
     {
-      "slug": "lovable",
-      "name": "Lovable",
+      "slug": "liveperson",
+      "name": "LivePerson",
       "count": 1
     },
     {
@@ -471,18 +506,8 @@
       "count": 1
     },
     {
-      "slug": "pigment",
-      "name": "Pigment",
-      "count": 1
-    },
-    {
       "slug": "pinecone",
       "name": "Pinecone",
-      "count": 1
-    },
-    {
-      "slug": "polyai",
-      "name": "PolyAI",
       "count": 1
     },
     {
@@ -511,18 +536,8 @@
       "count": 1
     },
     {
-      "slug": "stash",
-      "name": "Stash",
-      "count": 1
-    },
-    {
       "slug": "stockx",
       "name": "StockX",
-      "count": 1
-    },
-    {
-      "slug": "synthesia",
-      "name": "Synthesia",
       "count": 1
     },
     {
@@ -538,54 +553,54 @@
   ],
   "archetypes": [
     {
-      "name": "BizOps / Strategy & Ops",
-      "count": 138,
-      "pct": 24.8
+      "name": "Technical Program Manager",
+      "count": 163,
+      "pct": 23.6
     },
     {
-      "name": "Technical Program Manager",
-      "count": 109,
-      "pct": 19.6
+      "name": "BizOps / Strategy & Ops",
+      "count": 139,
+      "pct": 20.1
     },
     {
       "name": "Technical PM",
-      "count": 88,
-      "pct": 15.8
+      "count": 120,
+      "pct": 17.4
     },
     {
       "name": "Generalist PM",
-      "count": 67,
-      "pct": 12
+      "count": 79,
+      "pct": 11.4
     },
     {
       "name": "AI Product Manager",
-      "count": 51,
-      "pct": 9.2
-    },
-    {
-      "name": "Growth PM",
-      "count": 31,
-      "pct": 5.6
+      "count": 70,
+      "pct": 10.1
     },
     {
       "name": "Program Manager",
-      "count": 30,
+      "count": 39,
+      "pct": 5.6
+    },
+    {
+      "name": "Growth PM",
+      "count": 37,
       "pct": 5.4
     },
     {
       "name": "Growth (non-PM)",
-      "count": 20,
-      "pct": 3.6
+      "count": 21,
+      "pct": 3
     },
     {
       "name": "Other",
-      "count": 15,
-      "pct": 2.7
+      "count": 16,
+      "pct": 2.3
     },
     {
       "name": "Chief of Staff",
-      "count": 8,
-      "pct": 1.4
+      "count": 7,
+      "pct": 1
     }
   ]
 }
