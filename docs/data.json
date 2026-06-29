@@ -1,19 +1,19 @@
 {
-  "generatedAt": "2026-06-29T19:14:29.378Z",
+  "generatedAt": "2026-06-29T19:50:35.134Z",
   "funnel": [
     {
       "stage": "Companies scoped",
-      "count": 257,
+      "count": 249,
       "status": "done"
     },
     {
       "stage": "JDs fetched",
-      "count": 1366,
+      "count": 1273,
       "status": "done"
     },
     {
       "stage": "JDs structured (LLM-extracted)",
-      "count": 1366,
+      "count": 1273,
       "status": "done"
     },
     {
@@ -43,13 +43,13 @@
     }
   ],
   "headline": {
-    "rawJDs": 1366,
-    "structured": 1366,
-    "views": 1366,
-    "companies": 257,
-    "companiesComplete": 257,
-    "mustHavesExtracted": 8947,
-    "avgMustHavesPerJD": "6.5",
+    "rawJDs": 1273,
+    "structured": 1273,
+    "views": 1273,
+    "companies": 249,
+    "companiesComplete": 249,
+    "mustHavesExtracted": 8459,
+    "avgMustHavesPerJD": "6.6",
     "withSalary": 0,
     "salaryDisclosureRate": "0%"
   },
@@ -59,21 +59,20 @@
   },
   "distributions": {
     "archetype": {
-      "AI / ML Engineer": 204,
+      "AI / ML Engineer": 194,
       "Generalist PM": 174,
       "Technical Program Manager": 163,
-      "Other": 158,
-      "BizOps / Strategy & Ops": 152,
+      "BizOps / Strategy & Ops": 150,
       "Technical PM": 144,
+      "Other": 120,
       "AI Product Manager": 100,
       "Growth PM": 47,
-      "Solutions / Forward-Deployed Engineer": 45,
+      "Solutions / Forward-Deployed Engineer": 44,
       "Program Manager": 39,
-      "Sales / Account Management": 31,
-      "Data / ML Scientist": 29,
-      "Growth (non-PM)": 25,
-      "Product Designer": 18,
-      "AI Data & Training": 18,
+      "Data / ML Scientist": 25,
+      "Growth (non-PM)": 23,
+      "Product Designer": 17,
+      "Sales / Account Management": 14,
       "Engineering Leadership": 12,
       "Chief of Staff": 7
     },
@@ -346,14 +345,14 @@
     "locationType": {
       "hybrid": 252,
       "onsite": 129,
-      "unclear": 870,
+      "unclear": 777,
       "remote-us": 84,
       "remote-global": 31
     },
     "visaSponsorship": {
       "no": 24,
       "yes": 4,
-      "unclear": 1312,
+      "unclear": 1219,
       "yes-conditional": 26
     },
     "yearsRequired": {
@@ -361,7 +360,7 @@
       "10+": 84,
       "3-5": 257,
       "6-9": 228,
-      "unspecified": 759
+      "unspecified": 666
     }
   },
   "gaps": [
