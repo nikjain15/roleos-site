@@ -1,0 +1,78 @@
+/* RoleOS proto kit — grey-box wireframe styles. Throwaway by design. */
+:root{
+  --bg:#f5f4f1; --surf:#ffffff; --surf2:#ecebe7; --ink:#26251f; --ink2:#6b6a63;
+  --ink3:#96948b; --line:#d7d5cd; --line2:#bdbbb2;
+  --ro:#185FA5; --ro-bg:#E6F1FB; --ro-ink:#0C447C;
+  --ok:#0F6E56; --ok-bg:#E1F5EE; --warn:#854F0B; --warn-bg:#FAEEDA;
+  --bad:#A32D2D; --bad-bg:#F7E4E4;
+  --mono:ui-monospace,SFMono-Regular,Menlo,monospace;
+  --sans:-apple-system,system-ui,Segoe UI,sans-serif;
+}
+*{box-sizing:border-box;margin:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font:15px/1.55 var(--sans);
+  padding-bottom:104px} /* room for debug bar */
+a{color:var(--ro)}
+.screen{max-width:420px;margin:0 auto;padding:16px 16px 40px;min-height:60vh}
+@media(min-width:900px){ body[data-vp="desktop"] .screen,.screen.wide{max-width:760px} }
+
+/* wire primitives */
+.wirebox{background:var(--surf);border:1px solid var(--line);border-radius:10px;padding:14px;margin:10px 0}
+.wirebox.ghost{background:var(--surf2);border-style:dashed;color:var(--ink2)}
+.wl{font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);margin-bottom:6px}
+.hint{font-size:12px;color:var(--ink3)}
+.small{font-size:13px;color:var(--ink2)}
+h1{font-size:24px;line-height:1.25;letter-spacing:-.01em;margin:18px 0 6px}
+h2{font-size:17px;margin:16px 0 6px}
+.sub{color:var(--ink2)}
+
+/* buttons + inputs */
+.btn{display:inline-block;border:0;border-radius:8px;background:var(--ink);color:#fff;
+  font:600 14px var(--sans);padding:11px 16px;cursor:pointer;text-decoration:none;text-align:center}
+.btn.pri{background:var(--ro)}
+.btn.sec{background:var(--surf);color:var(--ink);border:1px solid var(--line2)}
+.btn.ghost{background:transparent;color:var(--ink2);border:1px dashed var(--line2)}
+.btn:disabled{opacity:.4;cursor:default}
+.btn.full{display:block;width:100%}
+.input,textarea.input{width:100%;border:1px solid var(--line2);border-radius:8px;background:var(--surf);
+  padding:11px 12px;font:15px var(--sans);color:var(--ink)}
+textarea.input{resize:vertical;min-height:96px}
+.input:focus{outline:2px solid var(--ro);outline-offset:-1px}
+
+/* pills + status */
+.pill{display:inline-block;font-size:11px;font-weight:600;padding:2px 9px;border-radius:10px;background:var(--surf2);color:var(--ink2)}
+.pill.ro{background:var(--ro-bg);color:var(--ro-ink)}
+.pill.ok{background:var(--ok-bg);color:var(--ok)}
+.pill.warn{background:var(--warn-bg);color:var(--warn)}
+.pill.bad{background:var(--bad-bg);color:var(--bad)}
+
+/* RO voice block — her words always look like her */
+.ro-says{display:flex;gap:10px;margin:12px 0}
+.ro-says .who{flex:0 0 auto;background:var(--ro);color:#fff;border-radius:7px;
+  font:700 11px/1 var(--sans);padding:6px 7px;height:fit-content}
+.ro-says .msg{background:var(--ro-bg);color:var(--ro-ink);border-radius:2px 12px 12px 12px;
+  padding:10px 13px;font-size:14.5px}
+.ro-says.thinking .msg{background:var(--surf2);color:var(--ink2);font-style:italic}
+
+/* reasoning ticker */
+.tick{display:flex;align-items:center;gap:8px;padding:5px 0;font-size:13.5px;color:var(--ink2)}
+.tick::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--ok);flex:0 0 auto}
+.tick.live::before{background:var(--ro);animation:pulse 1s infinite}
+@keyframes pulse{50%{opacity:.3}}
+
+/* annotation for design notes on the wire itself */
+.note-design{border-left:3px solid var(--warn);background:var(--warn-bg);color:var(--warn);
+  font-size:12px;padding:8px 10px;border-radius:0 8px 8px 0;margin:10px 0}
+
+/* debug bar */
+#kitbar{position:fixed;left:0;right:0;bottom:0;z-index:99;background:#1c1b19;color:#cfcdc5;
+  font:12px var(--mono);padding:8px 10px calc(8px + env(safe-area-inset-bottom));display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#kitbar .grp{display:flex;gap:4px;align-items:center;flex-wrap:wrap}
+#kitbar .lbl{color:#8d8b82;font-size:10px;text-transform:uppercase;letter-spacing:.05em;margin-right:2px}
+#kitbar button{font:11px var(--mono);background:#33312b;color:#cfcdc5;border:0;border-radius:5px;padding:4px 8px;cursor:pointer}
+#kitbar button[aria-pressed="true"]{background:#E6F1FB;color:#0C447C;font-weight:700}
+#kitbar a{color:#85B7EB;text-decoration:none;padding:4px 6px}
+#kitbar select{font:11px var(--mono);background:#33312b;color:#cfcdc5;border:0;border-radius:5px;padding:4px 6px}
+
+/* state-driven visibility: kit.js sets body[data-state] */
+[data-show]{display:none}
