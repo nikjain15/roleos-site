@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Explore · real roles, read by RO</title>
+<link rel="stylesheet" href="../_kit/kit.css">
+<style>
+  .askbar{display:flex;gap:8px;margin:10px 0 6px}
+  .askbar input{flex:1}
+  .sugg{font-size:11.5px;color:var(--ro);cursor:pointer;display:inline-block;border:1px solid var(--line2);border-radius:12px;padding:3px 10px;margin:2px 4px 2px 0;background:var(--surf)}
+  .sugg:hover{border-color:var(--ro)}
+  .chip{display:inline-block;border:1px solid var(--line2);border-radius:12px;padding:3px 10px;font-size:11.5px;color:var(--ink2);cursor:pointer;margin:2px 4px 2px 0;background:var(--surf)}
+  .chip.on{background:var(--ro-bg);color:var(--ro-ink);border-color:var(--ro)}
+  .role{background:var(--surf);border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:8px 0}
+  .role.closedrole{opacity:.6}
+  .role .co{font-weight:600;font-size:14px}
+  .role .meta{font-size:10.5px;color:var(--ink3);font-family:var(--mono);margin:2px 0 5px}
+  .role .needs{font-size:12.5px;color:var(--ink2);line-height:1.5}
+  .role .needs b{color:var(--tx)}
+  .tease{background:var(--ro-bg);border-radius:6px;padding:6px 9px;font-size:12px;color:var(--ro-ink);margin-top:7px;cursor:pointer}
+  .tease:hover{outline:1px solid var(--ro)}
+  .fitb{float:right;font-size:11px;font-weight:600}
+  .gaptalk{display:none;margin-top:8px;border-top:1px solid var(--line);padding-top:8px}
+  .role.open-gap .gaptalk{display:block}
+</style>
+</head>
+<body>
+<div class="screen">
+  <p class="wl">proto · explore — real roles, read by RO · flip persona below</p>
+
+  <div class="ro-says" style="margin-top:12px">
+    <span class="who">RO</span>
+    <p class="msg" id="greet">1,536 real jobs, read and checked by me. Look around freely — or just ask me anything, like you&rsquo;d ask a friend who did the homework.</p>
+  </div>
+
+  <div class="askbar">
+    <input class="input" id="ask" placeholder="Ask me… &ldquo;which AI PM jobs pay $250k+?&rdquo;" onkeydown="if(event.key==='Enter')doAsk(this.value)">
+    <button class="btn pri" onclick="doAsk(document.getElementById('ask').value)">Ask</button>
+  </div>
+  <p style="margin:0 0 4px" id="suggs"></p>
+
+  <p style="margin:10px 0 2px">
+    <span class="chip on" data-f="all" onclick="chip(this)">everything</span>
+    <span class="chip" data-f="remote" onclick="chip(this)">remote ok</span>
+    <span class="chip" data-f="pay250" onclick="chip(this)">$250k+</span>
+  </p>
+
+  <!-- RO's reply to an ask -->
+  <div class="ro-says" id="reply" style="display:none">
+    <span class="who">RO</span>
+    <p class="msg" id="replymsg"></p>
+  </div>
+
+  <div id="list"></div>
+
+  <!-- keep-watch card for the empty scenario -->
+  <div class="wirebox ghost" id="watch" style="display:none">
+    <p style="margin:0;font-size:13px">Want me to keep watch and tell you the moment it exists? That takes an account — 30 seconds, and I&rsquo;ll remember everything you just taught me.</p>
+    <a class="btn sec" style="margin-top:8px" href="#" onclick="toOnboarding();return false">Keep watch for me</a>
+  </div>
+
+  <p class="hint" style="text-align:center;margin-top:18px"><a href="../index.html">all prototypes</a></p>
+</div>
+
+<script src="data.js"></script>
+<script>
+window.PROTO = {
+  feature: "explore", screen: "index",
+  screens: EX.screens, states: ["default"], personas: EX.personas,
+  onChange: function (s, p) { member = p === "member"; reset(); }
+};
+var member = false, filter = "all";
+
+function reset() {
+  document.getElementById("reply").style.display = "none";
+  document.getElementById("watch").style.display = "none";
+  document.getElementById("greet").innerHTML = member
+    ? "Your matches live in your feed — this is the whole index, in case you want to wander. Every role shows your real fit, and if I passed on something you like, ask me why: I&rsquo;ll answer honestly."
+    : "1,536 real jobs, read and checked by me. Look around freely — or just ask me anything, like you&rsquo;d ask a friend who did the homework.";
+  document.getElementById("suggs").innerHTML = EX.asks.map(function (a) {
+    return '<span class="sugg" onclick="doAsk(this.textContent)">' + a + "</span>";
+  }).join("");
+  render(EX.roles);
+}
+function chip(el) {
+  document.querySelectorAll(".chip").forEach(function (c) { c.classList.remove("on"); });
+  el.classList.add("on"); filter = el.dataset.f;
+  document.getElementById("reply").style.display = "none";
+  document.getElementById("watch").style.display = "none";
+  render(EX.roles.filter(function (r) { return filter === "all" || (r.k || []).indexOf(filter) >= 0; }));
+}
+function card(r) {
+  if (r.closed) {
+    return '<div class="role closedrole"><span class="fitb" style="color:var(--warn)">closed since my last check</span>' +
+      '<div class="co">' + r.c + " — " + r.t + '</div><div class="meta">' + r.comp + " · posted " + r.posted + " · checked " + r.checked + "</div>" +
+      '<div class="needs">Sorry — I know this one looked good. Three open roles are close cousins: same AI surface, similar pay. <a href="#" onclick="doAsk(EX.asks[0]);return false" style="color:var(--ro)">show me them</a></div></div>';
+  }
+  var h = '<div class="role" id="r-' + r.id + '">';
+  if (member && r.fit) {
+    var col = r.fit[2] === "ok" ? "var(--ok)" : "var(--warn)";
+    h += '<span class="fitb" style="color:' + col + '">' + r.fit[0] + " · " + r.fit[1] + "</span>";
+  } else if (r.warn) {
+    h += '<span class="fitb" style="color:var(--warn)">' + r.warn + "</span>";
+  }
+  h += '<div class="co">' + r.c + " — " + r.t + '</div>' +
+    '<div class="meta">' + r.comp + " (" + r.cl + ") · posted " + r.posted + " · checked by RO " + r.checked + " · " + r.loc + "</div>" +
+    '<div class="needs"><b>What this job really needs:</b> ' + r.needs + " <a href='role.html' style='color:var(--ro)'>full read</a></div>";
+  if (!member) {
+    h += '<div class="tease" onclick="toOnboarding()">Would you get this one? Tell me about you — 30 seconds — and I&rsquo;ll be straight with you.</div>';
+  } else if (r.gap) {
+    h += '<div class="tease" onclick="document.getElementById(\'r-' + r.id + '\').classList.add(\'open-gap\')">Why isn&rsquo;t this in my matches?</div>' +
+      '<div class="gaptalk"><div class="ro-says" style="margin:0 0 8px"><span class="who">RO</span>' +
+      '<p class="msg">Honest answer: I ranked this below your matches because the scope reads a level junior for you. But you know things I don&rsquo;t — want it in your pipeline anyway? Your call, and it teaches me.</p></div>' +
+      '<button class="btn sec" style="font-size:12px;padding:6px 11px" onclick="gapAdd(this)">add it — I see something here</button> ' +
+      '<button class="btn ghost" style="font-size:12px;padding:6px 11px" onclick="gapSkip(this)">good call, skip it</button></div>';
+  }
+  return h + "</div>";
+}
+function render(list) {
+  document.getElementById("list").innerHTML = list.map(card).join("");
+}
+function doAsk(q) {
+  q = (q || "").toLowerCase();
+  var reply = document.getElementById("reply"), msg = document.getElementById("replymsg");
+  document.getElementById("watch").style.display = "none";
+  if (q.indexOf("250") >= 0 || q.indexOf("pay") >= 0) {
+    reply.style.display = "flex";
+    msg.innerHTML = "Seven do. Fair warning: a couple say &ldquo;$250k+&rdquo; but read like they&rsquo;ll level you down in the interview — I marked them. The ones at the top are the real deal.";
+    render(EX.roles.filter(function (r) { return (r.k || []).indexOf("pay250") >= 0; }));
+    document.querySelectorAll(".chip").forEach(function (c) { c.classList.toggle("on", c.dataset.f === "pay250"); });
+  } else if (q.indexOf("climate") >= 0 || q.indexOf("principal") >= 0 || q.indexOf("300") >= 0) {
+    reply.style.display = "flex";
+    msg.innerHTML = "Straight answer: nothing in my index matches all of that today — and I&rsquo;d rather tell you that than show you almost-fits dressed up as answers. The closest gets three of your four. New roles land daily; this is exactly what I&rsquo;m good at watching for.";
+    document.getElementById("list").innerHTML =
+      '<div class="role"><span class="fitb" style="color:var(--warn)">3 of 4</span><div class="co">Watershed — Staff PM</div>' +
+      '<div class="meta">$240–280k (their number) · posted 2d ago · checked by RO today · remote</div>' +
+      '<div class="needs"><b>What this job really needs:</b> climate conviction and platform chops — it&rsquo;s staff, not principal, and tops out under your $300k.</div></div>';
+    document.getElementById("watch").style.display = "block";
+  } else if (q.indexOf("everything") >= 0 || q.indexOf("again") >= 0 || q.indexOf("reset") >= 0) {
+    reset();
+  } else if (q.trim()) {
+    reply.style.display = "flex";
+    msg.innerHTML = "In this grey-box prototype I only know a few questions — tap one of the suggestions above and I&rsquo;ll show you how answering works. The real me answers anything about these 1,536 roles.";
+  }
+}
+function gapAdd(btn) {
+  btn.parentElement.innerHTML = '<p style="margin:0;font-size:12.5px;color:var(--ok)"><b>Added to your pipeline.</b> And noted — you saw something in a smaller scope. That changes how I look for you, starting now.</p>';
+}
+function gapSkip(btn) {
+  btn.parentElement.innerHTML = '<p style="margin:0;font-size:12.5px;color:var(--ink2)">Skipped — and thank you for checking my work. That&rsquo;s exactly how this is supposed to go.</p>';
+}
+function toOnboarding() {
+  try { localStorage.setItem("proto.onboarding.persona", "explore"); } catch (e) {}
+  location.href = "../onboarding/index.html";
+}
+</script>
+<script src="../_kit/kit.js"></script>
+</body>
+</html>

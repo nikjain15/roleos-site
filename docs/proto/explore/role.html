@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Explore · the full read</title>
+<link rel="stylesheet" href="../_kit/kit.css">
+</head>
+<body>
+<div class="screen">
+  <p class="wl">proto · explore — the full read (one role, all of it, honestly)</p>
+
+  <h1 style="font-size:22px">Stripe — Senior AI PM</h1>
+  <p class="small" style="font-family:var(--mono);font-size:11px">$210–260k (their number) · posted 3d ago · checked by RO today · SF hybrid, 3 days in office</p>
+
+  <div class="wirebox">
+    <p class="wl">what this job really needs — her read, plain</p>
+    <p style="margin:0;font-size:13.5px;color:var(--ink2);line-height:1.6">
+      The posting lists nine requirements, but three do the deciding: you&rsquo;ve <b>shipped an
+      LLM product</b> (not assisted — owned), you can <b>talk evals like a practitioner</b>,
+      and you can show <b>cross-team judgment under ambiguity</b>. The other six are decoration.
+      Payments curiosity helps but isn&rsquo;t the filter — I&rsquo;ve seen non-fintech people get through this loop.
+    </p>
+  </div>
+
+  <div class="wirebox">
+    <p class="wl">the honest flags</p>
+    <p style="margin:0;font-size:13px;color:var(--ink2);line-height:1.6">
+      Hybrid is real — 3 days in SF, they mean it. · No visa sponsorship mentioned; that&rsquo;s
+      usually a no at this level — worth asking early, and I&rsquo;d ask for you. · Their loop runs
+      fast: typically 3 weeks posting-to-offer based on what I&rsquo;ve seen.
+    </p>
+  </div>
+
+  <div class="wirebox" style="background:var(--ro-bg);border-color:var(--ro)" id="anonbit">
+    <p style="margin:0;font-size:13.5px;color:var(--ro-ink)">
+      <b>Would you get this one?</b> That depends on you — and I don&rsquo;t know you yet. Give me
+      30 seconds of your background and I&rsquo;ll tell you straight: worth your time, a stretch
+      worth making, or better spent elsewhere.
+    </p>
+    <button class="btn pri" style="margin-top:8px" onclick="toOnboarding()">Show RO my work — 30 seconds</button>
+  </div>
+
+  <div class="wirebox" style="background:var(--ok-bg);border-color:var(--ok);display:none" id="memberbit">
+    <p style="margin:0;font-size:13.5px;color:var(--ok)">
+      <b>Your fit: 92 — this one&rsquo;s in your matches.</b> Your LLM assistant story hits their
+      first must-have head on; the payments gap is real but bridgeable, and I&rsquo;ve already framed
+      it that way in your draft. It&rsquo;s waiting in your feed whenever you&rsquo;re ready.
+    </p>
+    <a class="btn pri" style="margin-top:8px" href="../feed-cockpit/index.html">Take me to the draft</a>
+  </div>
+
+  <p class="hint" style="text-align:center;margin-top:16px"><a href="index.html">← back to explore</a></p>
+</div>
+
+<script src="data.js"></script>
+<script>
+window.PROTO = {
+  feature: "explore", screen: "role",
+  screens: EX.screens, states: ["default"], personas: EX.personas,
+  onChange: function (s, p) {
+    var m = p === "member";
+    document.getElementById("anonbit").style.display = m ? "none" : "block";
+    document.getElementById("memberbit").style.display = m ? "block" : "none";
+  }
+};
+function toOnboarding() {
+  try { localStorage.setItem("proto.onboarding.persona", "explore"); } catch (e) {}
+  location.href = "../onboarding/index.html";
+}
+</script>
+<script src="../_kit/kit.js"></script>
+</body>
+</html>
