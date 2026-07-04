@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Onboarding · 2 working</title>
+<link rel="stylesheet" href="../_kit/kit.css">
+</head>
+<body>
+<div class="screen">
+  <p class="wl">proto · onboarding · screen 2 — watching her work</p>
+  <h1 style="font-size:20px">RO is reading you now.</h1>
+
+  <div class="wirebox" id="ticker" style="min-height:140px"></div>
+
+  <!-- Junk-input recovery: honest, no judgment, no fake matches -->
+  <div data-persona-show="junk" id="junkbox" style="display:none">
+    <div class="ro-says"><span class="who">RO</span>
+      <p class="msg">That&rsquo;s not quite a CV or profile — no judgment, I just can&rsquo;t read you from it. Try your LinkedIn, a CV file, or a few honest lines about your work.</p>
+    </div>
+    <a class="btn sec full" href="index.html">Go back and try again</a>
+  </div>
+
+  <!-- Thin-input recovery: name the limit, ask for exactly two things -->
+  <div data-persona-show="thin" id="thinbox" style="display:none">
+    <div class="ro-says"><span class="who">RO</span>
+      <p class="msg">I&rsquo;ll be straight — there&rsquo;s not much here for me to go on yet, and that&rsquo;s okay. Give me two things and I&rsquo;ll be sharp:</p>
+    </div>
+    <div class="wirebox">
+      <p class="wl">1 · the job you want</p>
+      <input class="input" placeholder="Senior AI product manager">
+      <p class="wl" style="margin-top:10px">2 · one thing you&rsquo;re proud of building</p>
+      <textarea class="input" rows="2" placeholder="Shipped an LLM support assistant that cut response time 40%"></textarea>
+    </div>
+    <a class="btn pri full" href="results.html">Okay — now show me</a>
+  </div>
+
+  <p class="hint" id="skiphint" style="text-align:center;margin-top:14px"><a href="results.html">skip the wait →</a></p>
+</div>
+
+<script src="data.js"></script>
+<script>
+window.PROTO = {
+  feature: "onboarding", screen: "working",
+  screens: OB.screens, states: ["default"], personas: OB.personas,
+  onChange: function (s, p) { run(p); }
+};
+var timer = [];
+function line(txt, live) {
+  return '<div class="tick' + (live ? ' live' : '') + '">' + txt + "</div>";
+}
+function run(p) {
+  timer.forEach(clearTimeout); timer = [];
+  var t = document.getElementById("ticker");
+  var junk = p === "junk", thin = p === "thin";
+  document.getElementById("skiphint").style.display = (junk || thin) ? "none" : "block";
+  var steps = junk
+    ? ["Reading what you gave me…"]
+    : thin
+      ? ["Reading what you gave me…", "It&rsquo;s a start — but thin. Let me ask instead of guessing badly."]
+      : [
+          "Reading your profile — your last two roles tell me the most",
+          "Looking through 1,536 open roles" + (p === "explore" ? " — starting with the Stripe one you asked about" : ""),
+          "Setting aside 1,489 — wrong level, or not your kind of work",
+          "Reading the last 12 closely — what does each one really need?",
+          "Checking pay against 12 similar postings"
+        ];
+  t.innerHTML = line(steps[0], true);
+  var i = 1;
+  function next() {
+    if (i < steps.length) {
+      t.innerHTML = steps.slice(0, i).map(function (x) { return line(x, false); }).join("") + line(steps[i], true);
+      i++; timer.push(setTimeout(next, 900));
+    } else if (junk) { document.getElementById("junkbox").style.display = "block"; }
+    else if (thin) { document.getElementById("thinbox").style.display = "block"; }
+    else { timer.push(setTimeout(function () { location.href = "results.html"; }, 700)); }
+  }
+  timer.push(setTimeout(next, 900));
+}
+</script>
+<script src="../_kit/kit.js"></script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Onboarding · 3+4 her read & your jobs</title>
+<link rel="stylesheet" href="../_kit/kit.css">
+<style>
+  .cols{display:grid;gap:16px}
+  @media(min-width:900px){ .screen{max-width:860px} .cols{grid-template-columns:1fr 1fr} }
+  .stmt{position:relative;background:var(--surf);border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:8px 0;font-size:14px}
+  .stmt.guess{border-color:var(--ro)}
+  .stmt .acts{float:right;margin-left:8px;white-space:nowrap}
+  .stmt .acts button{border:1px solid var(--line2);background:var(--surf2);border-radius:6px;font-size:12px;padding:2px 8px;cursor:pointer;color:var(--ink2)}
+  .stmt.agreed{border-color:var(--ok);background:var(--ok-bg)}
+  .stmt .fix{margin-top:8px;display:none}
+  .chip{display:inline-block;border:1px solid var(--line2);border-radius:14px;background:var(--surf);padding:4px 11px;font-size:12px;cursor:pointer;margin:3px 4px 0 0;color:var(--ink2)}
+  .chip:hover{border-color:var(--ro);color:var(--ro)}
+  .job{background:var(--surf);border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:8px 0}
+  .job .co{font-weight:600;font-size:14px}
+  .job .why{font-size:12.5px;color:var(--ink2);margin-top:4px}
+  .job .comp{font-family:var(--mono);font-size:11px;color:var(--ink3)}
+  .flash{animation:fl .8s} @keyframes fl{0%{background:var(--ro-bg)}100%{background:var(--surf)}}
+</style>
+</head>
+<body>
+<div class="screen">
+  <p class="wl">proto · onboarding · screens 3+4 — her read of you, and what it means</p>
+
+  <div data-persona-show="junk" class="note-design">Junk input never reaches this screen — RO stops honestly on screen 2. Flip persona to see the real thing.</div>
+
+  <div class="cols">
+    <div>
+      <h2 style="margin-top:0">How I read you</h2>
+      <p class="hint" style="margin:0 0 4px">Tap ✓ if it&rsquo;s you, ✗ if it&rsquo;s off — every correction makes her sharper, right now.</p>
+      <div id="stmts"></div>
+      <div class="wirebox" style="background:var(--ro-bg);border-color:var(--ro)">
+        <p class="wl" style="color:var(--ro)">one thing worth knowing</p>
+        <p id="insight" style="margin:0;font-size:14px;color:var(--ro-ink)"></p>
+      </div>
+      <p class="hint" id="learned" style="display:none;color:var(--ok)">Noted — I&rsquo;ll remember that. It already changed your list →</p>
+    </div>
+
+    <div>
+      <h2 style="margin-top:0">Jobs worth your time</h2>
+      <p class="hint" id="scanhint" style="margin:0 0 4px">Compared all 1,536 — these came out on top.</p>
+
+      <!-- Weak-pool honesty: mirror still paid off, matches don't pretend -->
+      <div data-persona-show="weak">
+        <div class="ro-says"><span class="who">RO</span>
+          <p class="msg">Straight with you: nothing&rsquo;s a <b>strong</b> fit this week — my index runs deep on AI &amp; software and thin on your field. I&rsquo;d rather say that than pad your list with maybes. Two adjacent ones below. Widen the criteria, or hold the bar? Save this and I&rsquo;ll keep watch either way.</p>
+        </div>
+      </div>
+
+      <div id="jobs"></div>
+      <div class="wirebox ghost" id="nudge">
+        <p style="margin:0;font-size:13px">These are ranked against <b>my guess</b> of what you want. Tell me the real thing and I&rsquo;ll re-rank in seconds.</p>
+        <div style="display:flex;gap:8px;margin-top:8px">
+          <input class="input" id="realtarget" placeholder="Staff PM, agents, remote only" style="flex:1">
+          <button class="btn sec" onclick="resort('You told me what you actually want')">Re-rank</button>
+        </div>
+      </div>
+      <a class="btn pri full" href="save.html" style="margin-top:12px" id="cta">Keep all of this →</a>
+    </div>
+  </div>
+</div>
+
+<script src="data.js"></script>
+<script>
+window.PROTO = {
+  feature: "onboarding", screen: "results",
+  screens: OB.screens, states: ["default"], personas: OB.personas,
+  onChange: function (s, p) { render(p); }
+};
+var sorted = false, timers = [];
+function jobRow(m, tag) {
+  var pill = m.v === "go" ? "ok" : m.v === "maybe" ? "warn" : "";
+  return '<div class="job flash">' + (tag ? '<span class="pill ro" style="float:right;margin-left:6px">the role you asked about</span>' : '') +
+    '<span class="pill ' + pill + '" style="float:right">' + m.vw + '</span>' +
+    '<div class="co">' + m.c + " — " + m.t + '</div><div class="comp">' + m.comp + '</div>' +
+    '<div class="why">' + m.why + "</div></div>";
+}
+function render(p) {
+  timers.forEach(clearTimeout); timers = []; sorted = false;
+  document.getElementById("learned").style.display = "none";
+  var st = document.getElementById("stmts");
+  st.innerHTML = OB.mirror.map(function (m, i) { return stmt(m, false, i); }).join("") + stmt(OB.guess, true, 99);
+  document.getElementById("insight").textContent = (p === "thin") ? OB.insightFallback : OB.insightBold;
+  var jobs = document.getElementById("jobs");
+  if (p === "weak") {
+    jobs.innerHTML = OB.weakMatches.map(function (m) { return jobRow(m); }).join("");
+    document.getElementById("scanhint").textContent = "Compared all 1,536 — being honest about what I found.";
+    document.getElementById("nudge").style.display = "none";
+    document.getElementById("cta").textContent = "Save it — she keeps watch for you →";
+    return;
+  }
+  document.getElementById("nudge").style.display = "block";
+  document.getElementById("cta").textContent = "Keep all of this →";
+  var list = OB.matches.slice();
+  if (p === "explore") { list = [list[0]].concat(list.slice(1)); }
+  jobs.innerHTML = list.slice(0, 2).map(function (m, i) { return jobRow(m, p === "explore" && i === 0); }).join("") +
+    '<div class="job" id="moreskel" style="background:var(--surf2);color:var(--ink3);font-size:12.5px">still comparing ' + (list.length - 2) + " more…</div>";
+  timers.push(setTimeout(function () {
+    var sk = document.getElementById("moreskel");
+    if (sk) sk.outerHTML = list.slice(2).map(function (m) { return jobRow(m); }).join("");
+  }, 1600));
+}
+function stmt(text, guess, i) {
+  return '<div class="stmt' + (guess ? " guess" : "") + '" id="s' + i + '">' +
+    '<span class="acts"><button onclick="agree(' + i + ')">✓</button> <button onclick="fix(' + i + "," + guess + ')">✗</button></span>' +
+    text +
+    '<div class="fix" id="f' + i + '">' +
+    (guess
+      ? OB.guessChips.map(function (c) { return '<span class="chip" onclick="pick(this)">' + c + "</span>"; }).join("")
+      : '<input class="input" placeholder="What&rsquo;s off? Say it plainly — she remembers." onkeydown="if(event.key===\'Enter\')corrected(' + i + ')">') +
+    "</div></div>";
+}
+function agree(i) { var el = document.getElementById("s" + i); el.classList.add("agreed"); el.querySelector(".acts").innerHTML = '<span style="color:var(--ok);font-size:12px">that&rsquo;s me</span>'; }
+function fix(i) { var f = document.getElementById("f" + i); f.style.display = f.style.display === "block" ? "none" : "block"; }
+function corrected(i) { var el = document.getElementById("s" + i); el.classList.add("agreed"); document.getElementById("f" + i).style.display = "none"; el.querySelector(".acts").innerHTML = '<span style="color:var(--ok);font-size:12px">fixed — she&rsquo;s sharper now</span>'; }
+function pick(chip) {
+  var el = document.getElementById("s99");
+  el.classList.add("agreed");
+  el.querySelector(".acts").innerHTML = '<span style="color:var(--ok);font-size:12px">got it</span>';
+  document.getElementById("f99").style.display = "none";
+  resort("You said: " + chip.textContent.toLowerCase());
+}
+function resort(reason) {
+  if (sorted) return; sorted = true;
+  var jobs = document.getElementById("jobs");
+  jobs.innerHTML = '<div class="job" style="background:var(--surf2);color:var(--ink3);font-size:12.5px">re-ranking against what you just told me…</div>';
+  document.getElementById("learned").style.display = "block";
+  setTimeout(function () {
+    jobs.innerHTML = '<p class="hint" style="color:var(--ok);margin:6px 0">' + reason + " — list updated. Sierra moved up (remote); Ramp dropped (4 days in NYC office).</p>" +
+      OB.matchesResorted.map(function (m) { return jobRow(m); }).join("");
+  }, 1100);
+}
+</script>
+<script src="../_kit/kit.js"></script>
+</body>
+</html>

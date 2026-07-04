@@ -4,18 +4,111 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex">
-<title>Onboarding · proto</title>
+<title>Onboarding · 1 arrive</title>
 <link rel="stylesheet" href="../_kit/kit.css">
+<style>
+  .opt{cursor:pointer}
+  .opt:hover{border-color:var(--ro)}
+  .opt .t{font-size:13.5px;font-weight:600;margin:0}
+  .opt .d{font-size:12px;color:var(--ink2);margin:2px 0 0}
+  #meter b{color:var(--ro);letter-spacing:2px}
+  #meter span.off{color:var(--line2);letter-spacing:2px}
+</style>
 </head>
 <body>
 <div class="screen">
-  <p class="wl">proto · onboarding</p>
-  <h1>Onboarding — Stage 1 in progress</h1>
-  <div class="wirebox ghost">
-    Clarifying questions are with the human. The prototype gets built only after the
-    intent paragraph is confirmed — no screens yet, on purpose.
+  <p class="wl">proto · onboarding · screen 1 — arrive</p>
+
+  <!-- Explore arrival: RO picks up the conversation -->
+  <div data-persona-show="explore" class="ro-says">
+    <span class="who">RO</span>
+    <p class="msg">You were looking at the <b>Stripe — Senior AI PM</b> role. Show me your work and I&rsquo;ll tell you straight — worth your time or not.</p>
   </div>
-  <p class="hint"><a href="../index.html">← all prototypes</a></p>
+
+  <!-- Returning anon: she remembers the device -->
+  <div data-persona-show="ret-anon" class="ro-says">
+    <span class="who">RO</span>
+    <p class="msg">Welcome back. I still have your LinkedIn from last time — want me to pull it fresh, or start over?</p>
+  </div>
+
+  <!-- Signed in, no data: name known, work unknown -->
+  <div data-persona-show="ret-empty" class="ro-says">
+    <span class="who">RO</span>
+    <p class="msg">Welcome, Nik. Signing in told me who you are — not what you&rsquo;ve built. LinkedIn won&rsquo;t hand over your experience; drop your profile below and I&rsquo;ll pull the rest.</p>
+  </div>
+
+  <h1 id="hd">Show RO your work.<br>She&rsquo;ll show you what it&rsquo;s worth.</h1>
+  <p class="sub" id="sub">No sign-up. She works first — you decide after.</p>
+
+  <div class="wirebox opt" style="border-color:var(--ro)" onclick="go()">
+    <p class="t">LinkedIn — one tap, best results</p>
+    <p class="d" id="li-why">She reads your whole career, not keywords.</p>
+    <div style="display:flex;gap:8px;margin-top:8px" onclick="event.stopPropagation()">
+      <input class="input" id="li" placeholder="linkedin.com/in/your-name" style="flex:1" oninput="meter()">
+      <button class="btn pri" onclick="go()">Pull my profile</button>
+    </div>
+    <p class="hint" data-persona-show="ret-anon" style="margin-top:6px">Remembered on this device only — one pull, one fetch.</p>
+  </div>
+
+  <div class="wirebox opt" onclick="fakefile()">
+    <p class="t">CV or resume file</p>
+    <p class="d">Every bullet counts. Read on your device — never uploaded.</p>
+    <p class="hint" id="filenote" style="display:none;margin-top:6px;color:var(--ok)">Read resume.pdf — 4,120 characters. Looks good? Hit the button below.</p>
+  </div>
+
+  <div class="wirebox opt">
+    <p class="t">Or just tell her</p>
+    <p class="d">A few honest lines work — she&rsquo;ll ask for what&rsquo;s missing.</p>
+    <textarea class="input" id="talk" style="margin-top:8px" rows="3"
+      placeholder="8 years in product, last 4 on AI. Shipped an LLM support assistant that cut response time 40%…" oninput="meter()"></textarea>
+  </div>
+
+  <div class="wirebox ghost">
+    <p class="t" style="font-size:13px;font-weight:600" id="q-target">What job do you want next? <span style="font-weight:400;color:var(--ink3)">(optional — skip and I&rsquo;ll guess)</span></p>
+    <input class="input" id="target" style="margin-top:8px" placeholder="Senior AI PM, $220k+, SF or remote" oninput="meter()">
+  </div>
+
+  <p class="small" id="meter" style="margin:14px 0 6px">How sharp will her read be?&nbsp; <b>▮▮▮</b><span class="off">▯</span> <span class="hint" id="meterhint">— answer the question above and she starts sharper</span></p>
+
+  <a class="btn pri full" href="working.html" style="margin-top:8px">Show me what RO sees</a>
+  <p class="hint" style="margin-top:10px;text-align:center">Nothing is stored unless you choose to save at the end.</p>
 </div>
+
+<script src="data.js"></script>
+<script>
+window.PROTO = {
+  feature: "onboarding", screen: "index",
+  screens: OB.screens, states: ["default"], personas: OB.personas,
+  onChange: function (s, p) {
+    var hd = document.getElementById("hd"), sub = document.getElementById("sub");
+    var liwhy = document.getElementById("li-why"), q = document.getElementById("q-target");
+    var li = document.getElementById("li");
+    if (p === "explore") {
+      liwhy.textContent = "She reads your whole career, not keywords — so her verdict on Stripe is real.";
+      q.firstChild.textContent = "Besides Stripe — what job do you want next? ";
+    } else {
+      liwhy.textContent = "She reads your whole career, not keywords.";
+      q.firstChild.textContent = "What job do you want next? ";
+    }
+    li.value = (p === "ret-anon") ? "linkedin.com/in/nik-jain" : "";
+    if (p === "ret-empty") { hd.innerHTML = "Let&rsquo;s get RO your work."; sub.textContent = "One input and she starts — you already have a home for it."; }
+    else { hd.innerHTML = "Show RO your work.<br>She&rsquo;ll show you what it&rsquo;s worth."; sub.textContent = "No sign-up. She works first — you decide after."; }
+    meter();
+  }
+};
+function go(){ location.href = "working.html"; }
+function fakefile(){ var n=document.getElementById("filenote"); n.style.display="block"; meter(); }
+function meter(){
+  var has = document.getElementById("li").value.trim() || document.getElementById("talk").value.trim() ||
+            document.getElementById("filenote").style.display === "block";
+  var tgt = document.getElementById("target").value.trim();
+  var bars = (has ? 3 : 1) + (tgt ? 1 : 0);
+  var el = document.getElementById("meter");
+  el.innerHTML = "How sharp will her read be?&nbsp; <b>" + "▮".repeat(bars) + "</b><span class='off'>" + "▯".repeat(4-bars) + "</span> " +
+    (tgt ? "<span class='hint' style='color:var(--ok)'>— she knows what to aim at</span>"
+         : "<span class='hint'>— answer the question above and she starts sharper</span>");
+}
+</script>
+<script src="../_kit/kit.js"></script>
 </body>
 </html>

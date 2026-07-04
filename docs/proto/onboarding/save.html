@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Onboarding · 5 save</title>
+<link rel="stylesheet" href="../_kit/kit.css">
+</head>
+<body>
+<div class="screen">
+  <p class="wl">proto · onboarding · screen 5 — save what she started</p>
+
+  <h1 style="font-size:22px" id="hd">Here&rsquo;s a taste of what happens next.</h1>
+  <p class="sub" id="sub">One line of your resume, retold for Stripe:</p>
+
+  <div id="taste">
+    <div class="wirebox" style="background:var(--ok-bg);border-color:var(--ok)">
+      <p style="margin:0;font-size:13.5px;color:var(--ok)">
+        <span style="text-decoration:line-through;opacity:.6">&ldquo;Led AI support assistant 0&rarr;1&rdquo;</span><br>
+        becomes<br>
+        <b>&ldquo;Shipped an LLM assistant that cut response time 40% — the exact outcome Stripe&rsquo;s posting asks for first.&rdquo;</b>
+      </p>
+    </div>
+  </div>
+
+  <!-- Weak pool: the promise is watchfulness, not drafts -->
+  <div data-persona-show="weak" class="ro-says">
+    <span class="who">RO</span>
+    <p class="msg">Nothing strong this week — but new roles land in my index every day. Save this and the moment something genuinely fits, you&rsquo;ll be the first to know. No noise in between, promise.</p>
+  </div>
+
+  <p class="small" style="margin:16px 0 6px" id="startlabel">Save free, and I start on:</p>
+  <div class="mini" style="font-size:12.5px;padding:9px 11px">Your resume, retold for each of your matches</div>
+  <div class="mini" style="font-size:12.5px;padding:9px 11px">Cover letters, drafted — you approve every send</div>
+  <div class="mini" style="font-size:12.5px;padding:9px 11px">A week-by-week plan toward an offer</div>
+
+  <a class="btn pri full" href="login.html" style="margin-top:14px">Save my results — free</a>
+  <p class="hint" style="text-align:center;margin-top:10px">
+    Leave without saving and this genuinely disappears — nothing is stored without your say-so.<br>
+    Google or a magic email link. No password, ever.
+  </p>
+</div>
+
+<script src="data.js"></script>
+<script>
+window.PROTO = {
+  feature: "onboarding", screen: "save",
+  screens: OB.screens, states: ["default"], personas: OB.personas,
+  onChange: function (s, p) {
+    var weak = p === "weak";
+    document.getElementById("taste").style.display = weak ? "none" : "block";
+    document.getElementById("sub").style.display = weak ? "none" : "block";
+    document.getElementById("hd").textContent = weak ? "Save it — she keeps watch." : "Here’s a taste of what happens next.";
+    document.getElementById("startlabel").textContent = weak ? "Save free, and I also start on:" : "Save free, and I start on:";
+  }
+};
+</script>
+<script src="../_kit/kit.js"></script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Onboarding · 7 your feed, first minute</title>
+<link rel="stylesheet" href="../_kit/kit.css">
+</head>
+<body>
+<div class="screen">
+  <p class="wl">proto · onboarding · screen 7 — the first minute in your feed</p>
+
+  <div class="ro-says">
+    <span class="who">RO</span>
+    <p class="msg" id="romsg">All saved. I&rsquo;m now rewriting your resume for your top 3 jobs — first drafts will be here soon. You don&rsquo;t need to do anything yet.</p>
+  </div>
+
+  <div class="wirebox" style="border-color:var(--ro)" id="goalcard">
+    <p style="margin:0;font-size:14px">Want me working toward something specific? Tell me the job you want and by when — <b>everything I do gets sharper.</b></p>
+    <div style="margin-top:10px">
+      <button class="btn pri" onclick="alert('Goal setup is the NEXT feature in the design queue — this is the seam where it plugs in.')">Set my goal · 2 minutes</button>
+      <button class="btn ghost" onclick="this.closest('.wirebox').style.opacity=.45">not yet</button>
+    </div>
+  </div>
+
+  <p class="wl" style="margin-top:20px" id="mlabel">your saved jobs · 4</p>
+  <div id="joblist"></div>
+
+  <div class="wirebox ghost" style="margin-top:16px">
+    <p class="wl">what happens while you&rsquo;re away</p>
+    <p style="margin:0;font-size:13px;color:var(--ink2)">She keeps working — new roles checked daily, drafts prepared, nothing sent without your click. Quiet by default: one daily summary, no nagging, ever.</p>
+  </div>
+
+  <p class="hint" style="text-align:center;margin-top:16px">end of onboarding · <a href="index.html">restart the flow</a> · <a href="../index.html">all prototypes</a></p>
+</div>
+
+<script src="data.js"></script>
+<script>
+window.PROTO = {
+  feature: "onboarding", screen: "feed",
+  screens: OB.screens, states: ["default"], personas: OB.personas,
+  onChange: function (s, p) {
+    var weak = p === "weak";
+    document.getElementById("romsg").innerHTML = weak
+      ? "All saved. Your field is thin in my index this week, so my first job is <b>watching</b> — I check new roles daily and you&rsquo;ll hear the moment something strong lands. No noise in between."
+      : "All saved. I&rsquo;m now rewriting your resume for your top 3 jobs — first drafts will be here soon. You don&rsquo;t need to do anything yet.";
+    var list = weak ? OB.weakMatches : OB.matches;
+    document.getElementById("mlabel").textContent = "your saved jobs · " + list.length;
+    document.getElementById("joblist").innerHTML = list.map(function (m) {
+      return '<div class="mini"><span>' + m.c + " — " + m.t + '</span><span class="pill ' + (m.v === "go" ? "ok" : "warn") + '">' + m.vw + "</span></div>";
+    }).join("");
+  }
+};
+</script>
+<script src="../_kit/kit.js"></script>
+</body>
+</html>
