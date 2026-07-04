@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Apply / Send · design decisions (working doc)</title>
+<link rel="stylesheet" href="../_kit/kit.css">
+<style>
+  .screen{max-width:760px}
+  table{width:100%;border-collapse:collapse;font-size:13px;margin:10px 0}
+  th,td{text-align:left;padding:7px 9px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{color:var(--ink3);font-size:10px;text-transform:uppercase;letter-spacing:.05em}
+  h2{margin-top:28px}
+</style>
+</head>
+<body>
+<div class="screen">
+  <p class="wl">proto · apply / send · working doc — the single source of alignment</p>
+  <h1 style="font-size:22px">Apply / Send — design decisions</h1>
+  <p class="small">Status: <span class="pill ro">IN FEEDBACK</span> · Stage 1 confirmed 2026-07-04 · prototype at <a href="index.html">/proto/apply-send/</a> · becomes the formal PRD on APPROVED. Apply exists (slice 4 + W2 letters + X3 quality score) — this deepens the ceremony around the product&rsquo;s one outward gate.</p>
+
+  <h2>Confirmed intent</h2>
+  <div class="wirebox" style="font-size:13.5px;color:var(--ink2)">
+    Apply/Send is the sacred gate — the only place work leaves the building, and it leaves with your hand on it. One review screen: her one-line summary per piece, quality verdict on top as an advisor (one-tap fixes that show their work and re-score, never a blocked send), and every piece fully editable in place — edits welcomed as voice lessons and quietly re-scored. The handoff is owned proudly: the last click happens on the company&rsquo;s site on purpose, made two-minutes-easy with per-field copy blocks. The truth gate holds at the sharpest point — she won&rsquo;t invent answers, offers honest reframes, invites you to teach her. After the send: real celebration, honest odds, her visible next move (watching + day-10 follow-up drafted). Tracker advances itself. Worked if: sends happen with genuine review, fixes get taken, post-send anxiety stays low.
+  </div>
+
+  <h2>Locked decisions</h2>
+  <table>
+    <tr><th>#</th><th>Decision</th><th>Choice</th></tr>
+    <tr><td>1</td><td>Review shape</td><td><b>One screen, everything expandable AND fully editable in place</b> (human chose 1 + 2&rsquo;s editability): summaries → open → edit any piece; edits get a warm voice-lesson response and quiet re-score. No forced stepper; the gate is the click, made genuinely informed.</td></tr>
+    <tr><td>2</td><td>Quality score</td><td><b>Advisory + one-tap fixes</b>, never blocks. Fixes show the exact new line (highlighted, editable) and re-score visibly. Weak bundles (61) get honest framing + two fixes; &ldquo;I never hold the door shut.&rdquo;</td></tr>
+    <tr><td>3</td><td>The handoff</td><td><b>Owned proudly</b> — &ldquo;the last click happens on their site, on purpose: nothing leaves without your hand.&rdquo; Per-field copy blocks in their form&rsquo;s order; tailored PDF download; email variant opens a filled Gmail draft. Unfinished handoffs wait without guilt.</td></tr>
+    <tr><td>4</td><td>Truth gate moment</td><td>When a question asks what the profile doesn&rsquo;t support: she refuses to invent, offers an honest reframe that still lands, and invites the user to teach her the missing story. Surfaced BEFORE the send, in the review.</td></tr>
+    <tr><td>5</td><td>Post-send</td><td><b>Celebrate + honest odds + her watch</b>: the win first, then &ldquo;~1 in 4 gets a reply, usually 2 weeks&rdquo; (personalized once real rates accrue), then what&rsquo;s hers to carry (reply watch, day-10 follow-up drafted). Tracker advances automatically.</td></tr>
+    <tr><td>6</td><td>Success</td><td>Genuine-review signals (expand/edit rates healthy, not zero) · fix take-rate · post-send return-without-anxious-refresh. Healthy-engagement family.</td></tr>
+    <tr><td>7</td><td>Voice</td><td>Warm-copy bar throughout; celebration genuine; odds honest; never guilt on unfinished sends.</td></tr>
+  </table>
+
+  <h2>Data &amp; guardrails</h2>
+  <table>
+    <tr><td><b>Human gate</b></td><td>Unchanged and celebrated: /api/apply-shaped path only; the final action always happens on the user&rsquo;s explicit click (their site or their mail app). The design makes the gate a feature, not a fallback.</td></tr>
+    <tr><td><b>Taste capture</b></td><td>Every edit (voice lessons — high weight), fix accept/decline, truth-gate choices, send/abandon = decision events. Edits feed the resume/letter voice model.</td></tr>
+    <tr><td><b>Truth gate</b></td><td>Enforced, not optional — no invented claims survive to the bundle; reframes trace to master_profile.</td></tr>
+  </table>
+
+  <h2>Changelog</h2>
+  <p class="small">2026-07-04 · v0.1 — Stage 1 confirmed (4 decisions incl. human&rsquo;s editable-review combination; truth-gate cell added and accepted via storyboard); prototype built; IN FEEDBACK.</p>
+
+  <p class="hint" style="margin-top:24px"><a href="../index.html">← all prototypes</a> · <a href="index.html">open the prototype</a></p>
+</div>
+</body>
+</html>

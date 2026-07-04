@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Apply · the send — your hand, their site</title>
+<link rel="stylesheet" href="../_kit/kit.css">
+<style>
+  .fieldrow{display:flex;justify-content:space-between;align-items:center;gap:10px;background:var(--surf);border:1px solid var(--line);border-radius:8px;padding:9px 12px;margin:6px 0;font-size:13px}
+  .fieldrow .cp{color:var(--ro);cursor:pointer;font-size:12px;white-space:nowrap}
+</style>
+</head>
+<body>
+<div class="screen">
+  <p class="wl">proto · apply/send · screen 2 — the send, owned proudly</p>
+
+  <div class="ro-says" style="margin-top:12px">
+    <span class="who">RO</span>
+    <p class="msg" id="lead"></p>
+  </div>
+
+  <!-- ATS variant -->
+  <div id="ats">
+    <p class="wl">their form, your ammunition — in order</p>
+    <div class="fieldrow"><span>Their field: <b>Resume</b></span><span class="cp" onclick="cp(this,'your tailored PDF ↓ downloaded')">download the tailored PDF</span></div>
+    <div class="fieldrow"><span>Their field: <b>&ldquo;Why Stripe?&rdquo;</b></span><span class="cp" onclick="cp(this,'copied ✓')">copy answer 1</span></div>
+    <div class="fieldrow"><span>Their field: <b>&ldquo;Eval experience&rdquo;</b></span><span class="cp" onclick="cp(this,'copied ✓')">copy answer 2</span></div>
+    <div class="fieldrow"><span>Their field: <b>Cover letter</b></span><span class="cp" onclick="cp(this,'copied ✓')">copy the letter</span></div>
+    <a class="btn pri full" style="margin-top:10px" href="#" onclick="return opened(this)">Open Stripe&rsquo;s form — everything&rsquo;s ready</a>
+  </div>
+
+  <!-- Email variant -->
+  <div id="email" style="display:none">
+    <p class="wl">their inbox, your words — one draft, ready</p>
+    <div class="wirebox">
+      <p style="margin:0;font-size:13px;color:var(--ink2)"><b style="color:var(--tx)">To:</b> careers@stripe.com · <b style="color:var(--tx)">Subject:</b> Senior AI PM — Nik Jain<br><br>Short, warm, your voice — letter attached, resume attached. Nothing sends until you press send in your own mail app.</p>
+    </div>
+    <a class="btn pri full" style="margin-top:10px" href="#" onclick="return opened(this)">Open in Gmail — everything&rsquo;s filled in</a>
+  </div>
+
+  <div class="wirebox ghost" id="afterbox" style="display:none;margin-top:14px">
+    <p style="margin:0;font-size:13.5px">Their tab is open (in the real app). When you&rsquo;ve pressed their button —</p>
+    <a class="btn sec full" style="margin-top:8px" href="sent.html">I sent it — take over the watching</a>
+    <p class="hint" style="margin-top:8px">Didn&rsquo;t finish? No problem — everything stays packed, and this screen waits. No timer, no guilt.</p>
+  </div>
+
+  <p class="hint" style="text-align:center;margin-top:14px"><a href="index.html">← back to the review</a></p>
+</div>
+
+<script src="data.js"></script>
+<script>
+window.PROTO = {
+  feature: "apply-send", screen: "handoff",
+  screens: AS.screens, states: ["default"], personas: AS.personas,
+  onChange: function (s, p) {
+    var em = p === "email";
+    document.getElementById("ats").style.display = em ? "none" : "block";
+    document.getElementById("email").style.display = em ? "block" : "none";
+    document.getElementById("lead").innerHTML = em
+      ? "This one applies by email — even easier. I&rsquo;ve drafted it in your voice with everything attached; the send button you press is Gmail&rsquo;s own. That&rsquo;s on purpose: nothing leaves without your hand on it."
+      : "I&rsquo;ve packed everything. The last click happens on Stripe&rsquo;s site — that&rsquo;s on purpose: nothing leaves without your hand on it. Two minutes, and here&rsquo;s exactly what goes where.";
+    document.getElementById("afterbox").style.display = "none";
+  }
+};
+function cp(el, txt) { el.textContent = txt; el.style.color = "var(--ok)"; }
+function opened(btn) {
+  btn.textContent = "Their page is open (pretend) — finish there, then come back";
+  document.getElementById("afterbox").style.display = "block";
+  return false;
+}
+</script>
+<script src="../_kit/kit.js"></script>
+</body>
+</html>

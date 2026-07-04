@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Apply · your eyes, then your hand</title>
+<link rel="stylesheet" href="../_kit/kit.css">
+<style>
+  .piece{background:var(--surf);border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:8px 0}
+  .piece .hd{font-size:13.5px}
+  .piece .hd b{font-weight:600}
+  .piece .ops{float:right;font-size:12px;color:var(--ro);cursor:pointer}
+  .piece textarea{display:none;margin-top:8px}
+  .piece.open textarea{display:block}
+  .lesson{display:none;margin-top:8px}
+  .qbox{border-radius:8px;padding:9px 12px;font-size:13px;margin:10px 0}
+</style>
+</head>
+<body>
+<div class="screen">
+  <p class="wl">proto · apply/send · screen 1 — your eyes on everything, your hand on the send</p>
+
+  <h1 style="font-size:21px;margin-top:8px">Your Stripe application — ready for your eyes</h1>
+
+  <!-- quality advisory -->
+  <div class="qbox" id="quality"></div>
+
+  <!-- truth-gate moment (persona: truth) -->
+  <div data-persona-show="truth">
+    <p class="wl" style="margin-top:14px">one of their questions needs a word first</p>
+    <div class="ro-says"><span class="who">RO</span>
+      <p class="msg">Their form asks about <b>Kubernetes in production</b>. Straight with you: nothing in your background says Kubernetes, and I won&rsquo;t invent it — an application that lies is worse than none. Here&rsquo;s an honest framing that still lands, or tell me something I don&rsquo;t know about you.</p>
+    </div>
+    <div class="wirebox" style="margin-top:0">
+      <p style="margin:0;font-size:13px;color:var(--ink2)">&ldquo;While I haven&rsquo;t operated K8s myself, I&rsquo;ve shipped on top of it — the fraud platform ran on a K8s stack I worked with daily…&rdquo;</p>
+      <div style="margin-top:8px">
+        <button class="btn sec" style="font-size:12px;padding:6px 11px" onclick="this.closest('.wirebox').innerHTML='<p style=margin:0;font-size:13px;color:var(--ok)><b>In the bundle.</b> Honest and it still lands — that&rsquo;s the only way we play it.</p>'">use this</button>
+        <button class="btn ghost" style="font-size:12px;padding:6px 11px" onclick="this.closest('.wirebox').innerHTML='<p style=margin:0;font-size:13px;color:var(--ink2)>Tell me the story — I&rsquo;ll write it honestly. (In the real app: a quick chat right here.)</p>'">actually, I do have K8s — here&rsquo;s the story</button>
+      </div>
+    </div>
+  </div>
+
+  <p class="wl" style="margin-top:14px">the bundle — open anything, change anything</p>
+  <div class="piece" id="p-resume">
+    <span class="ops" onclick="toggle('resume')">open · edit</span>
+    <p class="hd" style="margin:0"><b>Resume</b> — led with your fraud story; 2 bullets reworded to their must-haves</p>
+    <textarea class="input" rows="7" oninput="lesson('resume')"></textarea>
+    <div class="lesson" id="l-resume"><div class="ro-says" style="margin:0"><span class="who">RO</span><p class="msg">Good change — I&rsquo;ll re-check the fit quietly. Edits like this are how I learn what you&rsquo;d never let out the door.</p></div></div>
+  </div>
+  <div class="piece" id="p-letter">
+    <span class="ops" onclick="toggle('letter')">open · edit</span>
+    <p class="hd" style="margin:0"><b>Cover letter</b> — your voice, their first must-have in line one</p>
+    <textarea class="input" rows="7" oninput="lesson('letter')"></textarea>
+    <div class="lesson" id="l-letter"><div class="ro-says" style="margin:0"><span class="who">RO</span><p class="msg">Better — punchier than mine. I&rsquo;m learning your voice from edits like this; expect my next draft to sound more like you from the start.</p></div></div>
+  </div>
+  <div class="piece" id="p-answers">
+    <span class="ops" onclick="toggle('answers')">open · edit</span>
+    <p class="hd" style="margin:0"><b>Screening answers</b> — grounded in your real profile, nothing invented</p>
+    <textarea class="input" rows="7" oninput="lesson('answers')"></textarea>
+    <div class="lesson" id="l-answers"><div class="ro-says" style="margin:0"><span class="who">RO</span><p class="msg">Noted and saved. Your words beat my words — that&rsquo;s the whole idea.</p></div></div>
+  </div>
+
+  <a class="btn pri full" href="handoff.html" style="margin-top:12px">Looks right — take me to the send</a>
+  <p class="hint" style="text-align:center;margin-top:8px">2 minutes on their site — she&rsquo;ll walk you through it. Nothing sends without your hand.</p>
+</div>
+
+<script src="data.js"></script>
+<script>
+window.PROTO = {
+  feature: "apply-send", screen: "index",
+  screens: AS.screens, states: ["default"], personas: AS.personas,
+  onChange: function (s, p) { render(p); }
+};
+var score = 87;
+function render(p) {
+  ["resume", "letter", "answers"].forEach(function (k) {
+    var pc = document.getElementById("p-" + k);
+    pc.classList.remove("open");
+    pc.querySelector("textarea").value = AS.pieces[k];
+    document.getElementById("l-" + k).style.display = "none";
+  });
+  var q = document.getElementById("quality");
+  if (p === "weak") {
+    score = 61;
+    q.style.background = "var(--warn-bg)"; q.style.color = "var(--warn)";
+    q.innerHTML = "Honest read: this one&rsquo;s at <b>61</b> — sendable, but two small things would genuinely lift your odds: the letter never mentions their eval must-have, and answer 2 trails off. <u style=\"cursor:pointer\" onclick=\"fix(this,74)\">fix the letter — 20 sec</u> · <u style=\"cursor:pointer\" onclick=\"fix(this,86)\">tighten answer 2</u> · your call either way — I never hold the door shut.";
+  } else {
+    score = 87;
+    q.style.background = "var(--ok-bg)"; q.style.color = "var(--ok)";
+    q.innerHTML = "Strong one — <b>87</b>. One thing would lift it: your letter skips their eval must-have. <u style=\"cursor:pointer\" onclick=\"fix(this,91)\">weave it in — 20 seconds</u> · <span style=\"opacity:.7\">no thanks</span>";
+  }
+}
+function fix(el, ns) {
+  score = ns;
+  el.outerHTML = "<b>done — now " + ns + "</b> (the new line is highlighted in the piece below; change it if it&rsquo;s not your voice)";
+  var t = document.querySelector("#p-letter textarea");
+  t.value = t.value.replace("in production.", "in production — including an eval harness that caught regressions before users did, the same discipline your posting asks for first.");
+}
+function toggle(k) { document.getElementById("p-" + k).classList.toggle("open"); }
+function lesson(k) { document.getElementById("l-" + k).style.display = "block"; }
+</script>
+<script src="../_kit/kit.js"></script>
+</body>
+</html>
