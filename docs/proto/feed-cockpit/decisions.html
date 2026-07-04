@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Feed / cockpit · design decisions (working doc)</title>
+<link rel="stylesheet" href="../_kit/kit.css">
+<style>
+  .screen{max-width:760px}
+  table{width:100%;border-collapse:collapse;font-size:13px;margin:10px 0}
+  th,td{text-align:left;padding:7px 9px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{color:var(--ink3);font-size:10px;text-transform:uppercase;letter-spacing:.05em}
+  h2{margin-top:28px}
+</style>
+</head>
+<body>
+<div class="screen">
+  <p class="wl">proto · feed / cockpit · working doc — the single source of alignment</p>
+  <h1 style="font-size:22px">Feed / cockpit — design decisions</h1>
+  <p class="small">Status: <span class="pill ro">IN FEEDBACK</span> · Stage 1 confirmed 2026-07-04 · prototype at <a href="index.html">/proto/feed-cockpit/</a> · becomes the formal PRD on APPROVED. The feed exists in the app (slice 2 + slices 7–9) — this deepens the daily experience.</p>
+
+  <h2>Confirmed intent</h2>
+  <div class="wirebox" style="font-size:13.5px;color:var(--ink2)">
+    The feed is RoleOS&rsquo;s home and its daily proof that an agent is genuinely running your hunt. Every open answers &ldquo;what needs me&rdquo; and &ldquo;am I on pace&rdquo; in ten seconds. RO&rsquo;s short brief flows into a capped, finishable Today list (goal-aware; decisions-led with a quiet invitation when no goal), then a full honest activity log — every line expandable to her reasoning, routine batches one truthful line. Light judgments happen on the card (reasoning + diff one tap away; &ldquo;open full view&rdquo; always offered); heavy work opens its screen. Zones are user-arrangeable and RO proposes layout changes from observed behavior — never rearranging alone. Quiet days: honest calm + at most one real optional move from actual gap analysis; rest stays legitimate. Success = healthy engagement: unprompted return, Today completion, decision speed — explicitly not session length.
+  </div>
+
+  <h2>Locked decisions</h2>
+  <table>
+    <tr><th>#</th><th>Decision</th><th>Choice</th></tr>
+    <tr><td>1</td><td>What leads</td><td><b>Combined:</b> RO&rsquo;s 1–2 sentence morning brief flowing into the goal-aware <b>Today list</b> — capped ~3, always finishable, minutes labeled, completion celebrated (&ldquo;you&rsquo;re done for today — genuinely&rdquo;).</td></tr>
+    <tr><td>2</td><td>Her activity</td><td><b>Full visible log</b> — everything she did, timestamped, every line expandable to reasoning. Routine batches compress to one honest line so diligence never buries decisions.</td></tr>
+    <tr><td>3</td><td>Inline depth</td><td><b>Light judgments on the card</b> (approve/send, skip, dismiss) with her why + diff preview one tap away; heavy work (studio, editing, mocks) opens full screen; &ldquo;open full view&rdquo; always offered.</td></tr>
+    <tr><td>4</td><td>Structure</td><td><b>Three base zones</b> (Today+goal · needs judgment · activity log), <b>fully personalizable</b>: reorder / collapse / hide, saved per user.</td></tr>
+    <tr><td>5</td><td>Personalization</td><td><b>You arrange + RO suggests</b> from observed behavior (&ldquo;you skip the log in the morning — collapse it before noon?&rdquo;). She never rearranges on her own. Every arrangement choice = decision event.</td></tr>
+    <tr><td>6</td><td>Quiet day</td><td><b>Honest calm + one REAL optional move</b> drawn from actual gap analysis (e.g. missing interview story). Never manufactured busywork; rest is a first-class suggestion she genuinely endorses.</td></tr>
+    <tr><td>7</td><td>No-goal feed</td><td><b>Same home, decisions lead</b>; goal invitation lives quietly in the flow. No punishment browse-mode; setting a goal sharpens the same screen.</td></tr>
+    <tr><td>8</td><td>Heavy day</td><td>Today stays capped; overflow waits visibly-but-quietly (&ldquo;3 more for tomorrow — on purpose; nothing time-sensitive, I checked&rdquo;).</td></tr>
+    <tr><td>9</td><td>Success</td><td><b>Healthy engagement</b> (human-agreed after candid pushback): unprompted daily return · Today completion rate · decision latency. Explicitly NOT session length/scroll depth.</td></tr>
+  </table>
+
+  <h2>Data &amp; guardrails</h2>
+  <table>
+    <tr><td><b>Taste capture</b></td><td>Every inline judgment, skip-with-reason, layout choice, suggestion accept/decline = decision events.</td></tr>
+    <tr><td><b>Human gate</b></td><td>Inline &ldquo;send&rdquo; is still the user&rsquo;s explicit click on a surfaced draft with reasoning + diff available — the send path stays /api/apply-shaped; nothing outbound without the click.</td></tr>
+    <tr><td><b>Wellbeing</b></td><td>Completion is celebrated, absence is never punished; quiet days legitimize rest; no engagement bait anywhere.</td></tr>
+  </table>
+
+  <h2>Changelog</h2>
+  <p class="small">2026-07-04 · v0.1 — Stage 1 confirmed (8 questions, 2 batches + metric pushback resolved to healthy-engagement); storyboard approved; prototype built; IN FEEDBACK.</p>
+
+  <p class="hint" style="margin-top:24px"><a href="../index.html">← all prototypes</a> · <a href="index.html">open the prototype</a></p>
+</div>
+</body>
+</html>

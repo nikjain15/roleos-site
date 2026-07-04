@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Feed · your cockpit</title>
+<link rel="stylesheet" href="../_kit/kit.css">
+<style>
+  .zone{margin:16px 0;position:relative}
+  .zone .zh{display:flex;align-items:center;gap:6px}
+  .zone .zh .wl{margin:0;flex:1}
+  .arrange-ui{display:none;font-size:11px;color:var(--ro)}
+  body[data-state="arrange"] .arrange-ui{display:inline}
+  body[data-state="arrange"] .zone{border:1px dashed var(--line2);border-radius:10px;padding:8px}
+  .todo{display:flex;align-items:center;gap:9px;background:var(--surf);border:1px solid var(--line);border-radius:8px;padding:9px 11px;margin:6px 0;font-size:13.5px}
+  .todo input{width:17px;height:17px;accent-color:var(--ok);flex:0 0 auto}
+  .todo.done{opacity:.55;text-decoration:line-through}
+  .todo .t{flex:1}
+  .todo .min{font-size:11px;color:var(--ink3);flex:0 0 auto}
+  .card{background:var(--surf);border:1px solid var(--line);border-radius:10px;padding:11px 12px;margin:8px 0}
+  .card .hd{font-size:14px;font-weight:600}
+  .card .tag{float:right;font-size:10px;color:var(--ink3)}
+  .card .why{font-size:12.5px;color:var(--ink2);margin:5px 0;line-height:1.5}
+  .diff{background:var(--surf2);border-radius:6px;padding:6px 9px;font-size:12px;color:var(--ink2);margin-bottom:8px;cursor:pointer}
+  .diff .full{display:none;margin-top:6px;border-top:1px solid var(--line);padding-top:6px}
+  .diff.open .full{display:block}
+  .btn.sm{font-size:12px;padding:6px 11px}
+  .logline{font-size:12.5px;color:var(--ink2);padding:4px 0 4px 10px;border-left:2px solid var(--line)}
+  .logline a{font-size:11.5px;cursor:pointer;text-decoration:none}
+  .logline .rsn{display:none;background:var(--ro-bg);color:var(--ro-ink);border-radius:6px;padding:7px 9px;font-size:12px;margin:5px 0 3px;line-height:1.5}
+  .logline.open .rsn{display:block}
+  .donebox{display:none;background:var(--ok-bg);border:1px solid var(--ok);border-radius:10px;padding:11px 13px;font-size:13.5px;color:var(--ok);margin:8px 0}
+</style>
+</head>
+<body>
+<div class="screen">
+  <p class="wl">proto · feed — your cockpit · flip persona &amp; state below</p>
+
+  <!-- RO brief -->
+  <div class="ro-says" style="margin-top:14px">
+    <span class="who">RO</span>
+    <p class="msg" id="brief"></p>
+  </div>
+
+  <!-- ZONE: Today + goal -->
+  <div class="zone" id="z-today">
+    <div class="zh"><p class="wl" id="todaylabel">today · finish this and you&rsquo;re done</p><span class="arrange-ui">⠿ pinned</span></div>
+    <div id="todaylist"></div>
+    <div class="donebox" id="donebox"><b>That&rsquo;s everything — you&rsquo;re done for today. Genuinely.</b><br>The pipeline keeps moving without you now. Go live your evening; I&rsquo;m on watch.</div>
+    <div class="card" id="goalstrip" style="padding:9px 12px">
+      <p style="margin:0;font-size:13.5px"><b id="goalname"></b> <span class="pill" id="goalpill" style="float:right"></span></p>
+      <p class="small" style="margin:4px 0 0" id="goalline"></p>
+    </div>
+    <p class="hint" id="heavynote" style="display:none">3 more items are waiting for tomorrow — on purpose. Today stays finishable; that&rsquo;s the pace engine doing its job.</p>
+  </div>
+
+  <!-- ZONE: quiet-day real offer -->
+  <div class="zone" id="z-quiet" style="display:none">
+    <div class="card">
+      <p class="hd">If you&rsquo;ve got 20 minutes — one thing with real payoff</p>
+      <p class="why">Your interview map has one gap: a &ldquo;killed a feature&rdquo; story. Stripe asks it in almost every loop. Want to build yours with me? No pressure — it&rsquo;ll keep.</p>
+      <button class="btn sec sm" onclick="this.outerHTML='<p class=hint style=margin:0>She opens the story-builder — that&rsquo;s the Coach studio&rsquo;s job, designed later.</p>'">Let&rsquo;s build it</button>
+      <button class="btn ghost sm" onclick="this.closest('.card').innerHTML='<p style=margin:0;font-size:13px;color:var(--ink2)>Good call. Rest <b>is</b> a good use of today — I&rsquo;m on watch, and your progress is safe with me.</p>'">I&rsquo;ll rest today</button>
+    </div>
+  </div>
+
+  <!-- ZONE: needs your judgment -->
+  <div class="zone" id="z-judge">
+    <div class="zh"><p class="wl">needs your judgment</p><span class="arrange-ui">⠿ move · collapse · hide</span></div>
+    <div id="cards"></div>
+  </div>
+
+  <!-- ZONE: activity log -->
+  <div class="zone" id="z-log">
+    <div class="zh"><p class="wl">what I did while you were away · all of it</p><span class="arrange-ui">⠿ move · collapse · hide</span></div>
+    <div id="loglines"></div>
+    <p class="hint" style="margin-top:6px">Every line opens my reasoning — no mystery, ever.</p>
+  </div>
+
+  <!-- RO layout suggestion (arrange state) -->
+  <div class="zone" id="z-suggest" style="display:none">
+    <div class="ro-says"><span class="who">RO</span>
+      <p class="msg">I&rsquo;ve noticed you read the activity log every evening but skip it in the morning — want it collapsed before noon? Your call, and easy to undo.</p>
+    </div>
+    <p style="margin:0 0 0 40px"><button class="btn sec sm" onclick="suggest(true)">yes, do that</button> <button class="btn ghost sm" onclick="suggest(false)">no, leave it</button></p>
+    <p class="hint" id="suggestnote" style="margin:8px 0 0 40px;display:none"></p>
+  </div>
+
+  <p class="hint" style="text-align:center;margin-top:22px">flip <b>state → arrange</b> below to see the personalization mode · <a href="../index.html">all prototypes</a></p>
+</div>
+
+<script src="data.js"></script>
+<script>
+window.PROTO = {
+  feature: "feed-cockpit", screen: "index",
+  screens: FC.screens, states: ["default", "arrange"], personas: FC.personas,
+  onChange: function (s, p) { render(p, s); }
+};
+function render(p, s) {
+  document.getElementById("brief").innerHTML = FC.brief[p];
+  var today = FC.today[p] || [];
+  document.getElementById("z-today").style.display = (p === "nogoal" || p === "quiet") ? (p === "quiet" ? "block" : "none") : "block";
+  document.getElementById("todaylabel").style.display = today.length ? "block" : "none";
+  document.getElementById("donebox").style.display = "none";
+  document.getElementById("todaylist").innerHTML = today.map(function (t, i) {
+    return '<label class="todo"><input type="checkbox" onchange="tick(this)"><span class="t">' + (i + 1) + " · " + t[0] + '</span><span class="min">' + t[1] + "</span></label>";
+  }).join("");
+  var g = FC.goal[p];
+  document.getElementById("goalstrip").style.display = g ? "block" : "none";
+  if (g) {
+    document.getElementById("goalname").innerHTML = g[0];
+    var pill = document.getElementById("goalpill"); pill.textContent = g[1].replace(/&rsquo;/g, "’"); pill.className = "pill " + g[2] + "";
+    document.getElementById("goalline").innerHTML = g[3];
+  }
+  document.getElementById("heavynote").style.display = p === "heavy" ? "block" : "none";
+  document.getElementById("z-quiet").style.display = p === "quiet" ? "block" : "none";
+  document.getElementById("z-suggest").style.display = s === "arrange" ? "block" : "none";
+  cards(p);
+  document.getElementById("loglines").innerHTML = FC.log.map(function (l, i) {
+    return '<div class="logline" id="ll' + i + '">' + l[0] + " — " + l[1] + ' <a onclick="document.getElementById(\'ll' + i + '\').classList.toggle(\'open\')">' + l[2] + '</a><div class="rsn">' + l[3] + "</div></div>";
+  }).join("");
+}
+function cards(p) {
+  var h = "";
+  if (p !== "quiet") {
+    h += '<div class="card" id="rampcard"><span class="tag">you send</span><p class="hd">Ramp — your application, ready</p>' +
+      '<p class="why">I led with your fraud-platform story — their posting asks for marketplace risk first. Comp note included, at your floor.</p>' +
+      '<div class="diff" onclick="this.classList.toggle(\'open\')">resume: 2 bullets reworded · <span style="color:var(--ro)">see the exact changes</span>' +
+      '<div class="full"><span style="text-decoration:line-through;opacity:.6">&ldquo;Built fraud detection platform&rdquo;</span><br>→ <b>&ldquo;Built the fraud platform that cleared $2B in marketplace risk — their posting&rsquo;s first must-have&rdquo;</b></div></div>' +
+      '<button class="btn pri sm" onclick="sent(this)">Looks right — send it</button> ' +
+      '<a class="btn sec sm" href="full.html">open full view</a> ' +
+      '<button class="btn ghost sm" onclick="skipped(this)">not this one</button></div>';
+    h += '<div class="card"><span class="tag">co-create</span><p class="hd">Stripe take-home — your strategic call</p>' +
+      '<p class="why">I decoded their brief: they&rsquo;re really testing prioritization under ambiguity. I&rsquo;ve laid out 3 angles — the decisive pick is yours.</p>' +
+      '<a class="btn sec sm" href="full.html">Open the studio — this one deserves a real screen</a></div>';
+  }
+  if (p === "heavy") {
+    h += '<div class="card"><span class="tag">you send</span><p class="hd">Sierra — resume variant ready</p><p class="why">Reworded toward agent-product scope. Quick one.</p><button class="btn pri sm" onclick="sent(this)">Approve it</button> <a class="btn sec sm" href="full.html">full view</a></div>';
+    h += '<p class="hint">+ 3 more waiting quietly for tomorrow — <a href="#" onclick="return false">peek if you want</a>. Nothing in them is time-sensitive; I checked.</p>';
+  }
+  if (p === "nogoal") {
+    h += '<div class="card" style="border-color:var(--ro)"><p class="why" style="margin:0">Whenever you&rsquo;re ready, give me something to aim at — a target and a date make everything I do sharper. <b>No rush — I&rsquo;m working either way.</b></p>' +
+      '<p style="margin:8px 0 0"><a class="btn pri sm" href="../goal-setup/index.html">Set my goal · 2 min</a> <button class="btn ghost sm" onclick="this.closest(\'.card\').style.opacity=.45">not yet</button></p></div>';
+  }
+  document.getElementById("cards").innerHTML = h;
+}
+function tick(cb) {
+  cb.closest(".todo").classList.toggle("done", cb.checked);
+  var all = document.querySelectorAll("#todaylist .todo input");
+  var done = document.querySelectorAll("#todaylist .todo input:checked");
+  document.getElementById("donebox").style.display = all.length && all.length === done.length ? "block" : "none";
+}
+function sent(btn) {
+  btn.closest(".card").innerHTML = '<p style="margin:0;font-size:13px;color:var(--ok)"><b>Sent — and it&rsquo;s a strong one.</b> I moved it to your tracker and I&rsquo;ll watch for their reply. That&rsquo;s real momentum today.</p>';
+}
+function skipped(btn) {
+  btn.closest(".card").innerHTML = '<p style="margin:0;font-size:13px;color:var(--ink2)">Skipped — good to know, and it teaches me. Want to tell me what felt off, or just move on? Either&rsquo;s fine.</p>';
+}
+function suggest(yes) {
+  var n = document.getElementById("suggestnote");
+  n.style.display = "block";
+  n.textContent = yes
+    ? "Done — collapsed before noon from tomorrow. Undo anytime in arrange mode. (And I just learned a little more about your mornings.)"
+    : "Left as is — also good to know. I won't suggest this one again.";
+}
+</script>
+<script src="../_kit/kit.js"></script>
+</body>
+</html>
