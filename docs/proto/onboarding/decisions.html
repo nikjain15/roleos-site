@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Onboarding · design decisions (working doc)</title>
+<link rel="stylesheet" href="../_kit/kit.css">
+<style>
+  .screen{max-width:760px}
+  table{width:100%;border-collapse:collapse;font-size:13px;margin:10px 0}
+  th,td{text-align:left;padding:7px 9px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{color:var(--ink3);font-size:10px;text-transform:uppercase;letter-spacing:.05em}
+  h2{margin-top:28px}
+</style>
+</head>
+<body>
+<div class="screen">
+  <p class="wl">proto · onboarding · working doc — the single source of alignment</p>
+  <h1 style="font-size:22px">Onboarding — design decisions</h1>
+  <p class="small">Status: <span class="pill ro">IN FEEDBACK</span> · Stage 1 confirmed 2026-07-04 · prototype live at <a href="index.html">/proto/onboarding/</a> · becomes the formal PRD (roleos-app <span style="font-family:var(--mono)">docs/specs/onboarding-design.md</span>) on APPROVED.</p>
+
+  <h2>Confirmed intent</h2>
+  <div class="wirebox" style="font-size:13.5px;color:var(--ink2)">
+    Convert a skeptical senior candidate from &ldquo;another AI job tool&rdquo; to &ldquo;an agent just did real work for me&rdquo; in under a minute, and fire the first taste-model signals before signup. One input (LinkedIn / paste / CV, plus an optional one-line target) &rarr; honest plain-English ticker &rarr; one combined screen: her tappable read of you (statements + guess + one insight, as bold as evidence allows) beside jobs that stream in and visibly re-rank when you correct her &rarr; a save-framed signup with a real taste of the work &rarr; a first feed minute where RO narrates next moves, asks for a goal, matches beneath. Every dead end gets an honest scripted recovery — she never fakes value. Success = mirror reached in ~30s of effort, &ge;1 reaction, work saved; measured as time-to-first-value + save rate, never top-of-funnel signup rate.
+  </div>
+
+  <h2>Locked decisions</h2>
+  <table>
+    <tr><th>#</th><th>Decision</th><th>Choice (and why)</th></tr>
+    <tr><td>1</td><td>Mirror</td><td><b>Tappable</b> — ✓ / ✗ + correction on every statement. First taste-model event; correcting her must have a visible payoff (the job list re-ranks).</td></tr>
+    <tr><td>2</td><td>Insight boldness</td><td><b>Bold with receipts</b> when evidence allows (&ldquo;~$250k — I compared 12 postings; estimate, not a promise&rdquo;); sharp-but-safer fallback on thin data. Never certainty beyond evidence.</td></tr>
+    <tr><td>3</td><td>What we ask</td><td>One input (LinkedIn / CV file / free text) + <b>skippable</b> one-line target question. Never required.</td></tr>
+    <tr><td>4</td><td>Motivating detail, not forcing it</td><td>Each input option carries its own &ldquo;why&rdquo; line · <b>sharpness meter</b> fills as they give more · her target-guess is a correctable mirror statement · matches carry &ldquo;ranked against my guess — tell me the real one&rdquo; re-rank nudge.</td></tr>
+    <tr><td>5</td><td>Signup</td><td><b>After value, framed as save.</b> Save screen leads with a real <b>taste line</b> (one resume bullet retold for the top match) + 3 plain what-starts-now cards + honest &ldquo;this disappears unless saved.&rdquo;</td></tr>
+    <tr><td>6</td><td>Reveal pacing</td><td><b>Combined screen, two-beat fill:</b> her read appears first, jobs stream in beside it (&ldquo;still comparing&hellip;&rdquo;). Honest timing, one screen. Stacks on mobile, read on top.</td></tr>
+    <tr><td>7</td><td>Ticker</td><td>Only real steps, in <b>plain English</b> — every line must pass &ldquo;would a non-tech friend understand this?&rdquo; No jargon, no fake theater.</td></tr>
+    <tr><td>8</td><td>First feed minute</td><td><b>Option A:</b> RO narrates what she&rsquo;s doing next &rarr; goal card (&ldquo;everything I do gets sharper&rdquo; · the seam to the Goal-setup feature) &rarr; saved matches &rarr; &ldquo;what happens while you&rsquo;re away.&rdquo;</td></tr>
+    <tr><td>9</td><td>Explore arrival</td><td><b>In scope.</b> RO opens by continuing their conversation; full self-explaining input block (context-aware why-lines); the role they came from is guaranteed a verdict, tagged.</td></tr>
+    <tr><td>10</td><td>Edge cases</td><td>Honest scripted recoveries, per ro-voice.html: thin input (ask for exactly two things) · junk (&ldquo;no judgment, I can&rsquo;t read you from it&rdquo; — never matches) · weak pool (mirror + insight still delivered; &ldquo;nothing&rsquo;s a strong fit — widen or hold the bar? I&rsquo;ll keep watch&rdquo;).</td></tr>
+    <tr><td>11</td><td>Returning users</td><td>(a) saved work &rarr; straight to feed, never re-onboarded · (b) signed in, no data &rarr; &ldquo;signing in told me who you are, not what you&rsquo;ve built&rdquo; · (c) anon repeat &rarr; remembered LinkedIn URL + &ldquo;re-pull?&rdquo;</td></tr>
+    <tr><td>12</td><td>Success</td><td>Time-to-first-value + post-matches save rate. Explicitly NOT signup rate at entry.</td></tr>
+  </table>
+
+  <h2>Data &amp; personalization requirements (confirmed 2026-07-04)</h2>
+  <table>
+    <tr><th>Rule</th><th>Meaning for the build</th></tr>
+    <tr><td><b>Capture every action</b></td><td>Every user action across the journey is a <span style="font-family:var(--mono)">decision_event</span> (append-only) feeding the taste model — onboarding included. Personalization compounds across the user&rsquo;s whole life with RO. Per-user only (RLS); exportable &amp; deletable; anonymized aggregate learning only at product level.</td></tr>
+    <tr><td><b>Pre-save privacy</b></td><td>Anonymous session stores nothing server-side — that&rsquo;s the honest &ldquo;disappears unless saved&rdquo; claim. Non-negotiable.</td></tr>
+    <tr><td><b>Save-payload completeness</b> ⚑ new</td><td>The signup handoff must carry ALL pre-save actions — every ✓/✗, every correction, the target answer, the re-rank request — and write them as decision events the moment the account exists. The taste model&rsquo;s first entries are the corrections made before signup. (Today&rsquo;s app carries profile/mirror/matches only — this is a required extension.)</td></tr>
+  </table>
+
+  <h2>Flags for the PRD (human/business calls)</h2>
+  <table>
+    <tr><td><b>Taste-line cost</b></td><td>One extra model call per anonymous user who reaches the save screen. Recommended: pay it (strongest conversion moment). Alternative: canned example (cheaper, visibly not theirs).</td></tr>
+    <tr><td><b>Re-rank latency</b></td><td>Prototype shows ~1s re-rank; production is a real model call (5–15s). Decide: instant acknowledge + quiet re-sort, or block with progress. Design leans instant-acknowledge.</td></tr>
+    <tr><td><b>Insight anchor</b></td><td>Money ($250k) vs trajectory as the default insight class. Currently money (most falsifiable, most arresting). Open to challenge.</td></tr>
+    <tr><td><b>Anon LinkedIn pulls</b></td><td>Real cost per pull (Apify). Rate limits exist (H3); the free-pull business policy is the human&rsquo;s call.</td></tr>
+  </table>
+
+  <h2>Changelog</h2>
+  <p class="small">
+    2026-07-04 · v0.3 — added data &amp; personalization requirements (capture-everything, save-payload completeness) after human confirmation.<br>
+    2026-07-04 · v0.2 — feedback round 1 folded in pre-build: self-selling input options + sharpness meter; plain-English ticker; combined 3+4 screen; taste-line save screen; plain-language feed minute; Explore arrival with full input block.<br>
+    2026-07-04 · v0.1 — Stage 1 confirmed (10 questions + visual rounds); prototype built &amp; live; status IN FEEDBACK.
+  </p>
+
+  <p class="hint" style="margin-top:24px"><a href="../index.html">← all prototypes</a> · <a href="index.html">open the prototype</a></p>
+</div>
+</body>
+</html>
