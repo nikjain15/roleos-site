@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Role workspace · the decision room</title>
+<link rel="stylesheet" href="../_kit/kit.css">
+<style>
+  .q{background:var(--surf);border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:8px 0}
+  .q .co{font-weight:600;font-size:14px}
+  .q .vp{float:right;font-size:11px;font-weight:600}
+  .q .act{margin-top:7px}
+  .q .act a{margin-right:6px}
+  .saved-row{display:flex;justify-content:space-between;background:var(--surf);border:1px solid var(--line);border-radius:8px;padding:8px 11px;margin:5px 0;font-size:12.5px;color:var(--ink2)}
+</style>
+</head>
+<body>
+<div class="screen">
+  <p class="wl">proto · role workspace — the decision room · flip persona below</p>
+
+  <div class="ro-says" style="margin-top:12px">
+    <span class="who">RO</span>
+    <p class="msg" id="lead"></p>
+  </div>
+
+  <div id="queuezone">
+    <p class="wl" id="qlabel"></p>
+    <div id="queue"></div>
+  </div>
+
+  <div class="wirebox" data-persona-show="done" style="background:var(--ok-bg);border-color:var(--ok)">
+    <p style="margin:0;font-size:13.5px;color:var(--ok)"><b>All five decided — that&rsquo;s the week&rsquo;s judgment done.</b> Three pursued, two passed, and both passes taught me something. Drafts start arriving tonight.</p>
+  </div>
+
+  <p class="wl" style="margin-top:20px" id="savedlabel">your full list · 14 saved · sorted by fit</p>
+  <div id="savedlist"></div>
+  <p class="hint">She keeps this fresh and prunes the dead ones — tending the garden is her job, judging is yours.</p>
+
+  <p class="hint" style="text-align:center;margin-top:18px"><a href="../index.html">all prototypes</a></p>
+</div>
+
+<script src="data.js"></script>
+<script>
+window.PROTO = {
+  feature: "role-workspace", screen: "index",
+  screens: RW.screens, states: ["default"], personas: RW.personas,
+  onChange: function (s, p) { render(p); }
+};
+function render(p) {
+  var lead = document.getElementById("lead"), qz = document.getElementById("queuezone");
+  var leads = {
+    week: "Five need your call this week — that&rsquo;s the pace we planned, and each takes about a minute. Two down, three to go. You&rsquo;re doing the part only you can do.",
+    tie: "Three to decide — and heads up: Sierra and Ramp are genuinely close. That&rsquo;s a taste call, not a math call. <a href='compare.html' style='color:var(--ro-ink);font-weight:600'>Want them side by side?</a>",
+    backlog: "Your list grew to 14 while you were heads-down — no guilt, that&rsquo;s what I&rsquo;m for. You still only need to decide on <b>five</b>; I ranked them so the ones that can&rsquo;t wait come first.",
+    done: "Nothing else needs deciding until Thursday, when the next batch lands. Your full list is below if you feel like wandering — but honestly? You&rsquo;ve earned the evening."
+  };
+  lead.innerHTML = leads[p];
+  qz.style.display = p === "done" ? "none" : "block";
+  document.getElementById("qlabel").textContent =
+    p === "backlog" ? "decide this week · her top 5 of your 14" : "decide this week · 2 of 5 done";
+  document.getElementById("queue").innerHTML = RW.queue.map(function (r, i) {
+    return '<div class="q"><span class="vp" style="color:var(--' + (r.pv === "ok" ? "ok" : "warn") + ')">' + r.v + " · your call?</span>" +
+      '<div class="co">' + r.c + " — " + r.t + "</div>" +
+      '<div class="act"><a class="btn sec" style="font-size:12px;padding:6px 11px" href="role.html">open — about a minute</a>' +
+      (p === "tie" && i < 2 ? '<a class="btn ghost" style="font-size:12px;padding:6px 11px" href="compare.html">compare these two</a>' : "") +
+      "</div></div>";
+  }).join("");
+  document.getElementById("savedlist").innerHTML = RW.saved.map(function (r) {
+    return '<div class="saved-row"><span>' + r[0] + "</span><span>" + r[1] + "</span></div>";
+  }).join("");
+}
+</script>
+<script src="../_kit/kit.js"></script>
+</body>
+</html>

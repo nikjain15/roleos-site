@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Role workspace · side by side</title>
+<link rel="stylesheet" href="../_kit/kit.css">
+<style>
+  table{width:100%;border-collapse:collapse;font-size:13px;margin:12px 0}
+  th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{color:var(--ink3);font-size:10px;text-transform:uppercase;letter-spacing:.05em}
+  td b{color:var(--tx)}
+  .win{background:var(--ok-bg);border-radius:4px;padding:1px 6px;color:var(--ok);font-weight:600}
+</style>
+</head>
+<body>
+<div class="screen">
+  <p class="wl">proto · role workspace — side by side (the tie-breaker, as a real table)</p>
+
+  <div class="ro-says" style="margin-top:12px">
+    <span class="who">RO</span>
+    <p class="msg">Sierra and Ramp are genuinely close — if the numbers settled it, I&rsquo;d have settled it. This one&rsquo;s a taste call, and taste is yours. Here&rsquo;s everything that differs:</p>
+  </div>
+
+  <table>
+    <tr><th></th><th>Sierra — Sr PM, Agents</th><th>Ramp — Staff PM</th></tr>
+    <tr><td>pay</td><td>$200–250k, their number</td><td><span class="win">$220–270k</span>, their number</td></tr>
+    <tr><td>scope</td><td><span class="win">0-to-1 — the surface is yours</span></td><td>scale an existing area</td></tr>
+    <tr><td>where</td><td><span class="win">remote, truly</span></td><td>NYC, 4 days in office</td></tr>
+    <tr><td>title</td><td>Senior</td><td><span class="win">Staff</span></td></tr>
+    <tr><td>your gaps</td><td>enterprise motion — a stretch</td><td>fintech domain — bridgeable</td></tr>
+    <tr><td>loop speed</td><td>~3 weeks, from what I&rsquo;ve seen</td><td>~4–5 weeks</td></tr>
+  </table>
+
+  <div class="wirebox" style="background:var(--ro-bg);border-color:var(--ro)">
+    <p style="margin:0;font-size:13.5px;color:var(--ro-ink)"><b>My lean, since you&rsquo;d ask:</b> you told me scope beats title — and Sierra&rsquo;s 0-to-1 surface compounds your next move in a way Ramp&rsquo;s $20k doesn&rsquo;t. But you also mentioned the NYC energy once, fondly. That&rsquo;s why this is your call, not mine.</p>
+  </div>
+
+  <div style="display:flex;gap:8px;margin-top:12px">
+    <a class="btn pri" href="role.html">Open Sierra — decide there</a>
+    <a class="btn sec" href="role.html">Open Ramp</a>
+    <a class="btn ghost" href="index.html">back — pursue both, even</a>
+  </div>
+  <p class="hint" style="margin-top:10px">This table is also reachable anytime: select any 2–3 roles in your list and tap compare. The tie-breaker is just when I bring it to you first.</p>
+</div>
+
+<script src="data.js"></script>
+<script>
+window.PROTO = { feature: "role-workspace", screen: "compare", screens: RW.screens, states: ["default"], personas: RW.personas };
+</script>
+<script src="../_kit/kit.js"></script>
+</body>
+</html>

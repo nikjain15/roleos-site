@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Role workspace · one role, one call</title>
+<link rel="stylesheet" href="../_kit/kit.css">
+<style>
+  .chiprow .chip{display:inline-block;border:1px solid var(--line2);border-radius:12px;padding:3px 10px;font-size:11.5px;color:var(--ink2);cursor:pointer;margin:2px 4px 2px 0;background:var(--surf)}
+  .chiprow .chip:hover{border-color:var(--ro);color:var(--ro)}
+  details{margin:10px 0;border:1px solid var(--line);border-radius:8px;padding:8px 12px;font-size:13px;color:var(--ink2)}
+  summary{cursor:pointer;font-weight:600;color:var(--tx);font-size:13px}
+</style>
+</head>
+<body>
+<div class="screen">
+  <p class="wl">proto · role workspace — one role, one call (about a minute)</p>
+
+  <h1 style="font-size:22px;margin-top:10px">Sierra — Senior PM, Agents</h1>
+  <p class="small" style="font-family:var(--mono);font-size:11px">$200–250k, their number · remote ok · posted 1d ago · checked by RO today</p>
+
+  <div id="decide">
+    <div class="wirebox" style="background:var(--ok-bg);border-color:var(--ok)">
+      <p style="margin:0;font-size:14px;color:var(--ok)"><b>Go for it.</b> Agent products are your lane, this is genuinely 0-to-1, and the pay is real. You&rsquo;d be interviewing them as much as they interview you.</p>
+    </div>
+    <p style="font-size:13.5px;color:var(--ink2);margin:10px 0">Gaps, honestly: <b style="color:var(--tx)">no eval-tooling mention</b> <span class="pill ok">bridgeable — I&rsquo;ll frame it</span> &nbsp;·&nbsp; <b style="color:var(--tx)">enterprise motion</b> <span class="pill warn">a real stretch</span></p>
+
+    <div style="display:flex;gap:8px;margin:14px 0 6px">
+      <button class="btn pri" onclick="pursue()">Pursue — start my resume</button>
+      <button class="btn sec" onclick="pass()">pass</button>
+    </div>
+
+    <details><summary>the full posting</summary>About Sierra: we&rsquo;re building the platform for conversational AI agents… (grey-box: the real page shows the whole JD here, plus which lines actually matter, highlighted).</details>
+    <details><summary>your notes</summary>(grey-box: free notes, saved per role — W4 shipped this.)</details>
+  </div>
+
+  <!-- Pursue: her work starts, visibly -->
+  <div id="pursued" style="display:none">
+    <div class="ro-says"><span class="who">RO</span>
+      <p class="msg">Sierra it is — good call, and I&rsquo;ll tell you why I&rsquo;m glad: it&rsquo;s the strongest 0-to-1 story on your list. I&rsquo;m starting your resume now; the draft will be in your feed tonight, and you approve everything before it goes anywhere.</p>
+    </div>
+    <div class="mini"><span>✓ Resume tailoring — started</span><span class="pill ro">tonight</span></div>
+    <div class="mini"><span>→ Cover letter draft</span><span class="pill">after your resume ok</span></div>
+    <div class="mini"><span>→ Ready-to-send bundle</span><span class="pill">you press send</span></div>
+    <a class="btn sec full" style="margin-top:10px" href="index.html">back to the queue — 3 of 5 done</a>
+  </div>
+
+  <!-- Pass: free, undoable, explaining is invited and rewarded -->
+  <div id="passed" style="display:none">
+    <div class="ro-says"><span class="who">RO</span>
+      <p class="msg">Done — and no second-guessing from me. If you&rsquo;ve got three words on why, I get sharper; even &ldquo;too much polish&rdquo; teaches me a lot. Totally optional. <a href="#" onclick="undo();return false" style="color:var(--ro-ink);font-weight:600">undo</a></p>
+    </div>
+    <div class="chiprow" id="chips">
+      <span class="chip" onclick="why('the pay')">pay</span>
+      <span class="chip" onclick="why('the company')">company</span>
+      <span class="chip" onclick="why('the level')">level</span>
+      <span class="chip" onclick="why('just a vibe')">just a vibe</span>
+    </div>
+    <input class="input" id="whytext" style="margin-top:8px" placeholder="or say it your way… &ldquo;feels like a features factory&rdquo;"
+      onkeydown="if(event.key==='Enter')why(this.value)">
+    <div id="payoff" style="display:none" class="wirebox" style2=""></div>
+    <a class="btn sec full" style="margin-top:10px" href="index.html">back to the queue — 3 of 5 done</a>
+  </div>
+</div>
+
+<script src="data.js"></script>
+<script>
+window.PROTO = {
+  feature: "role-workspace", screen: "role",
+  screens: RW.screens, states: ["default"], personas: RW.personas,
+  onChange: function () { show("decide"); }
+};
+function show(id) {
+  ["decide", "pursued", "passed"].forEach(function (x) {
+    document.getElementById(x).style.display = x === id ? "block" : "none";
+  });
+}
+function pursue() { show("pursued"); }
+function pass() { show("passed"); }
+function undo() { show("decide"); }
+function why(w) {
+  if (!w || !w.trim()) return;
+  var p = document.getElementById("payoff");
+  p.style.display = "block";
+  p.style.background = "var(--ok-bg)"; p.style.borderColor = "var(--ok)";
+  p.innerHTML = '<p style="margin:0;font-size:13px;color:var(--ok)"><b>Noted — ' + w.trim() + '.</b> That just re-weighted how I rank every future role for you. This is exactly how I become yours.</p>';
+  document.getElementById("chips").style.display = "none";
+  document.getElementById("whytext").style.display = "none";
+}
+</script>
+<script src="../_kit/kit.js"></script>
+</body>
+</html>
