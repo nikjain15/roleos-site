@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Goal setup · 6 living with the goal</title>
+<link rel="stylesheet" href="../_kit/kit.css">
+</head>
+<body>
+<div class="screen">
+  <p class="wl">proto · goal setup · screen 6 — the goal, living quietly in your feed</p>
+
+  <div class="wirebox">
+    <p style="margin:0;font-size:14px"><b id="goalname">Senior AI PM by September 2</b> <span class="pill ok" style="float:right" id="pace">on track</span></p>
+    <p class="small" style="margin:6px 0 0" id="paceline">Week 1 of 9 · 4 of 6 sent · next: review the Ramp draft (15 min)</p>
+  </div>
+
+  <!-- on track -->
+  <div data-show="default" class="ro-says">
+    <span class="who">RO</span>
+    <p class="msg">Two ahead of pace — that&rsquo;s you doing the hard part well. Rest tonight; I&rsquo;ll have tomorrow&rsquo;s two ready by morning. We&rsquo;re exactly where we want to be.</p>
+  </div>
+
+  <!-- behind, ambition (Rahul): zero guilt, date can slide -->
+  <div data-show="behind" id="behindbox">
+    <div class="ro-says">
+      <span class="who">RO</span>
+      <p class="msg" id="behindmsg"></p>
+    </div>
+  </div>
+
+  <div class="mini"><span>Stripe — Senior AI PM · interview Thu <b>(prep&rsquo;s ready when you are)</b></span><span class="pill ro">gate 4</span></div>
+  <div class="mini"><span>Ramp — resume draft ready for your eyes</span><span class="pill ro">review</span></div>
+  <div class="mini"><span>Sierra — she&rsquo;s watching for their Staff opening to post</span><span class="pill">ambient</span></div>
+
+  <div class="wirebox ghost" style="margin-top:14px">
+    <p class="wl">change anything, anytime</p>
+    <p style="margin:0;font-size:13px;color:var(--ink2)">New date, different push level, different target, or pause the goal entirely — everything recalculates, nothing you&rsquo;ve built is lost, and there&rsquo;s no judgment in changing your mind. Your old goals stay saved.</p>
+  </div>
+
+  <p class="hint" style="text-align:center;margin-top:16px">end of goal setup · <a href="index.html">restart</a> · <a href="../index.html">all prototypes</a> · flip the <b>state</b> below to see the falling-behind week</p>
+</div>
+
+<script src="data.js"></script>
+<script>
+window.PROTO = {
+  feature: "goal-setup", screen: "after",
+  screens: GS.screens, states: ["default", "behind"], personas: GS.personas,
+  onChange: function (s, p) {
+    var behind = s === "behind";
+    document.getElementById("pace").textContent = behind ? "let's catch up" : "on track";
+    document.getElementById("pace").className = "pill " + (behind ? "warn" : "ok");
+    document.getElementById("paceline").textContent = behind
+      ? "Week 3 of 9 · 2 of 6 sent · next: one 15-minute application tonight"
+      : "Week 1 of 9 · 4 of 6 sent · next: review the Ramp draft (15 min)";
+    document.getElementById("behindmsg").innerHTML = p === "priya"
+      ? "Rough week — those happen, and it says nothing about you. Because your date is a real one, I do need us to catch up a little: one application tonight would do it, and I&rsquo;ve picked the easiest — it&rsquo;s ready, 15 minutes. We&rsquo;re still on for September."
+      : "Quieter week — completely normal, every hunt has them. Nothing breaks: if this pace is what life allows right now, the date simply slides a little, and that&rsquo;s okay. If you&rsquo;ve got 15 minutes tonight, I picked the easiest one to restart momentum. Either way, I kept things warm for you.";
+    document.getElementById("goalname").textContent = (p === "sprint") ? "Senior AI PM by August 3" : "Senior AI PM by September 2";
+  }
+};
+</script>
+<script src="../_kit/kit.js"></script>
+</body>
+</html>

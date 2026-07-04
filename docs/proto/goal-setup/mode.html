@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Goal setup · 4 how hard to push</title>
+<link rel="stylesheet" href="../_kit/kit.css">
+<style>
+  .modes{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+  @media(max-width:560px){.modes{grid-template-columns:1fr}}
+  .mode{background:var(--surf);border:1px solid var(--line2);border-radius:10px;padding:11px;cursor:pointer;position:relative}
+  .mode:hover{border-color:var(--ro)}
+  .mode.sel{border:2px solid var(--ro)}
+  .mode .t{font-weight:600;font-size:14px}
+  .mode .n{font-size:12px;color:var(--ink2);margin-top:2px}
+  .mode .d{font-size:11.5px;color:var(--ink3);margin-top:5px;line-height:1.5}
+  .rec{position:absolute;top:-9px;left:10px;background:var(--ro-bg);color:var(--ro-ink);font-size:10px;font-weight:600;border-radius:8px;padding:2px 8px}
+</style>
+</head>
+<body>
+<div class="screen">
+  <p class="wl">proto · goal setup · screen 4 — how hard do you want to push?</p>
+
+  <div class="ro-says">
+    <span class="who">RO</span>
+    <p class="msg" id="rec"></p>
+  </div>
+
+  <div class="modes" id="modes" style="margin-top:14px">
+    <div class="mode" data-m="steady" onclick="pick(this)">
+      <div class="t">Steady</div>
+      <div class="n">~4 applications a week · ~2–3 hrs of your time</div>
+      <div class="d">Life continues. A calm rhythm, weekends guarded.</div>
+    </div>
+    <div class="mode sel" data-m="push" id="pushcard" onclick="pick(this)">
+      <span class="rec" id="recbadge">RO&rsquo;s pick for your 60 days</span>
+      <div class="t">Push</div>
+      <div class="n">~8 a week · ~5 hrs of your time</div>
+      <div class="d">Real momentum, rest still protected.</div>
+    </div>
+    <div class="mode" data-m="allin" onclick="pick(this)">
+      <div class="t">All-in</div>
+      <div class="n">~15 a week · 10+ hrs of your time</div>
+      <div class="d">The hunt is the job right now. I&rsquo;ll watch your energy.</div>
+    </div>
+  </div>
+
+  <div class="wirebox" style="margin-top:12px">
+    <p class="wl">your week with RO — preview</p>
+    <p style="margin:0;font-size:13px;color:var(--ink2)" id="preview"></p>
+  </div>
+
+  <p class="hint">You can change this anytime — the plan recalculates, no judgment, no lost progress.</p>
+  <a class="btn pri full" href="plan.html" style="margin-top:8px">Feels right — show me the plan</a>
+  <p class="hint" style="text-align:center;margin-top:8px"><a href="date.html">← back</a></p>
+</div>
+
+<script src="data.js"></script>
+<script>
+window.PROTO = {
+  feature: "goal-setup", screen: "mode",
+  screens: GS.screens, states: ["default"], personas: GS.personas,
+  onChange: function (s, p) {
+    var sprint = p === "sprint";
+    document.getElementById("rec").innerHTML = sprint ? GS.modeRec.sprint : GS.modeRec.default;
+    document.getElementById("recbadge").textContent = sprint ? "the honest floor for 30 days" : "RO's pick for your 60 days";
+    pick(document.getElementById(sprint ? "modes" : "pushcard").querySelector(sprint ? '[data-m="allin"]' : '[data-m="push"]') || document.getElementById("pushcard"));
+  }
+};
+function pick(card) {
+  if (!card) return;
+  document.querySelectorAll(".mode").forEach(function (m) { m.classList.remove("sel"); });
+  card.classList.add("sel");
+  document.getElementById("preview").innerHTML = GS.weeks[card.dataset.m];
+}
+</script>
+<script src="../_kit/kit.js"></script>
+</body>
+</html>

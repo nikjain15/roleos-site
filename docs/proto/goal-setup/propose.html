@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Goal setup · 2 she proposes, you edit</title>
+<link rel="stylesheet" href="../_kit/kit.css">
+<style>
+  .fld{background:var(--surf);border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:8px 0;font-size:14px;display:flex;justify-content:space-between;gap:10px;align-items:center}
+  .fld a{font-size:12px;color:var(--ro);text-decoration:none;cursor:pointer;flex:0 0 auto}
+  .fld input{border:none;background:transparent;font:inherit;color:var(--ink);width:100%;outline:none}
+  .fld.editing{border-color:var(--ro)}
+</style>
+</head>
+<body>
+<div class="screen">
+  <p class="wl">proto · goal setup · screen 2 — she proposes, you edit</p>
+
+  <div class="ro-says">
+    <span class="who">RO</span>
+    <p class="msg" id="lead">I&rsquo;ve been paying attention, and here&rsquo;s what I believe you&rsquo;re after. You know yourself best — correct anything I got wrong, and I&rsquo;ll get sharper for it.</p>
+  </div>
+
+  <div class="fld"><input value="Senior AI product manager" aria-label="Target role"><a onclick="edit(this)">edit</a></div>
+  <div class="fld"><input value="SF or hybrid · $220k+ base" aria-label="Location and pay"><a onclick="edit(this)">edit</a></div>
+  <div class="fld"><input value="Companies past the science-project stage" aria-label="Company type"><a onclick="edit(this)">edit</a></div>
+
+  <p class="hint" style="margin:4px 0 0">Where these came from: your profile, plus every correction you&rsquo;ve given me. Editing here teaches me too.</p>
+
+  <h2 style="margin-top:22px">And by when?</h2>
+  <p class="small" id="datehint">Pick the date you&rsquo;re aiming at — we&rsquo;ll talk about what kind of date it is next.</p>
+  <div class="fld editing"><input id="date" value="September 2 (60 days from now)" aria-label="Deadline"><a onclick="edit(this)">edit</a></div>
+
+  <a class="btn pri full" href="date.html" style="margin-top:14px">That&rsquo;s my goal — keep going</a>
+  <p class="hint" style="text-align:center;margin-top:10px"><a href="index.html">← back to the feed</a></p>
+</div>
+
+<script src="data.js"></script>
+<script>
+window.PROTO = {
+  feature: "goal-setup", screen: "propose",
+  screens: GS.screens, states: ["default"], personas: GS.personas,
+  onChange: function (s, p) {
+    document.getElementById("date").value = p === "sprint" ? "August 3 (30 days from now)" : "September 2 (60 days from now)";
+    document.getElementById("lead").innerHTML = p === "switch"
+      ? "New chapter — I like it. Here&rsquo;s my starting guess for the new target, built from everything you&rsquo;ve taught me. Correct anything, and your old goal stays safe in your pocket."
+      : "I&rsquo;ve been paying attention, and here&rsquo;s what I believe you&rsquo;re after. You know yourself best — correct anything I got wrong, and I&rsquo;ll get sharper for it.";
+  }
+};
+function edit(a) {
+  var f = a.closest(".fld"); f.classList.add("editing");
+  var inp = f.querySelector("input"); inp.focus(); inp.select();
+}
+</script>
+<script src="../_kit/kit.js"></script>
+</body>
+</html>

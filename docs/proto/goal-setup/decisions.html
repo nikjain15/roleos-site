@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Goal setup · design decisions (working doc)</title>
+<link rel="stylesheet" href="../_kit/kit.css">
+<style>
+  .screen{max-width:760px}
+  table{width:100%;border-collapse:collapse;font-size:13px;margin:10px 0}
+  th,td{text-align:left;padding:7px 9px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{color:var(--ink3);font-size:10px;text-transform:uppercase;letter-spacing:.05em}
+  h2{margin-top:28px}
+</style>
+</head>
+<body>
+<div class="screen">
+  <p class="wl">proto · goal setup · working doc — the single source of alignment</p>
+  <h1 style="font-size:22px">Goal setup — design decisions</h1>
+  <p class="small">Status: <span class="pill ro">IN FEEDBACK</span> · Stage 1 confirmed 2026-07-04 · prototype at <a href="index.html">/proto/goal-setup/</a> · becomes the formal PRD on APPROVED. The goal <i>engine</i> (funnel math, pace, adaptation) is already live in the app — this designs the <i>experience</i>.</p>
+
+  <h2>Confirmed intent</h2>
+  <div class="wirebox" style="font-size:13.5px;color:var(--ink2)">
+    Turn RO from &ldquo;working ambiently&rdquo; into &ldquo;running a plan toward <i>your</i> date&rdquo; — through an invitation, never a gate. RO proposes the goal pre-filled from everything she&rsquo;s learned (you edit a nearly-done thing), then asks only what she can&rsquo;t know: the date, whether it&rsquo;s a real wall or an ambition (inferred when possible, asked warmly when not), and how hard to push (three modes with a live week preview; she recommends the sustainable one). The reveal: honest backward math with ranges landing on one doable number over a soft-edged four-phase road. Unrealistic goals get candor + levers at set-time, keepable eyes-open. Every input feeds the taste model; everything recalculates on change. Worked if users can say &ldquo;what am I doing this week and why&rdquo; unaided and half of active users set a goal within a week — while no-goal ambient mode stays legitimate.
+  </div>
+
+  <h2>Locked decisions</h2>
+  <table>
+    <tr><th>#</th><th>Decision</th><th>Choice</th></tr>
+    <tr><td>1</td><td>When to ask</td><td><b>Invited, never forced.</b> Feed card is the main door; &ldquo;not yet&rdquo; dismisses gently, card returns quietly; always reachable. No goal = legitimate ambient mode.</td></tr>
+    <tr><td>2</td><td>Collection</td><td><b>She proposes, you edit</b> — pre-filled from onboarding + all corrections. Editing teaches her (decision events).</td></tr>
+    <tr><td>3</td><td>Plan reveal</td><td><b>Honest math + soft-edged timeline:</b> funnel ranges (&ldquo;good news — doable, here&rsquo;s why&rdquo;) → ONE this-week number (&ldquo;I&rsquo;ve already drafted 3&rdquo;) → four-phase band (ramp/push/interviews/close), soft edges, only the deadline is a hard mark.</td></tr>
+    <tr><td>4</td><td>Unrealistic goal</td><td><b>Candid at set-time + levers</b>, warmly (&ldquo;I love the ambition — let&rsquo;s be smart about it together&rdquo;): widen / extend / keep-and-sprint-eyes-open. Never blocked, never blind.</td></tr>
+    <tr><td>5</td><td>Deadline nature</td><td><b>Real wall vs ambition — infer first, ask warmly only if unknown.</b> Known (e.g. visa in profile) → confirm with care, never re-quiz. Wall → front-loaded pace + true-deadline reminders may cross quiet hours (only this). Ambition → steady pace, quiet hours absolute, date slides gracefully. Both answers framed as good answers; both get motivation.</td></tr>
+    <tr><td>6</td><td>Intensity</td><td><b>Steady / Push / All-in</b> — game-feel, not game mechanics (no XP/streaks — banned). Each mode translated to real numbers + a live &ldquo;your week with RO&rdquo; preview; picking a mode personalizes her behavior. She recommends the sustainable choice and names what&rsquo;s good about the ones she passes over. Switchable anytime, plan recalculates, no judgment.</td></tr>
+    <tr><td>7</td><td>Success</td><td>User can answer &ldquo;what am I doing this week and why&rdquo; unaided; &ge;50% of active users set a goal within a week of onboarding. NOT goal-set rate above all.</td></tr>
+    <tr><td>8</td><td>Voice bar (feedback rule)</td><td><b>Every line runs acknowledge → truth → forward-with-belief.</b> Facts stay; delivery leaves the user feeling backed. Copy check: &ldquo;would you feel backed and capable after reading this?&rdquo; Applies to labels too (&ldquo;we sprint, eyes open&rdquo; not &ldquo;at risk from day 0&rdquo; user-facing).</td></tr>
+  </table>
+
+  <h2>Data &amp; guardrails</h2>
+  <table>
+    <tr><td><b>Taste capture</b></td><td>Every edit to her proposal, the wall/ambition answer, mode choice + switches, lever picks = decision events feeding the taste model.</td></tr>
+    <tr><td><b>Wellbeing</b></td><td>No streaks/XP/guilt. Falling behind on an ambition = zero-guilt, date slides. Only a real wall&rsquo;s true cutoff may cross quiet hours, gently. She recommends rest when ahead.</td></tr>
+    <tr><td><b>Engine reuse</b></td><td>Plan/pace math, feasibility gate, W7 goal switching all exist in the app — this feature re-skins their moments, it does not rebuild them.</td></tr>
+  </table>
+
+  <h2>Changelog</h2>
+  <p class="small">
+    2026-07-04 · v0.2 — warm-copy pass (human: early copy read as rude); rewrites approved; rule #8 added.<br>
+    2026-07-04 · v0.1 — Stage 1 confirmed (7 questions + storyboard + 2 visual rounds); prototype built; IN FEEDBACK.
+  </p>
+
+  <p class="hint" style="margin-top:24px"><a href="../index.html">← all prototypes</a> · <a href="index.html">open the prototype</a></p>
+</div>
+</body>
+</html>

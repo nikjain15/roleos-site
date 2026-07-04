@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Goal setup · 5 the plan</title>
+<link rel="stylesheet" href="../_kit/kit.css">
+<style>
+  .funnel{font-family:var(--mono);font-size:13px;color:var(--ink2);line-height:2}
+  .phases{display:flex;gap:3px;margin:8px 0 4px;font-size:11px;font-weight:600}
+  .ph{border-radius:6px;padding:6px 4px;text-align:center;color:#fff}
+  .lever{background:var(--surf);border:1px solid var(--line2);border-radius:10px;padding:11px 12px;margin:8px 0;cursor:pointer}
+  .lever:hover{border-color:var(--ro)}
+  .lever .t{font-weight:600;font-size:14px}
+  .lever .d{font-size:12px;color:var(--ink2);margin-top:2px}
+</style>
+</head>
+<body>
+<div class="screen">
+  <p class="wl">proto · goal setup · screen 5 — the plan (the reveal)</p>
+
+  <!-- Sprint: the candid conversation comes FIRST, warmly -->
+  <div id="sprintbox" style="display:none">
+    <div class="ro-says">
+      <span class="who">RO</span>
+      <p class="msg">I love the ambition — so let&rsquo;s be smart about it together. Straight truth: 30 days is a real sprint, because interview cycles alone usually take 3–4 weeks. It&rsquo;s not impossible. Here are your three real options — I&rsquo;ll make any of them work as hard as it can:</p>
+    </div>
+    <div class="lever" onclick="reveal('widen')">
+      <div class="t">Add two nearby role types <span class="pill ok" style="float:right">odds roughly double</span></div>
+      <div class="d">AI platform PM and applied-ML product lead — both genuinely fit your story. More doors, same you.</div>
+    </div>
+    <div class="lever" onclick="reveal('extend')">
+      <div class="t">Take 60 days instead <span class="pill ok" style="float:right">comfortable</span></div>
+      <div class="d">The same goal with room to breathe — and interview energy saved for when it counts.</div>
+    </div>
+    <div class="lever" onclick="reveal('keep')">
+      <div class="t">Keep 30 days <span class="pill warn" style="float:right">we sprint, eyes open</span></div>
+      <div class="d">Brave, and I&rsquo;m all the way in — we&rsquo;ll just both know we&rsquo;re sprinting, and I&rsquo;ll watch your energy like a hawk.</div>
+    </div>
+  </div>
+
+  <!-- The reveal -->
+  <div id="planbox">
+    <div class="ro-says">
+      <span class="who">RO</span>
+      <p class="msg" id="planmsg"></p>
+    </div>
+
+    <div class="wirebox">
+      <p class="wl">how offers actually happen — your funnel, honestly</p>
+      <p class="funnel" id="funnel">25–40 honest applications<br>→ 8–12 real conversations<br>→ 3–5 final rounds<br>→ <b style="color:var(--ok)">1 yes</b></p>
+      <p class="hint">Ranges, not promises — they tighten as your real numbers come in. It looks like a lot; it never arrives all at once.</p>
+    </div>
+
+    <div class="wirebox" style="background:var(--ok-bg);border-color:var(--ok)">
+      <p style="margin:0;font-size:14px;color:var(--ok)" id="thisweek"><b>This week it just means 6</b> — and I&rsquo;ve already drafted 3 of them, so you&rsquo;re halfway there before you&rsquo;ve started.</p>
+    </div>
+
+    <div class="wirebox">
+      <p class="wl">the road — edges shift as reality comes in; only your date is fixed</p>
+      <div class="phases" id="phases">
+        <div class="ph" style="flex:2;background:#378ADD">ramp</div>
+        <div class="ph" style="flex:3;background:#185FA5">push</div>
+        <div class="ph" style="flex:3;background:#BA7517">interviews</div>
+        <div class="ph" style="flex:2;background:#0F6E56">close</div>
+      </div>
+      <p class="hint" style="text-align:right;margin:0">▼ <b id="datemark">September 2</b> — your date, the one hard mark</p>
+    </div>
+
+    <a class="btn pri full" href="after.html" style="margin-top:10px">Let&rsquo;s do it — start the plan</a>
+    <p class="hint" style="text-align:center;margin-top:8px"><a href="mode.html">← back</a> · every piece of this recalculates if you change anything</p>
+  </div>
+</div>
+
+<script src="data.js"></script>
+<script>
+window.PROTO = {
+  feature: "goal-setup", screen: "plan",
+  screens: GS.screens, states: ["default"], personas: GS.personas,
+  onChange: function (s, p) { setup(p); }
+};
+function setup(p) {
+  var sprint = p === "sprint";
+  document.getElementById("sprintbox").style.display = sprint ? "block" : "none";
+  document.getElementById("planbox").style.display = sprint ? "none" : "block";
+  if (!sprint) {
+    document.getElementById("datemark").textContent = "September 2";
+    document.getElementById("planmsg").innerHTML = p === "priya"
+      ? "Good news: this is doable, and here&rsquo;s the honest picture. Because your date is real, we start strong — most of your applications go out in the first three weeks, while I line up everything else behind them. You bring about 5 focused hours a week; I carry the rest."
+      : "Good news: this is very doable, and I can show you why. Offers come from a funnel, and yours looks like this — it never arrives all at once, and you won&rsquo;t face any of it alone.";
+  }
+}
+function reveal(choice) {
+  document.getElementById("sprintbox").style.display = "none";
+  var box = document.getElementById("planbox");
+  box.style.display = "block";
+  var msg = document.getElementById("planmsg"), week = document.getElementById("thisweek"), mark = document.getElementById("datemark");
+  if (choice === "widen") {
+    mark.textContent = "August 3";
+    msg.innerHTML = "Smart call — with three role types in play, 30 days gets a real chance, and none of it is padding: every one fits your story. We start strong today.";
+    week.innerHTML = "<b>This week it means 10</b> — heavier than usual, but I&rsquo;ve drafted 4 already and I&rsquo;ll keep the queue full so your part stays light.";
+  } else if (choice === "extend") {
+    mark.textContent = "September 2";
+    msg.innerHTML = "Good call — same goal, room to breathe. Here&rsquo;s the picture now, and honestly, it&rsquo;s a strong one.";
+    week.innerHTML = "<b>This week it just means 6</b> — and I&rsquo;ve already drafted 3 of them, so you&rsquo;re halfway there before you&rsquo;ve started.";
+  } else {
+    mark.textContent = "August 3";
+    msg.innerHTML = "Then we sprint — together, eyes open. I&rsquo;ll front-load everything I can and keep your part as light as a sprint allows. If the odds shift, you&rsquo;ll hear it from me first, with options — never a surprise.";
+    week.innerHTML = "<b>This week it means 12</b> — the heaviest week of the whole plan, and I&rsquo;ve built it so each one takes you 20 minutes or less.";
+  }
+}
+</script>
+<script src="../_kit/kit.js"></script>
+</body>
+</html>

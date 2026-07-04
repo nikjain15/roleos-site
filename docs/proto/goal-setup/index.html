@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Goal setup · 1 the invitation</title>
+<link rel="stylesheet" href="../_kit/kit.css">
+</head>
+<body>
+<div class="screen">
+  <p class="wl">proto · goal setup · screen 1 — the invitation (in your feed, never a gate)</p>
+
+  <p class="hint" style="margin-bottom:4px">your feed · RO working ambiently</p>
+  <div class="mini"><span>RO found 2 new roles worth a look overnight</span><span class="pill ok">in your feed</span></div>
+  <div class="mini"><span>Your Stripe resume draft is ready for your eyes</span><span class="pill ro">review</span></div>
+
+  <!-- Switcher: an older goal exists, paused -->
+  <div data-persona-show="switch" class="wirebox" style="margin-top:14px">
+    <p class="wl">your goals</p>
+    <div class="mini"><span>BizOps lead by June — <b>paused</b> (you said priorities changed, and that&rsquo;s okay)</span><span class="pill">paused</span></div>
+  </div>
+
+  <div class="wirebox" style="border-color:var(--ro);background:var(--ro-bg);margin-top:14px">
+    <p style="margin:0;font-size:14.5px;color:var(--ro-ink)" id="invite">
+      Whenever you&rsquo;re ready, give me something to aim at. Tell me the job you want and by when —
+      and everything I do, every day, points at getting you there. <b>No rush — I&rsquo;m working either way.</b>
+    </p>
+    <div style="margin-top:12px">
+      <a class="btn pri" href="propose.html">Set my goal · about 2 minutes</a>
+      <button class="btn ghost" onclick="this.closest('.wirebox').style.opacity=.45">not yet — and that&rsquo;s fine</button>
+    </div>
+  </div>
+
+  <p class="hint" style="margin-top:12px">&ldquo;Not yet&rdquo; means not yet — the card returns quietly later, never as a nag. Goal setup is also always reachable from your feed.</p>
+</div>
+
+<script src="data.js"></script>
+<script>
+window.PROTO = {
+  feature: "goal-setup", screen: "index",
+  screens: GS.screens, states: ["default"], personas: GS.personas,
+  onChange: function (s, p) {
+    document.getElementById("invite").innerHTML = p === "switch"
+      ? "Ready to point me somewhere new? Your old goal is safe and paused — nothing you built is lost. Tell me the new target and I&rsquo;ll turn everything toward it."
+      : "Whenever you&rsquo;re ready, give me something to aim at. Tell me the job you want and by when — and everything I do, every day, points at getting you there. <b>No rush — I&rsquo;m working either way.</b>";
+  }
+};
+</script>
+<script src="../_kit/kit.js"></script>
+</body>
+</html>

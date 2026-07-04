@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Goal setup · 3 the date moment</title>
+<link rel="stylesheet" href="../_kit/kit.css">
+<style>
+  .choice{background:var(--surf);border:1px solid var(--line2);border-radius:10px;padding:12px;cursor:pointer;text-align:center}
+  .choice:hover{border-color:var(--ro)}
+  .choice .t{font-weight:600;font-size:14px}
+  .choice .d{font-size:12px;color:var(--ink2);margin-top:3px}
+</style>
+</head>
+<body>
+<div class="screen">
+  <p class="wl">proto · goal setup · screen 3 — what kind of date is this?</p>
+
+  <!-- Priya: she already knows — confirm with care, never re-quiz -->
+  <div data-persona-show="priya">
+    <div class="ro-says">
+      <span class="who">RO</span>
+      <p class="msg">You mentioned your visa runs to September — so this date is a real one, and I&rsquo;m taking it seriously. It&rsquo;s tight, but it&rsquo;s doable, and you won&rsquo;t be doing it alone. I&rsquo;ll plan like it matters — because it does.</p>
+    </div>
+    <div class="wirebox" style="background:var(--ok-bg);border-color:var(--ok)">
+      <p style="margin:0;font-size:13px;color:var(--ok)"><b>What I&rsquo;ll do differently for you:</b> most applications go out in the first weeks (interviews take time we can&rsquo;t compress later) · if a true cutoff is near I may reach out even in quiet hours — only then, and only gently · and if the wall ever gets genuinely too close, I&rsquo;ll tell you straight, with options.</p>
+    </div>
+    <a class="btn pri full" href="mode.html" style="margin-top:10px">That&rsquo;s right — let&rsquo;s plan for it</a>
+    <p class="hint" style="text-align:center;margin-top:8px"><a href="mode.html">actually, it&rsquo;s more of a target than a wall →</a></p>
+  </div>
+
+  <!-- Everyone else: she doesn't know — ask warmly, both answers are good answers -->
+  <div id="askbox">
+    <div class="ro-says">
+      <span class="who">RO</span>
+      <p class="msg" id="askmsg">One thing that helps me plan this right: is <b>September 2</b> something that breaks if we miss it — a visa, a lease, savings — or a target you want to hit? Either answer is a good answer. This just helps me take care of you the right way.</p>
+    </div>
+    <div class="grid g2" style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+      <a class="choice" href="mode.html">
+        <div class="t">It&rsquo;s a real wall</div>
+        <div class="d">Something breaks if we miss it</div>
+      </a>
+      <a class="choice" href="mode.html">
+        <div class="t">It&rsquo;s a target I want</div>
+        <div class="d">Nothing breaks — I&rsquo;m aiming for it</div>
+      </a>
+    </div>
+    <div class="grid" style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px">
+      <p class="hint" style="margin:0">→ I&rsquo;ll front-load the work and guard the date with you. Tight but doable — and you won&rsquo;t carry it alone.</p>
+      <p class="hint" style="margin:0">→ Good target. We&rsquo;ll get there at a strong, steady rhythm — without burning you out on the way.</p>
+    </div>
+  </div>
+
+  <p class="hint" style="text-align:center;margin-top:16px"><a href="propose.html">← back</a></p>
+</div>
+
+<script src="data.js"></script>
+<script>
+window.PROTO = {
+  feature: "goal-setup", screen: "date",
+  screens: GS.screens, states: ["default"], personas: GS.personas,
+  onChange: function (s, p) {
+    document.getElementById("askbox").style.display = p === "priya" ? "none" : "block";
+    document.getElementById("askmsg").innerHTML = p === "sprint"
+      ? "One thing that helps me plan this right: is <b>August 3</b> something that breaks if we miss it — a visa, a lease, savings — or a target you want to hit? Either answer is a good answer. This just helps me take care of you the right way."
+      : "One thing that helps me plan this right: is <b>September 2</b> something that breaks if we miss it — a visa, a lease, savings — or a target you want to hit? Either answer is a good answer. This just helps me take care of you the right way.";
+  }
+};
+</script>
+<script src="../_kit/kit.js"></script>
+</body>
+</html>
