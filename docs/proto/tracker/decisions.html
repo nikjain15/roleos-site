@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Tracker · design decisions (working doc)</title>
+<link rel="stylesheet" href="../_kit/kit.css">
+<style>
+  .screen{max-width:760px}
+  table{width:100%;border-collapse:collapse;font-size:13px;margin:10px 0}
+  th,td{text-align:left;padding:7px 9px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{color:var(--ink3);font-size:10px;text-transform:uppercase;letter-spacing:.05em}
+  h2{margin-top:28px}
+</style>
+</head>
+<body>
+<div class="screen">
+  <p class="wl">proto · tracker · working doc — the single source of alignment</p>
+  <h1 style="font-size:22px">Tracker — design decisions</h1>
+  <p class="small">Status: <span class="pill ro">IN FEEDBACK</span> · Stage 1 confirmed 2026-07-04 (human answered before heading out; prototype built with pre-authorization — alignment pass happens on the live thing) · prototype at <a href="index.html">/proto/tracker/</a>. Tracker exists (slice 3 + W5 depth) — this reshapes the daily experience of it.</p>
+
+  <h2>Confirmed intent (from the four answers + pre-authorized build)</h2>
+  <div class="wirebox" style="font-size:13.5px;color:var(--ink2)">
+    The tracker is the funnel of record that keeps itself true — a kanban-shaped board whose cards move <b>themselves</b> (human&rsquo;s combination: kanban view + self-maintaining record). Stages advance from real events — sends, parsed replies, interview dates, your one-tap reports; dragging a card is a <b>correction</b>, welcomed and learned from, never homework. Her pipeline read leads: one honest paragraph of what&rsquo;s moving, what&rsquo;s quiet-but-normal, and whose move each thing is (yours / hers / theirs — badged on every card). Aging is honest and contextual (&ldquo;14 days — normal for their size&rdquo; vs &ldquo;24 — past typical; your nudge is drafted&rdquo;), with gentle closure proposed around 30 days (&ldquo;no reply isn&rsquo;t a no on your worth&rdquo;) and a keep-hoping override that&rsquo;s excluded from pace math. Rejections get the full candid-never-cold treatment — information not verdict, a quiet collapsed closed section, and pattern-learning said out loud (&ldquo;two passes at final round — I&rsquo;m shifting your mock focus&rdquo;). Every outcome feeds the funnel calibration. Worked if: the answer to &ldquo;where does everything stand?&rdquo; takes one glance, nobody drags cards as chores, and closures/rejections leave the user steadied, not stung.
+  </div>
+
+  <h2>Locked decisions</h2>
+  <table>
+    <tr><th>#</th><th>Decision</th><th>Choice</th></tr>
+    <tr><td>1</td><td>Nature</td><td><b>Kanban + self-maintaining</b> (human combo): board VIEW, cards advance from events; drag = correction that teaches (decision event) and never a maintenance duty. Without Gmail connected, one-tap confirms replace parsing — asked warmly, never nagged.</td></tr>
+    <tr><td>2</td><td>What leads</td><td><b>Her pipeline read</b> — one checkable paragraph; board below with whose-move badges (yours/hers/theirs) on every card.</td></tr>
+    <tr><td>3</td><td>Aging</td><td><b>Honest aging + gentle closure</b>: contextual quiet-time norms per company; nudge drafted at &ldquo;past typical&rdquo;; ~30d closure proposal with keep-hoping override (excluded from pace math, still watched).</td></tr>
+    <tr><td>4</td><td>Rejections</td><td><b>Candid-never-cold + learned-from</b>: voice-formula delivery; collapsed closed section (no wall of shame); pattern adjustments said out loud; outcomes feed funnel calibration (X4 wiring).</td></tr>
+    <tr><td>5</td><td>Success</td><td>One-glance clarity; zero chore-drags (drags only as corrections); post-rejection/closure sentiment steadied. Healthy-engagement family.</td></tr>
+    <tr><td>6</td><td>Voice</td><td>Warm-copy bar; &ldquo;no reply isn&rsquo;t a no on your worth&rdquo; register throughout; whose-move badges keep responsibility honest.</td></tr>
+  </table>
+
+  <h2>Data &amp; guardrails</h2>
+  <table>
+    <tr><td><b>Self-maintenance sources</b></td><td>/api/apply sends · Gate-2 inbox parsing (where connected) · calendar · one-tap user reports. Unverifiable states stay honest (&ldquo;you told me&rdquo; provenance).</td></tr>
+    <tr><td><b>Taste/funnel capture</b></td><td>Stage corrections, keep-hoping choices, nudge sends, closure accepts = decision events; every outcome updates personal funnel rates (dim 14 / X4).</td></tr>
+    <tr><td><b>Human gate</b></td><td>Nudges and follow-ups are drafted, you-send, via the feed. The tracker never sends anything.</td></tr>
+  </table>
+
+  <h2>Changelog</h2>
+  <p class="small">2026-07-04 · v0.1 — Stage 1 confirmed via 4 answers (incl. kanban+self-maintaining combination); human pre-authorized building while away; prototype built + live; IN FEEDBACK pending their walkthrough.</p>
+
+  <p class="hint" style="margin-top:24px"><a href="../index.html">← all prototypes</a> · <a href="index.html">open the prototype</a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Tracker · where everything stands</title>
+<link rel="stylesheet" href="../_kit/kit.css">
+<style>
+  @media(min-width:900px){ .screen{max-width:900px} .board{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px} }
+  .col h2{font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:var(--ink3);margin:16px 0 6px}
+  .appcard{background:var(--surf);border:1px solid var(--line);border-radius:10px;padding:9px 11px;margin:7px 0}
+  .appcard .co{font-weight:600;font-size:13.5px}
+  .appcard .who{float:right;font-size:10px;font-weight:600;padding:2px 8px;border-radius:9px}
+  .who.yours{background:var(--warn-bg);color:var(--warn)}
+  .who.hers{background:var(--ro-bg);color:var(--ro-ink)}
+  .who.theirs{background:var(--surf2);color:var(--ink3)}
+  .appcard .age{font-size:11.5px;color:var(--ink2);margin-top:3px;line-height:1.45}
+  .appcard .next{margin-top:6px}
+  .appcard .fix{font-size:10.5px;color:var(--ink3);margin-top:6px}
+  .appcard .fix a{color:var(--ro);cursor:pointer;text-decoration:none}
+  .closedwrap{margin-top:20px}
+  details.closed{border:1px solid var(--line);border-radius:10px;padding:10px 14px;color:var(--ink2)}
+  details.closed summary{cursor:pointer;font-size:13px;font-weight:600;color:var(--ink3)}
+</style>
+</head>
+<body>
+<div class="screen">
+  <p class="wl">proto · tracker — where everything stands, kept true by her · flip persona below</p>
+
+  <div class="ro-says" style="margin-top:12px">
+    <span class="who">RO</span>
+    <p class="msg" id="read"></p>
+  </div>
+
+  <!-- rejection moment: candid, never cold, learned from -->
+  <div data-persona-show="rejection">
+    <div class="wirebox" style="border-left:3px solid var(--warn)">
+      <p style="margin:0;font-size:13.5px;color:var(--ink2)"><b style="color:var(--tx)">Faire passed.</b> No debrief given — which says more about their process than your work. Here&rsquo;s what I&rsquo;m doing with it: that&rsquo;s two passes at final round now, so I&rsquo;m shifting your mock focus to executive-presence questions before Thursday — the pattern is fixable, and we&rsquo;re fixing it. Your two live finals matter more than this one closed door.</p>
+      <div style="margin-top:8px">
+        <button class="btn sec" style="font-size:12px;padding:6px 11px" onclick="this.closest('.wirebox').innerHTML='<p style=margin:0;font-size:13px;color:var(--ok)>Filed quietly. Onward — Thursday&rsquo;s the one that matters.</p>'">file it — onward</button>
+        <button class="btn ghost" style="font-size:12px;padding:6px 11px" onclick="this.closest('.wirebox').innerHTML='<p style=margin:0;font-size:13px;color:var(--ink2)>Of course. (In the real app: she walks through what the signals suggest, honestly — no guessing dressed as fact.)</p>'">what do you think went wrong?</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ghost closure proposal -->
+  <div data-persona-show="ghost">
+    <div class="wirebox" style="border-left:3px solid var(--warn)">
+      <p style="margin:0;font-size:13.5px;color:var(--ink2)"><b style="color:var(--tx)">Notion — 24 days quiet, past their typical.</b> Your nudge is drafted and worth one try. If it stays silent another week, I&rsquo;d file it kindly — no reply isn&rsquo;t a no on your worth, and your energy belongs with the live ones. You can always keep hoping; some do come back.</p>
+      <div style="margin-top:8px">
+        <button class="btn pri" style="font-size:12px;padding:6px 11px" onclick="this.closest('.wirebox').innerHTML='<p style=margin:0;font-size:13px;color:var(--ok)>Nudge queued for your review — it&rsquo;s in your feed, you press send.</p>'">review the nudge</button>
+        <button class="btn ghost" style="font-size:12px;padding:6px 11px" onclick="this.closest('.wirebox').innerHTML='<p style=margin:0;font-size:13px;color:var(--ink2)>Keeping hope — noted, and honestly? Sometimes that&rsquo;s the right call. I&rsquo;ll keep watching without counting it in your pace.</p>'">keep hoping</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="board" id="board"></div>
+
+  <div class="closedwrap">
+    <details class="closed">
+      <summary>closed · 4 — folded away, learned from, never a wall of shame</summary>
+      <p style="font-size:12.5px;margin:8px 0 0;line-height:1.6">Faire (final round — shifted mock focus) · Scale (you passed — leveling) · Figma (posting closed) · Loom (ghosted 34d, filed kindly). Every one of these made the funnel math more yours.</p>
+    </details>
+  </div>
+
+  <p class="hint" style="margin-top:14px">Cards move themselves — sends, replies, and your quick reports advance them. Dragging (here: &ldquo;wrong stage?&rdquo;) is a correction, and corrections teach her.</p>
+  <p class="hint" style="text-align:center"><a href="../index.html">all prototypes</a></p>
+</div>
+
+<script src="data.js"></script>
+<script>
+window.PROTO = {
+  feature: "tracker", screen: "index",
+  screens: TR.screens, states: ["default"], personas: TR.personas,
+  onChange: function (s, p) { render(p); }
+};
+function render(p) {
+  document.getElementById("read").innerHTML = TR.reads[p];
+  var whoWord = { yours: "your move", hers: "her move", theirs: "their move" };
+  document.getElementById("board").innerHTML = TR.cols.map(function (col) {
+    return '<div class="col"><h2>' + col[1] + "</h2>" + col[2].map(function (c, i) {
+      var showNext = c[4] && (p === "action" || p === "healthy" || c[2] !== "yours");
+      return '<div class="appcard" id="c-' + col[0] + i + '">' +
+        '<span class="who ' + c[2] + '">' + whoWord[c[2]] + "</span>" +
+        '<div class="co">' + c[0] + " — " + c[1] + "</div>" +
+        '<div class="age">' + c[3] + "</div>" +
+        (c[4] ? '<div class="next"><button class="btn sec" style="font-size:11.5px;padding:5px 10px" onclick="acted(this)">' + c[4] + "</button></div>" : "") +
+        '<div class="fix"><a onclick="wrong(\'' + col[0] + i + '\')">wrong stage? tap to correct — it teaches her</a></div>' +
+        "</div>";
+    }).join("") + "</div>";
+  }).join("");
+}
+function acted(btn) {
+  btn.outerHTML = '<span style="font-size:11.5px;color:var(--ok)">✓ opened in your feed — she&rsquo;s ready when you are</span>';
+}
+function wrong(id) {
+  var card = document.getElementById("c-" + id);
+  card.querySelector(".fix").innerHTML =
+    '<span style="color:var(--ok)">Fixed — thank you for catching it. I&rsquo;ve corrected the stage and noted what I misread; the pace math updates itself.</span>';
+}
+</script>
+<script src="../_kit/kit.js"></script>
+</body>
+</html>
