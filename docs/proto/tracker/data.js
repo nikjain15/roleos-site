@@ -25,7 +25,7 @@ window.TR = {
       ["Linear", "PM", "theirs", "they&rsquo;re scheduling — nothing for either of us yet", ""]
     ]],
     ["interview", "interviewing · 2", [
-      ["Stripe", "Senior AI PM", "yours", "onsite Thursday — prep + mock ready, panel researched", "start the prep"],
+      ["Stripe", "Senior AI PM", "yours", "onsite Thursday — <a href='../research-briefs/index.html' style='color:var(--ro)'>brief ready</a> · <a href='../mocks/index.html' style='color:var(--ro)'>mock ready</a>", ""],
       ["Notion", "Sr PM, AI", "theirs", "final round done — decision promised this week", ""]
     ]]
   ]

@@ -74,6 +74,27 @@
       });
       h += "</select></span>";
     }
+    var J = {
+      "onboarding": ["goal-setup", "goal setup"],
+      "goal-setup": ["feed-cockpit", "the feed"],
+      "feed-cockpit": ["explore", "explore"],
+      "explore": ["role-workspace", "workspace"],
+      "role-workspace": ["resume-editor", "resume"],
+      "resume-editor": ["cover-letters", "letters"],
+      "cover-letters": ["apply-send", "apply"],
+      "apply-send": ["tracker", "tracker"],
+      "tracker": ["research-briefs", "briefs"],
+      "research-briefs": ["mocks", "mocks"],
+      "mocks": ["offers", "offers"],
+      "offers": ["referrals", "referrals"],
+      "referrals": ["weekly-review", "review"],
+      "weekly-review": ["ro-dock", "RO dock"],
+      "ro-dock": ["digests", "digests"],
+      "digests": ["settings", "settings"]
+    };
+    if (J[P.feature]) {
+      h += "<span class='grp'><span class='lbl'>journey</span><a href='../" + J[P.feature][0] + "/index.html' style='color:#9FE1CB'>next: " + J[P.feature][1] + " →</a></span>";
+    }
     h += "<span class='grp'><a href='" + (P.home || "../index.html") + "'>index</a></span>";
     el.innerHTML = h;
     document.body.appendChild(el);
