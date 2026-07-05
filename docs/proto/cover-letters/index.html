@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Cover letters · sounding like you</title>
+<link rel="stylesheet" href="../_kit/kit.css">
+<style>
+  .tone span{border:1px solid var(--line2);border-radius:10px;padding:2px 10px;cursor:pointer;font-size:11.5px;color:var(--ink2);margin-left:4px}
+  .tone span.on{background:var(--ro-bg);color:var(--ro-ink);border-color:var(--ro)}
+  .doc{background:var(--surf);border:1px solid var(--line);border-radius:10px;padding:14px 16px;font-size:13.5px;line-height:1.9}
+  .lline{position:relative;padding-right:18px}
+  .lline .dot{position:absolute;right:0;top:8px;width:9px;height:9px;border-radius:50%;border:none;padding:0;cursor:pointer;background:var(--ok)}
+  .lline .why{display:none;font-size:12px;background:var(--ro-bg);color:var(--ro-ink);border-radius:8px;padding:7px 10px;margin:3px 0 6px;line-height:1.5}
+  .lline.open .why{display:block}
+  .smell{text-decoration:line-through;opacity:.5}
+</style>
+</head>
+<body>
+<div class="screen">
+  <p class="wl">proto · CORE cover letters &amp; outreach — sounding like you · flip persona below</p>
+
+  <!-- verdict: write it -->
+  <div data-persona-show="verdict">
+    <div class="ro-says" style="margin-top:10px"><span class="who">RO</span>
+      <p class="msg">For Stripe: <b>yes, write one</b> — their team reads letters (their own hiring blog says so), and you have a story their posting is begging for. 120 words, in your voice, every claim checkable. Here it is:</p>
+    </div>
+  </div>
+
+  <!-- verdict: skip -->
+  <div data-persona-show="skip">
+    <div class="ro-says" style="margin-top:10px"><span class="who">RO</span>
+      <p class="msg">For Ramp, honest answer: <b>skip the letter.</b> Their ATS buries attachments and their recruiters screen on the resume alone — I checked. Your energy belongs in their take-home; that&rsquo;s where they actually decide. No theater for theater&rsquo;s sake.</p>
+    </div>
+    <div class="wirebox">
+      <p style="margin:0;font-size:13px;color:var(--ink2)">Still want one? Your call, always — I&rsquo;ll make it as strong as a buried letter can be.</p>
+      <button class="btn sec" style="font-size:12px;padding:6px 11px;margin-top:8px" onclick="Proto.setState('default');document.getElementById('kitpersona').value='verdict';document.getElementById('kitpersona').dispatchEvent(new Event('change'))">write it anyway</button>
+    </div>
+  </div>
+
+  <!-- first time: voice interview -->
+  <div data-persona-show="first">
+    <div class="ro-says" style="margin-top:10px"><span class="who">RO</span>
+      <p class="msg">First letter — three quick ones so my draft starts closer to you. Or skip all of it, and I&rsquo;ll learn from your edits instead. Either way I never stop tuning your voice — every edit and every answer sharpens it.</p>
+    </div>
+    <div class="wirebox">
+      <p class="wl">1 · how do you talk to strangers you respect?</p>
+      <p><span class="btn sec" style="font-size:12px;padding:5px 11px" onclick="pickTone('warm')">warm</span> <span class="btn sec" style="font-size:12px;padding:5px 11px" onclick="pickTone('direct')">direct</span> <span class="btn sec" style="font-size:12px;padding:5px 11px" onclick="pickTone('formal')">formal</span></p>
+      <p class="wl" style="margin-top:10px">2 · why this kind of work — one honest sentence, however messy</p>
+      <input class="input" placeholder="I like building things that watch over real money…">
+      <p class="wl" style="margin-top:10px">3 · optional: paste anything that sounds like you</p>
+      <textarea class="input" rows="2" placeholder="an email, a doc, a post — anything"></textarea>
+      <p id="fnote" class="hint" style="margin-top:8px"></p>
+      <button class="btn ghost" style="font-size:12px;padding:6px 11px;margin-top:6px" onclick="document.getElementById('fnote').textContent='Skipped — no problem. My first draft is my best guess; your edits will teach me fast.'">skip all of this</button>
+    </div>
+  </div>
+
+  <!-- the letter (verdict + first personas) -->
+  <div id="letterzone">
+    <p style="display:flex;justify-content:space-between;align-items:center;margin:14px 0 6px" class="small">
+      <b>Your Stripe letter — <span id="wcount"></span> words, not 400</b>
+      <span class="tone">tone: <span data-t="direct" class="on" onclick="tone(this)">direct</span><span data-t="warm" onclick="tone(this)">warm</span><span data-t="formal" onclick="tone(this)">formal</span></span>
+    </p>
+    <div class="doc" id="letter"></div>
+    <p class="hint" style="margin-top:8px">Green dots = grounded lines — tap for the source. Tone is remembered as your default; your edits outrank it. Same walker as the resume editor: <b>Review 1-by-1</b> lives here too (see the resume proto — identical mechanics).</p>
+  </div>
+
+  <!-- outreach trio -->
+  <div data-persona-show="outreach">
+    <h1 style="font-size:20px;margin-top:12px">The outreach trio — same soul, shorter form</h1>
+    <div class="wirebox">
+      <p class="wl">cold note → the hiring manager · 58 words · you send</p>
+      <p style="margin:0;font-size:13px;color:var(--ink2);line-height:1.7">Hi Maya — your radar launch is the kind of thing I&rsquo;d have fought to work on. I&rsquo;ve spent four years on LLMs where mistakes cost money ($2B fraud platform, eval-first). Applying through the front door too — but wanted you to hear a human voice first. — Nik</p>
+      <p class="hint" style="margin-top:6px">One real hook · no flattery · no &ldquo;hope this finds you well&rdquo; · her AI-smell check already ran</p>
+    </div>
+    <div class="wirebox">
+      <p class="wl">day-10 follow-up · adds ONE new thing, never &ldquo;just checking in&rdquo;</p>
+      <p style="margin:0;font-size:13px;color:var(--ink2);line-height:1.7">Hi Maya — since applying I shipped the eval-harness write-up I mentioned; it&rsquo;s the discipline your posting leads with, in practice: [link]. Still very interested. — Nik</p>
+    </div>
+    <div class="wirebox">
+      <p class="wl">thank-you after interview · built around a moment YOU name</p>
+      <div class="ro-says" style="margin:0 0 8px"><span class="who">RO</span><p class="msg">Tell me one moment from the conversation that mattered — I&rsquo;ll build the note around it, so it reads like memory, not template.</p></div>
+      <input class="input" placeholder="she lit up when we talked about killing the dashboard feature…">
+    </div>
+  </div>
+
+  <!-- AI smell check (always visible under letter personas) -->
+  <div id="smellzone">
+    <div class="wirebox" style="margin-top:14px">
+      <p class="wl">the ai-smell check — she polices her own writing before you see it</p>
+      <p style="margin:0;font-size:12.5px;color:var(--ink2);line-height:1.8">
+        <span class="smell">&ldquo;I am excited to leverage my passion for&hellip;&rdquo;</span><br>
+        <span class="smell">&ldquo;I believe my unique blend of skills&hellip;&rdquo;</span><br>
+        <span class="smell">&ldquo;In today&rsquo;s fast-paced landscape&hellip;&rdquo;</span><br>
+        → replaced with things only you could say, from stories only you have. A recruiter reads 200 letters a week and deletes the ones that smell like a machine — yours doesn&rsquo;t, because it isn&rsquo;t trying to sound impressive. It&rsquo;s trying to sound like you.
+      </p>
+    </div>
+  </div>
+
+  <p class="hint" style="text-align:center;margin-top:16px"><a href="../index.html">all prototypes</a></p>
+</div>
+
+<script src="data.js"></script>
+<script>
+window.PROTO = {
+  feature: "cover-letters", screen: "index",
+  screens: CL.screens, states: ["default"], personas: CL.personas,
+  onChange: function (s, p) {
+    var showLetter = p === "verdict" || p === "first";
+    document.getElementById("letterzone").style.display = showLetter ? "block" : "none";
+    document.getElementById("smellzone").style.display = (p === "skip" || p === "outreach") ? "none" : "block";
+    renderLetter();
+  }
+};
+var curTone = "direct";
+function tone(el) {
+  document.querySelectorAll(".tone span[data-t]").forEach(function (t) { t.classList.remove("on"); });
+  el.classList.add("on"); curTone = el.dataset.t; renderLetter();
+}
+function pickTone(t) {
+  curTone = t;
+  document.querySelectorAll(".tone span[data-t]").forEach(function (x) { x.classList.toggle("on", x.dataset.t === t); });
+  document.getElementById("fnote").textContent = "Got it — " + t + " it is. Watch the letter below shift to match. This becomes your default; change it anytime.";
+  renderLetter();
+}
+function renderLetter() {
+  var lines = CL.letters[curTone];
+  var h = lines.map(function (l, i) {
+    var w = CL.whys[i - 1];
+    if (i === 0 || i === lines.length - 1 || !w) return "<div>" + l + "</div>";
+    return '<div class="lline" id="ll' + i + '">' + l + '<button class="dot" onclick="document.getElementById(\'ll' + i + '\').classList.toggle(\'open\')" aria-label="why"></button><div class="why"><b>' + w[0] + "</b> — " + w[1] + "</div></div>";
+  }).join("");
+  document.getElementById("letter").innerHTML = h;
+  var words = lines.join(" ").replace(/&[a-z]+;/g, " ").split(/\s+/).length;
+  document.getElementById("wcount").textContent = words;
+}
+</script>
+<script src="../_kit/kit.js"></script>
+</body>
+</html>
