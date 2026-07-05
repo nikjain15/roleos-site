@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>RO dock / chat · design decisions (working doc)</title>
+<link rel="stylesheet" href="../_kit/kit.css">
+<style>
+  .screen{max-width:760px}
+  table{width:100%;border-collapse:collapse;font-size:13px;margin:10px 0}
+  th,td{text-align:left;padding:7px 9px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{color:var(--ink3);font-size:10px;text-transform:uppercase;letter-spacing:.05em}
+  h2{margin-top:28px}
+</style>
+</head>
+<body>
+<div class="screen">
+  <p class="wl">proto · ro dock / chat · working doc — the single source of alignment</p>
+  <h1 style="font-size:22px">RO dock / chat — design decisions</h1>
+  <p class="small">Status: <span class="pill ro">IN FEEDBACK</span> · Stage 1 confirmed 2026-07-05 · prototype at <a href="index.html">/proto/ro-dock/</a> · becomes the formal PRD on APPROVED. The dock exists (slice 7 RO-everywhere + W3 act-verbs + W6 persistence) — this designs the relationship it carries.</p>
+
+  <h2>Confirmed intent</h2>
+  <div class="wirebox" style="font-size:13.5px;color:var(--ink2)">
+    The dock is RO herself, present everywhere — a small quiet chip on every screen that never expands uninvited, opening into one continuous conversation spanning the whole journey. She always knows the screen you&rsquo;re on (no re-explaining) and remembers everything shared (Tuesday&rsquo;s doubt matters on Friday). Bring her anything — task, dumb question, &ldquo;why this rank?&rdquo;, or &ldquo;I want to quit&rdquo; — she reads the register and answers as operator, coach, or companion. Asked to act, she acts in place with the same gates as everywhere: drafts and edits happen live behind the chat, bulk actions get a plain &ldquo;here&rsquo;s what I&rsquo;m about to do — confirm,&rdquo; nothing outward bypasses review-and-send. The companion has a spine: honest she&rsquo;s an AI, nudges toward real people, quiet when you go quiet, recommends rest against her own engagement. Worked if: companion-register conversations actually happen, act-verbs get used from chat, and nobody re-introduces themselves to their own agent.
+  </div>
+
+  <h2>Locked decisions</h2>
+  <table>
+    <tr><th>#</th><th>Decision</th><th>Choice</th></tr>
+    <tr><td>1</td><td>Presence</td><td><b>Always there, quietly</b> — persistent chip on every screen, tiny when collapsed, never self-expanding. Host screen dims (never blocks) when open.</td></tr>
+    <tr><td>2</td><td>Scope</td><td><b>Anything — tasks AND feelings.</b> She reads the register (operator / coach / companion). Emotional moments get the companion in full, never a task pivot or redirect.</td></tr>
+    <tr><td>3</td><td>Acting</td><td><b>Acts in place, same gates</b> — edits happen live behind the chat (visible change + diff offered); bulk actions get an explicit itemized confirm; outward actions always land in review-and-send. The dock is a control surface, never a bypass. (W3 act-verbs power this.)</td></tr>
+    <tr><td>4</td><td>Memory</td><td><b>One conversation, context-aware</b> — a single thread across the journey (day markers, past visible), plus live screen awareness. Summarization under the hood; W6 persistence extends.</td></tr>
+    <tr><td>5</td><td>Guardrails</td><td>Honest she&rsquo;s an AI · dependence-adjacent moments get the warm-honest-redirect template (&ldquo;who&rsquo;s the friend you&rsquo;d call?&rdquo;) · quiet-when-you-go-quiet · recommends rest against engagement (&ldquo;one more mock would buy you anxiety, not sharpness&rdquo;).</td></tr>
+    <tr><td>6</td><td>Success</td><td>Companion-register conversations happen · act-verbs used from chat · zero re-introductions. Healthy-engagement family.</td></tr>
+  </table>
+
+  <h2>Data &amp; guardrails</h2>
+  <table>
+    <tr><td><b>Taste capture</b></td><td>Everything shared in the dock feeds the taste model (preferences stated in passing — &ldquo;NYC tempts me&rdquo; — are first-class signals). Bulk confirms and act requests = decision events.</td></tr>
+    <tr><td><b>Human gate</b></td><td>No transport from chat, ever (W3 invariant). Acts draft/edit/organize only; sends stay in Apply/Send.</td></tr>
+    <tr><td><b>Wellbeing</b></td><td>Companion ethics enforced in the system prompt + evals: no dependence-farming, no engagement-optimizing, rest recommended when right.</td></tr>
+  </table>
+
+  <h2>Changelog</h2>
+  <p class="small">2026-07-05 · v0.1 — Stage 1 confirmed (4/4 recommended); storyboard + dependence-template line approved; prototype built; IN FEEDBACK.</p>
+
+  <p class="hint" style="margin-top:24px"><a href="../index.html">← all prototypes</a> · <a href="index.html">open the prototype</a></p>
+</div>
+</body>
+</html>

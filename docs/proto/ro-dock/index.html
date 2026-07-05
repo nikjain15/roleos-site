@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>RO dock · she&rsquo;s always here</title>
+<link rel="stylesheet" href="../_kit/kit.css">
+<style>
+  .host{opacity:1;transition:opacity .3s}
+  body.docked .host{opacity:.45}
+  #chip{position:fixed;right:14px;bottom:56px;z-index:60;background:var(--ro);color:#fff;
+    border:none;border-radius:20px;font:600 13px var(--sans);padding:10px 18px;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,.18)}
+  #panel{display:none;position:fixed;right:0;bottom:0;top:0;width:min(420px,100%);z-index:70;
+    background:var(--bg);border-left:1px solid var(--bd2);padding:14px 14px 120px;overflow-y:auto}
+  body.docked #panel{display:block}
+  #panel .hd{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+  .you{text-align:right;margin:10px 0}
+  .you span{display:inline-block;background:var(--surf);border:1px solid var(--line2);border-radius:12px 2px 12px 12px;padding:8px 12px;font-size:13.5px;max-width:85%}
+  .past{opacity:.55}
+  .daymark{text-align:center;font-size:10px;color:var(--ink3);text-transform:uppercase;letter-spacing:.05em;margin:12px 0 4px}
+  #sendbar{position:fixed;right:0;bottom:44px;width:min(420px,100%);background:var(--bg);border-top:1px solid var(--bd);padding:10px 14px;display:none}
+  body.docked #sendbar{display:block}
+  .fade{opacity:.35;text-decoration:line-through}
+</style>
+</head>
+<body>
+<div class="screen host">
+  <p class="wl">proto · ro dock — any screen (here: your workspace) · flip persona, then tap the RO chip</p>
+  <h1 style="font-size:20px;margin-top:10px">This week&rsquo;s calls</h1>
+  <div class="mini" id="h-sierra"><span>Sierra — Sr PM, Agents</span><span class="pill ok">go for it</span></div>
+  <div class="mini" id="h-ramp"><span>Ramp — Staff PM (fintech)</span><span class="pill ok">go for it</span></div>
+  <div class="mini" id="h-brex"><span>Brex — Sr PM (fintech)</span><span class="pill warn">maybe</span></div>
+  <div class="mini" id="h-mercury"><span>Mercury — PM, Growth (fintech)</span><span class="pill warn">maybe</span></div>
+  <div class="mini" id="h-letter"><span>Stripe cover letter — draft v1, <b id="wc">210 words</b></span><span class="pill ro" id="lpill">ready for your eyes</span></div>
+  <p class="hint" style="margin-top:14px">The dock lives on every screen exactly like this — one quiet chip, never expanding itself.</p>
+</div>
+
+<button id="chip" onclick="document.body.classList.toggle('docked')">RO</button>
+
+<div id="panel">
+  <div class="hd">
+    <span style="font-weight:600;font-size:14px"><span style="background:var(--ro);color:#fff;border-radius:6px;padding:2px 8px;font-size:12px">RO</span> &nbsp;one conversation — always</span>
+    <a onclick="document.body.classList.remove('docked')" style="cursor:pointer;color:var(--ink3);font-size:13px">close ✕</a>
+  </div>
+
+  <!-- continuity: the past is right there -->
+  <div class="past">
+    <div class="daymark">tuesday</div>
+    <div class="you"><span>the NYC office energy tempts me, not gonna lie</span></div>
+    <div class="ro-says"><span class="who">RO</span><p class="msg">Noted — and that&rsquo;s useful, not a contradiction. Remote-first with an NYC soft spot is a real preference; I&rsquo;ll hold both.</p></div>
+    <div class="daymark">today</div>
+  </div>
+
+  <div id="thread"></div>
+  <p id="restnote" class="hint" style="display:none;color:var(--ok)">She dims herself after that — no follow-up pings. When you go quiet, she goes quieter. That&rsquo;s the deal.</p>
+</div>
+
+<div id="sendbar">
+  <button class="btn pri full" id="nextbtn" onclick="step()"></button>
+  <input class="input" style="margin-top:8px" placeholder="or type anything… (grey-box: the real RO answers everything)"
+    onkeydown="if(event.key==='Enter'){this.value='';freeform();}">
+</div>
+
+<script src="data.js"></script>
+<script>
+window.PROTO = {
+  feature: "ro-dock", screen: "index",
+  screens: RD.screens, states: ["default"], personas: RD.personas,
+  onChange: function (s, p) { persona = p; reset(); }
+};
+var persona = "task", i = 0;
+function reset() {
+  i = 0;
+  document.getElementById("thread").innerHTML = "";
+  document.getElementById("restnote").style.display = "none";
+  ["h-ramp", "h-brex", "h-mercury"].forEach(function (id) { document.getElementById(id).classList.remove("fade"); });
+  document.getElementById("wc").textContent = "210 words";
+  document.getElementById("lpill").textContent = "ready for your eyes";
+  label();
+}
+function label() {
+  var c = RD.convos[persona];
+  document.getElementById("nextbtn").textContent = i < c.length ? "send: “" + c[i][0].replace(/&rsquo;/g, "’").replace(/&hellip;/g, "…") + "”" : "conversation done — flip persona for another";
+  document.getElementById("nextbtn").disabled = i >= c.length;
+}
+function step() {
+  var c = RD.convos[persona];
+  if (i >= c.length) return;
+  var t = document.getElementById("thread");
+  t.innerHTML += '<div class="you"><span>' + c[i][0] + "</span></div>" +
+    '<div class="ro-says"><span class="who">RO</span><p class="msg">' + c[i][1] +
+    (c[i][2] === "bulkAsk"
+      ? '<br><br><button class="btn sec" style="font-size:12px;padding:5px 10px" onclick="bulk(true)">go ahead</button> <button class="btn ghost" style="font-size:12px;padding:5px 10px" onclick="bulk(false)">keep them</button>'
+      : "") + "</p></div>";
+  if (c[i][2] === "letter") {
+    document.getElementById("wc").textContent = "120 words";
+    document.getElementById("lpill").textContent = "tightened just now · see diff";
+  }
+  if (c[i][2] === "rest") document.getElementById("restnote").style.display = "block";
+  i++; label();
+  document.getElementById("panel").scrollTop = 99999;
+}
+function bulk(yes) {
+  var t = document.getElementById("thread");
+  if (yes) {
+    ["h-ramp", "h-brex", "h-mercury"].forEach(function (id) { document.getElementById(id).classList.add("fade"); });
+    t.innerHTML += '<div class="ro-says"><span class="who">RO</span><p class="msg">Done — all three, faded behind us right now, undo in the workspace. And the lesson&rsquo;s locked in: less fintech, more of what Sierra is.</p></div>';
+  } else {
+    t.innerHTML += '<div class="ro-says"><span class="who">RO</span><p class="msg">Kept — good instinct to double-check me. Nothing changes until you say so; that&rsquo;s true everywhere, always.</p></div>';
+  }
+  document.getElementById("panel").scrollTop = 99999;
+}
+function freeform() {
+  document.getElementById("thread").innerHTML +=
+    '<div class="ro-says"><span class="who">RO</span><p class="msg">In this grey-box I only know the scripted conversations — use the big button below, or flip personas. The real me answers anything, remembers everything, and acts with the same gates you&rsquo;ve seen.</p></div>';
+  document.getElementById("panel").scrollTop = 99999;
+}
+</script>
+<script src="../_kit/kit.js"></script>
+</body>
+</html>
