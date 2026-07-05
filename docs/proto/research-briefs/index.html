@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Research briefs · two minutes, then the iceberg</title>
+<link rel="stylesheet" href="../_kit/kit.css">
+<style>
+  .sect{background:var(--surf);border:1px solid var(--line);border-radius:8px;margin:6px 0}
+  .sect .hd{padding:8px 12px;font-size:13px;cursor:pointer;color:var(--ink2)}
+  .sect .hd::before{content:"▸ ";color:var(--ro)}
+  .sect.open .hd::before{content:"▾ "}
+  .sect .body{display:none;padding:0 12px 10px;font-size:12.5px;color:var(--ink2);line-height:1.6}
+  .sect.open .body{display:block}
+  .src{display:block;font-size:10.5px;color:var(--ro);margin-top:4px;font-family:var(--mono)}
+  .refresher{border:1px solid var(--line);border-radius:8px;padding:9px 12px;font-size:12.5px;color:var(--ink2);line-height:1.8}
+</style>
+</head>
+<body>
+<div class="screen">
+  <p class="wl">proto · CORE research briefs — two minutes, then the iceberg · flip persona below</p>
+
+  <!-- ============ COMPANY PERSONAS ============ -->
+  <div id="companyzone">
+    <div class="ro-says" style="margin-top:10px"><span class="who">RO</span>
+      <p class="msg" id="lead"></p>
+    </div>
+
+    <div class="wirebox" style="background:var(--ro-bg);border-color:var(--ro)" id="shortver">
+      <p class="wl" style="color:var(--ro)">the short version · 2-minute read</p>
+      <p style="margin:0;font-size:13.5px;color:var(--ro-ink)" id="shorttext"></p>
+    </div>
+
+    <p class="wl" style="margin-top:14px">the iceberg — open what you want, one at a time</p>
+    <div id="sections"></div>
+
+    <p class="wl" style="margin-top:16px">research anything — name a source, or trust my pick</p>
+    <div style="display:flex;gap:8px">
+      <input class="input" id="ask" placeholder="&ldquo;how does their fraud product actually make money?&rdquo;" onkeydown="if(event.key==='Enter')doAsk()">
+      <button class="btn pri" onclick="doAsk()">Research</button>
+    </div>
+    <div id="askflow" style="margin-top:8px"></div>
+  </div>
+
+  <!-- ============ INTERVIEWER PERSONAS ============ -->
+  <div id="personzone" style="display:none">
+    <div class="ro-says" style="margin-top:10px"><span class="who">RO</span>
+      <p class="msg">Thursday&rsquo;s panel — here&rsquo;s who you&rsquo;re meeting, from what they&rsquo;ve chosen to publish. Nothing scraped, nothing personal — their professional public record, and anything you add.</p>
+    </div>
+
+    <div class="wirebox" id="personcard"></div>
+
+    <div class="wirebox ghost">
+      <p style="margin:0;font-size:13px">Know something I don&rsquo;t? Paste the recruiter&rsquo;s email, a friend&rsquo;s tip, anything — I&rsquo;ll fold it in.</p>
+      <textarea class="input" id="upload" rows="2" style="margin-top:8px" placeholder="&ldquo;my friend interviewed there — says Maya always asks about a product you'd kill&hellip;&rdquo;"></textarea>
+      <button class="btn sec" style="font-size:12px;padding:6px 11px;margin-top:8px" onclick="fold()">fold it in</button>
+      <p id="foldnote" style="display:none;margin:8px 0 0;font-size:12.5px;color:var(--ok)"></p>
+    </div>
+
+    <p class="wl" style="margin-top:14px">the morning of — 30 seconds, walking in</p>
+    <div class="refresher">
+      1 · Maya thinks in evals — meet her there early.<br>
+      2 · Your payments gap: name it before they do, bridge with Beta Co.<br>
+      3 · Ask about radar&rsquo;s roadmap — it&rsquo;s her baby, and your best question.
+    </div>
+    <p class="hint" style="margin-top:8px">The full brief lands T-24h with your prep; this refresher arrives the morning of. Calendar-aware when connected; otherwise fires when the tracker hits &ldquo;interviewing.&rdquo;</p>
+  </div>
+
+  <p class="hint" style="text-align:center;margin-top:16px"><a href="../index.html">all prototypes</a></p>
+</div>
+
+<script src="data.js"></script>
+<script>
+window.PROTO = {
+  feature: "research-briefs", screen: "index",
+  screens: RB.screens, states: ["default"], personas: RB.personas,
+  onChange: function (s, p) { render(p); }
+};
+function render(p) {
+  var co = p === "rich" || p === "thin";
+  document.getElementById("companyzone").style.display = co ? "block" : "none";
+  document.getElementById("personzone").style.display = co ? "none" : "block";
+  document.getElementById("askflow").innerHTML = "";
+  if (co) {
+    document.getElementById("lead").innerHTML = p === "rich"
+      ? "Stripe is tomorrow at 2. Your brief&rsquo;s ready — two minutes now beats an hour of panicked googling tonight. And rest after; you&rsquo;re readier than you feel."
+      : "Straight with you: my data on this company is thin — 2 postings, no comp stated, little public record. Here&rsquo;s what I <b>can</b> stand behind, what I can&rsquo;t, and the ask-bar below can go find more.";
+    document.getElementById("shorttext").innerHTML = p === "rich"
+      ? "They&rsquo;re scaling AI hard (5 of 12 open roles). They&rsquo;ll probe your eval work and your payments gap — name the gap before they do. Ask them about radar&rsquo;s roadmap. Their stated comp is real."
+      : "Small team, hiring their first AI PM (that&rsquo;s you shaping the function — big scope, thin support). Comp unstated — worth asking early. The founder&rsquo;s public posts are the best window; two linked below.";
+    document.getElementById("sections").innerHTML = RB.sections.map(function (sec, i) {
+      if (p === "thin" && (i === 2 || i === 3)) {
+        return '<div class="sect" id="s' + i + '"><div class="hd" onclick="tog(' + i + ')">' + sec[0] + '</div><div class="body"><span style="color:var(--warn)">Thin here — not enough of their own words to analyze honestly. The ask-bar can research it live.</span></div></div>';
+      }
+      return '<div class="sect" id="s' + i + '"><div class="hd" onclick="tog(' + i + ')">' + sec[0] + '</div><div class="body">' + sec[1] + "</div></div>";
+    }).join("");
+  } else {
+    document.getElementById("personcard").innerHTML = p === "maya"
+      ? '<p style="margin:0;font-size:14px"><b>Maya Chen — Head of Product, Risk</b></p>' +
+        '<p style="margin:6px 0 0;font-size:13px;color:var(--ink2);line-height:1.6">What she cares about professionally, from what she&rsquo;s chosen to publish: her QCon talk on eval-driven shipping (2025) · three posts on why fraud products fail · she built radar&rsquo;s first version. <b>Expect eval questions — that&rsquo;s her lens.</b></p>' +
+        '<p class="src">sources: her talk · her posts · company bio — all public-professional</p>'
+      : '<p style="margin:0;font-size:14px"><b>Jordan Lee — Engineering Manager</b></p>' +
+        '<p style="margin:6px 0 0;font-size:13px;color:var(--ink2);line-height:1.6">Honest answer: they keep a low profile — no talks, no posts, a one-line company bio. I won&rsquo;t invent a person from nothing. Here&rsquo;s what the <b>role</b> tells us instead: EMs in their panel usually own the &ldquo;how do you work with engineers&rdquo; round — your ML-partnership stories are the prep.</p>' +
+        '<p class="src">sources: company bio (thin) · panel-structure inference, labeled as such</p>';
+    document.getElementById("foldnote").style.display = "none";
+  }
+}
+function tog(i) {
+  var el = document.getElementById("s" + i), was = el.classList.contains("open");
+  document.querySelectorAll(".sect").forEach(function (x) { x.classList.remove("open"); });
+  if (!was) el.classList.add("open");
+}
+function doAsk() {
+  var q = document.getElementById("ask").value.trim() || "how does their fraud product actually make money?";
+  document.getElementById("askflow").innerHTML =
+    '<div class="ro-says"><span class="who">RO</span><p class="msg">On it — &ldquo;' + q + '&rdquo;. Want me to use a specific source, or trust my pick? (I&rsquo;d start with their own docs and pricing page — first-party beats commentary.)</p></div>' +
+    '<p style="margin:0 0 0 40px"><button class="btn sec" style="font-size:12px;padding:5px 11px" onclick="answer(\'my pick — their own docs first\')">your pick</button> ' +
+    '<button class="btn ghost" style="font-size:12px;padding:5px 11px" onclick="answer(\'the source you named\')">name a source</button></p>';
+}
+function answer(via) {
+  document.getElementById("askflow").innerHTML =
+    '<div class="ro-says"><span class="who">RO</span><p class="msg">Found it (' + via + '): radar prices per-transaction on top of processing — so the fraud product&rsquo;s revenue scales with every customer&rsquo;s volume, which is why it gets platform-level investment. <b>Added to your dossier</b>, receipts attached — it&rsquo;ll be there for the next read.</p></div>' +
+    '<p class="hint" style="margin-left:40px">Live research is the flag-gated new capability — the corpus brief is the fallback until it&rsquo;s flipped. Every live answer carries its source.</p>';
+}
+function fold() {
+  var t = document.getElementById("upload").value.trim();
+  var n = document.getElementById("foldnote");
+  n.style.display = "block";
+  n.innerHTML = t
+    ? "<b>Folded in.</b> That changes the prep: I&rsquo;m adding a &ldquo;which product would you kill&rdquo; drill to Thursday&rsquo;s mock — your friend just made this brief better than anything public could."
+    : "Paste something first — an email, a tip, anything you know that I can&rsquo;t.";
+}
+</script>
+<script src="../_kit/kit.js"></script>
+</body>
+</html>
