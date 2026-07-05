@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Apply · the quality read, in depth</title>
+<link rel="stylesheet" href="../_kit/kit.css">
+<style>
+  .scorehead{display:flex;align-items:center;gap:14px;background:var(--surf);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+  .bignum{font-size:34px;font-weight:700;line-height:1}
+  .ing{display:flex;justify-content:space-between;gap:10px;padding:8px 2px;border-bottom:1px solid var(--line);font-size:13px}
+  .ing .verdict{font-weight:600;flex:0 0 auto}
+  .detail{display:none;background:var(--ro-bg);color:var(--ro-ink);border-radius:8px;padding:8px 11px;font-size:12.5px;margin:6px 0;line-height:1.55}
+  .ingwrap.open .detail{display:block}
+  .ingwrap .more{font-size:11.5px;color:var(--ro);cursor:pointer}
+</style>
+</head>
+<body>
+<div class="screen">
+  <p class="wl">proto · apply/send · CORE addendum — the quality read, in depth · flip persona below</p>
+
+  <div class="scorehead">
+    <div><div class="bignum" id="num"></div><div class="hint" id="band"></div></div>
+    <p style="margin:0;font-size:13px;color:var(--ink2)" id="headline"></p>
+  </div>
+
+  <p class="wl" style="margin-top:14px">the three ingredients — which lever, in words</p>
+  <div id="ings"></div>
+
+  <!-- the firm-once moment (weak persona) -->
+  <div data-persona-show="weak">
+    <div class="ro-says" style="margin-top:12px"><span class="who">RO</span>
+      <p class="msg">I&rsquo;ll say this once, because Stripe is a company you actually care about: <b>I really would hold this one.</b> Sent as-is, it undersells you — and you don&rsquo;t get a second first impression there. Ten minutes with me doubles its odds. If today still matters more than perfect, send it and I&rsquo;m with you — but I&rsquo;d hate to see this one go out at half strength.</p>
+    </div>
+    <p class="hint" style="margin-left:40px">Said once, never repeated, never blocks. Firmer, not colder — reserved for weak bundles at companies you&rsquo;ve marked as mattering.</p>
+  </div>
+
+  <!-- receipts -->
+  <div class="wirebox" style="margin-top:14px" id="receipts"></div>
+
+  <div style="display:flex;gap:8px;margin-top:12px">
+    <a class="btn pri" href="index.html">back to the review — fixes are one tap there</a>
+  </div>
+  <p class="hint" style="text-align:center;margin-top:12px"><a href="../index.html">all prototypes</a></p>
+</div>
+
+<script src="data.js"></script>
+<script>
+window.PROTO = {
+  feature: "apply-send", screen: "score",
+  screens: [["index","1 review"],["score","score depth"],["handoff","2 send"],["sent","3 sent"]],
+  states: ["default"],
+  personas: [["strong","Strong (87)"],["almost","Almost there (74)"],["weak","Weak (58) — the firmer word"],["receipts","With your own receipts"]],
+  onChange: function (s, p) { render(p); }
+};
+var CFG = {
+  strong: { n: 87, c: "var(--ok)", band: "strong", head: "This one&rsquo;s ready to make an impression. One optional polish below — otherwise, go.",
+    ings: [["Evidence match", "strong", "ok", "Their top three must-haves each meet a real story of yours — fraud platform, eval harness, LLM ship. Nothing borrowed, nothing stretched."],
+           ["One story", "strong", "ok", "Resume leads with fraud; the letter opens on it; the screening answers echo it. One candidate, one story."],
+           ["Hygiene", "clean", "ok", "Parses cleanly, right files, every field they ask for is covered."]] },
+  almost: { n: 74, c: "var(--warn)", band: "almost there", head: "Good bones, one soft spot — &ldquo;one story&rdquo; is where it leaks. The one-line reason is below; the fix is 20 seconds.",
+    ings: [["Evidence match", "strong", "ok", "Must-haves covered from real work — this part is done."],
+           ["One story", "almost — the letter never mentions fraud", "warn", "Your resume leads with the fraud platform, but the letter never mentions it — they read as two different candidates. One added line makes them one person; I&rsquo;ve drafted it (back on the review screen, one tap)."],
+           ["Hygiene", "clean", "ok", "Parses cleanly, complete."]] },
+  weak: { n: 58, c: "var(--warn)", band: "needs ten minutes", head: "Honest read: sent as-is, this undersells you. Two real fixes below — both from work you&rsquo;ve already done.",
+    ings: [["Evidence match", "thin — 2 of 4 must-haves unaddressed", "warn", "Their posting leads with eval frameworks and payments exposure; the bundle shows neither, though your master HAS both (the harness; Beta Co&rsquo;s risk models). Surfacing them is reframing, not inventing — 5 minutes each."],
+           ["One story", "scattered", "warn", "Resume, letter, and answers each emphasize a different strength. Pick the fraud story as the spine and the rest follows — I&rsquo;ll do the restitching, you approve."],
+           ["Hygiene", "clean", "ok", "The mechanics are fine — this is a story problem, not a formatting one."]] },
+  receipts: { n: 82, c: "var(--ok)", band: "strong", head: "Ready — and this time the read comes with its track record (below).",
+    ings: [["Evidence match", "strong", "ok", "Covered from real work."],
+           ["One story", "strong", "ok", "One candidate, one story."],
+           ["Hygiene", "clean", "ok", "Clean."]] }
+};
+function render(p) {
+  var c = CFG[p];
+  document.getElementById("num").textContent = c.n;
+  document.getElementById("num").style.color = c.c;
+  document.getElementById("band").textContent = c.band;
+  document.getElementById("headline").innerHTML = c.head;
+  document.getElementById("ings").innerHTML = c.ings.map(function (g, i) {
+    var col = g[2] === "ok" ? "var(--ok)" : "var(--warn)";
+    return '<div class="ingwrap" id="ig' + i + '"><div class="ing"><span><b>' + g[0] + '</b> <span class="more" onclick="document.getElementById(\'ig' + i + '\').classList.toggle(\'open\')">the full why ▾</span></span><span class="verdict" style="color:' + col + '">' + g[1] + "</span></div><div class=\"detail\">" + g[3] + "</div></div>";
+  }).join("");
+  document.getElementById("receipts").innerHTML = p === "receipts"
+    ? '<p class="wl">the read&rsquo;s track record — your own history</p><p style="margin:0;font-size:13px;color:var(--ink2)">Of your last 14 applications, the ones I read as <b>strong</b> got replies <b>twice as often</b> as the rest. The read is earning its keep — and if that ever stops being true, you&rsquo;ll see it here first.</p>'
+    : '<p class="wl">where this read comes from — honest label</p><p style="margin:0;font-size:13px;color:var(--ink2)">Right now this read is built on senior-PM benchmarks, not your history — you haven&rsquo;t sent enough for personal receipts yet. Around 10–12 sends, it switches to <b>your own</b> track record and shows it here, wins and misses alike.</p>';
+}
+</script>
+<script src="../_kit/kit.js"></script>
+</body>
+</html>
