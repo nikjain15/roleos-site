@@ -33,7 +33,8 @@
     <tr><td>3</td><td>Acting</td><td><b>Acts in place, same gates</b> — edits happen live behind the chat (visible change + diff offered); bulk actions get an explicit itemized confirm; outward actions always land in review-and-send. The dock is a control surface, never a bypass. (W3 act-verbs power this.)</td></tr>
     <tr><td>4</td><td>Memory</td><td><b>One conversation, context-aware</b> — a single thread across the journey (day markers, past visible), plus live screen awareness. Summarization under the hood; W6 persistence extends.</td></tr>
     <tr><td>5</td><td>Guardrails</td><td>Honest she&rsquo;s an AI · dependence-adjacent moments get the warm-honest-redirect template (&ldquo;who&rsquo;s the friend you&rsquo;d call?&rdquo;) · quiet-when-you-go-quiet · recommends rest against engagement (&ldquo;one more mock would buy you anxiety, not sharpness&rdquo;).</td></tr>
-    <tr><td>6</td><td>Success</td><td>Companion-register conversations happen · act-verbs used from chat · zero re-introductions. Healthy-engagement family.</td></tr>
+    <tr><td>6</td><td>Verified before shown (human req, 2026-07-05)</td><td><b>Two-model pipeline on every dock reply:</b> RO drafts on the reasoning tier → a separate fast checker model verifies accuracy, guardrails, and voice → pass = shown; fail = one auto-fix + re-check; still failing = honest &ldquo;let me double-check that — one moment&rdquo; rather than a wrong answer. Latency budget: deterministic checks are instant; the smart check runs on the fastest tier and streams-overlaps the draft where safe; target &le;1s added, never skipped. Quality is never traded for speed — speed is optimized separately (standing product rule). Extends the existing quality gate (agent/quality-gate.ts), which today skips voice-judging chat.</td></tr>
+    <tr><td>7</td><td>Success</td><td>Companion-register conversations happen · act-verbs used from chat · zero re-introductions. Healthy-engagement family.</td></tr>
   </table>
 
   <h2>Data &amp; guardrails</h2>
@@ -44,7 +45,8 @@
   </table>
 
   <h2>Changelog</h2>
-  <p class="small">2026-07-05 · v0.1 — Stage 1 confirmed (4/4 recommended); storyboard + dependence-template line approved; prototype built; IN FEEDBACK.</p>
+  <p class="small">2026-07-05 · v0.2 — human requirement added: verified-before-shown two-model pipeline on every dock reply, ≤1s budget, quality never traded.<br>
+    2026-07-05 · v0.1 — Stage 1 confirmed (4/4 recommended); storyboard + dependence-template line approved; prototype built; IN FEEDBACK.</p>
 
   <p class="hint" style="margin-top:24px"><a href="../index.html">← all prototypes</a> · <a href="index.html">open the prototype</a></p>
 </div>
