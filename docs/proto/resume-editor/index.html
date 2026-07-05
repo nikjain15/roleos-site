@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Resume editor · your career, retold honestly</title>
+<link rel="stylesheet" href="../_kit/kit.css">
+<style>
+  .lens{display:inline-block;border:1px solid var(--line2);border-radius:14px;padding:5px 12px;font-size:12px;color:var(--ink2);cursor:pointer;margin:2px 4px 2px 0;background:var(--surf)}
+  .lens.on{background:var(--ro);color:#fff;border-color:var(--ro)}
+  .view{display:none}
+  .view.on{display:block}
+  .doc{background:var(--surf);border:1px solid var(--line);border-radius:10px;padding:16px 18px;font-size:13.5px;line-height:1.8}
+  .doc .sec{font-size:10.5px;color:var(--ink3);text-transform:uppercase;letter-spacing:.05em;margin-top:10px}
+  .line{position:relative;padding-right:20px}
+  .dot{position:absolute;right:2px;top:7px;width:9px;height:9px;border-radius:50%;cursor:pointer;border:none;padding:0}
+  .dot.why{background:var(--ro)} .dot.flag{background:var(--warn)} .dot.sugg{background:var(--ok)}
+  .note{display:none;font-size:12px;border-radius:8px;padding:8px 11px;margin:4px 0 8px;line-height:1.55}
+  .line.open .note{display:block}
+  .note.why{background:var(--ro-bg);color:var(--ro-ink)}
+  .qbanner{border-left:3px solid var(--warn);background:var(--warn-bg);border-radius:0 8px 8px 0;padding:10px 13px;font-size:13px;color:var(--warn);margin:12px 0}
+  .qbanner .btn{font-size:12px;padding:5px 10px;margin-top:6px}
+  .tgl{font-size:11.5px;color:var(--ink2)}
+  .tgl span{border:1px solid var(--line2);border-radius:10px;padding:2px 9px;cursor:pointer;margin-left:4px}
+  .tgl span.on{background:var(--ro-bg);color:var(--ro-ink);border-color:var(--ro)}
+  .cmp{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  @media(max-width:560px){.cmp{grid-template-columns:1fr}}
+  .cmp .doc{font-size:11.5px;line-height:1.7}
+  mark{background:var(--ok-bg);color:inherit;border-radius:3px;padding:0 2px}
+  .cov{display:flex;justify-content:space-between;gap:10px;border-bottom:1px solid var(--line);padding:7px 2px;font-size:12.5px}
+</style>
+</head>
+<body>
+<div class="screen" style="max-width:560px">
+  <p class="wl">proto · resume editor — your career, retold honestly · flip persona below</p>
+
+  <!-- once-only orientation -->
+  <div id="orient">
+    <div class="ro-says" style="margin-top:10px">
+      <span class="who">RO</span>
+      <p class="msg">Quick tour, once: <b>read</b> it like a recruiter would · <b>tap any dot</b> to see why I changed a line · <b>edit anything</b> — your words always win. The other views are up top when you&rsquo;re curious. This is your document; I just did the first draft.</p>
+    </div>
+    <p style="margin:0 0 4px 40px"><button class="btn sec" style="font-size:12px;padding:5px 11px" onclick="document.getElementById('orient').style.display='none'">got it</button></p>
+  </div>
+
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px;flex-wrap:wrap;gap:6px">
+    <div>
+      <span class="lens on" data-v="resume" onclick="lens(this)">Resume</span><span class="lens" data-v="changes" onclick="lens(this)">What changed &amp; why</span><span class="lens" data-v="compare" onclick="lens(this)">Compare with master</span><span class="lens" data-v="robot" onclick="lens(this)">Robot view</span>
+    </div>
+    <p class="tgl" style="margin:0">her feedback: <span class="on" id="tg-c" onclick="mode('c')">concise</span><span id="tg-d" onclick="mode('d')">detailed</span></p>
+  </div>
+
+  <p class="small" id="status" style="margin:10px 0 4px"></p>
+
+  <!-- LENS: resume -->
+  <div class="view on" id="v-resume">
+    <div class="qbanner" id="queue" style="display:none"></div>
+    <div class="doc" id="doc">
+      <b>NIK JAIN — Senior AI Product Manager</b>
+      <div class="sec">Acme · 2022–now</div>
+      <div class="line" id="ln1">• Built the fraud platform that cleared $2B in marketplace risk<button class="dot why" onclick="flip('ln1')" aria-label="why"></button>
+        <div class="note why" id="n1"></div></div>
+      <div class="line" id="ln2">• Shipped an LLM support assistant (−40% response time) with the eval harness that kept it honest<button class="dot why" onclick="flip('ln2')" aria-label="why"></button>
+        <div class="note why" id="n2"></div></div>
+      <div class="line" id="lnflag">• <span id="flagtext">Led a team of 12 engineers on the assistant rebuild</span><button class="dot flag" id="flagdot" onclick="flip('lnflag')" aria-label="truth flag" style="display:none"></button>
+        <div class="note" style="background:var(--warn-bg);color:var(--warn)" id="nflag">Truth flag: your master says you <b>partnered with</b> 12 engineers — you didn&rsquo;t manage them. Interviewers probe this exact line. Fix it below (1 of 2 in the queue).</div></div>
+      <div class="sec">Beta Co · 2019–2022</div>
+      <div class="line" id="ln3">• Risk models for money movement — ML that watched real dollars<button class="dot why" onclick="flip('ln3')" aria-label="why"></button>
+        <div class="note why" id="n3"></div></div>
+      <div class="line" id="lnsugg">• Grew the platform from zero to first million users<button class="dot sugg" id="suggdot" onclick="flip('lnsugg')" aria-label="suggestion" style="display:none"></button>
+        <div class="note" style="background:var(--ok-bg);color:var(--ok)" id="nsugg">Suggestion (optional): this bullet could carry a second number — even rough revenue or retention doubles its weight. Got one? Or leave it — it&rsquo;s already solid.</div></div>
+      <div class="line" id="lnup">• <span id="uptext">Shipped the LLM assistant that answered 30% of tickets before a human ever saw them</span>
+        <div class="note" style="background:var(--ro-bg);color:var(--ro-ink)" id="nup"><b>You edited this line</b> — and it&rsquo;s stronger than your master&rsquo;s version: clearer outcome, better verb. Want it in your master, so every future resume starts from it? I&rsquo;m learning your voice either way.<br>
+        <button class="btn sec" style="font-size:11.5px;padding:4px 9px;margin-top:6px" onclick="upgrade(true)">yes — upgrade my master</button>
+        <button class="btn ghost" style="font-size:11.5px;padding:4px 9px;margin-top:6px" onclick="upgrade(false)">keep it Stripe-only</button></div></div>
+      <div class="sec">Gamma · 2018–2019 · APM rotation &nbsp;·&nbsp; Education · IIT Bombay</div>
+    </div>
+    <div style="display:flex;gap:8px;margin-top:12px;align-items:center">
+      <button class="btn pri" id="exportbtn">Export DOCX</button>
+      <button class="btn sec">PDF</button>
+      <span class="hint" id="exportnote"></span>
+    </div>
+  </div>
+
+  <!-- LENS: changes -->
+  <div class="view" id="v-changes">
+    <p class="small">Six changes, all explained — reading order, nothing hidden:</p>
+    <div class="wirebox" style="font-size:12.5px" id="chglist"></div>
+  </div>
+
+  <!-- LENS: compare -->
+  <div class="view" id="v-compare">
+    <p class="small">Your complete master vs the Stripe retelling — same 8 years, apples to apples. <mark>Highlighted</mark> = changed.</p>
+    <div class="cmp">
+      <div class="doc"><b>MASTER — all 8 years</b><div class="sec">Acme · 2022–now</div>• LLM support assistant, −40% response time<br>• Fraud detection platform, $2B cleared<br>• Partnered with 12 engineers on rebuild<div class="sec">Beta Co · 2019–22</div>• ML risk models<br>• Growth 0→1M users<div class="sec">Gamma · 2018–19</div>• APM rotation<div class="sec">Education</div>IIT Bombay</div>
+      <div class="doc"><b>FOR STRIPE</b><div class="sec">Acme · 2022–now</div>• <mark>Fraud platform first — $2B in marketplace risk</mark><br>• <mark>LLM assistant + the eval harness that kept it honest</mark><br>• Partnered with 12 engineers on rebuild<div class="sec">Beta Co · 2019–22</div>• <mark>Risk models for money movement</mark><br>• Growth 0→1M users<div class="sec">Gamma · 2018–19</div>• APM rotation<div class="sec">Education</div>IIT Bombay</div>
+    </div>
+  </div>
+
+  <!-- LENS: robot -->
+  <div class="view" id="v-robot">
+    <p class="small">How their parsing robot reads this resume — their must-haves, honestly covered or honestly missing:</p>
+    <div class="wirebox" id="covlist"></div>
+    <div class="ro-says"><span class="who">RO</span><p class="msg" id="robotmsg"></p></div>
+  </div>
+
+  <p class="hint" style="text-align:center;margin-top:16px"><a href="../index.html">all prototypes</a></p>
+</div>
+
+<script src="data.js"></script>
+<script>
+window.PROTO = {
+  feature: "resume-editor", screen: "index",
+  screens: RE.screens, states: ["default"], personas: RE.personas,
+  onChange: function (s, p) { persona = p; render(); }
+};
+var persona = "clean", fb = "c", queueStep = 0;
+function lens(el) {
+  document.querySelectorAll(".lens").forEach(function (l) { l.classList.remove("on"); });
+  el.classList.add("on");
+  document.querySelectorAll(".view").forEach(function (v) { v.classList.remove("on"); });
+  document.getElementById("v-" + el.dataset.v).classList.add("on");
+}
+function mode(m) {
+  fb = m;
+  document.getElementById("tg-c").classList.toggle("on", m === "c");
+  document.getElementById("tg-d").classList.toggle("on", m === "d");
+  whys(); changes();
+}
+function flip(id) { document.getElementById(id).classList.toggle("open"); }
+function whys() {
+  document.getElementById("n1").innerHTML = RE.whys.l1[fb];
+  document.getElementById("n2").innerHTML = RE.whys.l2[fb];
+  document.getElementById("n3").innerHTML = RE.whys.l3[fb];
+}
+function changes() {
+  var w = RE.whys;
+  document.getElementById("chglist").innerHTML =
+    "<b>1 · Fraud platform moved to bullet 1</b> — " + w.l1[fb] + "<br><br>" +
+    "<b>2 · Eval harness surfaced</b> — " + w.l2[fb] + "<br><br>" +
+    "<b>3 · Beta Co reframed toward payments</b> — " + w.l3[fb] + "<br><br>" +
+    "<span style='color:var(--ink3)'>4–6 · headline retitled · keywords placed where parsers look · Gamma trimmed to one line (it earns its space, barely — say the word to restore it).</span>";
+}
+function render() {
+  queueStep = 0;
+  ["ln1","ln2","ln3","lnflag","lnsugg","lnup"].forEach(function(id){document.getElementById(id).classList.remove("open");});
+  var isFlag = persona === "flag", isUp = persona === "upgrade";
+  document.getElementById("flagdot").style.display = isFlag ? "block" : "none";
+  document.getElementById("suggdot").style.display = isFlag ? "block" : "none";
+  document.getElementById("lnup").style.display = isUp ? "block" : "none";
+  if (isUp) document.getElementById("lnup").classList.add("open");
+  document.getElementById("flagtext").textContent = isFlag ? "Led a team of 12 engineers on the assistant rebuild" : "Partnered with 12 engineers — the product calls were mine";
+  var st = document.getElementById("status");
+  if (isFlag) { st.innerHTML = "<b style='color:var(--warn)'>2 need your eyes</b> — I&rsquo;ll walk you through them one at a time."; queue(); }
+  else { st.innerHTML = "<b style='color:var(--ok)'>All clear</b> — every line grounded. Read it like a recruiter would."; document.getElementById("queue").style.display = "none"; }
+  document.getElementById("exportbtn").disabled = isFlag;
+  document.getElementById("exportnote").textContent = isFlag ? "unlocks when every line is grounded" : "grounded ✓ — whatever leaves here survives the interview room";
+  var weak = persona === "robot";
+  document.getElementById("covlist").innerHTML = (weak ? RE.robot.weak : RE.robot.good).map(function (c) {
+    var col = c[2] === "ok" ? "var(--ok)" : c[2] === "warn" ? "var(--warn)" : "var(--ink3)";
+    var ico = c[2] === "ok" ? "✓" : c[2] === "warn" ? "◐" : "✗";
+    return '<div class="cov"><span><b>' + ico + " " + c[0] + '</b></span><span style="color:' + col + ';text-align:right">' + c[1] + "</span></div>";
+  }).join("");
+  document.getElementById("robotmsg").innerHTML = weak
+    ? "3 of 5 solid, two within honest reach — both fixes use only things you actually did. Want me to make them? You&rsquo;ll see every change, as always."
+    : "4.5 of 5 must-haves covered — every one from things you actually did. The tools that fake the fifth get interviews that collapse in round one. Yours holds up in the room.";
+  whys(); changes();
+}
+function queue() {
+  var q = document.getElementById("queue");
+  q.style.display = "block";
+  if (queueStep === 0) {
+    q.innerHTML = "<b>1 of 2 · truth flag:</b> &ldquo;led a team of 12&rdquo; — your master says <b>partnered</b>, not managed. Interviewers probe this exact line.<br>" +
+      '<button class="btn sec" onclick="resolveFlag(\'hers\')">take her rewrite</button> <button class="btn sec" onclick="resolveFlag(\'mine\')">edit it myself</button> <button class="btn ghost" onclick="resolveFlag(\'keep\')">keep mine</button> <button class="btn ghost" onclick="later()">later</button>';
+  } else if (queueStep === 1) {
+    q.style.borderColor = "var(--ok)"; q.style.background = "var(--ok-bg)"; q.style.color = "var(--ok)";
+    q.innerHTML = "<b>2 of 2 · suggestion (optional):</b> the growth bullet could carry a second number — even rough retention doubles its weight. Got one?<br>" +
+      '<button class="btn sec" onclick="doneQueue(\'added\')">let me add one</button> <button class="btn ghost" onclick="doneQueue(\'skip\')">it&rsquo;s fine as is</button>';
+  }
+}
+function resolveFlag(how) {
+  document.getElementById("flagtext").textContent = how === "keep"
+    ? "Led a team of 12 engineers on the assistant rebuild"
+    : "Partnered with 12 engineers — the product calls were mine";
+  document.getElementById("flagdot").style.display = "none";
+  queueStep = 1; queue();
+  document.getElementById("status").innerHTML = "<b style='color:var(--warn)'>1 needs your eyes</b> — last one, and it&rsquo;s optional.";
+  if (how === "keep") document.getElementById("status").innerHTML += " <span class='hint'>(kept your wording — your claim, your call; the flag history notes it)</span>";
+  document.getElementById("exportbtn").disabled = false;
+  document.getElementById("exportnote").textContent = "grounded ✓ — export unlocked";
+}
+function doneQueue() {
+  document.getElementById("queue").style.display = "none";
+  document.getElementById("suggdot").style.display = "none";
+  document.getElementById("status").innerHTML = "<b style='color:var(--ok)'>All clear</b> — every line grounded, export unlocked. And that phrasing you chose? Better than mine. Learning it.";
+}
+function later() {
+  document.getElementById("queue").style.display = "none";
+  document.getElementById("status").innerHTML = "<b style='color:var(--warn)'>2 waiting, no rush</b> — the queue keeps your place; export stays locked until the truth flag is settled.";
+}
+function upgrade(yes) {
+  document.getElementById("nup").innerHTML = yes
+    ? "<b style='color:var(--ok)'>Master upgraded.</b> Every future resume starts from your stronger version — this is exactly how your story compounds."
+    : "Kept Stripe-only — your master stays untouched. It never changes without your say-so.";
+}
+</script>
+<script src="../_kit/kit.js"></script>
+</body>
+</html>

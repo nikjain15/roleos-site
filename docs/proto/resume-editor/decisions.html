@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>CORE · Resume editor · design decisions (working doc)</title>
+<link rel="stylesheet" href="../_kit/kit.css">
+<style>
+  .screen{max-width:760px}
+  table{width:100%;border-collapse:collapse;font-size:13px;margin:10px 0}
+  th,td{text-align:left;padding:7px 9px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{color:var(--ink3);font-size:10px;text-transform:uppercase;letter-spacing:.05em}
+  h2{margin-top:28px}
+</style>
+</head>
+<body>
+<div class="screen">
+  <p class="wl">proto · CORE resume editor + per-role tailoring · working doc</p>
+  <h1 style="font-size:22px">CORE · Resume editor — design decisions</h1>
+  <p class="small">Status: <span class="pill ro">IN FEEDBACK</span> · Stage 1 confirmed 2026-07-05 (CORE questions incl.) · prototype at <a href="index.html">/proto/resume-editor/</a> · EXTENDS the live slice-1/3 editor — the PRD diffs kept-vs-new so the builder extends, never rebuilds.</p>
+
+  <h2>Confirmed intent</h2>
+  <div class="wirebox" style="font-size:13.5px;color:var(--ink2)">
+    The flagship craft: your whole career retold for one role without ever becoming fiction. Opens as ONE clean, complete document — the tailored resume, readable as a recruiter would — with quiet dots marking changed lines; everything else lives behind lenses opened one at a time (what changed &amp; why · compare with master · robot view), and RO orients you once in three lines. Every change explains itself in plain English at your chosen depth (concise/detailed toggle, remembered). We out-ATS the ATS tools honestly: real must-have coverage built only from things you did, gaps named, never faked. The truth flag stays from v1, resolvable in place. Your edits teach her voice; edits that beat the master trigger a propose-and-approve upgrade — the master never changes behind your back. Export unlocks when every line is grounded.
+  </div>
+
+  <h2>Locked decisions (incl. the three CORE questions)</h2>
+  <table>
+    <tr><th>#</th><th>Decision</th><th>Choice</th></tr>
+    <tr><td>1</td><td>World-class bar (CORE)</td><td><b>Truth + taste + honestly out-ATS-ing the ATS tools</b> (human combo). Beats Teal/Rezi because keyword coverage comes from real experience (their stuffed output dies in interviews); beats ChatGPT because she remembers and compounds. The robot view makes ATS strength a visible, honest capability.</td></tr>
+    <tr><td>2</td><td>Visible vs invisible intelligence (CORE)</td><td><b>Everything explained, in plain English, layered</b> (human): concise one-liners by default, full reasoning on demand, a <b>concise/detailed toggle</b> persisted per user. Mechanical work (keyword placement, formatting) compressed to one summary line.</td></tr>
+    <tr><td>3</td><td>Overridables (CORE)</td><td>Everything editable, edits clear their own flags (you own your claims — kept from v1). <b>Master upgrades: she proposes, you approve</b> — the source of truth never mutates silently.</td></tr>
+    <tr><td>4</td><td>The editor&rsquo;s shape</td><td><b>Rebuilt as a document editor showing the COMPLETE resume</b> (all years, apples to apples) — human requirement: resumes decide selections, so the user must see the whole document, not fragments. Compare-with-master is a full-document side-by-side lens.</td></tr>
+    <tr><td>5</td><td>Calm UX (standing rule, born here)</td><td>Default = the artifact alone with quiet dots · lenses one at a time (Resume / What changed / Compare / Robot view) · once-only 3-line orientation · mobile: lenses as full screens.</td></tr>
+    <tr><td>6</td><td>Comment system</td><td><b>Typed, not piled:</b> blue why (pull-only) · amber truth flag (blocks export until resolved) · green suggestion (optional) · pencil user note (private). Actionables arrive via a <b>one-at-a-time queue</b> ordered by stakes (truth → suggestions); &ldquo;later&rdquo; always allowed, queue waits without nagging; resolved comments leave the document (history in the changes lens). Honest calm counts (&ldquo;2 need your eyes&rdquo; → &ldquo;all clear&rdquo;), never alarm badges. <i>Generalizes to the cover-letter editor (feature 7).</i></td></tr>
+    <tr><td>7</td><td>Robot view</td><td>&ldquo;How their parser reads this&rdquo;: per-must-have coverage with three honest states (covered-from-real-work / adjacent-framed-honestly / missing-and-not-faked). Weak coverage → she offers fixes that use only real experience. No score theater.</td></tr>
+    <tr><td>8</td><td>Export gate</td><td>DOCX + PDF (kept); unlocks when every line is grounded. Keeping a flagged claim after her warning is allowed (your claim, your call) — noted in flag history.</td></tr>
+    <tr><td>9</td><td>Voice learning</td><td>Every edit is a voice lesson (high-weight decision event); her future drafts converge on how you write. Named to the user (&ldquo;learning it&rdquo;).</td></tr>
+  </table>
+
+  <h2>Extends vs exists (for the builder)</h2>
+  <table>
+    <tr><td><b>Kept from slice 1/3</b></td><td>Two-document model (master = source of truth) · truth-flag mechanics + edit-clears-flag · autosave · DOCX (server) + PDF (client) export · grounded/needs-eyes status.</td></tr>
+    <tr><td><b>New</b></td><td>Full-document rendering both sides · lens architecture + calm default · typed comment system + queue · concise/detailed narration toggle · robot view · master-upgrade proposals · voice-learning capture · once-only orientation.</td></tr>
+  </table>
+
+  <h2>Changelog</h2>
+  <p class="small">2026-07-05 · v0.1 — Stage 1 confirmed (CORE questions; human combos: truth+taste+out-ATS, narrate-everything-layered, full-document rebuild w/ 4 organs); calm-UX revision + comment system approved; prototype built; IN FEEDBACK.</p>
+
+  <p class="hint" style="margin-top:24px"><a href="../index.html">← all prototypes</a> · <a href="index.html">open the prototype</a></p>
+</div>
+</body>
+</html>
