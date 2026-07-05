@@ -55,6 +55,29 @@
 
   <!-- LENS: resume -->
   <div class="view on" id="v-resume">
+    <div class="wirebox" style="border-color:var(--ro);padding:10px 13px;display:flex;justify-content:space-between;align-items:center;gap:10px">
+      <p style="margin:0;font-size:13px;color:var(--ink2)">Prefer not to hunt for dots? <b style="color:var(--tx)">Walk my changes one at a time</b> — see each before/after, edit right there.</p>
+      <button class="btn pri" style="font-size:12px;padding:6px 12px;flex:0 0 auto" onclick="startWalk()">Review 1-by-1</button>
+    </div>
+
+    <!-- the change walker: one change per step, editable in place -->
+    <div id="walker" style="display:none">
+      <div class="wirebox" style="border-color:var(--ro)">
+        <p class="wl" id="wk-count" style="color:var(--ro)"></p>
+        <p style="margin:0 0 4px;font-size:11px;color:var(--ink3)">YOUR MASTER SAID</p>
+        <p style="margin:0 0 8px;font-size:13px;color:var(--ink2)" id="wk-before"></p>
+        <p style="margin:0 0 4px;font-size:11px;color:var(--ink3)">SHE MADE IT — EDIT FREELY, YOUR WORDS WIN</p>
+        <textarea class="input" id="wk-after" rows="2" style="font-size:13.5px"></textarea>
+        <p style="margin:8px 0 0;font-size:12px;color:var(--ro-ink);background:var(--ro-bg);border-radius:6px;padding:7px 9px" id="wk-why"></p>
+        <div style="display:flex;gap:6px;margin-top:10px;flex-wrap:wrap">
+          <button class="btn pri" style="font-size:12px;padding:6px 11px" onclick="walkNext('keep')">looks right — next</button>
+          <button class="btn sec" style="font-size:12px;padding:6px 11px" onclick="walkNext('edited')">save my edit — next</button>
+          <button class="btn ghost" style="font-size:12px;padding:6px 11px" onclick="walkNext('revert')">use my master&rsquo;s version</button>
+          <button class="btn ghost" style="font-size:12px;padding:6px 11px" onclick="endWalk(false)">pause — finish later</button>
+        </div>
+      </div>
+    </div>
+
     <div class="qbanner" id="queue" style="display:none"></div>
     <div class="doc" id="doc">
       <b>NIK JAIN — Senior AI Product Manager</b>
@@ -198,6 +221,33 @@ function doneQueue() {
 function later() {
   document.getElementById("queue").style.display = "none";
   document.getElementById("status").innerHTML = "<b style='color:var(--warn)'>2 waiting, no rush</b> — the queue keeps your place; export stays locked until the truth flag is settled.";
+}
+var WALK = [
+  { before: "• LLM support assistant, −40% response time (bullet 2)", after: "Built the fraud platform that cleared $2B in marketplace risk — moved to bullet 1", whyKey: "l1" },
+  { before: "• Fraud detection platform, $2B cleared (no eval mention)", after: "Shipped an LLM support assistant (−40% response time) with the eval harness that kept it honest", whyKey: "l2" },
+  { before: "• ML risk models", after: "Risk models for money movement — ML that watched real dollars", whyKey: "l3" }
+];
+var wi = 0;
+function startWalk() {
+  wi = 0; document.getElementById("walker").style.display = "block"; walkShow();
+}
+function walkShow() {
+  var w = WALK[wi];
+  document.getElementById("wk-count").textContent = "change " + (wi + 1) + " of " + WALK.length + " · one at a time, no hunting";
+  document.getElementById("wk-before").textContent = w.before;
+  document.getElementById("wk-after").value = w.after;
+  document.getElementById("wk-why").innerHTML = "why: " + RE.whys[w.whyKey][fb];
+}
+function walkNext(how) {
+  wi++;
+  if (wi >= WALK.length) { endWalk(true); return; }
+  walkShow();
+}
+function endWalk(done) {
+  document.getElementById("walker").style.display = "none";
+  document.getElementById("status").innerHTML = done
+    ? "<b style='color:var(--ok)'>All " + WALK.length + " changes reviewed — this resume is fully yours now.</b> Anything you edited, I&rsquo;m learning from."
+    : "<b style='color:var(--ok)'>Paused at change " + (wi + 1) + "</b> — I&rsquo;ll hold your place; the rest wait without nagging.";
 }
 function upgrade(yes) {
   document.getElementById("nup").innerHTML = yes
