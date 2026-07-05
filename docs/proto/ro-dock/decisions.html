@@ -34,7 +34,8 @@
     <tr><td>4</td><td>Memory</td><td><b>One conversation, context-aware</b> — a single thread across the journey (day markers, past visible), plus live screen awareness. Summarization under the hood; W6 persistence extends.</td></tr>
     <tr><td>5</td><td>Guardrails</td><td>Honest she&rsquo;s an AI · dependence-adjacent moments get the warm-honest-redirect template (&ldquo;who&rsquo;s the friend you&rsquo;d call?&rdquo;) · quiet-when-you-go-quiet · recommends rest against engagement (&ldquo;one more mock would buy you anxiety, not sharpness&rdquo;).</td></tr>
     <tr><td>6</td><td>Verified before shown (human req, 2026-07-05)</td><td><b>Two-model pipeline on every dock reply:</b> RO drafts on the reasoning tier → a separate fast checker model verifies accuracy, guardrails, and voice → pass = shown; fail = one auto-fix + re-check; still failing = honest &ldquo;let me double-check that — one moment&rdquo; rather than a wrong answer. Latency budget: deterministic checks are instant; the smart check runs on the fastest tier and streams-overlaps the draft where safe; target &le;1s added, never skipped. Quality is never traded for speed — speed is optimized separately (standing product rule). Extends the existing quality gate (agent/quality-gate.ts), which today skips voice-judging chat.</td></tr>
-    <tr><td>7</td><td>Success</td><td>Companion-register conversations happen · act-verbs used from chat · zero re-introductions. Healthy-engagement family.</td></tr>
+    <tr><td>7</td><td>Wrong-answer feedback loop (human req, 2026-07-05)</td><td><b>Every RO reply carries a quiet &ldquo;not right?&rdquo; affordance.</b> Tapping it: (1) she owns it in the recovery voice (&ldquo;Good — scratch that, my mistake. What did I miss? Corrections make me sharper for you&rdquo;) and captures what was wrong; (2) the report becomes a <b>highest-weight decision event</b> + the full reasoning trace is auto-flagged into the eval set (agent_runs); (3) flagged cases grow a per-skill accuracy eval that both the answer model AND the checker model are continuously measured against; (4) an <b>escalation ladder</b> triggers on accuracy thresholds: prompt fix → checker tightened → <b>model swap</b> (the registry makes swapping a config change, not code — built for exactly this) → backup model on provider degradation. Admin sees accuracy trends per skill/model. Goal: a reported wrong answer is the last of its kind.</td></tr>
+    <tr><td>8</td><td>Success</td><td>Companion-register conversations happen · act-verbs used from chat · zero re-introductions. Healthy-engagement family.</td></tr>
   </table>
 
   <h2>Data &amp; guardrails</h2>
@@ -45,7 +46,8 @@
   </table>
 
   <h2>Changelog</h2>
-  <p class="small">2026-07-05 · v0.2 — human requirement added: verified-before-shown two-model pipeline on every dock reply, ≤1s budget, quality never traded.<br>
+  <p class="small">2026-07-05 · v0.3 — human requirement added: wrong-answer feedback loop (report → owned warmly → eval set → accuracy ladder → model swap if needed).<br>
+    2026-07-05 · v0.2 — human requirement added: verified-before-shown two-model pipeline on every dock reply, ≤1s budget, quality never traded.<br>
     2026-07-05 · v0.1 — Stage 1 confirmed (4/4 recommended); storyboard + dependence-template line approved; prototype built; IN FEEDBACK.</p>
 
   <p class="hint" style="margin-top:24px"><a href="../index.html">← all prototypes</a> · <a href="index.html">open the prototype</a></p>
