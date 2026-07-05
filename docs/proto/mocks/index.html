@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Practice & mocks · ready is a feeling you earn</title>
+<link rel="stylesheet" href="../_kit/kit.css">
+<style>
+  .meter{height:10px;background:var(--surf2);border-radius:5px;overflow:hidden;margin:6px 0}
+  .meter div{height:100%;background:var(--ok);border-radius:5px}
+  .drill{border:1px solid var(--line);border-radius:8px;padding:9px 12px;margin:6px 0;font-size:13px}
+</style>
+</head>
+<body>
+<div class="screen">
+  <p class="wl">proto · CORE practice &amp; mocks · flip persona below</p>
+
+  <!-- BEFORE: prep -->
+  <div data-persona-show="prep">
+    <div class="ro-says" style="margin-top:10px"><span class="who">RO</span>
+      <p class="msg">Thursday&rsquo;s Stripe round, and here&rsquo;s the honest map: I predict 6 likely questions (Maya&rsquo;s lens is evals), your story bank covers 5 — and there&rsquo;s <b>one gap</b> we should fix before anything else.</p>
+    </div>
+    <div class="wirebox" style="border-left:3px solid var(--warn)">
+      <p style="margin:0;font-size:13px;color:var(--ink2)"><b style="color:var(--tx)">The gap: a &ldquo;killed a feature&rdquo; story.</b> She asks it in most loops, and your bank has nothing mapped. You&rsquo;ve done it — the dashboard you sunset at Acme — it&rsquo;s just never been told as a story. Five minutes with me turns it into one.</p>
+      <button class="btn pri" style="font-size:12px;padding:6px 11px;margin-top:8px" onclick="this.outerHTML='<p style=margin-top:8px;font-size:13px;color:var(--ok)><b>Story built and mapped.</b> Bank: 6 of 6. Now we can drill or mock — your pick.</p>'">build it with me — 5 min</button>
+    </div>
+    <p class="wl" style="margin-top:14px">warm-ups — pick your mode</p>
+    <div class="drill"><b>Quick drills</b> — she fires likely questions, you answer out loud or in a line; instant nudge (&ldquo;good — now say the number&rdquo;). <span class="pill ro">5 min</span></div>
+    <div class="drill"><b>Answer crafting</b> — build the STAR version of one story, together; ends spoken-not-scripted (&ldquo;now say it like you&rsquo;d tell a friend&rdquo;). <span class="pill ro">10 min</span></div>
+    <div class="drill"><b>The full mock</b> — she becomes Maya; adaptive, unscripted, debriefed. <span class="pill ok">25 min</span></div>
+    <p class="hint">All three modes, your order — drills sharpen recall, crafting sharpens stories, the mock sharpens YOU. Nothing is scripted-sounding by design.</p>
+  </div>
+
+  <!-- THE MOCK -->
+  <div data-persona-show="mock">
+    <div class="wirebox" style="background:var(--warn-bg);border-color:var(--warn);padding:8px 12px">
+      <p style="margin:0;font-size:12px;color:var(--warn)"><b>Mock in progress — she is Maya now.</b> Adaptive: your answers change her follow-ups. Pause anytime; nothing is graded until the debrief, and the debrief is on your side.</p>
+    </div>
+    <div class="ro-says"><span class="who" style="background:var(--warn)">M</span>
+      <p class="msg" style="background:var(--warn-bg);color:var(--warn)">Walk me through the eval harness — but what I actually want to know is: what did it catch that would have shipped?</p>
+    </div>
+    <p style="text-align:right;font-size:13px;color:var(--ink2);margin:8px 0">&ldquo;Three regressions in the first month — one would have sent wrong refund amounts&hellip;&rdquo;</p>
+    <div class="ro-says"><span class="who" style="background:var(--warn)">M</span>
+      <p class="msg" style="background:var(--warn-bg);color:var(--warn)">Wrong refund amounts — so who made the call to block that release, you or the eng lead? Tell me about the disagreement.</p>
+    </div>
+    <p class="hint">↑ the adaptive follow-up: your answer opened a door, she walked through it — exactly like Thursday. Text today; voice is the same flow, later (flip persona).</p>
+  </div>
+
+  <!-- DEBRIEF -->
+  <div data-persona-show="debrief">
+    <div class="ro-says" style="margin-top:10px"><span class="who">RO</span>
+      <p class="msg">Okay, me again — Maya&rsquo;s gone. That was genuinely strong, and I&rsquo;ll show you exactly where. Two things landed, one needs sharpening — and it&rsquo;s sharpenable tonight.</p>
+    </div>
+    <div class="wirebox">
+      <p class="wl">what landed</p>
+      <p style="margin:0 0 8px;font-size:13px;color:var(--ink2)">✓ The refund story — concrete, quantified, and you owned the call without hedging. That&rsquo;s senior. · ✓ You asked her a real question back — interviewers remember that.</p>
+      <p class="wl">what to sharpen — one thing, not seven</p>
+      <p style="margin:0;font-size:13px;color:var(--ink2)">Your &ldquo;why Stripe&rdquo; ran 90 seconds and buried the lede. Say the last sentence first. Want to re-mock just that answer? Two minutes.</p>
+      <button class="btn sec" style="font-size:12px;padding:6px 11px;margin-top:8px" onclick="this.outerHTML='<p style=margin-top:8px;font-size:13px;color:var(--ok)>Re-mocked — 20 seconds, lede first. That&rsquo;s the version that walks in Thursday.</p>'">re-mock just that — 2 min</button>
+    </div>
+    <p class="wl" style="margin-top:12px">readiness — honest, not a grade</p>
+    <div class="meter"><div style="width:82%"></div></div>
+    <p class="small" style="margin:0">82 — ready. The last 18 points are sleep and showing up as yourself. I&rsquo;d rest tonight; you&rsquo;ve earned the confidence you&rsquo;re feeling.</p>
+  </div>
+
+  <!-- VOICE (future state) -->
+  <div data-persona-show="voice">
+    <div class="wirebox ghost" style="text-align:center;padding:24px">
+      <p style="margin:0 0 4px;font-size:15px"><b>Voice mock — the same flow, out loud</b></p>
+      <p style="margin:0 0 12px;font-size:13px;color:var(--ink2)">Same adaptive Maya, same debrief — but you speak, she speaks. Designed now, ships later (browser-native voice, per your X8 call).</p>
+      <div style="width:64px;height:64px;border-radius:50%;background:var(--surf2);border:2px dashed var(--line2);margin:0 auto;display:flex;align-items:center;justify-content:center;font-size:24px">🎙</div>
+      <p class="hint" style="margin-top:10px">The debrief gains: pace, filler words, how you sound under a follow-up — things text can&rsquo;t hear. Everything else is identical by design, so switching costs nothing.</p>
+    </div>
+  </div>
+
+  <p class="hint" style="text-align:center;margin-top:16px"><a href="../index.html">all prototypes</a></p>
+</div>
+<script>
+window.PROTO = {
+  feature: "mocks", screen: "index",
+  screens: [["index","practice & mocks"]], states: ["default"],
+  personas: [["prep","Before — bank, gap, warm-ups"],["mock","The mock — she is Maya"],["debrief","The debrief + readiness"],["voice","Voice mode — future state"]]
+};
+</script>
+<script src="../_kit/kit.js"></script>
+</body>
+</html>

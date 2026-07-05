@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Offer co-pilot · the biggest decision, not faced alone</title>
+<link rel="stylesheet" href="../_kit/kit.css">
+<style>
+  table{width:100%;border-collapse:collapse;font-size:12.5px;margin:10px 0}
+  th,td{text-align:left;padding:7px 9px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{color:var(--ink3);font-size:10px;text-transform:uppercase;letter-spacing:.05em}
+  .win{background:var(--ok-bg);border-radius:4px;padding:1px 6px;color:var(--ok);font-weight:600}
+  .lever{border:1px solid var(--line);border-radius:8px;padding:8px 11px;margin:6px 0;font-size:13px}
+</style>
+</head>
+<body>
+<div class="screen">
+  <p class="wl">proto · CORE offer &amp; comp co-pilot · flip persona below</p>
+
+  <!-- SINGLE OFFER: negotiate -->
+  <div data-persona-show="single">
+    <div class="wirebox" style="background:var(--ok-bg);border-color:var(--ok)">
+      <p style="margin:0;font-size:14px;color:var(--ok)"><b>Offer&rsquo;s in from Stripe — $235k base.</b> That&rsquo;s a real milestone; take a second to enjoy it. When you&rsquo;re ready, there&rsquo;s room to push — and I can show you exactly how much.</p>
+    </div>
+    <div class="wirebox">
+      <p class="wl">the honest benchmark — receipts attached</p>
+      <p style="margin:0;font-size:13px;color:var(--ink2)">Their offer: $235k base + equity + 10% bonus. Comparable roles (12 in my index, same level/geo): <b>$210–260k stated</b>, and offers at your interview performance typically close in the upper half. My read: <b>~$250–255k is reachable</b> — an estimate from those 12, not a promise. <span style="font-family:var(--mono);font-size:10.5px;color:var(--ro)">tap any number for its source</span></p>
+    </div>
+    <p class="wl">your levers — each with honest odds</p>
+    <div class="lever"><b>Push base to $255k</b> — likely lands $248–255k; they moved for both prior counters I&rsquo;ve seen in this band <span class="pill ok" style="float:right">strong lever</span></div>
+    <div class="lever"><b>Sign-on instead</b> — easier yes for them, worth ~$15–20k one-time <span class="pill warn" style="float:right">fallback</span></div>
+    <div class="lever"><b>Earlier review cycle</b> — costs them nothing today; compounds for you <span class="pill ok" style="float:right">always ask</span></div>
+  </div>
+
+  <!-- MULTI OFFER: the decision -->
+  <div data-persona-show="multi">
+    <div class="ro-says" style="margin-top:10px"><span class="who">RO</span>
+      <p class="msg">Two offers. First: this is a position most people never reach — you did that. Now let&rsquo;s decide like it matters, because it does.</p>
+    </div>
+    <table>
+      <tr><th></th><th>Stripe</th><th>BigCo</th></tr>
+      <tr><td>base</td><td>$235k (→ ~$250k likely)</td><td><span class="win">$260k</span></td></tr>
+      <tr><td>scope</td><td><span class="win">0-to-1 — the surface is yours</span></td><td>inherit a mature area</td></tr>
+      <tr><td>trajectory</td><td><span class="win">compounds your next move</span></td><td>comfortable plateau risk</td></tr>
+      <tr><td>energy cost</td><td>higher — building is building</td><td><span class="win">lower</span></td></tr>
+    </table>
+    <div class="wirebox" style="background:var(--ro-bg);border-color:var(--ro)">
+      <p style="margin:0;font-size:13.5px;color:var(--ro-ink)"><b>My lean, with receipts:</b> BigCo pays $25k more. But you told me scope beats title — twice, once when you passed on Ramp — and Stripe&rsquo;s 0-to-1 surface is the version of you that shows up in every story you&rsquo;re proud of. I&rsquo;d take Stripe. <b>Your call</b> — and whichever you choose, I&rsquo;ll make the close graceful and keep the other door warm.</p>
+      <p class="hint" style="margin-top:6px">&ldquo;you told me&rdquo; links to the actual moments you taught her — verifiable, never presumptuous.</p>
+    </div>
+  </div>
+
+  <!-- THE COUNTER -->
+  <div data-persona-show="counter">
+    <div class="ro-says" style="margin-top:10px"><span class="who">RO</span>
+      <p class="msg">Your counter, drafted — the number and the story behind it. Firm, warm, no apology. Read it, make it yours, and the send is your hand as always.</p>
+    </div>
+    <div class="wirebox">
+      <p style="margin:0;font-size:13px;color:var(--ink2);line-height:1.8">&ldquo;Thank you — I&rsquo;m genuinely excited about this. One thing before I sign: given the scope we discussed and where comparable roles are landing, I&rsquo;d like to close base at <b>$255k</b>. The rest of the package looks right. If we can get there, I&rsquo;m ready to sign this week.&rdquo;</p>
+      <p class="hint" style="margin-top:8px">Why this works: one ask (not a list) · a reason they can repeat internally · a close (&ldquo;sign this week&rdquo;) that makes yes easy. Multi-round: as they respond, each counter-counter gets drafted — you send every one.</p>
+    </div>
+    <div style="display:flex;gap:8px;margin-top:8px">
+      <button class="btn pri" onclick="this.outerHTML='<p style=font-size:13px;color:var(--ok);margin:0><b>Opened in your email — your words, your send.</b> I&rsquo;m watching for their reply; you&rsquo;ll hear the moment it lands.</p>'">open in my email — I&rsquo;ll send it</button>
+      <button class="btn sec">edit it first</button>
+    </div>
+  </div>
+
+  <p class="hint" style="text-align:center;margin-top:16px"><a href="../index.html">all prototypes</a></p>
+</div>
+<script>
+window.PROTO = {
+  feature: "offers", screen: "index",
+  screens: [["index","offer co-pilot"]], states: ["default"],
+  personas: [["single","One offer — the levers"],["multi","Two offers — the decision"],["counter","The counter, drafted"]]
+};
+</script>
+<script src="../_kit/kit.js"></script>
+</body>
+</html>

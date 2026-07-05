@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Nudges & digests · she earns the interrupt</title>
+<link rel="stylesheet" href="../_kit/kit.css">
+<style>
+  .mail{background:var(--surf);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+  .mail .subj{font-weight:600;font-size:14px}
+  .mail .from{font-size:11px;color:var(--ink3);font-family:var(--mono);margin-bottom:10px}
+  .push{border:1px solid var(--line);border-radius:12px;padding:10px 14px;margin:6px 0;font-size:13px;background:var(--surf);box-shadow:0 2px 8px rgba(0,0,0,.06)}
+</style>
+</head>
+<body>
+<div class="screen">
+  <p class="wl">proto · nudges &amp; digests — she earns the interrupt · flip persona below</p>
+
+  <!-- DAILY NORMAL -->
+  <div data-persona-show="daily">
+    <p class="small" style="margin-top:10px"><b>The daily digest</b> — the feed&rsquo;s morning brief, delivered. One product, two doors.</p>
+    <div class="mail">
+      <p class="subj">Your day with RO — 3 moves, 15 minutes</p>
+      <p class="from">from RO · 8:00am · respects your quiet hours, always</p>
+      <p style="margin:0 0 10px;font-size:13.5px;color:var(--ink2)">Morning. Good night&rsquo;s work — a recruiter replied, and I shortlisted 3 fresh roles. Here&rsquo;s what actually needs you today:</p>
+      <div class="mini"><span>1 · Send your Ramp application</span><span class="pill ro">5 min</span></div>
+      <div class="mini"><span>2 · Reply to the Stripe recruiter — draft&rsquo;s ready</span><span class="pill ro">3 min</span></div>
+      <div class="mini"><span>3 · Pick your take-home angle</span><span class="pill ro">7 min</span></div>
+      <p style="margin:10px 0 0;font-size:12.5px;color:var(--ink2)">Pace: <b style="color:var(--ok)">on track</b> — finish these and you&rsquo;re ahead. One tap below opens your feed with everything ready.</p>
+    </div>
+    <p class="hint">Same voice, same honesty, no new information vs the app — by design. Cadence is one setting: real-time / daily (default) / weekly / only-when-I-open.</p>
+  </div>
+
+  <!-- ROUGH PATCH -->
+  <div data-persona-show="rough">
+    <p class="small" style="margin-top:10px"><b>The rough-patch register</b> — after a hard week the digest drops the cheer first.</p>
+    <div class="mail">
+      <p class="subj">One gentle thing for today — the rest can wait</p>
+      <p class="from">from RO · 8:00am</p>
+      <p style="margin:0;font-size:13.5px;color:var(--ink2);line-height:1.7">This week&rsquo;s been heavy — two passes back to back, and I&rsquo;m not going to pretend the morning list matters more than that. It doesn&rsquo;t. Here&rsquo;s all I&rsquo;ll ask today: the Sierra draft is ready, it&rsquo;s your strongest fit this month, and it&rsquo;ll take 5 minutes whenever you&rsquo;re ready — today or not. Everything else, I&rsquo;m carrying. Your progress is safe with me.</p>
+    </div>
+    <p class="hint">Triggered by real signals (consecutive rejections, long quiet after activity) — never guessed from nothing. This register was deferred from the feed design to here; it applies to the in-app brief too.</p>
+  </div>
+
+  <!-- PUSH RULES -->
+  <div data-persona-show="push">
+    <p class="small" style="margin-top:10px"><b>Push — rare, earned, user-actionable only.</b> Capped ~1/day, ~3/week. What qualifies:</p>
+    <div class="push">🔔 <b>Interview tomorrow 2pm — your prep&rsquo;s ready.</b> Ten minutes tonight beats an hour of nerves tomorrow.</div>
+    <div class="push">🔔 <b>The Stripe recruiter&rsquo;s been waiting 2 days</b> — your drafted reply takes one tap.</div>
+    <div class="push">🔔 <b>Take-home due in 24h</b> — you&rsquo;re 80% done; the last part is 30 minutes.</div>
+    <p class="small" style="margin-top:12px"><b>What NEVER pushes</b> — banned in code, not just in taste:</p>
+    <div class="wirebox ghost" style="font-size:12.5px;color:var(--ink2)">&ldquo;3 new matches!&rdquo; (waits in the feed) · &ldquo;You haven&rsquo;t logged in&hellip;&rdquo; (never, ever) · streak anything · &ldquo;ACT NOW&rdquo; anything. Quiet hours 9pm–8am are absolute — only a true user-actionable deadline crosses, gently, and it apologizes for existing.</div>
+    <div class="ro-says" style="margin-top:8px"><span class="who">RO</span>
+      <p class="msg">And when you go quiet, I go quieter — fewer pings, warmer tone, never escalation. The way back is always one gentle door, never a pile of guilt.</p>
+    </div>
+  </div>
+
+  <p class="hint" style="text-align:center;margin-top:16px"><a href="../index.html">all prototypes</a></p>
+</div>
+<script>
+window.PROTO = {
+  feature: "digests", screen: "index",
+  screens: [["index","nudges & digests"]], states: ["default"],
+  personas: [["daily","Daily digest — normal"],["rough","Daily — rough patch"],["push","Push rules + the never list"]]
+};
+</script>
+<script src="../_kit/kit.js"></script>
+</body>
+</html>

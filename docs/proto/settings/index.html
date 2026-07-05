@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Settings · the contract surface</title>
+<link rel="stylesheet" href="../_kit/kit.css">
+<style>
+  .row2{display:flex;justify-content:space-between;align-items:center;gap:10px;border-bottom:1px solid var(--line);padding:9px 2px;font-size:13px}
+  .know{border:1px solid var(--line);border-radius:8px;padding:8px 11px;margin:6px 0;font-size:13px}
+  .know .acts button{font-size:11px;padding:3px 8px;margin-top:5px}
+</style>
+</head>
+<body>
+<div class="screen">
+  <p class="wl">proto · settings — the contract surface · flip persona below</p>
+
+  <!-- WHAT SHE KNOWS -->
+  <div data-persona-show="knows">
+    <div class="ro-says" style="margin-top:10px"><span class="who">RO</span>
+      <p class="msg">Everything I know about you, in plain words — no hidden model, no mystery. Read it, fix it, strike it. It&rsquo;s yours; I just maintain it.</p>
+    </div>
+    <p class="wl">your taste — what ranks your roles</p>
+    <div class="know">Scope beats title — you&rsquo;ll trade ~$20k for 0-to-1 <span class="hint">high confidence · 4 moments</span><div class="acts"><button class="btn sec">right</button> <button class="btn sec">fix</button> <button class="btn ghost">strike</button></div></div>
+    <div class="know">Fintech off the menu · remote-first, NYC soft spot <span class="hint">high · 5 moments</span><div class="acts"><button class="btn sec">right</button> <button class="btn sec">fix</button> <button class="btn ghost">strike</button></div></div>
+    <p class="wl" style="margin-top:12px">your voice — what writes like you</p>
+    <div class="know">Short sentences · concrete numbers · no adjectives · direct-warm with strangers <span class="hint">medium, rising · 11 edits + interview</span><div class="acts"><button class="btn sec">right</button> <button class="btn sec">fix</button> <button class="btn ghost">strike</button></div></div>
+    <p class="hint">The same ledger the weekly review shows — living here permanently, steered from either place.</p>
+  </div>
+
+  <!-- WHAT SHE DOES -->
+  <div data-persona-show="does">
+    <p class="small" style="margin-top:10px"><b>What she does — every dial in one place.</b> The one rule no dial can change: nothing outward ever sends without your hand.</p>
+    <div class="row2"><span>Notifications</span><span class="pill ro">daily digest (default) ▾</span></div>
+    <div class="row2"><span>Quiet hours</span><span class="pill ro">9pm – 8am · weekends off ▾</span></div>
+    <div class="row2"><span>Push mode intensity</span><span class="pill ro">Push (~8/week) ▾</span></div>
+    <div class="row2"><span>Overnight hunt (she sources &amp; pre-drafts while you sleep)</span><span class="pill ok">on ▾</span></div>
+    <div class="row2"><span>Research interviewers (public-professional only)</span><span class="pill ok">on · per-interview opt-out ▾</span></div>
+    <div class="row2"><span>Letters: her feedback depth</span><span class="pill ro">concise ▾</span></div>
+    <div class="row2"><span>Gmail &amp; Calendar</span><span class="pill ok">connected · what she reads ▸</span></div>
+    <div class="row2" style="border-bottom:none"><span><b>Send anything on my behalf</b></span><span class="pill" style="background:var(--surf2);color:var(--ink3)">not a setting — never</span></div>
+  </div>
+
+  <!-- FLAGS + EXITS -->
+  <div data-persona-show="flags">
+    <p class="wl" style="margin-top:10px">what you&rsquo;ve flagged — and what changed because of it</p>
+    <div class="know">&ldquo;Not right&rdquo; on a match reason (June 28) → <span style="color:var(--ok)">fixed + added to my permanent test set; that mistake can&rsquo;t quietly return</span></div>
+    <div class="know">Corrected my comp estimate for Sierra (July 2) → <span style="color:var(--ok)">re-weighted how I read unstated bands at seed-stage</span></div>
+    <p class="hint">Every flag is accountability: it becomes a test both my answer-model and my checker-model are measured against, forever.</p>
+    <p class="wl" style="margin-top:14px">the exits — real buttons, no dark patterns</p>
+    <div class="wirebox">
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <button class="btn sec">Export everything — yours in one file</button>
+        <button class="btn sec">Pause the hunt — everything keeps, nothing pings</button>
+        <button class="btn ghost" style="color:var(--dng);border-color:var(--dng)" onclick="this.outerHTML='<p style=font-size:13px;color:var(--ink2);margin:0>One honest confirm, then everything goes — taste model, profile, history, all of it. No retention tricks, no &ldquo;are you sure&rdquo; maze. (Grey-box: the real button does exactly this.)</p>'">Delete everything</button>
+      </div>
+      <p class="hint" style="margin-top:8px">Leaving should be as honest as staying. The taste model was always yours — export it, delete it, no questions beyond one confirm.</p>
+    </div>
+  </div>
+
+  <p class="hint" style="text-align:center;margin-top:16px"><a href="../index.html">all prototypes</a></p>
+</div>
+<script>
+window.PROTO = {
+  feature: "settings", screen: "index",
+  screens: [["index","settings"]], states: ["default"],
+  personas: [["knows","What she knows — correctable"],["does","What she does — the dials"],["flags","Your flags + the exits"]]
+};
+document.addEventListener("click", function (e) {
+  if (e.target.matches(".know .acts .btn")) {
+    var t = e.target.textContent;
+    e.target.closest(".acts").outerHTML = '<p style="margin:5px 0 0;font-size:12px;color:var(--ok)">' +
+      (t === "right" ? "Confirmed — locked in." : t === "fix" ? "Tell me the real shape — corrections are how I get truly yours." : "Struck and forgotten — everywhere it was used.") + "</p>";
+  }
+});
+</script>
+<script src="../_kit/kit.js"></script>
+</body>
+</html>

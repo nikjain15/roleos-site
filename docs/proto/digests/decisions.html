@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Nudges & digests · design decisions (working doc)</title>
+<link rel="stylesheet" href="../_kit/kit.css">
+<style>.screen{max-width:760px}table{width:100%;border-collapse:collapse;font-size:13px;margin:10px 0}td{text-align:left;padding:7px 9px;border-bottom:1px solid var(--line);vertical-align:top}h2{margin-top:28px}</style>
+</head>
+<body>
+<div class="screen">
+  <p class="wl">proto · Nudges & digests · working doc</p>
+  <h1 style="font-size:22px">Nudges & digests — design decisions</h1>
+  <p class="small">Status: <span class="pill ro">IN FEEDBACK</span> · Stage 1 confirmed 2026-07-05 (batched keystone round) · prototype at <a href="index.html">/proto/digests/</a> · Implements journey §10's locked interrupt economy; owns the rough-patch register deferred from J3.</p>
+  <h2>Confirmed intent</h2>
+  <div class="wirebox" style="font-size:13.5px;color:var(--ink2)">She earns the interrupt. The daily digest is the feed's morning brief delivered — her two sentences, the finishable Today list, one pace line; same voice, no new information by design (a door, not a second product). Cadence is one setting (real-time / daily default / weekly / only-when-I-open); quiet hours absolute. The rough-patch register lives here and in the in-app brief: after real hard signals, cheer drops and companion leads — one gentle thing, everything else carried. Push is rare, earned, user-actionable only (~1/day, ~3/week cap); the never-list (streaks, guilt, ACT NOW) is banned in code; when you go quiet she goes quieter.</div>
+  <h2>Locked decisions</h2>
+  <table><tr><td><b>Digest shape (keystone)</b></td><td>Mirror of the feed brief (human): brief → Today → pace, one product two doors. Weekly-magazine rejected.</td></tr><tr><td><b>Rough-patch register</b></td><td>Owned here (deferred from J3): triggered by real signals only; companion-first copy per prototype; applies to in-app brief too.</td></tr><tr><td><b>Push economy</b></td><td>Journey §10 rules verbatim: rare, earned, capped, quiet-hours-absolute, never-list banned in code.</td></tr></table>
+  <h2>Changelog</h2>
+  <p class="small">2026-07-05 · v0.1 — keystone confirmed in the all-features batch; prototype built; IN FEEDBACK.</p>
+  <p class="hint" style="margin-top:24px"><a href="../index.html">← all prototypes</a> · <a href="index.html">open the prototype</a></p>
+</div>
+</body>
+</html>

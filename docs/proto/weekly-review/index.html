@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Weekly review · step back, then aim</title>
+<link rel="stylesheet" href="../_kit/kit.css">
+<style>
+  .learn{border:1px solid var(--line);border-radius:8px;padding:9px 12px;margin:6px 0;font-size:13px}
+  .learn .acts{margin-top:6px}
+  .learn .acts button{font-size:11.5px;padding:4px 9px}
+</style>
+</head>
+<body>
+<div class="screen">
+  <p class="wl">proto · CORE weekly strategy review · flip persona below</p>
+
+  <!-- GOOD WEEK -->
+  <div data-persona-show="good">
+    <div class="ro-says" style="margin-top:10px"><span class="who">RO</span>
+      <p class="msg">Week 4, and it was a good one — let&rsquo;s take the ten-minute step back that keeps the next one good too.</p>
+    </div>
+    <div class="wirebox"><p class="wl">the week, honestly</p>
+      <p style="margin:0;font-size:13px;color:var(--ink2);line-height:1.7">6 sent (pace asked for 6) · 2 replies — your reply rate is now <b>29%, beating the benchmark</b> I planned with · Stripe advanced to onsite · Notion went quiet (14d, still normal).</p></div>
+    <div class="wirebox"><p class="wl">what&rsquo;s working — do more of this</p>
+      <p style="margin:0;font-size:13px;color:var(--ink2)">Applications where the letter led with the fraud story got replies at 2× your average. The story is the spearhead — I&rsquo;m making it the default opener.</p></div>
+    <div class="wirebox"><p class="wl">next week — one focus, not five</p>
+      <p style="margin:0;font-size:13px;color:var(--ink2)">Thursday&rsquo;s onsite is the week. Pace drops to 4 sends on purpose — interview energy beats application volume when a final is live. Rest Wednesday night; that&rsquo;s a strategy, not a treat.</p></div>
+  </div>
+
+  <!-- ROUGH WEEK -->
+  <div data-persona-show="rough">
+    <div class="ro-says" style="margin-top:10px"><span class="who">RO</span>
+      <p class="msg">Week 5 was rough — two passes and a quiet pipeline, and I&rsquo;m not going to open with charts. First: none of it says what your inner critic thinks it says. Faire gave no reason (that&rsquo;s about their process), and quiet weeks happen in every single hunt I&rsquo;ve seen. Now, gently, the useful part: both passes came at final round. That&rsquo;s a <b>pattern with a fix</b>, not a verdict — final rounds test presence, not competence, and presence is trainable. This week: one mock with me on exactly that, and we hold the pace steady rather than pushing harder. You&rsquo;re closer than this week felt.</p>
+    </div>
+    <p class="hint" style="margin-left:40px">Companion-first when it&rsquo;s been hard: acknowledge → honest pattern → one fixable thing → belief. Charts available below, never leading.</p>
+  </div>
+
+  <!-- THE LEARNING LEDGER -->
+  <div data-persona-show="ledger">
+    <div class="ro-says" style="margin-top:10px"><span class="who">RO</span>
+      <p class="msg">What I learned about you this week — in plain words, each one yours to confirm, fix, or strike. This is the model that ranks your roles and writes in your voice; you should always be able to read it.</p>
+    </div>
+    <div class="learn"><b>You&rsquo;ll trade $20k for 0-to-1 scope.</b> <span class="hint">from: passing on Ramp, choosing Sierra · confidence: high</span>
+      <div class="acts"><button class="btn sec" onclick="act(this,'Confirmed — locked in with high confidence.')">that&rsquo;s right</button> <button class="btn sec" onclick="act(this,'Tell me the real shape — I&rsquo;d rather be corrected than confidently wrong.')">not quite</button> <button class="btn ghost" onclick="act(this,'Struck. Forgotten everywhere it was used — ranking updates tonight.')">strike it</button></div></div>
+    <div class="learn"><b>Fintech is off your menu — even at a premium.</b> <span class="hint">from: three dismissals w/ reasons · confidence: high</span>
+      <div class="acts"><button class="btn sec" onclick="act(this,'Confirmed.')">that&rsquo;s right</button> <button class="btn sec" onclick="act(this,'Tell me the real shape.')">not quite</button> <button class="btn ghost" onclick="act(this,'Struck and forgotten.')">strike it</button></div></div>
+    <div class="learn"><b>Your writing voice: short sentences, concrete numbers, no adjectives.</b> <span class="hint">from: 11 edits across letters + resume · confidence: medium, rising</span>
+      <div class="acts"><button class="btn sec" onclick="act(this,'Confirmed — my drafts keep converging on it.')">that&rsquo;s right</button> <button class="btn sec" onclick="act(this,'Tell me the real shape.')">not quite</button> <button class="btn ghost" onclick="act(this,'Struck.')">strike it</button></div></div>
+    <p class="hint">Every entry shows its evidence and confidence. Corrections here are the highest-weight signal in the whole system — this ledger also lives in Settings, but the steering moment is now, right after she shows her work.</p>
+  </div>
+
+  <p class="hint" style="text-align:center;margin-top:16px"><a href="../index.html">all prototypes</a></p>
+</div>
+<script>
+window.PROTO = {
+  feature: "weekly-review", screen: "index",
+  screens: [["index","weekly review"]], states: ["default"],
+  personas: [["good","A good week"],["rough","A rough week — companion first"],["ledger","The learning ledger"]]
+};
+function act(btn, msg) {
+  btn.closest(".acts").outerHTML = '<p style="margin:6px 0 0;font-size:12.5px;color:var(--ok)">' + msg + "</p>";
+}
+</script>
+<script src="../_kit/kit.js"></script>
+</body>
+</html>

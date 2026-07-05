@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Referrals · warm paths, never spent for you</title>
+<link rel="stylesheet" href="../_kit/kit.css">
+</head>
+<body>
+<div class="screen">
+  <p class="wl">proto · CORE referral &amp; warm-intro finder · flip persona below</p>
+
+  <!-- PATHS FOUND -->
+  <div data-persona-show="paths">
+    <div class="ro-says" style="margin-top:10px"><span class="who">RO</span>
+      <p class="msg">Before you apply cold to Stripe: <b>two warm paths</b>, found only in data you gave me access to. A referral roughly triples reply odds — worth two minutes before the front door.</p>
+    </div>
+    <div class="wirebox">
+      <p style="margin:0;font-size:14px"><b>Priya Sharma</b> — 2 years at Stripe, product team</p>
+      <p style="margin:4px 0 0;font-size:12.5px;color:var(--ink2)">Found via: your Gmail history — 14 threads, last one in March. <span style="font-family:var(--mono);font-size:10.5px;color:var(--ro)">source: your connected inbox (approved source A)</span></p>
+      <p style="margin:8px 0 4px;font-size:13px">Quick, because it shapes everything: <b>how well do you actually know Priya?</b></p>
+      <p style="margin:0"><button class="btn sec" style="font-size:12px;padding:5px 10px" onclick="shape(this,'close')">good friend</button> <button class="btn sec" style="font-size:12px;padding:5px 10px" onclick="shape(this,'warm')">friendly ex-colleague</button> <button class="btn sec" style="font-size:12px;padding:5px 10px" onclick="shape(this,'thin')">barely — one project</button></p>
+      <p id="shapenote" style="display:none;margin:8px 0 0;font-size:12.5px;color:var(--ok)"></p>
+    </div>
+    <div class="wirebox">
+      <p style="margin:0;font-size:14px"><b>Dev Patel</b> — Stripe eng, spoke at the same meetup as you (2024)</p>
+      <p style="margin:4px 0 0;font-size:12.5px;color:var(--ink2)">Found via: public speaker lists you both appear on. <span style="font-family:var(--mono);font-size:10.5px;color:var(--ro)">source: public event pages (approved source D)</span></p>
+    </div>
+    <p class="hint">Sources are exactly the two you approved — your own data + public records. No LinkedIn scraping, ever (your call, and the right one).</p>
+  </div>
+
+  <!-- THE ASK -->
+  <div data-persona-show="ask">
+    <div class="ro-says" style="margin-top:10px"><span class="who">RO</span>
+      <p class="msg">The ask, drafted for <b>a friendly ex-colleague</b> — that shape matters: warm but not presuming, easy to say no to, zero pressure on the friendship. <b>You send it from your own email.</b> I never contact anyone — your relationships aren&rsquo;t mine to spend.</p>
+    </div>
+    <div class="wirebox">
+      <p style="margin:0;font-size:13px;color:var(--ink2);line-height:1.8">&ldquo;Priya! Long time — hope the Stripe ride&rsquo;s been good. Quick one, zero pressure: I&rsquo;m going for the Senior AI PM role there (the fraud/eval work I did at Acme lines up almost comically well). If you&rsquo;re comfortable flagging my application, amazing — and if that&rsquo;s awkward for any reason, genuinely no worries and let&rsquo;s get coffee either way. — Nik&rdquo;</p>
+    </div>
+    <div style="display:flex;gap:8px;margin-top:8px">
+      <button class="btn pri" onclick="this.outerHTML='<p style=font-size:13px;color:var(--ok);margin:0><b>Opened in your Gmail, ready.</b> Your name, your send, your friendship — I just did the drafting.</p>'">open in my email</button>
+      <button class="btn sec">edit — it&rsquo;s almost my voice</button>
+      <button class="btn ghost">not this person</button>
+    </div>
+    <p class="hint" style="margin-top:8px">Every ask is per-person, shaped by closeness, and leaves from YOUR account. There is no batch mode and no auto-send — that line doesn&rsquo;t move.</p>
+  </div>
+
+  <!-- NO PATHS -->
+  <div data-persona-show="none">
+    <div class="ro-says" style="margin-top:10px"><span class="who">RO</span>
+      <p class="msg">Straight answer: <b>no warm path into Anthropic</b> in the data you&rsquo;ve shared with me — and I&rsquo;d rather tell you that than invent a &ldquo;connection&rdquo; from thin air. Two honest alternatives: the cold note to their hiring manager (I&rsquo;ve drafted it — cold but yours, and good cold notes work), or tell me someone I might not know about — a name is enough, I&rsquo;ll draft for whatever the relationship is.</p>
+    </div>
+    <div style="display:flex;gap:8px">
+      <a class="btn sec" href="../cover-letters/index.html">the cold note — via the outreach trio</a>
+      <button class="btn ghost" onclick="this.outerHTML='<input class=input placeholder=&quot;a name and how you know them…&quot; style=margin-top:4px>'">I know someone</button>
+    </div>
+  </div>
+
+  <p class="hint" style="text-align:center;margin-top:16px"><a href="../index.html">all prototypes</a></p>
+</div>
+<script>
+window.PROTO = {
+  feature: "referrals", screen: "index",
+  screens: [["index","referrals"]], states: ["default"],
+  personas: [["paths","Warm paths found"],["ask","The ask — drafted, you send"],["none","No paths — honest"]]
+};
+function shape(btn, kind) {
+  var n = document.getElementById("shapenote");
+  n.style.display = "block";
+  n.innerHTML = { close: "Got it — the draft gets personal and direct; friends forgive directness.",
+    warm: "Got it — warm but not presuming; easy to say no to. (Flip persona to see this exact draft.)",
+    thin: "Got it — then the ask leads with re-introduction, and expects less. Honest asks work better than fake familiarity." }[kind];
+}
+</script>
+<script src="../_kit/kit.js"></script>
+</body>
+</html>
